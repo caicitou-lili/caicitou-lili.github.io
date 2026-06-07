@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>如何使用 Codex 快速入门任何一个领域 | 菜菜读书笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="前言很多人只把 Codex 当作写代码的工具，但更高效的用法是，把它当成一个可以帮你搭建学习系统、维护知识仓库、生成练习、检查成果、推进项目的「领域学习工程师」。 Codex 的优势不只是回答问题。它可以在项目目录里读写文件、运行命令、修改代码，同时执行测试、linter、type checker 等自动化检查。OpenAI 官方文档也明确指出，Codex 能够在代码库中回答问题、编辑文件并运行相">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用 Codex 快速入门任何一个领域">
+<meta property="og:url" content="https://caicitou-lili.github.io/2026/06/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Codex%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E4%BB%BB%E4%BD%95%E4%B8%80%E4%B8%AA%E9%A2%86%E5%9F%9F/index.html">
+<meta property="og:site_name" content="菜菜读书笔记">
+<meta property="og:description" content="前言很多人只把 Codex 当作写代码的工具，但更高效的用法是，把它当成一个可以帮你搭建学习系统、维护知识仓库、生成练习、检查成果、推进项目的「领域学习工程师」。 Codex 的优势不只是回答问题。它可以在项目目录里读写文件、运行命令、修改代码，同时执行测试、linter、type checker 等自动化检查。OpenAI 官方文档也明确指出，Codex 能够在代码库中回答问题、编辑文件并运行相">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-06-07T16:30:00.000Z">
+<meta property="article:modified_time" content="2026-06-07T18:33:11.753Z">
+<meta property="article:author" content="caicitou-lili">
+<meta property="article:tag" content="Claude">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="Codex">
+<meta property="article:tag" content="学习方法">
+<meta property="article:tag" content="AGENTS.md">
+<meta property="article:tag" content="知识管理">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="菜菜读书笔记" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">菜菜读书笔记</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">读一本好书，遇见更好的自己</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://caicitou-lili.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-如何使用Codex快速入门任何一个领域" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/06/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Codex%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E4%BB%BB%E4%BD%95%E4%B8%80%E4%B8%AA%E9%A2%86%E5%9F%9F/" class="article-date">
+  <time class="dt-published" datetime="2026-06-07T16:30:00.000Z" itemprop="datePublished">2026-06-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/">效率工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      如何使用 Codex 快速入门任何一个领域
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>很多人只把 Codex 当作写代码的工具，但更高效的用法是，把它当成一个可以帮你<strong>搭建学习系统、维护知识仓库、生成练习、检查成果、推进项目</strong>的「领域学习工程师」。</p>
+<p>Codex 的优势不只是回答问题。它可以在项目目录里读写文件、运行命令、修改代码，同时执行测试、linter、type checker 等自动化检查。OpenAI 官方文档也明确指出，Codex 能够在代码库中回答问题、编辑文件并运行相关命令。更重要的是，Codex 支持通过 AGENTS.md 写入项目级长期指令——它在开始工作之前会先读取这个文件，并且支持全局指令与项目级指令叠加。此外，Codex Skills 可以将某一类任务封装成可复用的能力，一个 Skill 通常是一个包含 SKILL.md 的目录，还可以附带脚本和参考资料。</p>
+<p>理解了这些能力之后，用 Codex 学一个领域的正确方式就不再是——</p>
+<blockquote>
+<p>请给我讲讲 AI Agent。</p>
+</blockquote>
+<p>而是让它帮你创建：</p>
+<blockquote>
+<p><strong>一个可运行、可迭代、可测试、可复盘的学习仓库。</strong></p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="一句话方法"><a href="#一句话方法" class="headerlink" title="一句话方法"></a>一句话方法</h2><p><strong>用 Codex 为某个领域创建一个「学习项目仓库」，里面包含知识地图、核心概念、案例库、练习题、测验、项目、复盘记录和个人进度。然后让 Codex 每天根据你的掌握情况，动态调整学习路径。</strong></p>
+<p>这就是 Codex 和普通聊天式学习的分水岭：</p>
+<blockquote>
+<p><strong>ChatGPT 更适合把知识讲明白；Codex 更适合把学习过程工程化、文件化、项目化、自动化。</strong></p>
+</blockquote>
+<hr>
+<h2 id="第一步：创建领域学习仓库"><a href="#第一步：创建领域学习仓库" class="headerlink" title="第一步：创建领域学习仓库"></a>第一步：创建领域学习仓库</h2><p>以学习「AI Agent」为例。在终端中进入工作目录，启动 Codex：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> learn-ai-agent &amp;&amp; <span class="built_in">cd</span> learn-ai-agent &amp;&amp; codex</span><br></pre></td></tr></table></figure>
+
+<p>然后输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">我要用 Codex 快速掌握一个新领域：AI Agent。</span><br><span class="line"></span><br><span class="line">请你在当前目录创建一个领域学习仓库，结构如下：</span><br><span class="line"></span><br><span class="line">learn-ai-agent/</span><br><span class="line">├─ AGENTS.md</span><br><span class="line">├─ README.md</span><br><span class="line">├─ 00_domain_map.md</span><br><span class="line">├─ 01_core_concepts/</span><br><span class="line">├─ 02_case_studies/</span><br><span class="line">├─ 03_exercises/</span><br><span class="line">├─ 04_projects/</span><br><span class="line">├─ 05_flashcards/</span><br><span class="line">├─ 06_quizzes/</span><br><span class="line">├─ 07_daily_review/</span><br><span class="line">├─ 08_glossary.md</span><br><span class="line">└─ progress.md</span><br><span class="line"></span><br><span class="line">请完成以下任务：</span><br><span class="line"></span><br><span class="line">1. 创建上述目录和文件。</span><br><span class="line">2. 在 README.md 中说明这个学习仓库的使用方法。</span><br><span class="line">3. 在 00_domain_map.md 中生成 AI Agent 的知识地图。</span><br><span class="line">4. 把 AI Agent 拆成从入门到进阶的学习模块。</span><br><span class="line">5. 每个模块都要包含：概念解释、生活类比、真实案例、练习题、输出任务、验收标准。</span><br><span class="line">6. 每天学习都必须有一个可交付成果。</span><br><span class="line">7. 不要只生成文章，要生成练习、测验、项目和复盘任务。</span><br><span class="line">8. 创建 AGENTS.md，规定以后必须按照「解释 → 示例 → 练习 → 检查 → 复盘」的流程教学。</span><br><span class="line">9. 创建 progress.md，用于记录学习进度、错题、薄弱点和下一步计划。</span><br><span class="line">10. 最后生成一份 30 天学习路线。</span><br></pre></td></tr></table></figure>
+
+<p>整个仓库中最关键的文件是 <strong>AGENTS.md</strong>。它不是普通笔记，而是这个学习仓库的「长期规则文件」——写给 Codex 的项目说明书。建议让 Codex 写入如下规则：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># AGENTS.md</span><br><span class="line"></span><br><span class="line">你是我的领域学习工程师。</span><br><span class="line"></span><br><span class="line">本仓库的目标是帮助我在 30 天内掌握 AI Agent，并完成一个可展示的小项目。</span><br><span class="line"></span><br><span class="line">你的教学流程必须遵守：</span><br><span class="line"></span><br><span class="line">1. 先给全局地图，再讲局部细节。</span><br><span class="line">2. 每个概念必须包含：一句话解释、生活类比、技术解释、真实案例、一个练习。</span><br><span class="line">3. 不允许只讲理论，每天必须安排可交付任务。</span><br><span class="line">4. 每次学习后必须更新 progress.md。</span><br><span class="line">5. 每周必须安排一次阶段测试。</span><br><span class="line">6. 我答错时，不要只给答案，要判断错误类型：不懂概念 / 不会应用 / 表达不清 / 知识混淆。</span><br><span class="line">7. 根据我的薄弱点调整后续学习计划。</span><br><span class="line">8. 最终目标是帮助我完成一个可展示的小项目。</span><br></pre></td></tr></table></figure>
+
+<p>有了这个文件，Codex 就不再是一次性问答机器，而是一台<strong>按规则运行的教学引擎</strong>。</p>
+<hr>
+<h2 id="第二步：先建立知识地图，不要直接学细节"><a href="#第二步：先建立知识地图，不要直接学细节" class="headerlink" title="第二步：先建立知识地图，不要直接学细节"></a>第二步：先建立知识地图，不要直接学细节</h2><p>学习一个新领域，最怕一上来就扎进资料海。正确顺序是：</p>
+<blockquote>
+<p><strong>先看地图 → 再学概念 → 再看案例 → 再做练习 → 最后做项目。</strong></p>
+</blockquote>
+<p>给 Codex 输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">请用费曼学习法帮我建立 AI Agent 的知识地图。</span><br><span class="line"></span><br><span class="line">请输出：</span><br><span class="line"></span><br><span class="line">1. AI Agent 这个领域到底解决什么问题。</span><br><span class="line">2. 用小学生也能听懂的话解释 AI Agent。</span><br><span class="line">3. 这个领域最重要的 20 个核心概念。</span><br><span class="line">4. 这些概念之间的关系。</span><br><span class="line">5. 初学者最容易混淆的 10 组概念。</span><br><span class="line">6. 从入门到能做项目，需要经历哪 5 个阶段。</span><br><span class="line">7. 每个阶段必须做出的作品。</span><br><span class="line">8. 最小必要知识清单，只保留真正必须学的内容。</span><br><span class="line">9. 暂时不需要学的内容，避免分心。</span><br><span class="line">10. 建议的学习顺序。</span><br></pre></td></tr></table></figure>
+
+<p>你要让 Codex 做的不是「堆资料」，而是「压缩领域」。可以让它把知识拆成三类：</p>
+<ul>
+<li>**必须先懂的 20%**：决定你能不能入门。</li>
+<li>**暂时跳过的 60%**：现在学了也用不上。</li>
+<li>**以后深入的 20%**：做项目后再回来补。</li>
+</ul>
+<p>这一步的目标不是学完，而是建立清晰的<strong>方位感</strong>：我现在在哪里，我要学什么，哪些东西先不用管，最后要做出什么作品。</p>
+<hr>
+<h2 id="第三步：让-Codex-生成「学习-Skill」"><a href="#第三步：让-Codex-生成「学习-Skill」" class="headerlink" title="第三步：让 Codex 生成「学习 Skill」"></a>第三步：让 Codex 生成「学习 Skill」</h2><p>当你发现自己会反复学习不同领域时，可以把这套方法封装成一个可复用的 Codex Skill。输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">请为我创建一个 Codex Skill，名字叫 domain-learning-master。</span><br><span class="line"></span><br><span class="line">用途：当我输入「我要学习某个领域」时，自动帮我搭建一个领域学习系统。</span><br><span class="line"></span><br><span class="line">请按照 Codex Skills 的目录规范创建：</span><br><span class="line"></span><br><span class="line">domain-learning-master/</span><br><span class="line">├─ SKILL.md</span><br><span class="line">├─ references/</span><br><span class="line">├─ scripts/</span><br><span class="line">└─ templates/</span><br><span class="line"></span><br><span class="line">这个 Skill 需要支持：</span><br><span class="line"></span><br><span class="line">1. 建立领域知识地图。</span><br><span class="line">2. 拆解核心概念。</span><br><span class="line">3. 生成 30 天学习计划。</span><br><span class="line">4. 每天安排一个学习任务。</span><br><span class="line">5. 自动生成练习题和测验。</span><br><span class="line">6. 根据答案指出知识漏洞。</span><br><span class="line">7. 把错题、薄弱点和学习进度写入 progress.md。</span><br><span class="line">8. 每 7 天进行一次阶段测试。</span><br><span class="line">9. 最后引导完成一个小项目。</span><br><span class="line">10. 为不同领域生成对应的项目仓库结构。</span><br></pre></td></tr></table></figure>
+
+<p>让 Codex 生成的 SKILL.md 应该包含清晰的工作流程和每日教学格式。这样，Codex 就不再只是临时回答你一次，而是拥有了一套可复用的<strong>「学习操作系统」</strong>——学一个新领域，一条命令启动一个完整的学习项目。</p>
+<hr>
+<h2 id="第四步：每天用「输入—输出」方式学习"><a href="#第四步：每天用「输入—输出」方式学习" class="headerlink" title="第四步：每天用「输入—输出」方式学习"></a>第四步：每天用「输入—输出」方式学习</h2><p>不要问「请教我机器学习」——这太宽泛，Codex 很容易给你一篇泛泛而谈的说明文。</p>
+<p>你应该这样问：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">今天是第 3 天。请根据 progress.md 安排今天的学习。</span><br><span class="line"></span><br><span class="line">要求：</span><br><span class="line"></span><br><span class="line">1. 先复习昨天的 5 个关键点。</span><br><span class="line">2. 检查我昨天的薄弱点。</span><br><span class="line">3. 给我讲今天的 3 个核心概念。</span><br><span class="line">4. 每个概念必须包含：一句话解释、生活类比、技术解释、小案例。</span><br><span class="line">5. 给我 5 道检测题。</span><br><span class="line">6. 给我一个 60 分钟内能完成的小任务。</span><br><span class="line">7. 给出任务验收标准。</span><br><span class="line">8. 等我完成后，请检查我的答案。</span><br><span class="line">9. 根据我的表现更新 progress.md。</span><br><span class="line">10. 生成明天的学习建议。</span><br></pre></td></tr></table></figure>
+
+<p>每天结束时再输入一段复盘指令，让 Codex 总结你掌握了什么、没掌握什么、薄弱点属于哪一类错误（概念不清 &#x2F; 不会应用 &#x2F; 表达不清 &#x2F; 知识混淆），把错题写入 progress.md、更新术语表、生成今日知识压缩卡、安排明天的学习任务。</p>
+<p>这样一来，学习就不再是一次性聊天，而是一个持续演化的项目。Codex 会负责维护 progress.md、术语表、知识卡片、测验题库、每日复盘和项目成果——你只需要每天完成任务、提交答案、复盘错误。</p>
+<hr>
+<h2 id="第五步：每个领域都必须做一个小项目"><a href="#第五步：每个领域都必须做一个小项目" class="headerlink" title="第五步：每个领域都必须做一个小项目"></a>第五步：每个领域都必须做一个小项目</h2><p>真正掌握一个领域，不是「听懂了」，而是「能做出来」。用下面的模板让 Codex 根据你的基础设计一个最小可行项目：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">我不想只学理论。请帮我设计一个最小可行项目，用来验证我是否真正掌握了这个领域。</span><br><span class="line"></span><br><span class="line">领域：AI Agent</span><br><span class="line">我的基础：编程初级</span><br><span class="line">时间：7 天</span><br><span class="line">目标：做出一个可以展示的作品</span><br><span class="line"></span><br><span class="line">请输出：项目名称、一句话介绍、核心功能、所需知识点、每天任务安排、每天可交付成果、验收标准、最终展示方式。如果我不会代码，请给我低代码方案。如果要继续进阶，请给我升级方向。</span><br></pre></td></tr></table></figure>
+
+<p>不同领域可以对应不同的最小项目——AI Agent 可以做一个自动整理资料的 Agent，提示词工程可以搭建个人提示词模板库，数据分析可以做销售看板，写作可以做选题-大纲-初稿-修改工作流。<strong>项目越小越好，但必须完整：能运行、能展示、能解释、能迭代、能证明你真的学会了。</strong></p>
+<hr>
+<h2 id="第六步：让-Codex-扮演「考官」，不要只当老师"><a href="#第六步：让-Codex-扮演「考官」，不要只当老师" class="headerlink" title="第六步：让 Codex 扮演「考官」，不要只当老师"></a>第六步：让 Codex 扮演「考官」，不要只当老师</h2><p>学习最快的人，不是听得最多的，而是被检测最多的。学完一个阶段后，输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">请不要继续讲新知识。现在你是严格考官。</span><br><span class="line"></span><br><span class="line">请根据当前学习仓库里的内容，对我进行一次阶段测试。</span><br><span class="line"></span><br><span class="line">测试形式：10 道选择题、5 道概念解释题、3 道场景应用题、1 道综合项目题。</span><br><span class="line"></span><br><span class="line">要求：先出题不要给答案，我回答后再评分。给出每题得分和总分。指出错误原因并判断错误类型（不懂概念 / 不会应用 / 表达不清 / 知识混淆）。把薄弱点写入 progress.md，重排后续学习计划，并给我 3 个针对性补救练习。</span><br></pre></td></tr></table></figure>
+
+<p>这一步至关重要。你真正需要的不是更多知识，而是发现：哪些东西你以为懂了其实没懂？哪些你能听懂但不能用？哪些你知道概念但说不清楚？哪些是你最该补的短板？</p>
+<hr>
+<h2 id="第七步：用「领域压缩卡」快速复习"><a href="#第七步：用「领域压缩卡」快速复习" class="headerlink" title="第七步：用「领域压缩卡」快速复习"></a>第七步：用「领域压缩卡」快速复习</h2><p>每学完一天或一个模块，让 Codex 生成一张压缩卡：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">请把我今天学的内容压缩成一张领域知识卡。</span><br><span class="line"></span><br><span class="line">格式：一句话解释、5 个关键词、3 个典型应用场景、2 个常见误区、1 个经典案例、1 道自测题、和前面知识的连接关系、我最容易忘的点、下次复习时间建议。</span><br><span class="line"></span><br><span class="line">请保存到 05_flashcards/。</span><br></pre></td></tr></table></figure>
+
+<p>30 天后，你会拥有一套独属于自己的领域卡片库。这些卡片不是别人给你的资料，而是根据你的学习过程、错题和项目经验生成的<strong>个人知识资产</strong>。</p>
+<hr>
+<h2 id="最强通用提示词模板"><a href="#最强通用提示词模板" class="headerlink" title="最强通用提示词模板"></a>最强通用提示词模板</h2><p>以后学习任何领域，都可以直接套用下面这段：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">我要用 Codex 快速掌握一个新领域。</span><br><span class="line"></span><br><span class="line">领域：&#123;填写领域&#125;</span><br><span class="line">我的背景：&#123;填写基础&#125;</span><br><span class="line">每天时间：&#123;填写时间&#125;</span><br><span class="line">目标：&#123;考试 / 工作 / 做项目 / 写文章 / 做产品 / 投资研究&#125;</span><br><span class="line">最终作品：&#123;想做出的作品，不确定也可以让你推荐&#125;</span><br><span class="line"></span><br><span class="line">请你作为我的领域学习架构师，完成以下任务：</span><br><span class="line"></span><br><span class="line">1. 创建一个学习仓库。</span><br><span class="line">2. 生成该领域的知识地图。</span><br><span class="line">3. 拆出最重要的 20 个核心概念。</span><br><span class="line">4. 制定 30 天学习路线。</span><br><span class="line">5. 每天安排「学习 + 练习 + 输出 + 测验」。</span><br><span class="line">6. 创建术语表、错题本、案例库、项目目录。</span><br><span class="line">7. 用 AGENTS.md 固化学习规则。</span><br><span class="line">8. 每次学习后更新 progress.md。</span><br><span class="line">9. 每 7 天进行一次阶段测试。</span><br><span class="line">10. 最后指导我完成一个可展示的小项目。</span><br><span class="line"></span><br><span class="line">学习原则：</span><br><span class="line">- 少讲空话，多做任务。</span><br><span class="line">- 先全局，后细节。</span><br><span class="line">- 先能用，再深入。</span><br><span class="line">- 每天必须有输出。</span><br><span class="line">- 所有知识都要通过练习验证。</span><br><span class="line">- 每个阶段都要有可交付成果。</span><br><span class="line">- 不追求资料多，只追求能理解、能复述、能应用、能做项目。</span><br><span class="line"></span><br><span class="line">请先创建仓库结构，然后生成第 1 天任务。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="推荐的-30-天学习节奏"><a href="#推荐的-30-天学习节奏" class="headerlink" title="推荐的 30 天学习节奏"></a>推荐的 30 天学习节奏</h2><p>每天开始时问一句「请根据 progress.md 给我安排今天的学习任务」；每天结束时做一次完整复盘——总结掌握了什么、指出没掌握什么、判断薄弱点类型、更新 progress.md 和术语表、生成今日知识卡片、安排明天的任务。</p>
+<hr>
+<h2 id="最重要的心法"><a href="#最重要的心法" class="headerlink" title="最重要的心法"></a>最重要的心法</h2><p>用 Codex 学任何领域，不是让它「喂知识」，而是让它帮你建立五个系统：</p>
+<ul>
+<li><strong>知识地图</strong>——解决「不知道这个领域有什么」的问题。</li>
+<li><strong>术语表</strong>——解决「听不懂专业词」的问题。</li>
+<li><strong>练习系统</strong>——解决「我以为懂了，其实没懂」的问题。</li>
+<li><strong>项目系统</strong>——解决「学了很多，但不会用」的问题。</li>
+<li><strong>复盘系统</strong>——解决「学完就忘、错了不改」的问题。</li>
+</ul>
+<p>真正高效的学习方式是：ChatGPT 负责把知识讲明白，Codex 负责把学习过程工程化，而你负责每天完成任务、提交答案、复盘错误、推进项目。</p>
+<p>最终你得到的，不是一堆碎片笔记，而是一个<strong>可以持续迭代的个人学习系统</strong>。</p>
+<hr>
+<blockquote>
+<p>📌 原文作者：<a target="_blank" rel="noopener" href="https://x.com/GeekCatX">@GeekCatX</a> 知识猫图解<br>原文链接：<a target="_blank" rel="noopener" href="https://x.com/GeekCatX/status/2063523060406423864">X.com</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://caicitou-lili.github.io/2026/06/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Codex%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E4%BB%BB%E4%BD%95%E4%B8%80%E4%B8%AA%E9%A2%86%E5%9F%9F/" data-id="cmq44ea0h0000xgh38665ca83" data-title="如何使用 Codex 快速入门任何一个领域" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AGENTS-md/" rel="tag">AGENTS.md</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Claude/" rel="tag">Claude</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Codex/" rel="tag">Codex</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" rel="tag">学习方法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" rel="tag">知识管理</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2026/06/08/%E7%9C%9F%E9%A6%99-%E9%83%BD%E5%8E%BB%E7%94%A8Claude%E6%90%9E%E9%97%B2%E9%B1%BC%E5%BA%97%E9%93%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">真香，都去用Claude搞闲鱼店铺！</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%A6%E8%AF%84/">书评</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/">效率工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AGENTS-md/" rel="tag">AGENTS.md</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Claude/" rel="tag">Claude</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Codex/" rel="tag">Codex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eSIM/" rel="tag">eSIM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E8%AF%84/" rel="tag">书评</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BA%E5%B7%AE/" rel="tag">出差</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%AF%E4%B8%9A/" rel="tag">副业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" rel="tag">学习方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E6%A1%88/" rel="tag">文案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%85%E8%A1%8C/" rel="tag">旅行</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5/" rel="tag">电商运营</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" rel="tag">知识管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%B9%BB/" rel="tag">科幻</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%B2%E9%B1%BC/" rel="tag">闲鱼</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%BF%E8%A5%BF%E8%8E%AB%E5%A4%AB/" rel="tag">阿西莫夫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AGENTS-md/" style="font-size: 10px;">AGENTS.md</a> <a href="/tags/AI/" style="font-size: 20px;">AI</a> <a href="/tags/Claude/" style="font-size: 20px;">Claude</a> <a href="/tags/Codex/" style="font-size: 10px;">Codex</a> <a href="/tags/eSIM/" style="font-size: 10px;">eSIM</a> <a href="/tags/%E4%B9%A6%E8%AF%84/" style="font-size: 10px;">书评</a> <a href="/tags/%E5%87%BA%E5%B7%AE/" style="font-size: 10px;">出差</a> <a href="/tags/%E5%89%AF%E4%B8%9A/" style="font-size: 10px;">副业</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">学习方法</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 10px;">教程</a> <a href="/tags/%E6%96%87%E6%A1%88/" style="font-size: 10px;">文案</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 10px;">旅行</a> <a href="/tags/%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5/" style="font-size: 10px;">电商运营</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 10px;">知识管理</a> <a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 10px;">科幻</a> <a href="/tags/%E9%97%B2%E9%B1%BC/" style="font-size: 10px;">闲鱼</a> <a href="/tags/%E9%98%BF%E8%A5%BF%E8%8E%AB%E5%A4%AB/" style="font-size: 10px;">阿西莫夫</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">六月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/05/">五月 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/06/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Codex%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E4%BB%BB%E4%BD%95%E4%B8%80%E4%B8%AA%E9%A2%86%E5%9F%9F/">如何使用 Codex 快速入门任何一个领域</a>
+          </li>
+        
+          <li>
+            <a href="/2026/06/08/%E7%9C%9F%E9%A6%99-%E9%83%BD%E5%8E%BB%E7%94%A8Claude%E6%90%9E%E9%97%B2%E9%B1%BC%E5%BA%97%E9%93%BA/">真香，都去用Claude搞闲鱼店铺！</a>
+          </li>
+        
+          <li>
+            <a href="/2026/06/03/%E5%87%BA%E5%A2%83eSIM%E6%80%8E%E4%B9%88%E9%80%89/">出境 eSIM 怎么选：先确认设备兼容和目的地套餐</a>
+          </li>
+        
+          <li>
+            <a href="/2026/06/02/%E8%AF%BB%E3%80%8A%E5%9F%BA%E5%9C%B0%E3%80%8B%E2%80%94%E2%80%94%E4%B8%80%E9%83%A8%E9%A2%84%E8%A8%80%E4%BA%BA%E7%B1%BB%E6%9C%AA%E6%9D%A5%E7%9A%84%E7%A7%91%E5%B9%BB%E5%8F%B2%E8%AF%97/">读《基地》——一部预言人类未来的科幻史诗</a>
+          </li>
+        
+          <li>
+            <a href="/2026/05/25/%E4%BD%A0%E5%A5%BD%E4%B8%96%E7%95%8C/">你好，世界！</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 caicitou-lili<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
