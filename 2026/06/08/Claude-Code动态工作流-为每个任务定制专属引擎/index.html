@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Claude Code 动态工作流 — 为每个任务定制专属引擎 | 菜菜读书笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="上周，Claude Code 发布了动态工作流（Dynamic Workflows）功能。Claude 现在可以在运行中动态编写自己的编排脚本，为手头的任务定制专属的执行引擎。 虽然默认的 Claude Code 是为编程构建的，但事实证明很多任务都类似于编程任务。然而，有些特定类型的任务需要在 Claude Code 之上构建定制引擎才能达到最佳效果——比如深度研究、安全分析、Agent 团队协">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude Code 动态工作流 — 为每个任务定制专属引擎">
+<meta property="og:url" content="https://caicitou-lili.github.io/2026/06/08/Claude-Code%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81-%E4%B8%BA%E6%AF%8F%E4%B8%AA%E4%BB%BB%E5%8A%A1%E5%AE%9A%E5%88%B6%E4%B8%93%E5%B1%9E%E5%BC%95%E6%93%8E/index.html">
+<meta property="og:site_name" content="菜菜读书笔记">
+<meta property="og:description" content="上周，Claude Code 发布了动态工作流（Dynamic Workflows）功能。Claude 现在可以在运行中动态编写自己的编排脚本，为手头的任务定制专属的执行引擎。 虽然默认的 Claude Code 是为编程构建的，但事实证明很多任务都类似于编程任务。然而，有些特定类型的任务需要在 Claude Code 之上构建定制引擎才能达到最佳效果——比如深度研究、安全分析、Agent 团队协">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-06-07T19:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-08T04:26:33.438Z">
+<meta property="article:author" content="caicitou-lili">
+<meta property="article:tag" content="AI工作流">
+<meta property="article:tag" content="Claude Code">
+<meta property="article:tag" content="Workflow">
+<meta property="article:tag" content="Anthropic">
+<meta property="article:tag" content="动态工作流">
+<meta property="article:tag" content="Agent">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="菜菜读书笔记" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">菜菜读书笔记</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">读一本好书，遇见更好的自己</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://caicitou-lili.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Claude-Code动态工作流-为每个任务定制专属引擎" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/06/08/Claude-Code%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81-%E4%B8%BA%E6%AF%8F%E4%B8%AA%E4%BB%BB%E5%8A%A1%E5%AE%9A%E5%88%B6%E4%B8%93%E5%B1%9E%E5%BC%95%E6%93%8E/" class="article-date">
+  <time class="dt-published" datetime="2026-06-07T19:00:00.000Z" itemprop="datePublished">2026-06-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/">效率工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Claude Code 动态工作流 — 为每个任务定制专属引擎
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>上周，Claude Code 发布了<strong>动态工作流（Dynamic Workflows）</strong>功能。Claude 现在可以<strong>在运行中动态编写自己的编排脚本</strong>，为手头的任务定制专属的执行引擎。</p>
+<p>虽然默认的 Claude Code 是为编程构建的，但事实证明很多任务都类似于编程任务。然而，有些特定类型的任务需要在 Claude Code 之上构建定制引擎才能达到最佳效果——比如深度研究、安全分析、Agent 团队协作、代码审查。</p>
+<p><strong>Workflows 让你可以动态创建这些引擎，让 Claude 原生解决以上所有问题，还能在团队间分享和复用。</strong></p>
+<blockquote>
+<p>📌 原文发表于 Claude 官方博客，作者 Thariq Shihipar（Anthropic 技术团队成员）。本文为中文整理版。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<h2 id="示例-Prompt：感受一下-Workflows-能做什么"><a href="#示例-Prompt：感受一下-Workflows-能做什么" class="headerlink" title="示例 Prompt：感受一下 Workflows 能做什么"></a>示例 Prompt：感受一下 Workflows 能做什么</h2><p>在深入技术细节之前，先看几个例子：</p>
+<ul>
+<li>“这个测试大概每 50 次有 1 次失败。建一个工作流来复现它、提出假设并在 worktree 中进行对抗性测试，目标是不找到一个有效理论就不要停。”</li>
+<li>“用一个工作流，翻我最近 50 个会话，挖出我反复被纠正的地方，把重复出现的写成 CLAUDE.md 规则。”</li>
+<li>“拿我的商业计划书，跑一个工作流，让不同的 Agent 从投资人视角、客户视角、竞争对手视角去挑刺。”</li>
+<li>“这有个文件夹，里面 80 份简历，用工作流给后端岗排序，对前 10 名做双重复核。”</li>
+<li>“帮我写一个工作流，生成一堆名字方案然后跑一场锦标赛，选出前三。”</li>
+<li>“把我博文草稿里的每一个技术论断都对照代码库验证一遍，我不允许有错。”</li>
+</ul>
+<hr>
+<h2 id="动态工作流如何工作"><a href="#动态工作流如何工作" class="headerlink" title="动态工作流如何工作"></a>动态工作流如何工作</h2><p>动态工作流执行一个 <strong>JavaScript 文件</strong>，其中包含几个用于生成和协调子 Agent 的特殊函数：</p>
+<ul>
+<li><strong><code>agent()</code></strong> — 衍生一个子 Agent，可以指定 schema 获得结构化输出</li>
+<li><strong><code>parallel()</code></strong> — 并发执行多个任务（屏障：等待全部完成）</li>
+<li><strong><code>pipeline()</code></strong> — 流水线模式：每个 item 独立跑完所有阶段，无屏障</li>
+<li><strong><code>phase()</code></strong> — 启动一个新阶段，后续 agent 调用归入该阶段</li>
+<li><strong><code>log()</code></strong> — 输出进度消息</li>
+</ul>
+<p>工作流还支持标准 JS 函数（JSON、Math、Array），并且可以<strong>指定每个子 Agent 使用的模型</strong>以及<strong>是否在隔离 worktree 中运行</strong>。</p>
+<p>如果工作流被中断（用户操作或退出终端），<strong>恢复会话后工作流会从断点继续</strong>。</p>
+<hr>
+<h2 id="为什么需要动态工作流？"><a href="#为什么需要动态工作流？" class="headerlink" title="为什么需要动态工作流？"></a>为什么需要动态工作流？</h2><p>当你让默认的 Claude Code 处理一个任务时，它需要<strong>在同一个上下文窗口中规划和执行</strong>。对于很多编程任务来说这很高效，但在长周期、大规模并行和高度结构化的对抗性任务中会出现几种失败模式：</p>
+<p><strong>Agent 惰性（Agentic Laziness）</strong>：Claude 在完成复杂多步骤任务的部分进展后就宣告完成，比如安全审查只处理了 50 项中的 20 项。</p>
+<p><strong>自我偏好偏差（Self-Preferential Bias）</strong>：Claude 倾向于偏好自己的结果，尤其在需要按照评分标准验证或评判时。</p>
+<p><strong>目标漂移（Goal Drift）</strong>：经过多次轮次，尤其在上下文压缩后，对原始目标的保真度逐渐丧失，边界条件、”不要做 X”等约束会被丢失。</p>
+<p><strong>工作流通过编排各自拥有独立上下文窗口和聚焦目标的多个 Claude，来对抗这些失败模式。</strong></p>
+<hr>
+<h2 id="动态-vs-静态工作流"><a href="#动态-vs-静态工作流" class="headerlink" title="动态 vs 静态工作流"></a>动态 vs 静态工作流</h2><p>你之前可能用 Claude Agent SDK 或 <code>claude -p</code> 创建过静态工作流来协调多个 Claude Code 实例。</p>
+<p>但静态工作流需要覆盖所有边缘情况，所以通常比较通用。<strong>有了 Claude Opus 4.8 和动态工作流，Claude 现在足够聪明，可以为你的具体用例量身编写定制引擎。</strong></p>
+<hr>
+<h2 id="实用模式"><a href="#实用模式" class="headerlink" title="实用模式"></a>实用模式</h2><p>你可以直接让 Claude 建一个工作流，或使用触发词 <strong>“ultracode”</strong> 来确保 Claude Code 创建工作流。以下是 Claude 在构建工作流时常组合使用的模式：</p>
+<h3 id="分类-执行（Classify-and-Act）"><a href="#分类-执行（Classify-and-Act）" class="headerlink" title="分类-执行（Classify-and-Act）"></a>分类-执行（Classify-and-Act）</h3><p>用分类 Agent 判断任务类型，然后路由到不同 Agent 处理。或最后用分类器判断输出。</p>
+<h3 id="扇出-合成（Fan-out-and-Synthesize）"><a href="#扇出-合成（Fan-out-and-Synthesize）" class="headerlink" title="扇出-合成（Fan-out-and-Synthesize）"></a>扇出-合成（Fan-out-and-Synthesize）</h3><p>把任务拆成多个小步骤，每个步骤跑一个 Agent，最后合成结果。<strong>合成步骤是屏障</strong>，等所有扇出 Agent 完成后合并。</p>
+<h3 id="对抗性验证（Adversarial-Verification）"><a href="#对抗性验证（Adversarial-Verification）" class="headerlink" title="对抗性验证（Adversarial Verification）"></a>对抗性验证（Adversarial Verification）</h3><p>对每个 Agent 的输出，衍生独立的验证 Agent 进行对抗性审核。</p>
+<h3 id="生成-筛选（Generate-and-Filter）"><a href="#生成-筛选（Generate-and-Filter）" class="headerlink" title="生成-筛选（Generate-and-Filter）"></a>生成-筛选（Generate-and-Filter）</h3><p>生成一批想法，按评分标准筛选，去重，只保留经过验证的高质量结果。</p>
+<h3 id="锦标赛（Tournament）"><a href="#锦标赛（Tournament）" class="headerlink" title="锦标赛（Tournament）"></a>锦标赛（Tournament）</h3><p>让多个 Agent 竞争同一个任务，使用不同方法，然后由评判 Agent 两两比较，直到选出胜者。</p>
+<h3 id="循环至完成（Loop-Until-Done）"><a href="#循环至完成（Loop-Until-Done）" class="headerlink" title="循环至完成（Loop Until Done）"></a>循环至完成（Loop Until Done）</h3><p>对于工作总量未知的任务，持续衍生 Agent 直到满足停止条件（无新发现、无更多错误）。</p>
+<hr>
+<h2 id="典型用例"><a href="#典型用例" class="headerlink" title="典型用例"></a>典型用例</h2><h3 id="迁移和重构"><a href="#迁移和重构" class="headerlink" title="迁移和重构"></a>迁移和重构</h3><p>Bun 用工作流完成了从 Zig 到 Rust 的重写。关键是把任务拆成操作步骤（调用点、失败测试、模块等），每个修复在独立 worktree 中完成，再经过对抗性审查后合并。</p>
+<h3 id="深度研究"><a href="#深度研究" class="headerlink" title="深度研究"></a>深度研究</h3><p>Claude Code 内置的 <code>/deep-research</code> 技能就是用动态工作流实现的。不仅仅用于网页搜索，还可以用来从 Slack 中整理状态报告，或深入探索代码库。</p>
+<h3 id="深度验证"><a href="#深度验证" class="headerlink" title="深度验证"></a>深度验证</h3><p>如果一个报告需要核实每一个事实论断，可以让一个 Agent 识别所有事实，然后为每一项衍生独立的验证子 Agent，甚至可以再衍生验证 Agent 来审核来源质量。</p>
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><p>对于需要定性判断的排序任务（如按 Bug 严重程度排序支持工单），用锦标赛模式、两两比较流水线来避免单次 prompt 质量下降。</p>
+<h3 id="记忆与规则遵守"><a href="#记忆与规则遵守" class="headerlink" title="记忆与规则遵守"></a>记忆与规则遵守</h3><p>创建验证 Agent（每规则一个），对抗性检查规则是否被违反。反过来也可以：挖掘最近的会话历史，聚类重复修正，对抗性验证每个候选规则，精炼后写回 CLAUDE.md。</p>
+<h3 id="根因调查"><a href="#根因调查" class="headerlink" title="根因调查"></a>根因调查</h3><p>从不相交的证据来源（日志、文件、数据）衍生假设生成 Agent，每个假设再经过验证和反驳 Agent 的审核。<strong>不仅适用于代码</strong>——销售下降原因、数据管道故障等都可以用。</p>
+<h3 id="大规模分类"><a href="#大规模分类" class="headerlink" title="大规模分类"></a>大规模分类</h3><p>每个团队都有处理不完的支持队列&#x2F;Bug 报告。分类工作流对每个项目分类、去重，然后尝试修复或升级给人类。搭配 <code>/loop</code> 可让 Claude 持续运行。</p>
+<h3 id="探索与品味"><a href="#探索与品味" class="headerlink" title="探索与品味"></a>探索与品味</h3><p>当方案选择涉及品味（如设计、命名），让 Claude 探索多种方案，审查 Agent 按评分标准评判，完成条件是达到标准。也可用锦标赛模式选出最优方案。</p>
+<h3 id="评估（Evals）"><a href="#评估（Evals）" class="headerlink" title="评估（Evals）"></a>评估（Evals）</h3><p>在独立 worktree 中运行轻量评估，再衍生比较 Agent 对照标准评分，比如评估和精炼一个你创建的 Skill。</p>
+<h3 id="模型与智能路由"><a href="#模型与智能路由" class="headerlink" title="模型与智能路由"></a>模型与智能路由</h3><p>创建针对你任务的分类 Agent，预先研究确定最佳模型——比如先探索模块的复杂度，再决定用 Sonnet 还是 Opus。</p>
+<hr>
+<h2 id="什么时候不应该用工作流"><a href="#什么时候不应该用工作流" class="headerlink" title="什么时候不应该用工作流"></a>什么时候不应该用工作流</h2><p>工作流还很新。虽然很多场景效果出众，但<strong>并非每个任务都需要</strong>，可能会消耗更多 Token。</p>
+<p>对常规编程任务，问自己：<strong>真的需要更多算力吗？</strong> 比如传统的编程任务通常不需要 5 个审查者的评审团。</p>
+<hr>
+<h2 id="构建技巧"><a href="#构建技巧" class="headerlink" title="构建技巧"></a>构建技巧</h2><p><strong>详细 Prompt</strong>：用上述具体技术描述的提示词，能产生最佳结果。</p>
+<p><strong>快速工作流</strong>：工作流不只适用于大型任务。你也可以让模型用”快速工作流”——比如对某个假设做一次快速对抗性审查。</p>
+<p><strong>搭配 &#x2F;goal 和 &#x2F;loop</strong>：可重复的工作流（分类、研究、验证），配合 <code>/loop</code> 定时运行，配合 <code>/goal</code> 设定硬性完成要求。</p>
+<p><strong>Token 预算</strong>：可以设定显式的 Token 使用预算，如”用 10k token”。</p>
+<p><strong>保存和分享</strong>：在工作流菜单按 “s” 保存，文件存入 <code>~/.claude/workflows</code> 或通过 Skill 分发。把 JS 工作流文件放入 Skill 文件夹并在 SKILL.md 中引用即可。</p>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>工作流是扩展 Claude Code 的一种全新方式。<strong>把它当作一个起点——如何使用它们的最佳实践还在被不断发现。</strong></p>
+<p>真正让人兴奋的是：Claude 不再只是一个执行单步任务的工具，而是一个<strong>能为自己定制执行引擎的元工具</strong>——为每个任务创造最合适的协作模式。</p>
+<hr>
+<blockquote>
+<p>📌 原文作者：<a target="_blank" rel="noopener" href="https://x.com/trq212">@trq212</a> Thariq Shihipar（Anthropic 技术团队成员）<br>原文发布：Claude 官方博客 &amp; <a target="_blank" rel="noopener" href="https://x.com/trq212/status/2061907337154367865">X.com</a><br>数据：1270 转推 · 9870 点赞 · 22818 收藏 · 285 万浏览</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://caicitou-lili.github.io/2026/06/08/Claude-Code%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81-%E4%B8%BA%E6%AF%8F%E4%B8%AA%E4%BB%BB%E5%8A%A1%E5%AE%9A%E5%88%B6%E4%B8%93%E5%B1%9E%E5%BC%95%E6%93%8E/" data-id="cmq4pld050000p0h3bkui12ml" data-title="Claude Code 动态工作流 — 为每个任务定制专属引擎" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">AI工作流</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Agent/" rel="tag">Agent</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Anthropic/" rel="tag">Anthropic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Claude-Code/" rel="tag">Claude Code</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Workflow/" rel="tag">Workflow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">动态工作流</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2026/06/08/%E4%B8%AD%E6%96%87%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C%E8%80%85%E5%BF%85%E5%A4%87%E7%9A%8410%E4%B8%AACodex-Skills/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">中文内容创作者必备的10个 Codex Skills</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%A6%E8%AF%84/">书评</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/">效率工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AGENTS-md/" rel="tag">AGENTS.md</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI-Agent/" rel="tag">AI Agent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%88%9B%E4%B8%9A/" rel="tag">AI创业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">AI工作流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E7%AC%AC%E4%BA%8C%E5%A4%A7%E8%84%91/" rel="tag">AI第二大脑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Agent/" rel="tag">Agent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Anthropic/" rel="tag">Anthropic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Claude/" rel="tag">Claude</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Claude-Code/" rel="tag">Claude Code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Codex/" rel="tag">Codex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MCP/" rel="tag">MCP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Obsidian/" rel="tag">Obsidian</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PARA/" rel="tag">PARA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Skills/" rel="tag">Skills</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Workflow/" rel="tag">Workflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eSIM/" rel="tag">eSIM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8/" rel="tag">一人公司</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E6%96%87%E5%86%99%E4%BD%9C/" rel="tag">中文写作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E8%AF%84/" rel="tag">书评</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" rel="tag">公众号</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C/" rel="tag">内容创作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BA%E5%B7%AE/" rel="tag">出差</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%AF%E4%B8%9A/" rel="tag">副业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">动态工作流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" rel="tag">学习方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%BA%A2%E4%B9%A6/" rel="tag">小红书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%B3%E5%8F%B0%E7%AE%97%E6%B3%95/" rel="tag">平台算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E6%A1%88/" rel="tag">文案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%85%E8%A1%8C/" rel="tag">旅行</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9A%97%E9%99%90%E6%B5%81/" rel="tag">暗限流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5/" rel="tag">电商运营</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" rel="tag">知识管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%B9%BB/" rel="tag">科幻</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/" rel="tag">笔记方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93/" rel="tag">自媒体</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" rel="tag">自媒体工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%B2%E9%B1%BC/" rel="tag">闲鱼</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%BF%E8%A5%BF%E8%8E%AB%E5%A4%AB/" rel="tag">阿西莫夫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AGENTS-md/" style="font-size: 10px;">AGENTS.md</a> <a href="/tags/AI/" style="font-size: 15px;">AI</a> <a href="/tags/AI-Agent/" style="font-size: 10px;">AI Agent</a> <a href="/tags/AIGC/" style="font-size: 10px;">AIGC</a> <a href="/tags/AI%E5%88%9B%E4%B8%9A/" style="font-size: 10px;">AI创业</a> <a href="/tags/AI%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 15px;">AI工作流</a> <a href="/tags/AI%E7%AC%AC%E4%BA%8C%E5%A4%A7%E8%84%91/" style="font-size: 10px;">AI第二大脑</a> <a href="/tags/Agent/" style="font-size: 10px;">Agent</a> <a href="/tags/Anthropic/" style="font-size: 10px;">Anthropic</a> <a href="/tags/Claude/" style="font-size: 20px;">Claude</a> <a href="/tags/Claude-Code/" style="font-size: 10px;">Claude Code</a> <a href="/tags/Codex/" style="font-size: 15px;">Codex</a> <a href="/tags/MCP/" style="font-size: 10px;">MCP</a> <a href="/tags/Obsidian/" style="font-size: 10px;">Obsidian</a> <a href="/tags/PARA/" style="font-size: 10px;">PARA</a> <a href="/tags/Skills/" style="font-size: 10px;">Skills</a> <a href="/tags/Workflow/" style="font-size: 10px;">Workflow</a> <a href="/tags/eSIM/" style="font-size: 10px;">eSIM</a> <a href="/tags/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8/" style="font-size: 10px;">一人公司</a> <a href="/tags/%E4%B8%AD%E6%96%87%E5%86%99%E4%BD%9C/" style="font-size: 10px;">中文写作</a> <a href="/tags/%E4%B9%A6%E8%AF%84/" style="font-size: 10px;">书评</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 10px;">公众号</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C/" style="font-size: 15px;">内容创作</a> <a href="/tags/%E5%87%BA%E5%B7%AE/" style="font-size: 10px;">出差</a> <a href="/tags/%E5%89%AF%E4%B8%9A/" style="font-size: 15px;">副业</a> <a href="/tags/%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">动态工作流</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">学习方法</a> <a href="/tags/%E5%B0%8F%E7%BA%A2%E4%B9%A6/" style="font-size: 10px;">小红书</a> <a href="/tags/%E5%B9%B3%E5%8F%B0%E7%AE%97%E6%B3%95/" style="font-size: 10px;">平台算法</a> <a href="/tags/%E6%90%9E%E9%92%B1/" style="font-size: 10px;">搞钱</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 10px;">教程</a> <a href="/tags/%E6%96%87%E6%A1%88/" style="font-size: 10px;">文案</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 10px;">旅行</a> <a href="/tags/%E6%9A%97%E9%99%90%E6%B5%81/" style="font-size: 10px;">暗限流</a> <a href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" style="font-size: 10px;">独立开发</a> <a href="/tags/%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5/" style="font-size: 10px;">电商运营</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 15px;">知识管理</a> <a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 10px;">科幻</a> <a href="/tags/%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">笔记方法</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93/" style="font-size: 10px;">自媒体</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">自媒体工具</a> <a href="/tags/%E9%97%B2%E9%B1%BC/" style="font-size: 10px;">闲鱼</a> <a href="/tags/%E9%98%BF%E8%A5%BF%E8%8E%AB%E5%A4%AB/" style="font-size: 10px;">阿西莫夫</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">六月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/05/">五月 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/06/08/Claude-Code%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81-%E4%B8%BA%E6%AF%8F%E4%B8%AA%E4%BB%BB%E5%8A%A1%E5%AE%9A%E5%88%B6%E4%B8%93%E5%B1%9E%E5%BC%95%E6%93%8E/">Claude Code 动态工作流 — 为每个任务定制专属引擎</a>
+          </li>
+        
+          <li>
+            <a href="/2026/06/08/%E4%B8%AD%E6%96%87%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C%E8%80%85%E5%BF%85%E5%A4%87%E7%9A%8410%E4%B8%AACodex-Skills/">中文内容创作者必备的10个 Codex Skills</a>
+          </li>
+        
+          <li>
+            <a href="/2026/06/08/%E5%A6%82%E4%BD%95%E7%94%A8Obsidian-Claude%E6%90%AD%E5%BB%BA%E4%B8%93%E5%B1%9EAI%E7%AC%AC%E4%BA%8C%E5%A4%A7%E8%84%91/">如何用 Obsidian+Claude 搭建专属AI第二大脑</a>
+          </li>
+        
+          <li>
+            <a href="/2026/06/08/4%E4%B8%AAAgent%E5%8D%96%E4%BA%8623K-%E5%8D%96AI%E5%91%98%E5%B7%A5%E6%AF%94%E5%8D%96%E8%BD%AF%E4%BB%B6%E6%9B%B4%E8%B5%9A%E9%92%B1/">4个Agent卖了$23K——卖AI员工比卖软件更赚钱</a>
+          </li>
+        
+          <li>
+            <a href="/2026/06/08/%E5%B0%8F%E7%BA%A2%E4%B9%A6%E5%92%8C%E5%85%AC%E4%BC%97%E5%8F%B7%E5%A5%97%E8%B7%AF%E5%8C%96%E6%A8%A1%E6%9D%BF%E4%B8%8E%E4%BD%8E%E4%BB%B7%E5%88%9B%E4%BD%9C%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90/">小红书和公众号套路化模板与低价创作问题、不能分享并无法搜索的原因分析，附真实方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 caicitou-lili<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
