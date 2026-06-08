@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中华古诗词 · 最全中文诗歌数据库</title>
+<style>
+  :root {
+    --bg: #fdf6ec;
+    --card-bg: #fffef9;
+    --text: #3a2f28;
+    --text-light: #8b7355;
+    --accent: #8b4513;
+    --accent-light: #d4a76a;
+    --border: #e8d5c4;
+    --shadow: 0 2px 16px rgba(0,0,0,0.06);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Noto Serif SC", "SimSun", "STSong", serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+<p>  &#x2F;* Header *&#x2F;<br>  .header {<br>    background: linear-gradient(135deg, #2c1810 0%, #4a2c17 50%, #3d2415 100%);<br>    color: #f0d9b5;<br>    padding: 40px 20px;<br>    text-align: center;<br>    position: relative;<br>    overflow: hidden;<br>  }<br>  .header::before {<br>    content: ‘’;<br>    position: absolute; top: 0; left: 0; right: 0; bottom: 0;<br>    background: url(“data:image&#x2F;svg+xml,%3Csvg xmlns&#x3D;’<a href="http://www.w3.org/2000/svg">http://www.w3.org/2000/svg</a>‘ viewBox&#x3D;’0 0 100 100’%3E%3Ctext x&#x3D;’10’ y&#x3D;’30’ fill&#x3D;’rgba(255,255,255,0.03)’ font-size&#x3D;’20’%3E诗%3C&#x2F;text%3E%3Ctext x&#x3D;’60’ y&#x3D;’70’ fill&#x3D;’rgba(255,255,255,0.03)’ font-size&#x3D;’24’%3E词%3C&#x2F;text%3E%3Ctext x&#x3D;’30’ y&#x3D;’90’ fill&#x3D;’rgba(255,255,255,0.02)’ font-size&#x3D;’16’%3E赋%3C&#x2F;text%3E%3C&#x2F;svg%3E”) repeat;<br>  }<br>  .header h1 { font-size: 2.4em; font-weight: 900; position: relative; z-index: 1; letter-spacing: 0.1em; }<br>  .header p { font-size: 1em; opacity: 0.7; margin-top: 8px; position: relative; z-index: 1; }</p>
+<p>  &#x2F;* Search *&#x2F;<br>  .search-bar {<br>    max-width: 600px; margin: -24px auto 0;<br>    position: relative; z-index: 10; padding: 0 20px;<br>  }<br>  .search-bar input {<br>    width: 100%; padding: 16px 24px; font-size: 1.1em;<br>    border: 2px solid var(–border); border-radius: 50px;<br>    background: var(–card-bg); color: var(–text);<br>    font-family: inherit; outline: none;<br>    box-shadow: var(–shadow);<br>    transition: all 0.3s;<br>  }<br>  .search-bar input:focus {<br>    border-color: var(–accent-light);<br>    box-shadow: 0 4px 24px rgba(139,69,19,0.15);<br>  }<br>  .search-hint { text-align: center; margin-top: 8px; font-size: 0.85em; color: var(–text-light); }</p>
+<p>  &#x2F;* Stats *&#x2F;<br>  .stats {<br>    display: flex; gap: 24px; justify-content: center;<br>    flex-wrap: wrap; padding: 32px 20px;<br>    max-width: 600px; margin: 0 auto;<br>  }<br>  .stat {<br>    background: var(–card-bg); border: 1px solid var(–border);<br>    border-radius: 12px; padding: 16px 24px; text-align: center;<br>    min-width: 100px; box-shadow: var(–shadow);<br>  }<br>  .stat .num { font-size: 1.8em; font-weight: 900; color: var(–accent); }<br>  .stat .label { font-size: 0.85em; color: var(–text-light); margin-top: 4px; }</p>
+<p>  &#x2F;* Tabs *&#x2F;<br>  .tabs {<br>    display: flex; justify-content: center; gap: 8px;<br>    padding: 0 20px 24px; flex-wrap: wrap;<br>  }<br>  .tab {<br>    padding: 8px 20px; border-radius: 20px; border: 1px solid var(–border);<br>    background: var(–card-bg); cursor: pointer; font-family: inherit;<br>    font-size: 0.95em; color: var(–text); transition: all 0.2s;<br>  }<br>  .tab:hover, .tab.active { background: var(–accent); color: #fff; border-color: var(–accent); }</p>
+<p>  &#x2F;* Poem cards *&#x2F;<br>  .container { max-width: 800px; margin: 0 auto; padding: 0 20px 40px; }<br>  .results-info { text-align: center; color: var(–text-light); margin: 16px 0; font-size: 0.9em; }</p>
+<p>  .poem-card {<br>    background: var(–card-bg); border: 1px solid var(–border);<br>    border-radius: 12px; padding: 28px 32px; margin-bottom: 16px;<br>    box-shadow: var(–shadow); transition: all 0.2s;<br>    position: relative; overflow: hidden;<br>  }<br>  .poem-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.1); transform: translateY(-1px); }<br>  .poem-card .poem-title { font-size: 1.3em; font-weight: 700; color: var(–accent); margin-bottom: 4px; }<br>  .poem-card .poem-author { font-size: 0.95em; color: var(–text-light); margin-bottom: 16px; }<br>  .poem-card .poem-author a { color: var(–accent); text-decoration: none; cursor: pointer; }<br>  .poem-card .poem-author a:hover { text-decoration: underline; }<br>  .poem-card .poem-lines { line-height: 2.2; font-size: 1.1em; }<br>  .poem-card .poem-lines p { text-indent: 0; }<br>  .poem-card .poem-tags { margin-top: 12px; display: flex; gap: 6px; flex-wrap: wrap; }<br>  .poem-card .tag {<br>    font-size: 0.78em; padding: 2px 10px; border-radius: 10px;<br>    background: #f5efe0; color: var(–text-light); border: 1px solid var(–border);<br>  }</p>
+<p>  .empty-state {<br>    text-align: center; padding: 60px 20px; color: var(–text-light);<br>  }<br>  .empty-state .icon { font-size: 3em; margin-bottom: 16px; }</p>
+<p>  .load-more {<br>    display: block; margin: 24px auto; padding: 12px 36px;<br>    border: 2px solid var(–accent); border-radius: 30px;<br>    background: transparent; color: var(–accent); font-size: 1em;<br>    font-family: inherit; cursor: pointer; transition: all 0.2s;<br>  }<br>  .load-more:hover { background: var(–accent); color: #fff; }</p>
+<p>  footer {<br>    text-align: center; padding: 32px; color: var(–text-light);<br>    font-size: 0.85em; border-top: 1px solid var(–border);<br>  }<br>  footer a { color: var(–accent); }</p>
+<p>  @media (max-width: 600px) {<br>    .header h1 { font-size: 1.6em; }<br>    .poem-card { padding: 20px; }<br>    .poem-card .poem-lines { font-size: 1em; line-height: 2; }<br>  }<br></style></p>
+</head>
+<body>
+
+<div class="header">
+  <h1>📜 中华古诗词</h1>
+  <p>最全中文诗歌古典文集数据库 · 数据源自 chinese-poetry</p>
+</div>
+
+<div class="search-bar">
+  <input type="text" id="searchInput" placeholder="搜索诗词、作者、内容...">
+  <div class="search-hint">支持作者名、诗题、诗句内容搜索 · 共 <span id="totalCount">-</span> 首</div>
+</div>
+
+<div class="tabs" id="tabs">
+  <button class="tab active" data-filter="all">全部</button>
+  <button class="tab" data-filter="李白">李白</button>
+  <button class="tab" data-filter="杜甫">杜甫</button>
+  <button class="tab" data-filter="苏轼">苏轼</button>
+  <button class="tab" data-filter="白居易">白居易</button>
+  <button class="tab" data-filter="李清照">李清照</button>
+  <button class="tab" data-filter="辛弃疾">辛弃疾</button>
+  <button class="tab" data-filter="陶渊明">陶渊明</button>
+  <button class="tab" data-filter="王维">王维</button>
+</div>
+
+<div class="container" id="poemContainer"></div>
+
+<footer>
+  诗词数据源自 <a href="https://github.com/chinese-poetry/chinese-poetry" target="_blank">chinese-poetry/chinese-poetry</a>
+  · 49,909 ⭐ · MIT 开源协议
+</footer>
+
+<script>
+// Load poetry data
+let poems = [];
+let currentFilter = 'all';
+let displayCount = 30;
+
+const container = document.getElementById('poemContainer');
+const searchInput = document.getElementById('searchInput');
+const totalSpan = document.getElementById('totalCount');
+
+async function loadData() {
+  try {
+    const resp = await fetch('poems.json');
+    poems = await resp.json();
+    totalSpan.textContent = poems.length.toLocaleString();
+    render();
+  } catch(e) {
+    container.innerHTML = '<div class="empty-state"><div class="icon">📖</div><p>诗词数据加载中...</p></div>';
+  }
+}
+
+function filterPoems() {
+  let filtered = poems;
+
+  // Tab filter
+  if (currentFilter !== 'all') {
+    filtered = filtered.filter(p => p.a === currentFilter);
+  }
+
+  // Search filter
+  const query = searchInput.value.trim().toLowerCase();
+  if (query) {
+    filtered = filtered.filter(p =>
+      p.a.toLowerCase().includes(query) ||
+      p.t.toLowerCase().includes(query) ||
+      p.p.some(line => line.toLowerCase().includes(query)) ||
+      (p.g && p.g.some(tag => tag.toLowerCase().includes(query)))
+    );
+  }
+
+  return filtered;
+}
+
+function render(append = false) {
+  const filtered = filterPoems();
+  const toShow = append ? filtered.slice(0, displayCount) : filtered.slice(0, displayCount);
+
+  if (!append) {
+    container.innerHTML = '';
+    displayCount = 30;
+  }
+
+  if (toShow.length === 0) {
+    container.innerHTML = '<div class="empty-state"><div class="icon">🔍</div><p>未找到匹配的诗词，试试其他关键词</p></div>';
+    return;
+  }
+
+  const startIdx = append ? displayCount - 30 : 0;
+  const html = toShow.slice(startIdx).map(poem => `
+    <div class="poem-card">
+      <div class="poem-title">${escHtml(poem.t)}</div>
+      <div class="poem-author"><a onclick="filterByAuthor('${escAttr(poem.a)}')">${escHtml(poem.a)}</a></div>
+      <div class="poem-lines">${poem.p.map(line => `<p>${escHtml(line)}</p>`).join('')}</div>
+      ${poem.g && poem.g.length > 0 ? `<div class="poem-tags">${poem.g.map(t => `<span class="tag">${escHtml(t)}</span>`).join('')}</div>` : ''}
+    </div>
+  `).join('');
+
+  if (append) {
+    container.insertAdjacentHTML('beforeend', html);
+  } else {
+    container.innerHTML = html;
+  }
+
+  // Show load more button
+  if (filtered.length > displayCount) {
+    const btn = document.createElement('button');
+    btn.className = 'load-more';
+    btn.textContent = `加载更多 (${filtered.length - displayCount} 首剩余)`;
+    btn.onclick = () => {
+      displayCount += 30;
+      render(true);
+    };
+    container.appendChild(btn);
+  }
+}
+
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function escAttr(s) {
+  return String(s).replace(/'/g,"\\'").replace(/"/g,'&quot;');
+}
+
+function filterByAuthor(author) {
+  currentFilter = author;
+  searchInput.value = '';
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  const matchTab = document.querySelector(`.tab[data-filter="${author}"]`);
+  if (matchTab) matchTab.classList.add('active');
+  displayCount = 30;
+  render();
+  window.scrollTo({ top: 300, behavior: 'smooth' });
+}
+
+// Tab clicks
+document.getElementById('tabs').addEventListener('click', e => {
+  if (e.target.classList.contains('tab')) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    e.target.classList.add('active');
+    currentFilter = e.target.dataset.filter;
+    searchInput.value = '';
+    displayCount = 30;
+    render();
+  }
+});
+
+// Search
+let searchTimeout;
+searchInput.addEventListener('input', () => {
+  clearTimeout(searchTimeout);
+  searchTimeout = setTimeout(() => {
+    if (searchInput.value.trim()) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      currentFilter = 'all';
+    }
+    displayCount = 30;
+    render();
+  }, 300);
+});
+
+loadData();
+</script>
+</body>
+</html>
