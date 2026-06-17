@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>GitHub 奶爸级入门教程——从注册到开源贡献 | 菜菜读书笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="GitHub 有多牛？1.8 亿开发者，至少 6 亿仓库。腾讯、阿里、字节的开源项目全在上面。有最近爆火的 OpenClaw，有数字人，有 Skill 仓库，甚至还有阿波罗登月的代码。 GitHub 可不是程序员专属。AI 编程能力变强之后，现在几乎要人手一个 GitHub 仓库了。 这篇奶爸级教程带你从零搞懂：注册、搜索、仓库操作、Git 使用、部署上线、开源贡献。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitHub 奶爸级入门教程——从注册到开源贡献">
+<meta property="og:url" content="https://caicitou-lili.github.io/2026/06/17/GitHub%E5%A5%B6%E7%88%B8%E7%BA%A7%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-%E4%BB%8E%E6%B3%A8%E5%86%8C%E5%88%B0%E5%BC%80%E6%BA%90%E8%B4%A1%E7%8C%AE/index.html">
+<meta property="og:site_name" content="菜菜读书笔记">
+<meta property="og:description" content="GitHub 有多牛？1.8 亿开发者，至少 6 亿仓库。腾讯、阿里、字节的开源项目全在上面。有最近爆火的 OpenClaw，有数字人，有 Skill 仓库，甚至还有阿波罗登月的代码。 GitHub 可不是程序员专属。AI 编程能力变强之后，现在几乎要人手一个 GitHub 仓库了。 这篇奶爸级教程带你从零搞懂：注册、搜索、仓库操作、Git 使用、部署上线、开源贡献。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-06-16T17:30:00.000Z">
+<meta property="article:modified_time" content="2026-06-17T03:53:53.454Z">
+<meta property="article:author" content="caicitou-lili">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="GitHub">
+<meta property="article:tag" content="开源">
+<meta property="article:tag" content="Git">
+<meta property="article:tag" content="AI编程">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="菜菜读书笔记" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">菜菜读书笔记</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">读一本好书，遇见更好的自己</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://caicitou-lili.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GitHub奶爸级入门教程-从注册到开源贡献" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/06/17/GitHub%E5%A5%B6%E7%88%B8%E7%BA%A7%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-%E4%BB%8E%E6%B3%A8%E5%86%8C%E5%88%B0%E5%BC%80%E6%BA%90%E8%B4%A1%E7%8C%AE/" class="article-date">
+  <time class="dt-published" datetime="2026-06-16T17:30:00.000Z" itemprop="datePublished">2026-06-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      GitHub 奶爸级入门教程——从注册到开源贡献
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>GitHub 有多牛？<strong>1.8 亿开发者，至少 6 亿仓库</strong>。腾讯、阿里、字节的开源项目全在上面。有最近爆火的 OpenClaw，有数字人，有 Skill 仓库，甚至还有阿波罗登月的代码。</p>
+<p>GitHub 可不是程序员专属。AI 编程能力变强之后，现在几乎要<strong>人手一个 GitHub 仓库</strong>了。</p>
+<p>这篇奶爸级教程带你从零搞懂：注册、搜索、仓库操作、Git 使用、部署上线、开源贡献。</p>
+<span id="more"></span>
+
+<hr>
+<h2 id="开源是什么"><a href="#开源是什么" class="headerlink" title="开源是什么"></a>开源是什么</h2><p>代码本质上是文字。<strong>不开源</strong> &#x3D; 这段文字只在你电脑里，别人看不到。<strong>开源</strong> &#x3D; 放到 GitHub 上设成公开仓库，任何人都能看、能复制、能拿去改。</p>
+<p>但开源不等于放弃所有权。许可证规定别人能做什么：</p>
+<ul>
+<li><strong>MIT 协议：</strong> 最宽松，几乎不限制</li>
+<li><strong>GPL 协议：</strong> 最严格，别人用了你的代码，他自己的代码也得开源</li>
+<li><strong>什么都不放：</strong> 法律上默认保留所有权利</li>
+</ul>
+<hr>
+<h2 id="Git-和-GitHub-的区别"><a href="#Git-和-GitHub-的区别" class="headerlink" title="Git 和 GitHub 的区别"></a>Git 和 GitHub 的区别</h2><p><strong>不是一回事。</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Git</th>
+<th>GitHub</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>是什么</td>
+<td>版本控制工具</td>
+<td>代码托管网站</td>
+</tr>
+<tr>
+<td>在哪</td>
+<td>你电脑上</td>
+<td>云端服务器</td>
+</tr>
+<tr>
+<td>功能</td>
+<td>记录每次改动，能退回任意历史版本</td>
+<td>共享代码、协作开发</td>
+</tr>
+<tr>
+<td>联网</td>
+<td>不需要</td>
+<td>需要</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>Git 是你电脑上的版本记录本，GitHub 是这本记录本的云端备份加共享平台。</p>
+</blockquote>
+<hr>
+<h2 id="注册与安全"><a href="#注册与安全" class="headerlink" title="注册与安全"></a>注册与安全</h2><h3 id="注册账号"><a href="#注册账号" class="headerlink" title="注册账号"></a>注册账号</h3><ol>
+<li>打开 github.com → 点 <strong>Sign up</strong></li>
+<li>填邮箱、密码、用户名、国家</li>
+<li><strong>邮箱用 Gmail</strong>——后面 Supabase、Vercel、Cloudflare 全支持 Google 一键登录。QQ 邮箱和 163 邮箱经常把验证邮件扔进垃圾箱</li>
+<li>用户名别起 test001，用真名拼音或长期英文 ID</li>
+</ol>
+<h3 id="开双重认证（2FA）"><a href="#开双重认证（2FA）" class="headerlink" title="开双重认证（2FA）"></a>开双重认证（2FA）</h3><p><strong>必须开。</strong> GitHub 从 2023 年起强制要求做过代码贡献的账号开 2FA。</p>
+<p>路径：右上角头像 → Settings → Password and authentication → Two-factor authentication → Enable → 选 Authenticator app</p>
+<p>下载 Google Authenticator，扫码绑定。<strong>16 个恢复码必须存好</strong>——手机丢了这是唯一的救命钥匙。</p>
+<hr>
+<h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><p>右上角 + 号 → New repository：</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>建议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>仓库名</td>
+<td>全小写英文，用连字符，如 <code>my-first-project</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>一句话说清楚干什么的，建议填</td>
+</tr>
+<tr>
+<td>Public &#x2F; Private</td>
+<td>免费账号两种都能无限建</td>
+</tr>
+<tr>
+<td>Add a README</td>
+<td><strong>勾上</strong>，这是仓库的脸面</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="搜索项目"><a href="#搜索项目" class="headerlink" title="搜索项目"></a>搜索项目</h2><p>顶部搜索栏直接打字，几个最常用限定符：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">language:python         只搜 Python 项目</span><br><span class="line">stars:&gt;1000             只要 Star 过千的热门</span><br><span class="line">pushed:&gt;2026-01-01      今年还在更新的活跃项目</span><br><span class="line">in:name                 关键词出现在仓库名里</span><br></pre></td></tr></table></figure>
+
+<p><strong>组合示范：</strong> <code>machine learning language:python stars:&gt;5000 pushed:&gt;2026-01-01</code></p>
+<p>比在搜索引擎里搜”某某项目推荐”快一个数量级，没 SEO 灌水文章夹在中间。</p>
+<hr>
+<h2 id="读懂一个仓库"><a href="#读懂一个仓库" class="headerlink" title="读懂一个仓库"></a>读懂一个仓库</h2><p>打开任意仓库页面，从上到下：</p>
+<table>
+<thead>
+<tr>
+<th>区域</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Star</strong></td>
+<td>收藏+点赞，Star 数越高项目越受欢迎</td>
+</tr>
+<tr>
+<td><strong>Fork</strong></td>
+<td>把整个仓库复制到你账号下，独立副本随便改</td>
+</tr>
+<tr>
+<td><strong>Watch</strong></td>
+<td>订阅更新通知</td>
+</tr>
+<tr>
+<td><strong>Code 标签</strong></td>
+<td>最核心——看代码和文件</td>
+</tr>
+<tr>
+<td><strong>Issues</strong></td>
+<td>工单区，提 bug、提需求、问怎么用</td>
+</tr>
+<tr>
+<td><strong>Pull Requests</strong></td>
+<td>合并请求，给别人项目贡献代码的入口</td>
+</tr>
+<tr>
+<td><strong>README.md</strong></td>
+<td>项目说明书，看陌生项目先看这个</td>
+</tr>
+</tbody></table>
+<p><strong>绿色 Code 按钮</strong> &#x3D; 下载代码入口。右侧 About 栏显示简介、语言、Star 数、Fork 数。</p>
+<hr>
+<h2 id="本地-Git-操作（零命令）"><a href="#本地-Git-操作（零命令）" class="headerlink" title="本地 Git 操作（零命令）"></a>本地 Git 操作（零命令）</h2><p><strong>不需要装 Git，不需要背命令。</strong> 打开 AI 编程工具（Cursor、Claude Code、Copilot、Trae 都行），对它说这六句话：</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>对 AI 说</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>初始化</td>
+<td>“帮我初始化 Git 仓库”</td>
+</tr>
+<tr>
+<td>下载别人仓库</td>
+<td>“帮我把这个仓库克隆到本地 github.com&#x2F;xxx&#x2F;xxx”</td>
+</tr>
+<tr>
+<td>提交改动</td>
+<td>“提交所有改动，说明是：修复了登录页白屏”</td>
+</tr>
+<tr>
+<td>推送到 GitHub</td>
+<td>“推送到 GitHub”</td>
+</tr>
+<tr>
+<td>拉取远端更新</td>
+<td>“拉一下最新代码”</td>
+</tr>
+<tr>
+<td>关联远端仓库</td>
+<td>“帮我把这个项目关联到 GitHub 上的 xxx 仓库，然后推送上去”</td>
+</tr>
+</tbody></table>
+<p>Agent 在后台自动执行一切，包括自动配好 SSH Key。</p>
+<hr>
+<h2 id="部署上线"><a href="#部署上线" class="headerlink" title="部署上线"></a>部署上线</h2><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>平台</th>
+<th>对 AI 说</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>静态 HTML</td>
+<td><strong>GitHub Pages</strong></td>
+<td>“帮我把这个仓库部署到 GitHub Pages”</td>
+</tr>
+<tr>
+<td>React&#x2F;Vue&#x2F;Next.js</td>
+<td><strong>Vercel</strong></td>
+<td>“帮我把这个项目部署到 Vercel”</td>
+</tr>
+</tbody></table>
+<p>每次 git push 自动重新部署。免费套餐个人项目够用，加载速度比国内很多付费虚拟主机还快。</p>
+<hr>
+<h2 id="Fork-PR：开源贡献核心流程"><a href="#Fork-PR：开源贡献核心流程" class="headerlink" title="Fork + PR：开源贡献核心流程"></a>Fork + PR：开源贡献核心流程</h2><ol>
+<li><strong>Fork：</strong> 点右上角 Fork 按钮，把目标仓库复制到自己账号下</li>
+<li><strong>Clone：</strong> 把自己 Fork 的仓库拉到本地</li>
+<li><strong>改代码：</strong> 在本地改，提交，推送</li>
+<li><strong>发起 PR：</strong> 打开自己 Fork 仓库的 GitHub 页面 → 点 Compare and pull request → 填写标题和描述说清楚改了什么</li>
+<li><strong>等合并：</strong> 原作者审核，可能让你改几处，也可能直接 Merge</li>
+</ol>
+<hr>
+<h2 id="推荐浏览的开源项目"><a href="#推荐浏览的开源项目" class="headerlink" title="推荐浏览的开源项目"></a>推荐浏览的开源项目</h2><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>Star</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/QwenLM/Qwen">Qwen</a></td>
+<td>-</td>
+<td>阿里开源大语言模型，7B-72B 全量开放</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/chrislgarry/Apollo-11">Apollo-11</a></td>
+<td>30K+</td>
+<td>1969 年阿波罗 11 号制导计算机原始代码</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/Anduin2017/HowToCook">HowToCook</a></td>
+<td>80K</td>
+<td>程序员做饭指南，每道菜标难度、材料精确到克</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://github.com/byoungd/English-level-up-tips">English-level-up-tips</a></td>
+<td>46K</td>
+<td>英语提升技巧，7 层结构从基础到 AI 工具</td>
+</tr>
+</tbody></table>
+<p>看这些项目不需要完全看懂代码。打开先看 README，再看文件结构，感受真实项目长什么样。这种浏览本身就是最好的学习。</p>
+<hr>
+<p>剩下的就一件事了——打开 GitHub，搜一个你感兴趣的项目，点进去看它的 README 和文件结构。再用 git clone 拉到本地，改点东西，push 上去。<strong>踩过一次完整流程，这些知识才是你的。</strong></p>
+<hr>
+<blockquote>
+<p>📌 原文作者：<a target="_blank" rel="noopener" href="https://x.com/laowangbabababa">@laowangbabababa</a> 老王霸 AI Lab<br>原文数据：63.2万浏览 · 645 点赞 · 189 转推 · 1572 收藏<br>原文链接：<a target="_blank" rel="noopener" href="https://x.com/laowangbabababa/status/2061384966227849698">X.com</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://caicitou-lili.github.io/2026/06/17/GitHub%E5%A5%B6%E7%88%B8%E7%BA%A7%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-%E4%BB%8E%E6%B3%A8%E5%86%8C%E5%88%B0%E5%BC%80%E6%BA%90%E8%B4%A1%E7%8C%AE/" data-id="cmqhje0hl00008gh33j0q7fgj" data-title="GitHub 奶爸级入门教程——从注册到开源贡献" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E7%BC%96%E7%A8%8B/" rel="tag">AI编程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E6%BA%90/" rel="tag">开源</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2026/06/17/%E9%9B%B6%E4%BB%A3%E7%A0%81AI%E5%B7%A5%E5%85%B7%E7%AB%99%E6%9C%88%E5%85%A513%E4%B8%87%E7%BE%8E%E9%87%91%E5%85%A8%E6%94%BB%E7%95%A5/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">零代码+AI暴利组合拳——单页工具站月入$135,000美金全攻略</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%A6%E8%AF%84/">书评</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/">效率工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AGENTS-md/" rel="tag">AGENTS.md</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI-Agent/" rel="tag">AI Agent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%88%9B%E4%B8%9A/" rel="tag">AI创业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">AI工作流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%BB%BA%E7%AB%99/" rel="tag">AI建站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E6%8A%95%E7%A0%94/" rel="tag">AI投研</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E6%B3%A1%E6%B2%AB/" rel="tag">AI泡沫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E7%AC%AC%E4%BA%8C%E5%A4%A7%E8%84%91/" rel="tag">AI第二大脑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E7%BC%96%E7%A8%8B/" rel="tag">AI编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Agent/" rel="tag">Agent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Anthropic/" rel="tag">Anthropic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Claude/" rel="tag">Claude</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Claude-Code/" rel="tag">Claude Code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Codex/" rel="tag">Codex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-AdSense/" rel="tag">Google AdSense</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hostinger/" rel="tag">Hostinger</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MCP/" rel="tag">MCP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Obsidian/" rel="tag">Obsidian</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PARA/" rel="tag">PARA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Skills/" rel="tag">Skills</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Workflow/" rel="tag">Workflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/YouTube/" rel="tag">YouTube</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eSIM/" rel="tag">eSIM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8/" rel="tag">一人公司</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/" rel="tag">中国经济</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E6%96%87%E5%86%99%E4%BD%9C/" rel="tag">中文写作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E8%AF%84/" rel="tag">书评</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" rel="tag">公众号</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C/" rel="tag">内容创作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BA%E5%9B%BD/" rel="tag">出国</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BA%E5%B7%AE/" rel="tag">出差</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BA%E6%B5%B7%E8%B5%9A%E9%92%B1/" rel="tag">出海赚钱</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%AF%E4%B8%9A/" rel="tag">副业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">动态工作流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%86%E5%8F%B2%E5%AF%B9%E6%AF%94/" rel="tag">历史对比</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9C%B0%E7%BC%98%E6%94%BF%E6%B2%BB/" rel="tag">地缘政治</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" rel="tag">学习方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%BA%A2%E4%B9%A6/" rel="tag">小红书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">工作流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%B3%E5%8F%B0%E7%AE%97%E6%B3%95/" rel="tag">平台算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%BA%90/" rel="tag">开源</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" rel="tag">开源项目</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%93%E5%B7%A5%E5%BA%A6%E5%81%87/" rel="tag">打工度假</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%95%E8%B5%84/" rel="tag">投资</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8D%A1%E6%BC%8F/" rel="tag">捡漏</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" rel="tag">效率工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E6%A1%88/" rel="tag">文案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%85%E8%A1%8C/" rel="tag">旅行</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9A%97%E9%99%90%E6%B5%81/" rel="tag">暗限流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B0%91%E7%B2%B9%E4%B8%BB%E4%B9%89/" rel="tag">民粹主义</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BE%B3%E6%B4%B2WHV/" rel="tag">澳洲WHV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB%E6%8C%87%E5%8D%97/" rel="tag">生活指南</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5/" rel="tag">电商运营</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" rel="tag">知识管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A0%8D%E4%BB%B7/" rel="tag">砍价</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%B9%BB/" rel="tag">科幻</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/" rel="tag">笔记方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AD%BE%E8%AF%81%E6%94%BB%E7%95%A5/" rel="tag">签证攻略</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90/" rel="tag">股票分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" rel="tag">自动化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93/" rel="tag">自媒体</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" rel="tag">自媒体工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/" rel="tag">被动收入</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/" rel="tag">视频剪辑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%B8%E6%98%93%E6%88%98/" rel="tag">贸易战</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E9%80%89%E6%8B%A9/" rel="tag">软件选择</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%B2%E9%B1%BC/" rel="tag">闲鱼</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%BF%E8%A5%BF%E8%8E%AB%E5%A4%AB/" rel="tag">阿西莫夫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AGENTS-md/" style="font-size: 10px;">AGENTS.md</a> <a href="/tags/AI/" style="font-size: 15px;">AI</a> <a href="/tags/AI-Agent/" style="font-size: 10px;">AI Agent</a> <a href="/tags/AIGC/" style="font-size: 10px;">AIGC</a> <a href="/tags/AI%E5%88%9B%E4%B8%9A/" style="font-size: 10px;">AI创业</a> <a href="/tags/AI%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 17.5px;">AI工作流</a> <a href="/tags/AI%E5%BB%BA%E7%AB%99/" style="font-size: 10px;">AI建站</a> <a href="/tags/AI%E6%8A%95%E7%A0%94/" style="font-size: 10px;">AI投研</a> <a href="/tags/AI%E6%B3%A1%E6%B2%AB/" style="font-size: 10px;">AI泡沫</a> <a href="/tags/AI%E7%AC%AC%E4%BA%8C%E5%A4%A7%E8%84%91/" style="font-size: 10px;">AI第二大脑</a> <a href="/tags/AI%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">AI编程</a> <a href="/tags/Agent/" style="font-size: 10px;">Agent</a> <a href="/tags/Anthropic/" style="font-size: 10px;">Anthropic</a> <a href="/tags/Claude/" style="font-size: 17.5px;">Claude</a> <a href="/tags/Claude-Code/" style="font-size: 12.5px;">Claude Code</a> <a href="/tags/Codex/" style="font-size: 20px;">Codex</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitHub/" style="font-size: 12.5px;">GitHub</a> <a href="/tags/Google-AdSense/" style="font-size: 10px;">Google AdSense</a> <a href="/tags/Hostinger/" style="font-size: 10px;">Hostinger</a> <a href="/tags/MCP/" style="font-size: 15px;">MCP</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Obsidian/" style="font-size: 15px;">Obsidian</a> <a href="/tags/PARA/" style="font-size: 10px;">PARA</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/Skills/" style="font-size: 15px;">Skills</a> <a href="/tags/Workflow/" style="font-size: 10px;">Workflow</a> <a href="/tags/YouTube/" style="font-size: 10px;">YouTube</a> <a href="/tags/eSIM/" style="font-size: 10px;">eSIM</a> <a href="/tags/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8/" style="font-size: 10px;">一人公司</a> <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/" style="font-size: 10px;">中国经济</a> <a href="/tags/%E4%B8%AD%E6%96%87%E5%86%99%E4%BD%9C/" style="font-size: 10px;">中文写作</a> <a href="/tags/%E4%B9%A6%E8%AF%84/" style="font-size: 10px;">书评</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 10px;">公众号</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C/" style="font-size: 12.5px;">内容创作</a> <a href="/tags/%E5%87%BA%E5%9B%BD/" style="font-size: 10px;">出国</a> <a href="/tags/%E5%87%BA%E5%B7%AE/" style="font-size: 10px;">出差</a> <a href="/tags/%E5%87%BA%E6%B5%B7%E8%B5%9A%E9%92%B1/" style="font-size: 10px;">出海赚钱</a> <a href="/tags/%E5%89%AF%E4%B8%9A/" style="font-size: 17.5px;">副业</a> <a href="/tags/%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">动态工作流</a> <a href="/tags/%E5%8E%86%E5%8F%B2%E5%AF%B9%E6%AF%94/" style="font-size: 10px;">历史对比</a> <a href="/tags/%E5%9C%B0%E7%BC%98%E6%94%BF%E6%B2%BB/" style="font-size: 10px;">地缘政治</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">学习方法</a> <a href="/tags/%E5%B0%8F%E7%BA%A2%E4%B9%A6/" style="font-size: 10px;">小红书</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">工作流</a> <a href="/tags/%E5%B9%B3%E5%8F%B0%E7%AE%97%E6%B3%95/" style="font-size: 10px;">平台算法</a> <a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 10px;">开源</a> <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 12.5px;">开源项目</a> <a href="/tags/%E6%89%93%E5%B7%A5%E5%BA%A6%E5%81%87/" style="font-size: 10px;">打工度假</a> <a href="/tags/%E6%8A%95%E8%B5%84/" style="font-size: 10px;">投资</a> <a href="/tags/%E6%8D%A1%E6%BC%8F/" style="font-size: 10px;">捡漏</a> <a href="/tags/%E6%90%9E%E9%92%B1/" style="font-size: 10px;">搞钱</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">效率工具</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 12.5px;">教程</a> <a href="/tags/%E6%96%87%E6%A1%88/" style="font-size: 10px;">文案</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 10px;">旅行</a> <a href="/tags/%E6%9A%97%E9%99%90%E6%B5%81/" style="font-size: 10px;">暗限流</a> <a href="/tags/%E6%B0%91%E7%B2%B9%E4%B8%BB%E4%B9%89/" style="font-size: 10px;">民粹主义</a> <a href="/tags/%E6%BE%B3%E6%B4%B2WHV/" style="font-size: 10px;">澳洲WHV</a> <a href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" style="font-size: 10px;">独立开发</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%8C%87%E5%8D%97/" style="font-size: 10px;">生活指南</a> <a href="/tags/%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5/" style="font-size: 12.5px;">电商运营</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 12.5px;">知识管理</a> <a href="/tags/%E7%A0%8D%E4%BB%B7/" style="font-size: 10px;">砍价</a> <a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 10px;">科幻</a> <a href="/tags/%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">笔记方法</a> <a href="/tags/%E7%AD%BE%E8%AF%81%E6%94%BB%E7%95%A5/" style="font-size: 10px;">签证攻略</a> <a href="/tags/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90/" style="font-size: 10px;">股票分析</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 12.5px;">自动化</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93/" style="font-size: 12.5px;">自媒体</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">自媒体工具</a> <a href="/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/" style="font-size: 10px;">被动收入</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/" style="font-size: 10px;">视频剪辑</a> <a href="/tags/%E8%B4%B8%E6%98%93%E6%88%98/" style="font-size: 10px;">贸易战</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E9%80%89%E6%8B%A9/" style="font-size: 10px;">软件选择</a> <a href="/tags/%E9%97%B2%E9%B1%BC/" style="font-size: 15px;">闲鱼</a> <a href="/tags/%E9%98%BF%E8%A5%BF%E8%8E%AB%E5%A4%AB/" style="font-size: 10px;">阿西莫夫</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">六月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/05/">五月 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/06/17/GitHub%E5%A5%B6%E7%88%B8%E7%BA%A7%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-%E4%BB%8E%E6%B3%A8%E5%86%8C%E5%88%B0%E5%BC%80%E6%BA%90%E8%B4%A1%E7%8C%AE/">GitHub 奶爸级入门教程——从注册到开源贡献</a>
+          </li>
+        
+          <li>
+            <a href="/2026/06/17/%E9%9B%B6%E4%BB%A3%E7%A0%81AI%E5%B7%A5%E5%85%B7%E7%AB%99%E6%9C%88%E5%85%A513%E4%B8%87%E7%BE%8E%E9%87%91%E5%85%A8%E6%94%BB%E7%95%A5/">零代码+AI暴利组合拳——单页工具站月入$135,000美金全攻略</a>
+          </li>
+        
+          <li>
+            <a href="/2026/06/15/%E9%97%B2%E9%B1%BC11%E4%B8%AA%E7%A5%9E%E6%93%8D%E4%BD%9C-%E4%BB%8E%E6%8D%A1%E6%BC%8F%E5%88%B0%E6%9C%88%E5%85%A5%E8%BF%87%E4%B8%87/">闲鱼11个神操作——从捡漏到月入过万</a>
+          </li>
+        
+          <li>
+            <a href="/2026/06/08/6%E4%B8%AAAI%E9%A1%B9%E7%9B%AE%E8%87%AA%E5%8A%A8%E5%8C%96%E9%97%B2%E9%B1%BC-24%E5%B0%8F%E6%97%B6%E5%B8%AE%E4%BD%A0%E6%8D%A1%E6%BC%8F%E6%8E%A5%E5%8D%95/">6个AI项目自动化闲鱼 — 24小时帮你捡漏接单</a>
+          </li>
+        
+          <li>
+            <a href="/2026/06/08/%E7%BB%99Codex%E8%A3%85%E4%B8%8A%E6%8A%95%E8%B5%84Skills-5%E4%B8%AAAI%E6%8A%95%E7%A0%94%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/">给 Codex 装上投资 Skills：5 个 AI 投研开源项目</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 caicitou-lili<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
