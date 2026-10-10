@@ -1,0 +1,73 @@
+---
+title: 紫微斗数排盘
+date: 2026-06-08 03:00:00
+layout: false
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>紫微斗数排盘 · 基于倪海夏《天纪》</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 100%; height: 100%; overflow: hidden; background: #0a0a0f; }
+  .frame-wrap { width: 100%; height: 100%; position: relative; }
+  iframe { width: 100%; height: 100%; border: none; }
+
+  .fallback {
+    display: none;
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #0a1a2e 100%);
+    color: #e0d8c0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+  }
+
+  .fallback a:hover { filter: brightness(1.3); transition: all 0.3s; }
+</style>
+</head>
+<body>
+  <div id="fallback" class="fallback" style="display:flex;">
+    <h1 style="font-size:2.5em;margin-bottom:20px;">🔮 紫微斗数排盘</h1>
+    <p style="font-size:1.1em;margin-bottom:8px;">基于倪海夏《天纪》体系</p>
+    <p style="margin-bottom:32px;color:rgba(255,255,255,0.6);">
+      完整排盘算法 · 四化飞星 · 格局知识库 · 古籍原文
+    </p>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;">
+      <a href="http://localhost:3099" target="_blank" 
+         style="color:#d4a017;font-size:1.1em;text-decoration:none;border:2px solid #d4a017;padding:14px 36px;border-radius:10px;background:rgba(212,160,23,0.1);">
+        🖥️ 本地版（已启动）
+      </a>
+      <a href="https://ziwei-30.vercel.app" target="_blank" 
+         style="color:#8ab4f8;font-size:1.1em;text-decoration:none;border:2px solid #8ab4f8;padding:14px 36px;border-radius:10px;background:rgba(138,180,248,0.1);">
+        ☁️ 在线版（需翻墙）
+      </a>
+    </div>
+    <p style="margin-top:32px;font-size:0.85em;color:rgba(255,255,255,0.4);">
+      开源项目 <a href="https://github.com/Renhuai123/ziwei-doushu" target="_blank" style="color:rgba(255,255,255,0.6);">GitHub</a> · 
+      作者 <a href="https://github.com/Renhuai123" target="_blank" style="color:rgba(255,255,255,0.6);">王多鱼AI</a>
+    </p>
+  </div>
+
+  <script>
+    // Show fallback if iframe fails to load after 10 seconds
+    var loaded = false;
+    var frame = document.getElementById('mainFrame');
+    var fallback = document.getElementById('fallback');
+
+    frame.onload = function() { loaded = true; };
+
+    setTimeout(function() {
+      if (!loaded) {
+        frame.style.display = 'none';
+        fallback.style.display = 'flex';
+      }
+    }, 10000);
+  </script>
+</body>
+</html>
