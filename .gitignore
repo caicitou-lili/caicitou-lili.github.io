@@ -5,3 +5,4 @@ db.json
 .multidep/
 *.log
 .deploy_main/
+_multiconfig.yml
