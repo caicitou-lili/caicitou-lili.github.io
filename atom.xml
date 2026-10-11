@@ -4,7 +4,7 @@
   <subtitle>读一本好书，遇见更好的自己</subtitle>
   <link href="https://caicitou-lili.github.io/"/>
   <link rel="self" href="https://caicitou-lili.github.io/atom.xml"/>
-  <updated>2026-10-10T22:00:00+08:00</updated>
+  <updated>2026-10-11T12:30:00+08:00</updated>
   <id>https://caicitou-lili.github.io/</id>
   <author><name>caicitou-lili</name></author>
   <entry>
@@ -206,5 +206,21 @@
     <published>2026-10-10T00:00:00+08:00</published>
     <updated>2026-10-10T00:00:00+08:00</updated>
     <content type="html">滚石500大专辑完整榜单</content>
+  </entry>
+  <entry>
+    <title>DeepSeek Harness 首发实测 + 入门教程</title>
+    <link href="https://caicitou-lili.github.io/2026/08/15/DeepSeek-Harness-%E5%AE%9E%E6%B5%8B%E6%95%99%E7%A8%8B/"/>
+    <id>https://caicitou-lili.github.io/2026/08/15/DeepSeek-Harness-%E5%AE%9E%E6%B5%8B%E6%95%99%E7%A8%8B/</id>
+    <published>2026-08-15T01:00:00+08:00</published>
+    <updated>2026-08-15T01:00:00+08:00</updated>
+    <content type="html">DeepSeek Harness 首发实测 + 入门教程</content>
+  </entry>
+  <entry>
+    <title>MoneyPrinterTurbo 实测：给它一个主题，自动生成一条短视频</title>
+    <link href="https://caicitou-lili.github.io/2026/10/11/MoneyPrinterTurbo-%E5%AE%9E%E6%B5%8B/"/>
+    <id>https://caicitou-lili.github.io/2026/10/11/MoneyPrinterTurbo-%E5%AE%9E%E6%B5%8B/</id>
+    <published>2026-10-11T12:30:00+08:00</published>
+    <updated>2026-10-11T12:30:00+08:00</updated>
+    <content type="html">MoneyPrinterTurbo 实测：给它一个主题，自动生成一条短视频</content>
   </entry>
 </feed>
