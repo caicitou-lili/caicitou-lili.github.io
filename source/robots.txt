@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://caicitou-lili.github.io/sitemap.xml
