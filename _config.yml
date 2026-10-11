@@ -105,3 +105,11 @@ deploy:
   type: git
   repo: git@github.com:caicitou-lili/caicitou-lili.github.io.git
   branch: main
+
+# Plugins: Feed / Sitemap
+## 安装: npm install hexo-generator-feed hexo-generator-sitemap --save
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20sitemap:
+  path: sitemap.xml
