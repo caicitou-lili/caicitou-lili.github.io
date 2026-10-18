@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>VoiceStudio 上手：把 ElevenLabs 搬进自己电脑，3 秒音频克隆一个声音 | 菜菜读书笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="先给结论：  如果你只是想给视频配个音、做条有声书、或者把一段英文视频换成中文口播，又不想按月给云端 TTS 交钱——这个工具值得花半小时装一次。  VoiceStudio（原名 OmniVoice Studio）是一个开源的本地优先语音工作室，把声音克隆、声音设计、视频配音、有声书制作、听写转录塞进了一个桌面应用里。核心流程全部跑在你自己的机器上：没有订阅、没有按字符计费、音频不出本机。 我把它">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VoiceStudio 上手：把 ElevenLabs 搬进自己电脑，3 秒音频克隆一个声音">
+<meta property="og:url" content="https://caicitou-lili.github.io/2026/10/17/VoiceStudio%E4%B8%8A%E6%89%8B-%E6%9C%AC%E5%9C%B0AI%E9%85%8D%E9%9F%B3%E5%B7%A5%E4%BD%9C%E5%AE%A4/index.html">
+<meta property="og:site_name" content="菜菜读书笔记">
+<meta property="og:description" content="先给结论：  如果你只是想给视频配个音、做条有声书、或者把一段英文视频换成中文口播，又不想按月给云端 TTS 交钱——这个工具值得花半小时装一次。  VoiceStudio（原名 OmniVoice Studio）是一个开源的本地优先语音工作室，把声音克隆、声音设计、视频配音、有声书制作、听写转录塞进了一个桌面应用里。核心流程全部跑在你自己的机器上：没有订阅、没有按字符计费、音频不出本机。 我把它">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-10-17T02:20:00.000Z">
+<meta property="article:modified_time" content="2026-10-17T13:39:49.707Z">
+<meta property="article:author" content="caicitou-lili">
+<meta property="article:tag" content="开源项目">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="AIGC">
+<meta property="article:tag" content="语音合成">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="菜菜读书笔记" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0">  <link rel="stylesheet" href="/css/local-search.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">菜菜读书笔记</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">读一本好书，遇见更好的自己</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/tags">标签</a>
+        
+          <a class="main-nav-link" href="/categories">分类</a>
+        
+          <a class="main-nav-link" href="/rollingstone-500/">音乐</a>
+        
+          <a class="main-nav-link" href="/poetry/">诗歌</a>
+        
+          <a class="main-nav-link" href="/ziwei/">紫微</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          
+            <a class="nav-icon" target="_blank" rel="noopener" href="https://github.com/caicitou-lili"><span class="fa fa-github"></span></a>
+          
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="/search.json" method="get" class="search-form" id="local-search-form" role="search" autocomplete="off">
+  <input type="search" name="q" id="local-search-input" class="search-form-input" placeholder="搜索文章…" aria-label="站内搜索">
+  <button type="submit" class="search-form-submit" aria-label="搜索">&#xF002;</button>
+</form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-VoiceStudio上手-本地AI配音工作室" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/10/17/VoiceStudio%E4%B8%8A%E6%89%8B-%E6%9C%AC%E5%9C%B0AI%E9%85%8D%E9%9F%B3%E5%B7%A5%E4%BD%9C%E5%AE%A4/" class="article-date">
+  <time class="dt-published" datetime="2026-10-17T02:20:00.000Z" itemprop="datePublished">2026-10-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      VoiceStudio 上手：把 ElevenLabs 搬进自己电脑，3 秒音频克隆一个声音
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>先给结论：</p>
+<blockquote>
+<p><strong>如果你只是想给视频配个音、做条有声书、或者把一段英文视频换成中文口播，又不想按月给云端 TTS 交钱——这个工具值得花半小时装一次。</strong></p>
+</blockquote>
+<p>VoiceStudio（原名 OmniVoice Studio）是一个开源的本地优先语音工作室，把<strong>声音克隆、声音设计、视频配音、有声书制作、听写转录</strong>塞进了一个桌面应用里。核心流程全部跑在你自己的机器上：没有订阅、没有按字符计费、音频不出本机。</p>
+<p>我把它翻了一遍文档和仓库（本文数据均来自项目官方 README 与 <code>docs/</code> 目录，非编造实测），把真正需要知道的挑出来写成这篇上手攻略。</p>
+<hr>
+<h2 id="一、它到底能干什么"><a href="#一、它到底能干什么" class="headerlink" title="一、它到底能干什么"></a>一、它到底能干什么</h2><p>官方主打 8 项功能，我觉得真正有用的就四个：</p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>一句话</th>
+<th>我的判断</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>🎙️ 语音克隆</strong></td>
+<td>拖进一段 <strong>3 秒</strong>音频，零样本复刻任意声音，支持 646 种语言</td>
+<td>核心功能，也是它最值钱的地方</td>
+</tr>
+<tr>
+<td><strong>🎬 视频配音</strong></td>
+<td>丢 YouTube 链接或本地文件 → 转录 → 翻译 → 重新配音 → 导出 MP4</td>
+<td>自媒体换语种的神器</td>
+</tr>
+<tr>
+<td><strong>📖 有声书编辑器</strong></td>
+<td>导入 txt &#x2F; EPUB &#x2F; PDF，自动分章、响度归一，导出 <code>.m4b</code></td>
+<td>做播客、有声书的人会爱死</td>
+</tr>
+<tr>
+<td><strong>⌨️ 听写工具</strong></td>
+<td>任意应用里按 <kbd>⌘</kbd>+<kbd>⇧</kbd>+<kbd>Space</kbd>，转写完自动粘贴、窗口消失</td>
+<td>比开个网页转录顺手太多</td>
+</tr>
+</tbody></table>
+<p>另外还有：声音设计（调性别、年龄、口音、音高、情感、方言）、故事模式（多角色配音）、人声分离（Demucs）、说话人分离（谁说了什么）、AI 水印（AudioSeal）、批量队列。</p>
+<p>还有一个隐藏彩蛋：<strong>它自带 MCP 服务器</strong>，Claude Code &#x2F; Cursor 这类 agent 可以直接调它合成语音、克隆声音。这个下面单独讲。</p>
+<hr>
+<h2 id="二、和-ElevenLabs-比，差在哪"><a href="#二、和-ElevenLabs-比，差在哪" class="headerlink" title="二、和 ElevenLabs 比，差在哪"></a>二、和 ElevenLabs 比，差在哪</h2><p>官方 README 里自己列了对比表，比较诚实：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>ElevenLabs</strong></th>
+<th><strong>VoiceStudio</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>价格</strong></td>
+<td>订阅 + 用量限制</td>
+<td>免费开源（AGPL-3.0）</td>
+</tr>
+<tr>
+<td><strong>语音克隆</strong></td>
+<td>✅ 3 秒</td>
+<td>✅ 3 秒，零样本</td>
+</tr>
+<tr>
+<td><strong>语言</strong></td>
+<td>约 32 种</td>
+<td><strong>646</strong> 种</td>
+</tr>
+<tr>
+<td><strong>有声书 &#x2F; 多角色</strong></td>
+<td>❌</td>
+<td>✅ 完整编辑器 + <code>m4b</code> 导出</td>
+</tr>
+<tr>
+<td><strong>数据隐私</strong></td>
+<td>音频在云端处理</td>
+<td>核心流程本地运行</td>
+</tr>
+<tr>
+<td><strong>API Key</strong></td>
+<td>必须</td>
+<td>本地流程不需要</td>
+</tr>
+<tr>
+<td><strong>TTS 引擎</strong></td>
+<td>1 个</td>
+<td><strong>16 个</strong>可选</td>
+</tr>
+<tr>
+<td><strong>ASR 引擎</strong></td>
+<td>1 个</td>
+<td><strong>11 个</strong>可选</td>
+</tr>
+<tr>
+<td><strong>MCP 服务器</strong></td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+</tbody></table>
+<p>但<strong>它没吹的地方也得说</strong>：作者在 FAQ 里自己承认，ElevenLabs 在<strong>开箱即用的稳定性和打磨度上仍然领先</strong>，尤其是英语。VoiceStudio 的最终效果取决于你选的引擎、你的硬件、以及参考音频的质量——干燥的近麦录音克隆出来，和一段嘈杂带回声的手机录音，差距是天上地下。</p>
+<p>所以定位应该是：**不是”全面碾压”，而是”够用 + 免费 + 数据在自己手上”**。</p>
+<hr>
+<h2 id="三、装之前先看硬件，这一步最容易翻车"><a href="#三、装之前先看硬件，这一步最容易翻车" class="headerlink" title="三、装之前先看硬件，这一步最容易翻车"></a>三、装之前先看硬件，这一步最容易翻车</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>最低</th>
+<th>推荐</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>系统</td>
+<td>Windows 10 21H2+ &#x2F; macOS 12+（Apple Silicon）&#x2F; Ubuntu 24.04+</td>
+<td>任意现代 64 位系统</td>
+</tr>
+<tr>
+<td>内存</td>
+<td>8 GB</td>
+<td>16 GB+</td>
+</tr>
+<tr>
+<td>显存</td>
+<td>4 GB（不够会自动把 TTS 卸载到 CPU）</td>
+<td>8 GB+（RTX 3060 以上）</td>
+</tr>
+<tr>
+<td>硬盘</td>
+<td>10 GB 可用</td>
+<td>20 GB+ SSD</td>
+</tr>
+</tbody></table>
+<p><strong>三条硬性限制，装之前务必对照：</strong></p>
+<ul>
+<li><strong>Windows 上只有 NVIDIA 能吃到 GPU 加速。</strong> AMD 显卡（包括 Ryzen AI 核显）在 Windows 下只能跑 CPU，因为 PyTorch 没发 Windows 版 ROCm 轮子。想用 AMD 加速得去 Linux。</li>
+<li><strong>Intel Mac 不支持本地后端。</strong> UI 能装，Python 后端跑不起来（PyTorch 不再发 Intel Mac 轮子）。只能连远程后端用。</li>
+<li><strong>首次启动会下载模型权重</strong>，几个 GB，启动画面有进度条。这一步慢是正常的，之后就秒开。</li>
+</ul>
+<blockquote>
+<p>实测数据在项目 <code>docs/benchmarks.md</code>，各种引擎的耗时和显存占用都有——建议装之前先看你自己显卡对应哪一档。</p>
+</blockquote>
+<hr>
+<h2 id="四、Windows-安装：首选-MSI"><a href="#四、Windows-安装：首选-MSI" class="headerlink" title="四、Windows 安装：首选 MSI"></a>四、Windows 安装：首选 MSI</h2><h3 id="路线-A：MSI-安装包（推荐，最省事）"><a href="#路线-A：MSI-安装包（推荐，最省事）" class="headerlink" title="路线 A：MSI 安装包（推荐，最省事）"></a>路线 A：MSI 安装包（推荐，最省事）</h3><p>去 <a target="_blank" rel="noopener" href="https://github.com/debpalash/VoiceStudio/releases/latest">Releases</a> 下 <code>VoiceStudio_*_x64_en-US.msi</code>，双击，下一步下一步。开始菜单里会出现 <strong>VoiceStudio</strong>。</p>
+<p><strong>Python、FFmpeg、模型权重全都不用自己装</strong>——应用首次启动时会自己 bootstrap 出来。这是它比大部分开源项目友好的地方。</p>
+<p>⚠️ <strong>想把程序装到 D 盘的话</strong>：向导里可以选任意<strong>本地</strong>盘符，但<strong>映射的网络驱动器（Z: → 共享盘）不支持</strong>，这是 Windows Installer 的限制（自定义动作跑在服务账号下，看不见用户的盘符映射），装了会回滚。</p>
+<p>另外要注意：安装位置只挪走了那 200MB 的程序本体，真正占地方的是<strong>数据目录</strong>（模型 + 声音 + 项目，几十 GB），默认在 <code>%LOCALAPPDATA%</code>。在 <strong>设置 → 存储 → 模型目录</strong> 里可以单独改到 D 盘。</p>
+<h3 id="路线-B：源码运行（想跟进最新修复）"><a href="#路线-B：源码运行（想跟进最新修复）" class="headerlink" title="路线 B：源码运行（想跟进最新修复）"></a>路线 B：源码运行（想跟进最新修复）</h3><p>项目处于 active beta，作者明说”如需最新修复请从源码运行”。需要先备齐工具链：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">winget install <span class="literal">--id</span> Git.Git <span class="literal">-e</span></span><br><span class="line">winget install Python.Python.<span class="number">3.11</span></span><br><span class="line">winget install Gyan.FFmpeg</span><br><span class="line">winget install Rust.Rustup</span><br><span class="line">powershell <span class="literal">-c</span> <span class="string">&quot;irm bun.sh/install.ps1 | iex&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>还要装 <strong>Visual Studio 2022 生成工具</strong>并勾选”使用 C++ 的桌面开发”（<code>pyannote.audio</code> 这类包要编译）。</p>
+<p>然后：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/debpalash/VoiceStudio.git</span><br><span class="line"><span class="built_in">cd</span> VoiceStudio</span><br><span class="line">bun install</span><br><span class="line">bun run desktop-prod</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>desktop-prod</code> 内部是个 bash 脚本，会自动找 Git Bash（装 Git for Windows 时自带）。装完 Rust 记得<strong>关掉 PowerShell 再重开</strong>，否则找不到 cargo。</p>
+</blockquote>
+<h3 id="路线-C：便携模式（我要重点推荐）"><a href="#路线-C：便携模式（我要重点推荐）" class="headerlink" title="路线 C：便携模式（我要重点推荐）"></a>路线 C：便携模式（我要重点推荐）</h3><p>如果你和我一样<strong>不喜欢软件往 C 盘 <code>%APPDATA%</code> 里到处拉屎</strong>，首次启动的设置界面里有 <strong>Portable（便携）</strong> 模式：整个安装——Python 环境、模型权重、声音、项目、设置——全塞进<strong>一个文件夹</strong>。</p>
+<p>把这个文件夹和 exe 放一起，整个搬走（换机器、换盘符、甚至放 U 盘）都能继续用。设置界面里 Portable 那一行按 <strong>Change…</strong> 可以自己选位置。</p>
+<p>这里有个细节做得挺讲究：如果数据目录选在<strong>程序自己的文件夹内</strong>（比如 exe 在 <code>D:\Apps\VoiceStudio</code>，数据在 <code>D:\Apps\VoiceStudio\MyData</code>），记录的是<strong>相对路径</strong>，整个文件夹搬走也不迷路；选在外部（exe 在 <code>D:\Apps</code>，数据在 <code>E:\VoiceStudio</code>）就只能记绝对路径，换盘符就得重新指一下。</p>
+<hr>
+<h2 id="五、第一次用：三步克隆一个声音"><a href="#五、第一次用：三步克隆一个声音" class="headerlink" title="五、第一次用：三步克隆一个声音"></a>五、第一次用：三步克隆一个声音</h2><ol>
+<li><strong>装完启动。</strong> 首次运行自动建 Python 环境、拉模型权重，启动画面显示进度。</li>
+<li><strong>打开「语音克隆」</strong>，把一段任意声音的 <strong>3 秒音频</strong>拖进去。</li>
+<li><strong>输入一句话，点生成。</strong></li>
+</ol>
+<p>就这样。音频在你自己的设备上生成和保存，不进任何服务器。</p>
+<p>想调得更像，进<strong>声音设计</strong>面板改这些参数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">性别 · 年龄 · 口音 · 音高 · 语速 · 情感 · 方言</span><br></pre></td></tr></table></figure>
+
+<h3 id="一个让”越用越慢”的坑，先记住"><a href="#一个让”越用越慢”的坑，先记住" class="headerlink" title="一个让”越用越慢”的坑，先记住"></a>一个让”越用越慢”的坑，先记住</h3><p>官方 <code>docs/performance.md</code> 里点名了一个经典问题：</p>
+<blockquote>
+<p><strong>声音档案的 Transcript（转录文本）字段为空，会让每次生成都多跑一遍完整 Whisper 转录。</strong></p>
+</blockquote>
+<p>旧版本（v0.3.15 之前）是<strong>每次生成都跑</strong>，表现为”更新后 TTS 突然变得巨慢、CPU 100%”。新版本会自动转录一次并写回档案，但如果你是<strong>导入的或手改过</strong>的声音档案，那个框可能还是空的，就继续每生成一次付一次 ASR 的代价。</p>
+<p><strong>处理办法</strong>：打开那个声音的编辑器，看 Transcript 框——空的就手动填上参考音频说了什么，或者在新版本上随便生成一次让它自己填。</p>
+<p>另外两条通用经验：</p>
+<ul>
+<li><strong>重启后的第一次生成永远最慢</strong>（模型权重懒加载约 8 秒 + 各种 kernel 编译）。判断速度要看<strong>第二次</strong>以后。</li>
+<li>16GB 内存的机器上，一边开着 40 个标签页的浏览器一边配音，系统会在内存里反复换页，甚至直接把后端杀掉（报 “Can’t reach the local backend”）。</li>
+</ul>
+<hr>
+<h2 id="六、MCP：让你的-AI-用你的声音说话"><a href="#六、MCP：让你的-AI-用你的声音说话" class="headerlink" title="六、MCP：让你的 AI 用你的声音说话"></a>六、MCP：让你的 AI 用你的声音说话</h2><p>这是我觉得最有意思的部分。VoiceStudio 自带一个 MCP 服务器，<strong>挂在已经跑起来的后端上</strong>（<code>/mcp</code>），不用额外起进程。</p>
+<p>它暴露这些工具：</p>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>generate_speech</code></td>
+<td>文本 → WAV（base64），默认用 agent 绑定的声音</td>
+</tr>
+<tr>
+<td><code>clone_voice</code></td>
+<td>base64 音频 → 新声音档案，返回 <code>profile_id</code></td>
+</tr>
+<tr>
+<td><code>transcribe</code></td>
+<td>base64 音频 → 文本（646 种语言）</td>
+</tr>
+<tr>
+<td><code>list_voices</code> &#x2F; <code>list_personalities</code> &#x2F; <code>list_languages</code></td>
+<td>列举可用资源</td>
+</tr>
+<tr>
+<td><code>check_health</code></td>
+<td>后端状态 + 当前 GPU 设备</td>
+</tr>
+</tbody></table>
+<p><strong>Streamable HTTP 接法</strong>（Claude Code、Cursor 等现代客户端），指向：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:3900/mcp</span><br></pre></td></tr></table></figure>
+
+<p>想给某个 agent 绑定固定音色，加个头 <code>X-VoiceStudio-Client-Id: claude-code</code>。</p>
+<p><strong>只支持 stdio 的客户端</strong>用自带的 shim：（<code>docs/mcp.json</code> 是现成模板）</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;mcpServers&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;omnivoice&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;python&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;-m&quot;</span><span class="punctuation">,</span> <span class="string">&quot;backend.mcp_shim&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;cwd&quot;</span><span class="punctuation">:</span> <span class="string">&quot;/path/to/VoiceStudio&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;env&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> <span class="attr">&quot;OMNIVOICE_PORT&quot;</span><span class="punctuation">:</span> <span class="string">&quot;3900&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;OMNIVOICE_CLIENT_ID&quot;</span><span class="punctuation">:</span> <span class="string">&quot;claude-code&quot;</span> <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>⚠️ <strong>安全提醒</strong>：MCP 传输层<strong>没有鉴权</strong>。别把它暴露在公网，只在可信内网或者加一层 TLS（Tailscale Serve &#x2F; 反向代理）后用。如果 agent 跑在 Docker 或另一台机器上，还需要设置 <code>OMNIVOICE_MCP_ALLOWED_HOSTS</code>，否则 SDK 的 DNS-rebinding 保护会拒掉非 localhost 的 Host 头。</p>
+<hr>
+<h2 id="七、16-个-TTS-引擎，什么时候该换"><a href="#七、16-个-TTS-引擎，什么时候该换" class="headerlink" title="七、16 个 TTS 引擎，什么时候该换"></a>七、16 个 TTS 引擎，什么时候该换</h2><p>默认引擎是 VoiceStudio 自带的（基于 k2-fsa&#x2F;OmniVoice，600+ 语言，支持克隆和指令控制），装完就能用。其他按需装，切换在 <strong>设置 → TTS 引擎</strong>，快捷键 <kbd>Ctrl</kbd>&#x2F;<kbd>Cmd</kbd>+<kbd>E</kbd>。</p>
+<p>挑几个中文场景值得试的：</p>
+<table>
+<thead>
+<tr>
+<th>引擎</th>
+<th>语言</th>
+<th>亮点</th>
+<th>装法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>IndexTTS 2.5</strong></td>
+<td>中&#x2F;英&#x2F;日&#x2F;西&#x2F;阿</td>
+<td>中文效果好，可带情绪</td>
+<td>一键 sidecar 安装</td>
+</tr>
+<tr>
+<td><strong>CosyVoice 3</strong></td>
+<td>9 种 + 18 种方言</td>
+<td>阿里的，方言是强项</td>
+<td>clone + requirements</td>
+</tr>
+<tr>
+<td><strong>GPT-SoVITS</strong></td>
+<td>5</td>
+<td>老牌，社区模型多</td>
+<td>自带 API server</td>
+</tr>
+<tr>
+<td><strong>VoxCPM2</strong></td>
+<td>30</td>
+<td>支持声音设计</td>
+<td><code>pip install &quot;voxcpm&gt;=2.0.3&quot;</code></td>
+</tr>
+<tr>
+<td><strong>KittenTTS</strong></td>
+<td>英语</td>
+<td>CPU 上能实时</td>
+<td><code>pip install kittentts</code></td>
+</tr>
+</tbody></table>
+<p><strong>一个必须知道的规则</strong>：<code>KittenTTS</code>、<code>Sherpa-ONNX</code>、<code>Supertonic 3</code> 这几个<strong>不支持克隆</strong>。如果你把它们设成当前引擎，视频配音这种需要保持说话人身份的任务会<strong>在开始前直接报错提示</strong>，而不是偷偷回退——这个设计比静默降级好得多。</p>
+<blockquote>
+<p>完整矩阵（16 个 TTS × 平台 × 是否支持克隆&#x2F;指令 × 许可证）在 <code>docs/engines/README.md</code>。注意 <strong>IndexTTS 2.5 有额外许可</strong>：月活超 1 亿或年收入超 10 亿人民币需要另找 B 站拿书面授权。</p>
+</blockquote>
+<hr>
+<h2 id="八、踩坑清单"><a href="#八、踩坑清单" class="headerlink" title="八、踩坑清单"></a>八、踩坑清单</h2><ul>
+<li><strong>D 盘装不上</strong>：先确认是本地盘，不是映射的网络驱动器。</li>
+<li><strong><code>bun run desktop-prod</code> 报找不到 bash</strong>：装 Git for Windows，它带 Git Bash。</li>
+<li><strong>装完 Rust 后 cargo 找不到</strong>：关掉 PowerShell 重新开。</li>
+<li><strong>AMD 显卡在 Windows 上慢</strong>：正常，只能 CPU 跑。要么换 NVIDIA，要么上 Linux 开 ROCm。</li>
+<li><strong>磁盘爆了</strong>：程序本体 200MB，模型几十 GB。去 <strong>设置 → 存储</strong> 把模型目录挪到大盘。</li>
+<li><strong>卡在某处不知道怎么查</strong>：<strong>设置 → 关于 → 运行自检</strong>；源码环境下可以 <code>uv run python backend/main.py --diagnose</code>，加 <code>--deep</code> 会真的加载引擎测试。要提单给作者，用 <strong>设置 → 关于 → 保存诊断包</strong> 生成脱敏日志包。</li>
+<li><strong>Hugging Face 拉不动模型</strong>：见 <code>docs/setup/huggingface-token.md</code> 和 <code>docs/downloading-models.md</code>（有镜像和 Xet 快速下载的说明）。</li>
+</ul>
+<hr>
+<h2 id="九、适合谁-不适合谁"><a href="#九、适合谁-不适合谁" class="headerlink" title="九、适合谁 &#x2F; 不适合谁"></a>九、适合谁 &#x2F; 不适合谁</h2><p><strong>适合：</strong></p>
+<ul>
+<li>做自媒体，需要<strong>多语种配音</strong>又不想按分钟付费的</li>
+<li>想做<strong>有声书</strong>、播客，需要长文本 + 分章 + <code>.m4b</code> 的</li>
+<li>对数据敏感，<strong>音频不能上传云端</strong>的</li>
+<li>想让 AI agent <strong>用自己的声音说话</strong>，折腾 MCP 的</li>
+</ul>
+<p><strong>不适合：</strong></p>
+<ul>
+<li>追求<strong>开箱即用零折腾</strong>——它是 active beta，版本之间确实会出毛病</li>
+<li>只有 <strong>Intel Mac</strong> 或 <strong>AMD 显卡 + Windows</strong> 还要 GPU 加速的</li>
+<li>想要<strong>英语广播级</strong>音质、不想调参数的——暂时还是 ElevenLabs 更稳</li>
+<li>打算<strong>嵌入闭源产品</strong>商业分发——AGPL-3.0 会传染，得单独买商业许可</li>
+</ul>
+<hr>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>VoiceStudio 这类项目的价值不在于”比商业产品更好”，而在于<strong>把一条原本按字符收费的流水线，变成了可以自己拥有、自己改的东西</strong>。</p>
+<p>它的许可证是 AGPL-3.0，<strong>商业使用免费</strong>：跑它、卖它生成的音频、给客户视频配音、团队内部部署都行。唯一的义务是——如果你<strong>改了它</strong>并通过网络对外提供服务，改动要按同样条款开源。</p>
+<p>装它之前，我的建议是<strong>先用便携模式 + 默认引擎跑通一条 30 秒的测试音频</strong>，确认硬件扛得住、音质能接受，再决定要不要深入折腾那些可选引擎。这类工具最费时间的永远是环境和模型，不是使用本身。</p>
+<p>和之前写过的 <a href="/2026/10/11/MoneyPrinterTurbo-%E5%AE%9E%E6%B5%8B/">MoneyPrinterTurbo</a> 放在一起看其实挺有意思：一个管画面，一个管声音，两个都是”自备算力、零订阅费”的路子。真要做批量内容，这两条线能拼成一条完整的流水线。</p>
+<hr>
+<blockquote>
+<p><strong>参考来源</strong>：项目 README（中英双语）、<code>docs/install/windows.md</code>、<code>docs/engines/README.md</code>、<code>docs/performance.md</code>、<code>docs/mcp.md</code>、<code>docs/benchmarks.md</code>。本文为文档梳理与上手路径整理，具体性能数据请以你自己硬件的实测为准。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://caicitou-lili.github.io/2026/10/17/VoiceStudio%E4%B8%8A%E6%89%8B-%E6%9C%AC%E5%9C%B0AI%E9%85%8D%E9%9F%B3%E5%B7%A5%E4%BD%9C%E5%AE%A4/" data-id="cmvd6jtyr000mlsh31zw11v7f" data-title="VoiceStudio 上手：把 ElevenLabs 搬进自己电脑，3 秒音频克隆一个声音" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" rel="tag">开源项目</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" rel="tag">语音合成</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2026/10/18/%E9%97%B2%E9%B1%BC%E6%99%BA%E8%83%BD%E7%9B%91%E6%8E%A7-ai-goofish-monitor-%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BD%BF%E7%94%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          闲鱼捡漏自动化：ai-goofish-monitor 部署与使用全记录
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2026/10/11/MoneyPrinterTurbo-%E5%AE%9E%E6%B5%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">MoneyPrinterTurbo 实测：给它一个主题，自动生成一条短视频</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%A6%E8%AF%84/">书评</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/">效率工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9F%B3%E4%B9%90/">音乐</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AGENTS-md/" rel="tag">AGENTS.md</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI-Agent/" rel="tag">AI Agent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI-Skills/" rel="tag">AI Skills</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%88%9B%E4%B8%9A/" rel="tag">AI创业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">AI工作流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%BB%BA%E7%AB%99/" rel="tag">AI建站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E6%8A%95%E7%A0%94/" rel="tag">AI投研</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E6%B3%A1%E6%B2%AB/" rel="tag">AI泡沫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E7%AC%AC%E4%BA%8C%E5%A4%A7%E8%84%91/" rel="tag">AI第二大脑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E7%BC%96%E7%A8%8B/" rel="tag">AI编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Agent/" rel="tag">Agent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Anthropic/" rel="tag">Anthropic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Claude/" rel="tag">Claude</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Claude-Code/" rel="tag">Claude Code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Codex/" rel="tag">Codex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DeepSeek/" rel="tag">DeepSeek</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-AdSense/" rel="tag">Google AdSense</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hostinger/" rel="tag">Hostinger</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MCP/" rel="tag">MCP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Obsidian/" rel="tag">Obsidian</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PARA/" rel="tag">PARA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prompt/" rel="tag">Prompt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Skills/" rel="tag">Skills</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Workflow/" rel="tag">Workflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/YouTube/" rel="tag">YouTube</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eSIM/" rel="tag">eSIM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yt-dlp/" rel="tag">yt-dlp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8/" rel="tag">一人公司</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/" rel="tag">中国经济</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E6%96%87%E5%86%99%E4%BD%9C/" rel="tag">中文写作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E8%AF%84/" rel="tag">书评</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%8D%E8%B4%B9%E5%B7%A5%E5%85%B7/" rel="tag">免费工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" rel="tag">公众号</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C/" rel="tag">内容创作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AE%B9%E5%8F%98%E7%8E%B0/" rel="tag">内容变现</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BA%E5%9B%BD/" rel="tag">出国</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BA%E5%B7%AE/" rel="tag">出差</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BA%E6%B5%B7%E8%B5%9A%E9%92%B1/" rel="tag">出海赚钱</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%AF%E4%B8%9A/" rel="tag">副业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">动态工作流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%86%E5%8F%B2%E5%AF%B9%E6%AF%94/" rel="tag">历史对比</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9C%B0%E7%BC%98%E6%94%BF%E6%B2%BB/" rel="tag">地缘政治</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" rel="tag">学习方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%BA%A2%E4%B9%A6/" rel="tag">小红书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">工作流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%B3%E5%8F%B0%E7%AE%97%E6%B3%95/" rel="tag">平台算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%BA%90/" rel="tag">开源</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" rel="tag">开源项目</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%93%E5%B7%A5%E5%BA%A6%E5%81%87/" rel="tag">打工度假</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%95%E8%B5%84/" rel="tag">投资</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8D%A1%E6%BC%8F/" rel="tag">捡漏</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" rel="tag">效率工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E6%A1%88/" rel="tag">文案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%85%E8%A1%8C/" rel="tag">旅行</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9A%97%E9%99%90%E6%B5%81/" rel="tag">暗限流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A6%9C%E5%8D%95/" rel="tag">榜单</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B0%91%E7%B2%B9%E4%B8%BB%E4%B9%89/" rel="tag">民粹主义</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%A6%E8%89%B2/" rel="tag">润色</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BB%9A%E7%9F%B3/" rel="tag">滚石</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BE%B3%E6%B4%B2WHV/" rel="tag">澳洲WHV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB%E6%8C%87%E5%8D%97/" rel="tag">生活指南</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5/" rel="tag">电商运营</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/" rel="tag">电子书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" rel="tag">知识管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A0%8D%E4%BB%B7/" rel="tag">砍价</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%B9%BB/" rel="tag">科幻</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/" rel="tag">笔记方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AD%BE%E8%AF%81%E6%94%BB%E7%95%A5/" rel="tag">签证攻略</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90/" rel="tag">股票分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" rel="tag">自动化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93/" rel="tag">自媒体</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" rel="tag">自媒体工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/" rel="tag">被动收入</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" rel="tag">视频下载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/" rel="tag">视频剪辑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" rel="tag">语音合成</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%B8%E6%98%93%E6%88%98/" rel="tag">贸易战</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E9%80%89%E6%8B%A9/" rel="tag">软件选择</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%89%E9%A2%98/" rel="tag">选题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%B2%E9%B1%BC/" rel="tag">闲鱼</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%BF%E8%A5%BF%E8%8E%AB%E5%A4%AB/" rel="tag">阿西莫夫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9F%B3%E4%B9%90/" rel="tag">音乐</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AGENTS-md/" style="font-size: 10px;">AGENTS.md</a> <a href="/tags/AI/" style="font-size: 15px;">AI</a> <a href="/tags/AI-Agent/" style="font-size: 10px;">AI Agent</a> <a href="/tags/AI-Skills/" style="font-size: 10px;">AI Skills</a> <a href="/tags/AIGC/" style="font-size: 15px;">AIGC</a> <a href="/tags/AI%E5%88%9B%E4%B8%9A/" style="font-size: 10px;">AI创业</a> <a href="/tags/AI%E5%89%AF%E4%B8%9A/" style="font-size: 10px;">AI副业</a> <a href="/tags/AI%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 17.5px;">AI工作流</a> <a href="/tags/AI%E5%BB%BA%E7%AB%99/" style="font-size: 10px;">AI建站</a> <a href="/tags/AI%E6%8A%95%E7%A0%94/" style="font-size: 10px;">AI投研</a> <a href="/tags/AI%E6%B3%A1%E6%B2%AB/" style="font-size: 10px;">AI泡沫</a> <a href="/tags/AI%E7%AC%AC%E4%BA%8C%E5%A4%A7%E8%84%91/" style="font-size: 10px;">AI第二大脑</a> <a href="/tags/AI%E7%BC%96%E7%A8%8B/" style="font-size: 12.5px;">AI编程</a> <a href="/tags/Agent/" style="font-size: 10px;">Agent</a> <a href="/tags/Anthropic/" style="font-size: 10px;">Anthropic</a> <a href="/tags/Claude/" style="font-size: 17.5px;">Claude</a> <a href="/tags/Claude-Code/" style="font-size: 12.5px;">Claude Code</a> <a href="/tags/Codex/" style="font-size: 20px;">Codex</a> <a href="/tags/DeepSeek/" style="font-size: 10px;">DeepSeek</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/GitHub/" style="font-size: 12.5px;">GitHub</a> <a href="/tags/Google-AdSense/" style="font-size: 10px;">Google AdSense</a> <a href="/tags/Hostinger/" style="font-size: 10px;">Hostinger</a> <a href="/tags/MCP/" style="font-size: 15px;">MCP</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Obsidian/" style="font-size: 15px;">Obsidian</a> <a href="/tags/PARA/" style="font-size: 10px;">PARA</a> <a href="/tags/Prompt/" style="font-size: 10px;">Prompt</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/Skills/" style="font-size: 15px;">Skills</a> <a href="/tags/Workflow/" style="font-size: 10px;">Workflow</a> <a href="/tags/YouTube/" style="font-size: 10px;">YouTube</a> <a href="/tags/eSIM/" style="font-size: 10px;">eSIM</a> <a href="/tags/yt-dlp/" style="font-size: 10px;">yt-dlp</a> <a href="/tags/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8/" style="font-size: 10px;">一人公司</a> <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/" style="font-size: 10px;">中国经济</a> <a href="/tags/%E4%B8%AD%E6%96%87%E5%86%99%E4%BD%9C/" style="font-size: 10px;">中文写作</a> <a href="/tags/%E4%B9%A6%E8%AF%84/" style="font-size: 10px;">书评</a> <a href="/tags/%E5%85%8D%E8%B4%B9%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">免费工具</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 10px;">公众号</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C/" style="font-size: 15px;">内容创作</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%8F%98%E7%8E%B0/" style="font-size: 10px;">内容变现</a> <a href="/tags/%E5%87%BA%E5%9B%BD/" style="font-size: 10px;">出国</a> <a href="/tags/%E5%87%BA%E5%B7%AE/" style="font-size: 10px;">出差</a> <a href="/tags/%E5%87%BA%E6%B5%B7%E8%B5%9A%E9%92%B1/" style="font-size: 10px;">出海赚钱</a> <a href="/tags/%E5%89%AF%E4%B8%9A/" style="font-size: 17.5px;">副业</a> <a href="/tags/%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">动态工作流</a> <a href="/tags/%E5%8E%86%E5%8F%B2%E5%AF%B9%E6%AF%94/" style="font-size: 10px;">历史对比</a> <a href="/tags/%E5%9C%B0%E7%BC%98%E6%94%BF%E6%B2%BB/" style="font-size: 10px;">地缘政治</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">学习方法</a> <a href="/tags/%E5%B0%8F%E7%BA%A2%E4%B9%A6/" style="font-size: 10px;">小红书</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">工作流</a> <a href="/tags/%E5%B9%B3%E5%8F%B0%E7%AE%97%E6%B3%95/" style="font-size: 10px;">平台算法</a> <a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 15px;">开源</a> <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 20px;">开源项目</a> <a href="/tags/%E6%89%93%E5%B7%A5%E5%BA%A6%E5%81%87/" style="font-size: 10px;">打工度假</a> <a href="/tags/%E6%8A%95%E8%B5%84/" style="font-size: 10px;">投资</a> <a href="/tags/%E6%8D%A1%E6%BC%8F/" style="font-size: 10px;">捡漏</a> <a href="/tags/%E6%90%9E%E9%92%B1/" style="font-size: 10px;">搞钱</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">效率工具</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 20px;">教程</a> <a href="/tags/%E6%96%87%E6%A1%88/" style="font-size: 10px;">文案</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 10px;">旅行</a> <a href="/tags/%E6%9A%97%E9%99%90%E6%B5%81/" style="font-size: 10px;">暗限流</a> <a href="/tags/%E6%A6%9C%E5%8D%95/" style="font-size: 10px;">榜单</a> <a href="/tags/%E6%B0%91%E7%B2%B9%E4%B8%BB%E4%B9%89/" style="font-size: 10px;">民粹主义</a> <a href="/tags/%E6%B6%A6%E8%89%B2/" style="font-size: 10px;">润色</a> <a href="/tags/%E6%BB%9A%E7%9F%B3/" style="font-size: 10px;">滚石</a> <a href="/tags/%E6%BE%B3%E6%B4%B2WHV/" style="font-size: 10px;">澳洲WHV</a> <a href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" style="font-size: 10px;">独立开发</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%8C%87%E5%8D%97/" style="font-size: 10px;">生活指南</a> <a href="/tags/%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5/" style="font-size: 12.5px;">电商运营</a> <a href="/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/" style="font-size: 10px;">电子书</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 12.5px;">知识管理</a> <a href="/tags/%E7%A0%8D%E4%BB%B7/" style="font-size: 10px;">砍价</a> <a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 10px;">科幻</a> <a href="/tags/%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">笔记方法</a> <a href="/tags/%E7%AD%BE%E8%AF%81%E6%94%BB%E7%95%A5/" style="font-size: 10px;">签证攻略</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">翻译</a> <a href="/tags/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90/" style="font-size: 10px;">股票分析</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 15px;">自动化</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93/" style="font-size: 17.5px;">自媒体</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">自媒体工具</a> <a href="/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/" style="font-size: 10px;">被动收入</a> <a href="/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" style="font-size: 10px;">视频下载</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/" style="font-size: 12.5px;">视频剪辑</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 10px;">语音合成</a> <a href="/tags/%E8%B4%B8%E6%98%93%E6%88%98/" style="font-size: 10px;">贸易战</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E9%80%89%E6%8B%A9/" style="font-size: 10px;">软件选择</a> <a href="/tags/%E9%80%89%E9%A2%98/" style="font-size: 10px;">选题</a> <a href="/tags/%E9%97%B2%E9%B1%BC/" style="font-size: 17.5px;">闲鱼</a> <a href="/tags/%E9%98%BF%E8%A5%BF%E8%8E%AB%E5%A4%AB/" style="font-size: 10px;">阿西莫夫</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 10px;">音乐</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/10/">十月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/08/">八月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">六月 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/10/18/%E9%97%B2%E9%B1%BC%E6%99%BA%E8%83%BD%E7%9B%91%E6%8E%A7-ai-goofish-monitor-%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BD%BF%E7%94%A8/">闲鱼捡漏自动化：ai-goofish-monitor 部署与使用全记录</a>
+          </li>
+        
+          <li>
+            <a href="/2026/10/17/VoiceStudio%E4%B8%8A%E6%89%8B-%E6%9C%AC%E5%9C%B0AI%E9%85%8D%E9%9F%B3%E5%B7%A5%E4%BD%9C%E5%AE%A4/">VoiceStudio 上手：把 ElevenLabs 搬进自己电脑，3 秒音频克隆一个声音</a>
+          </li>
+        
+          <li>
+            <a href="/2026/10/11/MoneyPrinterTurbo-%E5%AE%9E%E6%B5%8B/">MoneyPrinterTurbo 实测：给它一个主题，自动生成一条短视频</a>
+          </li>
+        
+          <li>
+            <a href="/2026/10/10/%E6%BB%9A%E7%9F%B3500%E5%A4%A7%E4%B8%93%E8%BE%91%E5%AE%8C%E6%95%B4%E6%A6%9C%E5%8D%95/">滚石杂志《史上最伟大的500张专辑》完整榜单（含封面、中文乐评、曲目表）</a>
+          </li>
+        
+          <li>
+            <a href="/2026/08/15/DeepSeek-Harness-%E5%AE%9E%E6%B5%8B%E6%95%99%E7%A8%8B/">DeepSeek Harness 首发实测 + 入门教程</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        内容采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 授权，转载请注明出处。
+      
+      &copy; 2026 caicitou-lili<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/tags" class="mobile-nav-link">标签</a>
+  
+    <a href="/categories" class="mobile-nav-link">分类</a>
+  
+    <a href="/rollingstone-500/" class="mobile-nav-link">音乐</a>
+  
+    <a href="/poetry/" class="mobile-nav-link">诗歌</a>
+  
+    <a href="/ziwei/" class="mobile-nav-link">紫微</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+<div id="local-search-panel" class="ls-panel" role="listbox" aria-label="搜索结果" hidden>
+  <div class="ls-panel-inner">
+    <div class="ls-hint">输入关键词开始搜索</div>
+    <div class="ls-results"></div>
+  </div>
+</div>
+<script src="/js/local-search.js" defer></script>
+</body>
+</html>

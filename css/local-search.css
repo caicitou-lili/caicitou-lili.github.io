@@ -1,0 +1,96 @@
+/* 站内本地搜索结果面板样式
+ *
+ * 注意：这里刻意不用「全屏遮罩 + 居中弹窗」。
+ * landscape 主题的 #wrap 是 position:absolute + z-index:1，构成独立
+ * 层叠上下文；页头搜索框在 #wrap 内部，无论给它多大 z-index 都盖不过
+ * 挂在 body 下的全屏遮罩，结果是遮罩一出现就点不到输入框。
+ * 因此改成贴着页头搜索框下方展开的下拉面板，不遮挡、不抢焦点。
+ */
+
+#local-search-panel {
+  position: fixed;
+  z-index: 30;
+  top: 66px;
+  right: 15px;
+  width: 460px;
+  max-width: calc(100vw - 30px);
+  max-height: 70vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background: #fff;
+  border: 1px solid #e3e3e3;
+  border-radius: 10px;
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.16);
+  padding: 6px;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+#local-search-panel[hidden] {
+  display: none;
+}
+
+#local-search-panel .ls-hint {
+  font-size: 12px;
+  color: #999;
+  padding: 8px 10px 6px;
+  border-bottom: 1px solid #f2f2f2;
+  margin-bottom: 4px;
+}
+
+#local-search-panel .ls-item {
+  display: block;
+  padding: 9px 10px;
+  border-radius: 7px;
+  text-decoration: none;
+  transition: background 0.12s;
+}
+
+#local-search-panel .ls-item:hover,
+#local-search-panel .ls-item:focus {
+  background: #f5f7fa;
+  outline: none;
+}
+
+#local-search-panel .ls-item-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #222;
+  line-height: 1.5;
+  margin-bottom: 3px;
+}
+
+#local-search-panel .ls-item:hover .ls-item-title {
+  color: #258fb8;
+}
+
+#local-search-panel .ls-item-meta {
+  font-size: 11px;
+  color: #aaa;
+  margin-bottom: 3px;
+}
+
+#local-search-panel .ls-item-snippet {
+  font-size: 12px;
+  color: #777;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+/* 面板展开期间，强制页头搜索框保持可见：
+   主题的 blur 逻辑会移除 .on 把它滑走，这里用 !important 顶住 */
+body.ls-open #search-form-wrap {
+  opacity: 1 !important;
+  right: 0 !important;
+}
+
+@media (max-width: 767px) {
+  #local-search-panel {
+    top: 60px;
+    right: 8px;
+    left: 8px;
+    width: auto;
+    max-width: none;
+    max-height: 64vh;
+  }
+}
