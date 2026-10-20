@@ -4,10 +4,189 @@
   <subtitle>读一本好书，遇见更好的自己</subtitle>
   <link href="https://caicitou-lili.github.io/"/>
   <link rel="self" href="https://caicitou-lili.github.io/atom.xml"/>
-  <updated>2026-10-18T10:25:54+08:00</updated>
+  <updated>2026-10-20T22:23:54+08:00</updated>
   <id>https://caicitou-lili.github.io/</id>
   <author><name>caicitou-lili</name></author>
   <generator uri="https://hexo.io/">Hexo</generator>
+  <entry>
+    <title>动动嘴就能做 AI 短剧，还能自动剪辑：可灵 4.0 实测与全流程教程</title>
+    <link href="https://caicitou-lili.github.io/2026/10/20/可灵4-0实测与AI短剧全流程/"/>
+    <id>https://caicitou-lili.github.io/2026/10/20/可灵4-0实测与AI短剧全流程/</id>
+    <published>2026-10-20T22:30:00+08:00</published>
+    <updated>2026-10-20T22:23:54+08:00</updated>
+    <category term="教程"/>
+    <content type="html"><![CDATA[<blockquote>
+<p><strong>转载说明</strong>：本文整理自 X（Twitter）作者 <a href="https://x.com/xitang_ai">@西堂AI创业笔记</a> 的长文<a href="https://x.com/xitang_ai/status/2112514646196244880">《动动嘴就能做AI短剧，还能自动剪辑！可灵4.0全流程教程（附提示词）》</a>，版权归原作者所有。文中视频演示请到原帖观看，图片与文字已完整转存。</p>
+</blockquote>
+<p>今天聊聊最近更新的可灵 4.0。</p>
+<p>你是不是很好奇，同一段女团舞、同一场武士对决，之前我用Seedance2.5生成过，现在换成可灵4.0，会拍出什么？</p>
+<p>可灵最长单次能生成30s、带对白、还能自己切镜头，听着很适合拿来做短剧。但到底实际效果怎么样，还得实际应用才知道。</p>
+<p>我拿此前用Seedance 2.5做过的案例重新测试，再用一部都市短剧，把剧本、人物图、视频生成到剪辑的流程走一遍。</p>
+<p>先看五组视频，后面直接讲怎么做。完整提示词和对应素材都放在文末。</p>
+<h2 id="一、五组实测"><a href="#一、五组实测" class="headerlink" title="一、五组实测"></a>一、五组实测</h2><p>我拿了五个以前用Seedance 2.5做过的案例，换可灵4.0再跑一遍。</p>
+<h2 id="01-女团舞"><a href="#01-女团舞" class="headerlink" title="01 女团舞"></a>01 女团舞</h2><p>提示词只规定三位成年成员、粉色长发／银色短发／黑色长发，以及全景、转身和表情特写，让模型自由发挥。</p>
+<p>先看可灵4.0，再看Seedance 2.5。原片分别为1080P、720P，合成视频统一1080P；保留原声、原速。</p>
+<p><img src="/images/kling4/01.jpg" alt="视频画面 1"></p>
+<p><em>▶ 约 30 秒视频演示，原帖内可播放</em></p>
+<p>女团这条，我确实没想到可灵会做成这样。说实话，有点像我之前用MiniMax H3时的感觉。</p>
+<p>至少在这个场景里，我觉得可灵跟Seedance 2.0差不多，有些地方还不如。</p>
+<p>当然，审美这个东西有点主观。</p>
+<p>大家可以自己看人物皮肤的细腻程度、面部处理，还有三个人齐舞的效果，心里有一杆秤。</p>
+<p>反正我看下来，这一条是没有Seedance 2.5好的。</p>
+<h2 id="02-武士打斗"><a href="#02-武士打斗" class="headerlink" title="02 武士打斗"></a>02 武士打斗</h2><p>这一组沿用原案例的人物和月下神社场景，把交锋拆成进攻、格挡、换位和终结。</p>
+<p><img src="/images/kling4/02.jpg" alt="视频画面 2"></p>
+<p><em>▶ 约 34 秒视频演示，原帖内可播放</em></p>
+<p>打斗这条，我觉得可灵4.0还是差点意思。</p>
+<p>那个极速交锋、打得特别快的感觉，没有出来。前后也有一些割裂，动作逻辑接不上，甚至打着打着，人的物理位置就变了。我觉得这种问题挺伤的。</p>
+<p>而且，这还是用了我们专门的打斗Skill之后的结果。可灵这条基本还得靠剪辑，把不同片段重新拼一遍，才能把动作逻辑弄好。</p>
+<p>Seedance 2.5之前那条，我基本能直接拿来用。</p>
+<h2 id="03-镇妖斗法"><a href="#03-镇妖斗法" class="headerlink" title="03 镇妖斗法"></a>03 镇妖斗法</h2><p>这场戏的看点，是先让镇妖师落入红丝陷阱，再用金符反过来困住蜘蛛精。大家可以重点看特效颜色、攻守关系和反转。</p>
+<p><img src="/images/kling4/03.jpg" alt="视频画面 3"></p>
+<p><em>▶ 约 56 秒视频演示，原帖内可播放</em></p>
+<p>蜘蛛精这条，整体我反而觉得还不错。</p>
+<p>动作是连着的，法术也基本对，人物嘴型能对上，镜头切换也还可以。</p>
+<p>比较明显的问题在14秒左右，蜘蛛精把自己捆住了。又是这种逻辑错误，有点可惜。但把这个点排除掉，整条还是有不少能用的地方。</p>
+<h2 id="04-森林逃亡"><a href="#04-森林逃亡" class="headerlink" title="04 森林逃亡"></a>04 森林逃亡</h2><p>两名互不认识的逃亡者迎面撞上，从“你跟着我？”聊到“带路”，嘴上互相提防，行动却越来越靠近。30秒里几乎全靠人物关系推进。</p>
+<p><img src="/images/kling4/04.jpg" alt="视频画面 4"></p>
+<p><em>▶ 约 60 秒视频演示，原帖内可播放</em></p>
+<p>森林这条，我基本挑不出什么大毛病。</p>
+<p>清晰度、人物的写实程度，包括细节，我觉得跟Seedance 2.5是能不相上下的。</p>
+<p>可能就是一些很微妙的语气，差那么一点感觉；烘托暧昧氛围的小细节，也稍微少了一些。但整体我能接受，这一条是可以用的。</p>
+<h2 id="05-耳机广告"><a href="#05-耳机广告" class="headerlink" title="05 耳机广告"></a>05 耳机广告</h2><p>我上传了产品的整体、侧面、网布细节各一张，沿用原案例提示词，要求简洁的商业展示和结尾产品名。</p>
+<p><img src="/images/kling4/05.jpg" alt="视频画面 5"></p>
+<p><em>▶ 约 30 秒视频演示，原帖内可播放</em></p>
+<p>广告片这条，整体清晰度OK，产品一致性我觉得也还可以。就是加上旁白之后，反而变得更low了，音乐也没有那么高级。</p>
+<p>不过这些问题，后期换掉声音还能处理，整体是能用的。如果是我来交片，会先去掉这段旁白，再重新找合适的音乐。</p>
+<h2 id="成本怎么算"><a href="#成本怎么算" class="headerlink" title="成本怎么算"></a>成本怎么算</h2><p>效果看完，再算算钱。我查了两边的官方价格，也翻了这次的扣积分记录。</p>
+<p>这里先按10秒、16:9、只用文字或图片参考来比，不带输入视频。</p>
+<p>以下保留本次测试时的价格与扣积分口径：</p>
+<p>• 可灵4.0，钻石会员积分，1080P：本次实扣135灵感值；按测试时首月套餐折算约7.86元，续费月约9.89元。</p>
+<p>• Seedance 2.5，火山方舟官方API，1080P：约37.42元。</p>
+<p>• Seedance 2.5，火山方舟官方API，720P：约15.12元。</p>
+<p>按这两种购买方式，可灵这次的1080P单条预算更低。</p>
+<h2 id="二、短剧全流程"><a href="#二、短剧全流程" class="headerlink" title="二、短剧全流程"></a>二、短剧全流程</h2><p>前面看的是模型对比。接下来，我拿可灵做了一条完整的AI短剧。</p>
+<p><img src="/images/kling4/06.jpg" alt="视频画面 6"></p>
+<p><em>▶ 约 65 秒视频演示，原帖内可播放</em></p>
+<p>女继承人被栽赃，董事逼她交权，父亲也不相信她。保安上来拉人，西装保镖出手解围，拿出监控。最后查到的钱，却进了父亲的账户。</p>
+<p>这条片子，从写剧本、做人物，到生成视频、剪辑、加字幕和配乐，我都是跟AI聊着做完的，中间没有打开过剪映等任何剪辑软件。</p>
+<p>当然，也不是一句话就全部做对了。</p>
+<p>男主不够帅、女主像贴上去的、打戏突然开打、证据文字乱码，这些问题我们都遇到了。我看完觉得哪里不对，就接着说，让它继续改。下面是我的整体流程。</p>
+<p><img src="/images/kling4/07.jpg" alt="图 7"></p>
+<h2 id="1-连接可灵"><a href="#1-连接可灵" class="headerlink" title="1. 连接可灵"></a>1. 连接可灵</h2><p>第一步，我们把可灵的MCP和CLI都接到Codex里。连好之后，上传参考图、提交视频、查看进度、下载原片，这些就可以让它去做了。</p>
+<p><img src="/images/kling4/08.jpg" alt="视频画面 8"></p>
+<p><em>▶ 约 0 秒视频演示，原帖内可播放</em></p>
+<p>不用先研究一堆配置，直接把下面这句话发给Codex：</p>
+<p>请运行以下命令安装可灵 Skill，并完成授权流程：npx skills add klingai-tech&#x2F;skills</p>
+<p>安装和授权照它的引导走，浏览器弹出登录页时，用你自己的可灵账号授权好即可。</p>
+<p><img src="/images/kling4/09.jpg" alt="图 9"></p>
+<p>我们也不用管什么mcp和cli的原理是什么，总之就是我们给Codex接上了操作可灵的工具。</p>
+<p>也不一定非要用Codex。WorkBuddy和豆包工作都是同样的提示词都能连接上。</p>
+<h2 id="2-编写剧本"><a href="#2-编写剧本" class="headerlink" title="2. 编写剧本"></a>2. 编写剧本</h2><p>剧本我用的是西羊石短剧剧本创作GPTS。它主要按短剧的节奏来写。</p>
+<p><img src="/images/kling4/10.jpg" alt="图 10"></p>
+<p>我的输入其实很口语化，就是把脑子里的画面说给它听：家族企业只有一个女继承人，她被董事会的人搞了，最无助的时候，保镖出来救场。要有冲突、有反转，角色别太多，一分钟到80秒左右，背景放在中国。</p>
+<p>你看下面这段，就是当时一点点聊出这个故事的过程。前面还在想西游、聊斋和教父式的改编故事或者氛围，后来才确定做现代家族企业。</p>
+<p><img src="/images/kling4/11.jpg" alt="图 11"></p>
+<p>GPTS会根据这些想法输出完整剧本，我看完再改。比如女主不能一直等人救，她自己得有反驳；监控也不能只拍赵董事进了财务室，最好能看到他拿印章、盖章、刷卡，证据才接得上。</p>
+<p>剧本确认没问题，再把它交给Codex继续做。你也可以这样说：</p>
+<p>这是我确认过的短剧剧本。接下来按这个版本制作，先给我角色设定和需要准备的人物、场景、道具清单，再逐项生成资产图。先别急着生成视频。</p>
+<h2 id="3-准备资产"><a href="#3-准备资产" class="headerlink" title="3. 准备资产"></a>3. 准备资产</h2><p>这一步我觉得很关键。我们拍的是现代家族企业，人物穿着就偏职业风，主要场景用现代会议室。总不能故事讲董事会，人物和房间却各有各的风格。</p>
+<p>女主是继承人，我希望她看起来是被富养长大的女孩：自然、有气质，有一点贵气，不需要浓妆或者把所有昂贵的东西都穿在身上。</p>
+<p>最后用了白短外套、深色长裤和暗红胸针，放在一群深色西装里也比较显眼。</p>
+<p><img src="/images/kling4/12.jpg" alt="图 12"></p>
+<p>男主虽然是保镖，但他也是男主，所以一定得帅，给人安全感。</p>
+<p>我们最早那版还戴眼镜，看着像大学生或者程序员，我当时就说，这哪里像能打得过反派打手？后来选中一张脸，继续换西装、调身材比例，才有现在这个样子。</p>
+<p><img src="/images/kling4/13.jpg" alt="图 13"></p>
+<p>反派打手的造型就可以粗粝一点、凶狠一点，别所有人都长得像精修男模。</p>
+<p><img src="/images/kling4/14.jpg" alt="图 14"></p>
+<p>女主父亲，我想要的是四五十岁、已经成功的商业掌权者，有一点教父式的威严；</p>
+<p><img src="/images/kling4/15.jpg" alt="图 15"></p>
+<p>其他高管也要有年龄感，可以稍微发福。大家站在一起，观众才分得清谁是什么人。</p>
+<p>人物参考图用的就是上面这种白底三栏：正面脸部大特写、遮住脸的正面全身、背面全身。</p>
+<p>这个做法是我最近看Higgsfield公开创作流程学来的。正面全身里的脸涂掉，只用大特写提供脸部信息；全身图负责身材和衣服，背面负责背后的结构。这样可以减少两张脸不完全一样、模型不知道该参考哪一张的干扰。参考资产准备教程</p>
+<p>保持已选定的人物身份和脸型，做一张纯白背景角色参考板：左边是清晰的正面脸部大特写，中间是头顶到鞋底完整的正面全身，仅遮住脸部，右边是背面全身。人物比例修长自然，服装、鞋子前后一致，不要加文字。</p>
+<p>但要跟视频模型说清楚，黑块只是参考图的处理方式，成片人物的脸必须完整。我们前面真的生成过遮脸画面，所以这个说明不能省。一致性也要继续看原片，不能做完三视图就完全不管了。</p>
+<p>场景同样先固定下来。我们这间会议室的门、窗、长桌和主位，后面换镜头还得是同一间房。</p>
+<p><img src="/images/kling4/16.jpg" alt="图 16"></p>
+<p>再让人物进到场景里试一张构图。人的比例、窗光的方向、手和桌子的接触都要看。前面女主像贴上去的，就是不能只顾脸好看，还得让她真的站在这个空间里。</p>
+<p><img src="/images/kling4/17.jpg" alt="图 17"></p>
+<h2 id="4-编排视频提示词"><a href="#4-编排视频提示词" class="headerlink" title="4. 编排视频提示词"></a>4. 编排视频提示词</h2><p>到了视频提示词这一步，我用了一份具有视听语言专业知识的提示词模板。它会结合短剧节奏，把景别、运镜、人物表演和段落衔接编排进去。</p>
+<p><img src="/images/kling4/18.jpg" alt="图 18"></p>
+<p>我觉得资产图和提示词，是生成视频特别关键的两个东西。前面把它们弄好，后面才能少一点盲目抽卡。</p>
+<p>把剧本、资产图和模板一起发给Codex，就可以接着说：</p>
+<p>按我提供的提示词模板，把这集拆成可以连续生成的几批素材。<br>每批写清参考图用途、开场站位、人物表演、对白、景别和运镜，结尾停在哪里也要说明。台词用已经确认的版本。打戏单独调用我们的打斗Skill细化。</p>
+<p>一批素材里面可以有几个镜头，不用一句台词生成一条。也别为了凑满时长，让人物站着发呆。</p>
+<p>尤其是表演，你得写。</p>
+<p>我这次用可灵的感觉是，不把反应说清楚，它真的会很尴尬。一个画面里好几张脸，大家都不怎么动，也没表情，看久了甚至有点毛骨悚然。</p>
+<p><img src="/images/kling4/19.jpg" alt="图 19"></p>
+<p>所以女主听到父亲让她停职，不要只写她很伤心。</p>
+<p>可以写她撑桌的手指收紧，短吸一口气，抬眼看父亲；父亲听完，避开她的目光。旁边的赵董事看向门口，等着保安过来。每个人在这个时候做什么，都得有原因。</p>
+<p>比如我们停职这一段，提示词就是这么组织的：</p>
+<p>父亲近景，放下笔，看向女儿：交印章。停职调查。镜头轻推。<br>切女主侧面肩胸近景，画面下缘看得到她撑桌的手。她手指收紧，压着委屈说：爸，你连我一句话都不肯信？<br>切父亲近景，他看她一眼，又低下眼：我只看证据。<br>切赵董事中近景，他马上向门口抬手：带走！</p>
+<p>景别也要换。先让观众知道大家在哪，再切近一点看表情或动作，别整段都用一个全景。一直远远看着，既枯燥，也容易把那些不自然的小动作全露出来。</p>
+<p>打戏我们另外用了专门的打斗Skill。没装过的，可以让Codex安装GitHub上的 ZzzAloong&#x2F;fight-scene-director。</p>
+<p>我自己对比下来，确实更喜欢用了Skill的那一版。下面这两条就是早期实测，同一组5张参考图，同一个可灵4.0，都是10秒、1080P。一条用原提示词，一条用Skill细化提示词。</p>
+<p><img src="/images/kling4/20.jpg" alt="视频画面 20"></p>
+<p><em>▶ 约 20 秒视频演示，原帖内可播放</em></p>
+<p>这一组我更偏向后者，但两条仍有不自然的地方，后面也继续返修了。</p>
+<p>打斗肯定要有快有慢。</p>
+<p>靠近、对峙可以稍缓，出招和反击要利落，失衡落地又得给观众看清楚。Skill帮我们把来招、应对、接触、结果写出来，比只写激烈打斗要具体得多。</p>
+<p>运镜也要跟动作匹配。</p>
+<p>人都打到画面边上了，镜头还稳稳待在原地，就容易像旁边摆了一台监控。</p>
+<p>当然不是越晃越好，走位时跟过去，接触时看清楚，冲突结束再稳下来。我们后面还加过6秒动作视频参考，主要借它的速度和摄影节奏。</p>
+<h2 id="5-生成与返修"><a href="#5-生成与返修" class="headerlink" title="5. 生成与返修"></a>5. 生成与返修</h2><p>参考图和提示词准备好，就让Codex提交。这次用的是可灵4.0，16:9、1080P，有音画同步，保留对白和现场音效。背景音乐、字幕和屏幕文字留到后期统一做。</p>
+<p>按这批提示词和参考素材生成视频，先核对图片顺序和每张图的用途。角色的脸只参考对应大特写，遮脸全身只参考服装和身材。用可灵4.0、1080P、16:9，保留对白和现场音效，不生成字幕和背景音乐。保存任务编号，完成后下载原片给我看。</p>
+<p>上传、查询和下载都可以交给它。我们中间遇到上传请求过多，就改成逐张上传；电脑不小心关机了，回来按已有任务编号接着查，不用从头再来。</p>
+<p>按我自己的使用经验，资产和提示词准备充分后，不少镜头生成1—3次就能接近想要的效果。但难的打戏、前后衔接，还是得多花心思。这次也没有一次全过。</p>
+<p>比如我后来发现29秒保镖动手很突然，就直接跟它说：我没看懂他怎么过来的，前后接不上。让它补上保安靠近女主、男主进门制止、对方继续攻击、男主反击这一段。</p>
+<p><img src="/images/kling4/21.jpg" alt="图 21"></p>
+<p>补拍时，我们用了这张状态还正确的入场画面，再配人物、会议室和动作参考。下面先看旧版，再看调整后的同一时间段。</p>
+<p><img src="/images/kling4/22.jpg" alt="视频画面 22"></p>
+<p><em>▶ 约 16 秒视频演示，原帖内可播放</em></p>
+<p>文字也是一个问题。我这次在可灵里生成的证据界面，有些字还是不像正常中文，直接放在片子里很出戏，这一块我觉得还需要加强。</p>
+<p>如果某个画面特别依赖清晰的文字和构图，我会更倾向先用GPT Image 2.5把关键帧做清楚、检查好，再拿关键帧生成视频。</p>
+<p>这是一种可以尝试的办法，字在运动里仍然可能变形；需要观众准确读到的信息，后期加字更好控制。</p>
+<h2 id="6-剪辑与复盘"><a href="#6-剪辑与复盘" class="headerlink" title="6. 剪辑与复盘"></a>6. 剪辑与复盘</h2><p>原片出来以后，我们就在同一段对话里继续拼接和修改。</p>
+<p>我没有打开剪映去拖时间线，而是直接告诉Codex：哪段删掉，哪段加快，哪里补声音。</p>
+<p>比如有一段打完之后，人物站在那里停了一下，45秒附近看起来像卡住了。与其硬留着，最后就把上一版44.25—46.25秒那两秒剪掉。灰衣壮汉进场稍微加快到约1.3倍，交手处加一点推近和跟随裁切，节奏才收紧。</p>
+<p><img src="/images/kling4/23.jpg" alt="视频画面 23"></p>
+<p><em>▶ 约 0 秒视频演示，原帖内可播放</em></p>
+<p>监控画面也做了后期包装。</p>
+<p>我们加上中文机位名、录像状态和时间码，让它看起来更像监控。那些奇怪的证据文字则拿掉，换成赵董事取章、盖章、刷卡的画面，保留保镖指认他的对白，观众更容易看懂。</p>
+<p><img src="/images/kling4/24.jpg" alt="视频画面 24"></p>
+<p><em>▶ 约 0 秒视频演示，原帖内可播放</em></p>
+<p>音乐不用一直铺满。</p>
+<p>我让它在停职、解围和结尾点缀几下，最后等女主问完父亲，再落一个反转重音，接父亲的反应。话还没说完就急着放音乐，情绪反而容易跑掉。</p>
+<p>这些修改，直接这么说就行：</p>
+<p>45秒附近有一点卡，把打完后多余的停顿剪掉。壮汉进场稍微加速，运镜跟着动作走，但别把对白也加快。监控补上中文机位名和时间码，删掉乱码。结尾等女主问完，再加短促的反转音乐，其他地方少量点缀就好。</p>
+<p>我简单总结在这个作品主要改了什么，大家可能在实际创作中遇到不同的问题，我这里分享我优化迭代的思路。</p>
+<p><img src="/images/kling4/25.jpg" alt="图 25"></p>
+<p>所以你看，第一版不好，不代表这条片子就做不了了。</p>
+<p>先把问题说具体一点，是人物没表情，还是动作软绵绵？是镜头不跟人，还是观众没看懂为什么突然开打？有些要重新生成，有些剪掉就好了。</p>
+<p>我觉得，做短剧也好、做电影也好，先得让画面有基本的美感，故事说得通，镜头和声音能带着观众看下去。再往后，才是更好的创意、更高的审美，以及你自己的表达。</p>
+<p>这篇文章，其实也是这样做出来的。</p>
+<p>我用语音输入法，把测试感受和关键步骤说给AI听，再让它整理成文章。中间的聊天截图、角色板、提示词、对比视频和返修过程，也一起留下来放到对应位置。</p>
+<p>不然一篇文章全是文字，大家看着累，也很难知道我究竟怎么做的。把素材和过程摆出来，才看得懂，也方便跟着试。</p>
+<p>之前大家说vibe coding，现在叫vibe cutting也好，vibe videoing也好，我觉得意思都差不多，我们可以动动嘴，把脑子里的想法变成视频，继续对话把它剪好，甚至再整理成一篇完整的复盘。</p>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>整体对比下来，我觉得可灵4.0还是有自己的优势。</p>
+<p>3D场景和写实质感这两块，我个人是比较认可的。当然，动作衔接和人物表演也还有需要打磨的地方，具体做什么片子，还是得看案例来选。</p>
+<p>另一个让我觉得挺好的变化，是有了CLI和MCP以后，我们用Agent做视频方便了很多。</p>
+<p>这次直接用可灵账号里的积分，就能让Codex去生成、下载，再接着剪辑；对于已经开放API的模型，也可以按接口接进自己的流程。选择越来越多，不用每一步都自己切软件操作。</p>
+<p>作为用户，我当然很开心看到更多视频模型出来。我也不希望最后变成字节跳动一家独大，大家只能用同一个平台。</p>
+<p>我们有更多选择，平台之间有竞争，技术才更有动力往前走，价格也不至于太离谱。</p>
+<p>谁在什么场景下做得好、用起来顺手、价格合适，我们就选谁。</p>
+<p>我觉得这样挺好的。</p>
+<h2 id="三、素材"><a href="#三、素材" class="headerlink" title="三、素材"></a>三、素材</h2><p>完整剧本、人物资产、具有视听语言专业知识的提示词模板、打斗提示词、对比视频和剪辑记录，都放在下面的资料包里。先拿一小段试试，哪里不对，就接着聊。</p>
+<p>资料包《谁敢动她_完整教程与素材_精修版.zip》见飞书原文末尾：</p>
+<p><a href="https://xiyangshiai.feishu.cn/docx/JvzLdaUjAoAPVDxSCeUcAXNZnWe">https://xiyangshiai.feishu.cn/docx/JvzLdaUjAoAPVDxSCeUcAXNZnWe</a></p>
+<hr>
+<p><strong>原文</strong></p>
+<ul>
+<li>原帖：<a href="https://x.com/xitang_ai/status/2112514646196244880">https://x.com/xitang_ai/status/2112514646196244880</a></li>
+<li>作者：西堂AI创业笔记（前腾讯工程师，《AI漫剧创作一本通》《AI视频一本通》作者）</li>
+<li>本文仅作存档与学习交流，文字、图片版权归原作者所有；如需引用请注明出处。</li>
+</ul>
+]]></content>
+  </entry>
   <entry>
     <title>闲鱼捡漏自动化：ai-goofish-monitor 部署与使用全记录</title>
     <link href="https://caicitou-lili.github.io/2026/10/18/闲鱼智能监控-ai-goofish-monitor-部署与使用/"/>
@@ -2187,97 +2366,6 @@
 <hr>
 <blockquote>
 <p>📌 原文作者：<a href="https://x.com/trq212">@trq212</a> Thariq Shihipar（Anthropic 技术团队成员）<br>原文发布：Claude 官方博客 &amp; <a href="https://x.com/trq212/status/2061907337154367865">X.com</a><br>数据：1270 转推 · 9870 点赞 · 22818 收藏 · 285 万浏览</p>
-</blockquote>
-]]></content>
-  </entry>
-  <entry>
-    <title>中文内容创作者必备的10个 Codex Skills</title>
-    <link href="https://caicitou-lili.github.io/2026/06/08/中文内容创作者必备的10个Codex-Skills/"/>
-    <id>https://caicitou-lili.github.io/2026/06/08/中文内容创作者必备的10个Codex-Skills/</id>
-    <published>2026-06-08T02:30:00+08:00</published>
-    <updated>2026-10-11T23:03:23+08:00</updated>
-    <category term="效率工具"/>
-    <content type="html"><![CDATA[<p>最近整理了一批适合中文内容创作者用的 Codex Skills。</p>
-<p>如果你平时要写文章、改稿、去 AI 味、做配图、做封面、小红书卡片，这 10 个基本能覆盖一整套内容生产流程。</p>
-<p>建议先收藏，不用一次装完，按自己的创作需求慢慢补。</p>
-<span id="more"></span>
-
-<hr>
-<h2 id="1-Humanizer-zh"><a href="#1-Humanizer-zh" class="headerlink" title="1. Humanizer-zh"></a>1. Humanizer-zh</h2><p>中文写作者很实用的<strong>去 AI 味</strong>工具。</p>
-<p>它不是简单改几个词，而是会帮你处理空话、套话、三段式、过度排比这些问题，让稿子更像真人写出来的。</p>
-<p>🔗 <a href="https://github.com/op7418/Humanizer-zh">github.com&#x2F;op7418&#x2F;Humanizer-zh</a></p>
-<h2 id="2-dbskill"><a href="#2-dbskill" class="headerlink" title="2. dbskill"></a>2. dbskill</h2><p>更像一个<strong>内容诊断工具</strong>。</p>
-<p>适合做选题判断、商业表达、hook、小红书标题、爆款拆解，尤其适合中文自媒体和知识型创作者。</p>
-<p>🔗 <a href="https://github.com/dontbesilent2025/dbskill">github.com&#x2F;dontbesilent2025&#x2F;dbskill</a></p>
-<h2 id="3-content-research-writer"><a href="#3-content-research-writer" class="headerlink" title="3. content-research-writer"></a>3. content-research-writer</h2><p>适合需要<strong>完整写作流程</strong>的人。</p>
-<p>从选题、资料、提纲、引用到初稿，基本能把一篇长文的前期工作串起来，公众号、Newsletter、博客、X 长文都能用。</p>
-<p>🔗 <a href="https://github.com/ComposioHQ/awesome-codex-skills/tree/master/content-research-writer">github.com&#x2F;ComposioHQ&#x2F;awesome-codex-skills</a></p>
-<h2 id="4-NotebookLM-Claude-Code-Skill"><a href="#4-NotebookLM-Claude-Code-Skill" class="headerlink" title="4. NotebookLM Claude Code Skill"></a>4. NotebookLM Claude Code Skill</h2><p>资料型写作者可以重点看看。</p>
-<p>它更适合基于已有资料库来写作，能减少胡编乱造，适合行业研究、课程稿、深度文章和长文整理。</p>
-<p>🔗 <a href="https://github.com/PleasePrompto/notebooklm-skill">github.com&#x2F;PleasePrompto&#x2F;notebooklm-skill</a></p>
-<h2 id="5-khazix-skills"><a href="#5-khazix-skills" class="headerlink" title="5. khazix-skills"></a>5. khazix-skills</h2><p>适合做<strong>公众号长文和万字研究报告</strong>。</p>
-<p>里面的写作流偏重，不是随手写一篇短文那种，更适合 AI 热点分析、深度拆解和观点型长文。</p>
-<p>🔗 <a href="https://github.com/KKKKhazix/khazix-skills">github.com&#x2F;KKKKhazix&#x2F;khazix-skills</a></p>
-<h2 id="6-ian-xiaohei-illustrations"><a href="#6-ian-xiaohei-illustrations" class="headerlink" title="6. ian-xiaohei-illustrations"></a>6. ian-xiaohei-illustrations</h2><p>如果你经常写中文文章，这个很适合拿来做<strong>正文配图</strong>。</p>
-<p>它不是随便生成一张图，而是把文章里的观点、流程、情绪和隐喻，转成”小黑”风格插图。</p>
-<p>🔗 <a href="https://github.com/helloianneo/ian-xiaohei-illustrations">github.com&#x2F;helloianneo&#x2F;ian-xiaohei-illustrations</a></p>
-<h2 id="7-guizang-social-card-skill"><a href="#7-guizang-social-card-skill" class="headerlink" title="7. guizang-social-card-skill"></a>7. guizang-social-card-skill</h2><p>写完文章之后，可以用它做<strong>小红书图文和公众号封面</strong>。</p>
-<p>一篇长文拆成多张卡片，做成可以直接分发的视觉内容，会省很多时间。</p>
-<p>🔗 <a href="https://github.com/op7418/guizang-social-card-skill">github.com&#x2F;op7418&#x2F;guizang-social-card-skill</a></p>
-<h2 id="8-baoyu-skills"><a href="#8-baoyu-skills" class="headerlink" title="8. baoyu-skills"></a>8. baoyu-skills</h2><p>中文创作者的<strong>视觉工具箱</strong>。</p>
-<p>封面图、信息图、结构图、图解都能做，适合给文章做包装，也适合把复杂观点视觉化。</p>
-<p>🔗 <a href="https://github.com/JimLiu/baoyu-skills">github.com&#x2F;JimLiu&#x2F;baoyu-skills</a></p>
-<h2 id="9-guizang-ppt-skill"><a href="#9-guizang-ppt-skill" class="headerlink" title="9. guizang-ppt-skill"></a>9. guizang-ppt-skill</h2><p>适合把文章观点做成 <strong>PPT、演讲图、公众号头图、小红书封面</strong>。</p>
-<p>如果你经常把一篇文章二次分发成分享稿、演示稿或者视觉卡片，这个会很顺手。</p>
-<p>🔗 <a href="https://github.com/op7418/guizang-ppt-skill">github.com&#x2F;op7418&#x2F;guizang-ppt-skill</a></p>
-<h2 id="10-html-anything"><a href="#10-html-anything" class="headerlink" title="10. html-anything"></a>10. html-anything</h2><p>可以把 Markdown、文案、文章转成 <strong>HTML 页面、海报、卡片和 PNG</strong>。</p>
-<p>适合做杂志风文章、知识卡片、小红书图文和分享图。</p>
-<p>🔗 <a href="https://github.com/nexu-io/html-anything">github.com&#x2F;nexu-io&#x2F;html-anything</a></p>
-<hr>
-<h2 id="新手推荐：先装这-5-个"><a href="#新手推荐：先装这-5-个" class="headerlink" title="新手推荐：先装这 5 个"></a>新手推荐：先装这 5 个</h2><p>如果你只想先装一小套，建议从这 5 个开始：</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Skill</th>
-<th>解决什么问题</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>Humanizer-zh</td>
-<td>去 AI 味，文字更自然</td>
-</tr>
-<tr>
-<td>2</td>
-<td>dbskill</td>
-<td>选题诊断，内容判断</td>
-</tr>
-<tr>
-<td>3</td>
-<td>content-research-writer</td>
-<td>完整写作流程</td>
-</tr>
-<tr>
-<td>4</td>
-<td>ian-xiaohei-illustrations</td>
-<td>正文配图</td>
-</tr>
-<tr>
-<td>5</td>
-<td>guizang-social-card-skill</td>
-<td>封面与分发包装</td>
-</tr>
-</tbody></table>
-<p><strong>前 3 个解决文字质量，后 2 个解决配图和分发包装。</strong></p>
-<hr>
-<blockquote>
-<p>💡 别再只让 AI “帮我写一篇文章”了。</p>
-<p>真正提升效率的方式，是把 AI 接进你的创作流程里：<strong>选题、资料、写作、修改、配图、分发</strong>，每一步都让它干具体的活。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>📌 原文作者：<a href="https://x.com/wsl8297">@wsl8297</a> Joruno<br>原文链接：<a href="https://x.com/wsl8297/status/2063516310798250395">X.com</a></p>
 </blockquote>
 ]]></content>
   </entry>
