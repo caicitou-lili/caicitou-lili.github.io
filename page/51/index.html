@@ -96,6 +96,163 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-fuye-ch0048" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/01/23/fuye-ch0048/" class="article-date">
+  <time class="dt-published" datetime="2026-01-23T00:00:00.000Z" itemprop="datePublished">2026-01-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/01/23/fuye-ch0048/">通过开发垂直细分SaaS产品赚钱</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="程序员副业实战：构建CRM-SaaS，打造可复用的睡后收入"><a href="#程序员副业实战：构建CRM-SaaS，打造可复用的睡后收入" class="headerlink" title="程序员副业实战：构建CRM SaaS，打造可复用的睡后收入"></a>程序员副业实战：构建CRM SaaS，打造可复用的睡后收入</h1><p>对于具备开发能力、懂产品逻辑的程序员而言，SaaS（软件即服务）是极佳的商业模式：一次开发，无限复发，边际成本递减。CRM（客户关系管理）作为企业刚需，看似红海，实则在垂直细分领域仍有巨大机会。只要避开大厂锋芒，切入特定场景，控制好研发与获客成本，就能构建一个长期稳定的现金流渠道。</p>
+<p>以下是基于中国市场环境，从0到1构建并运营一款小而美CRM产品的完整实战指南。</p>
+<h2 id="一、-市场切入：避开红海，寻找“只有你能做”的缝隙"><a href="#一、-市场切入：避开红海，寻找“只有你能做”的缝隙" class="headerlink" title="一、 市场切入：避开红海，寻找“只有你能做”的缝隙"></a>一、 市场切入：避开红海，寻找“只有你能做”的缝隙</h2><p>市面上通用的CRM（如Salesforce、纷享销客）功能强大但复杂，且价格昂贵，这给“小而美”的SaaS留出了生存空间。你的机会在于<strong>垂直</strong>和<strong>轻量</strong>。</p>
+<h3 id="1-锁定“非标”的垂直行业"><a href="#1-锁定“非标”的垂直行业" class="headerlink" title="1. 锁定“非标”的垂直行业"></a>1. 锁定“非标”的垂直行业</h3><p>通用型CRM无法解决特定行业的痛点。你需要寻找那些数字化程度低、但现金流不错的行业。</p>
+<ul>
+<li><strong>装修&#x2F;家装公司</strong>：核心痛点是“工地进度与回款节点的匹配”，通用CRM无法精细化管理施工阶段。</li>
+<li><strong>留学&#x2F;移民中介</strong>：核心痛点是“申请文书的多版本流转与Deadline提醒”。</li>
+<li><strong>本地生活服务（如高端家政、私教工作室）</strong>：核心痛点是“会员课时核销与复购提醒”。<br><strong>策略</strong>：深入一个你熟悉或有资源的行业，做该行业的“专用版CRM”，而非“通用版”。</li>
+</ul>
+<h3 id="2-瞄准“小微”客户群体"><a href="#2-瞄准“小微”客户群体" class="headerlink" title="2. 瞄准“小微”客户群体"></a>2. 瞄准“小微”客户群体</h3><ul>
+<li><strong>目标画像</strong>：3-20人的小团队。</li>
+<li><strong>预算范围</strong>：年付费2000-5000元人民币。</li>
+<li><strong>核心诉求</strong>：不要复杂的功能堆砌，只要“上手快、能手机操作、不用培训”。他们不需要强大的BI报表，只需要知道“谁该联系了”、“谁该付钱了”。</li>
+</ul>
+<h2 id="二、-产品研发：极简MVP，用技术换效率"><a href="#二、-产品研发：极简MVP，用技术换效率" class="headerlink" title="二、 产品研发：极简MVP，用技术换效率"></a>二、 产品研发：极简MVP，用技术换效率</h2><p>副业的死穴是“战线过长”。切记：<strong>先有功能，再有完美架构</strong>。</p>
+<h3 id="1-MVP（最小可行性产品）设计原则"><a href="#1-MVP（最小可行性产品）设计原则" class="headerlink" title="1. MVP（最小可行性产品）设计原则"></a>1. MVP（最小可行性产品）设计原则</h3><p>砍掉80%的伪需求，只保留三个核心模块：</p>
+<ul>
+<li><strong>客户档案库</strong>：支持自定义标签（如“高意向”、“价格敏感”），支持Excel一键导入（这是存量客户迁移的关键）。</li>
+<li><strong>跟进流转</strong>：极简的销售漏斗（线索 -&gt; 意向 -&gt; 报价 -&gt; 成交），状态变更自动触发下一步提醒。</li>
+<li><strong>微信生态集成</strong>：这是中国市场的特殊性。必须打通微信&#x2F;企业微信，实现“微信聊天记录侧边栏归档”或“微信一键通知”。</li>
+</ul>
+<h3 id="2-技术选型：唯快不破，兼顾成本"><a href="#2-技术选型：唯快不破，兼顾成本" class="headerlink" title="2. 技术选型：唯快不破，兼顾成本"></a>2. 技术选型：唯快不破，兼顾成本</h3><ul>
+<li><strong>前端</strong>：Vue.js 或 React。推荐优先考虑 <strong>uni-app</strong> 或 <strong>Taro</strong>，因为在中国，客户大概率要求有微信小程序端，一套代码多端运行能极大降低维护成本。</li>
+<li><strong>后端</strong>：Node.js (NestJS&#x2F;Koa) 或 Python (Django&#x2F;FastAPI)，开发效率高。</li>
+<li><strong>数据库</strong>：PostgreSQL 或 MySQL。</li>
+<li><strong>部署</strong>：初期使用阿里云&#x2F;腾讯云的Serverless或轻量应用服务器，月成本控制在100元以内。</li>
+</ul>
+<h2 id="三、-冷启动与获客：零预算获取前100个付费用户"><a href="#三、-冷启动与获客：零预算获取前100个付费用户" class="headerlink" title="三、 冷启动与获客：零预算获取前100个付费用户"></a>三、 冷启动与获客：零预算获取前100个付费用户</h2><p>不要一开始就投百度的SEM或朋友圈广告，副业承受不起高昂的CAC（获客成本）。利用“内容杠杆”和“工具诱饵”进行低成本获客。</p>
+<h3 id="1-诱饵引流法（工具换线索）"><a href="#1-诱饵引流法（工具换线索）" class="headerlink" title="1. 诱饵引流法（工具换线索）"></a>1. 诱饵引流法（工具换线索）</h3><p>客户在寻找CRM之前，通常在解决更具体的问题。</p>
+<ul>
+<li><strong>制作“高价值”免费资料</strong>：制作几份行业专用的Excel模版，如《2024装修公司客户跟进表.xlsx》、《教培机构续费率计算器.xlsx》。</li>
+<li><strong>分发渠道</strong>：在知乎、小红书、行业垂直论坛发布文章，标题如《小微装修公司如何用Excel管理200个工地？附模版下载》。</li>
+<li><strong>转化路径</strong>：用户想要领取模版 -&gt; 关注公众号&#x2F;添加个人微信 -&gt; 发送模版 -&gt; 顺势引导：“Excel虽然好用，但数据多了容易乱，可以试试我们这个针对装修行业的轻量级工具，免费试用7天。”</li>
+</ul>
+<h3 id="2-SEO与内容种草"><a href="#2-SEO与内容种草" class="headerlink" title="2. SEO与内容种草"></a>2. SEO与内容种草</h3><ul>
+<li><strong>长尾词截流</strong>：针对你的细分行业，撰写大量“解决方案式”文章。例如“留学中介怎么防止顾问飞单”、“家政公司如何管理阿姨排班”。</li>
+<li><strong>平台选择</strong>：<ul>
+<li><strong>知乎</strong>：权重高，百度收录好，适合硬核干货。</li>
+<li><strong>小红书</strong>：企服类流量正在增长，用截图展示“界面清爽”、“手机能用”，吸引年轻创业者。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-种子用户裂变"><a href="#3-种子用户裂变" class="headerlink" title="3. 种子用户裂变"></a>3. 种子用户裂变</h3><p>设立简单的推荐机制：老用户推荐新用户成交，赠送老用户3个月时长，或直接返现15%（约300-500元）。对于小微企业主，这笔钱具有真实的激励作用。</p>
+<h2 id="四、-商业模式与定价：务实定价，现金为王"><a href="#四、-商业模式与定价：务实定价，现金为王" class="headerlink" title="四、 商业模式与定价：务实定价，现金为王"></a>四、 商业模式与定价：务实定价，现金为王</h2><h3 id="1-定价策略"><a href="#1-定价策略" class="headerlink" title="1. 定价策略"></a>1. 定价策略</h3><p>不要按人头收费（Account-based），小企业人员流动大，按人头算账很麻烦。推荐<strong>按版本&#x2F;容量收费</strong>：</p>
+<ul>
+<li><strong>基础版</strong>：199元&#x2F;月 或 1980元&#x2F;年（引导年付）。包含5个账号，2000条客户数据。</li>
+<li><strong>专业版</strong>：399元&#x2F;月 或 3980元&#x2F;年。账号不限，包含公海池、报表分析、API接口。<br><strong>注意</strong>：务必提供“年付打8折”的选项。SaaS初期现金流至关重要，年付能让你快速回笼资金覆盖服务器和营销成本。</li>
+</ul>
+<h3 id="2-收益测算（真实模型）"><a href="#2-收益测算（真实模型）" class="headerlink" title="2. 收益测算（真实模型）"></a>2. 收益测算（真实模型）</h3><p>假设你的客单价是2000元&#x2F;年：</p>
+<ul>
+<li><strong>冷启动期</strong>：通过私域和内容积累50个种子用户，年收入10万元。这已经能覆盖绝大多数副业的投入成本。</li>
+<li><strong>成长期</strong>：当用户达到300个，年收入60万元。此时可考虑招募兼职客服或销售。</li>
+</ul>
+<h2 id="五、-低成本留存：自动化服务，降低流失率"><a href="#五、-低成本留存：自动化服务，降低流失率" class="headerlink" title="五、 低成本留存：自动化服务，降低流失率"></a>五、 低成本留存：自动化服务，降低流失率</h2><p>SaaS赚钱的本质在于<strong>LTV（客户终身价值）</strong>。如果没有复购，获客成本会拖垮你。副业没有精力做重人力的客户成功（CS），必须依靠自动化。</p>
+<h3 id="1-建立自动化SOP（标准作业程序）"><a href="#1-建立自动化SOP（标准作业程序）" class="headerlink" title="1. 建立自动化SOP（标准作业程序）"></a>1. 建立自动化SOP（标准作业程序）</h3><ul>
+<li><strong>新手引导</strong>：不要指望用户自己摸索。录制3-5个短视频（每个30秒），嵌入在产品首页。如“如何录入第一个客户”、“如何设置回款提醒”。</li>
+<li><strong>活跃度监控</strong>：在后台设置预警。如果一个付费用户连续7天未登录，系统自动发送短信或邮件：“您的客户XX已经7天未跟进了，点击查看”。</li>
+</ul>
+<h3 id="2-私域服务群"><a href="#2-私域服务群" class="headerlink" title="2. 私域服务群"></a>2. 私域服务群</h3><p>为付费用户建立专属的企业微信服务群。</p>
+<ul>
+<li><strong>技巧</strong>：虽然是一对一服务，但尽量拉群（你+你的机器人+客户）。</li>
+<li><strong>价值输出</strong>：每周在朋友圈或群内发布一条“行业SaaS使用小技巧”或“同行成功案例”，让客户感觉到你不仅卖软件，还懂他的生意。</li>
+</ul>
+<h3 id="3-产品迭代节奏"><a href="#3-产品迭代节奏" class="headerlink" title="3. 产品迭代节奏"></a>3. 产品迭代节奏</h3><ul>
+<li><strong>小步快跑</strong>：每两周一个小更新，并在群里广而告之。这给客户一种“软件一直在变好”的信心，是续费的关键心理支撑。</li>
+<li><strong>克制需求</strong>：对于客户提出的定制化需求，除非是通用痛点，否则一律拒绝或收取高昂的定制费（以此劝退），保持产品的标准化。</li>
+</ul>
+<h2 id="CRM-SaaS-操盘手仪表盘-The-CRM-SaaS-Dashboard"><a href="#CRM-SaaS-操盘手仪表盘-The-CRM-SaaS-Dashboard" class="headerlink" title="CRM SaaS 操盘手仪表盘 (The CRM SaaS Dashboard)"></a>CRM SaaS 操盘手仪表盘 (The CRM SaaS Dashboard)</h2><h3 id="💰-财务测算（预估模型）"><a href="#💰-财务测算（预估模型）" class="headerlink" title="💰 财务测算（预估模型）"></a>💰 财务测算（预估模型）</h3><ul>
+<li><strong>启动成本</strong>：¥1,000 - ¥5,000 (主要用于极简服务器和域名备案)</li>
+<li><strong>单模型盈利分析 (垂直 B 端订阅)</strong><ul>
+<li>**年付定价 (ARR)**：¥1,980 - ¥3,980 &#x2F; 企业</li>
+<li><strong>毛利率</strong>：<strong>98%+</strong> (无边际交付成本)</li>
+<li>**获客成本 (CAC)**：¥200 - ¥500 (通过干货内容转化)</li>
+<li>**LTV (终身价值)**：预计 ¥6,000+ (平均续费 3 年)</li>
+<li><strong>月利润预期</strong>：¥1.5w - ¥5w (积累 100-300 付费企业)</li>
+</ul>
+</li>
+<li><strong>回本周期</strong>：预计 <strong>3 - 6 个月</strong>。</li>
+</ul>
+<h3 id="📊-关键指标体系"><a href="#📊-关键指标体系" class="headerlink" title="📊 关键指标体系"></a>📊 关键指标体系</h3><ul>
+<li><strong>北极星指标</strong>：**Active Usage per Account (账号活跃度)**。<ul>
+<li><em>判定</em>：企业员工日均登录及录入线索数。</li>
+</ul>
+</li>
+<li><strong>KPI</strong>：<ul>
+<li>**Churn Rate (流失率)**：目标 &lt; 10% &#x2F; 年。</li>
+<li>**Trial-to-Paid Ratio (转化率)**：从 7 天试用到付费，目标 &gt; 5%。</li>
+</ul>
+</li>
+<li>**OKR (第一个季度目标)**：<ul>
+<li><strong>O</strong>：在 1 个特定垂直行业（如装修&#x2F;留学）跑通 PMF。</li>
+<li><strong>KR1</strong>：获取 50 个及以上的真实测试企业，收集 10 项核心痛点迭代。</li>
+<li><strong>KR2</strong>：实现首批 10 个正式年付客户，验证闭环客单价。</li>
+<li><strong>KR3</strong>：SEO 关键词（如“行业名+CRM”）实现百度&#x2F;知乎前 10 覆盖。</li>
+</ul>
+</li>
+</ul>
+<h3 id="⚠️-避坑与风控"><a href="#⚠️-避坑与风控" class="headerlink" title="⚠️ 避坑与风控"></a>⚠️ 避坑与风控</h3><ul>
+<li><strong>数据孤岛风险</strong>：必须提供极其简便的 Excel 导入&#x2F;导出功能，降低客户迁移门槛。</li>
+<li><strong>服务器宕机</strong>：SaaS 最忌数据丢失。必须建立异地自动备份机制，确保 99.9% 的可用性。</li>
+</ul>
+<h2 id="六、-总结"><a href="#六、-总结" class="headerlink" title="六、 总结"></a>六、 总结</h2><p>开发CRM SaaS产品，核心不是代码写得有多精妙，而是<strong>对细分行业业务流程的理解深度</strong>。</p>
+<ol>
+<li><strong>找缝隙</strong>：去大厂看不上的垂直行业。</li>
+<li><strong>做减法</strong>：只解决最痛的“搞钱”和“省钱”问题。</li>
+<li><strong>换思维</strong>：用卖干货资料的逻辑去获取销售线索。</li>
+<li><strong>重留存</strong>：让用户把数据沉淀下来，数据在，客户就在。</li>
+</ol>
+<p>这条路前期需要极强的耐心去打磨产品和积累种子用户，但一旦跨过100个付费用户的门槛，飞轮效应就会显现，成为你最稳健的资产。</p>
+<hr>
+<blockquote>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：通过开发垂直细分SaaS产品赚钱。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://caicitou-lili.github.io/2026/01/23/fuye-ch0048/" data-id="cmvi6pm9f003qvch3a4w8gmm0" data-title="通过开发垂直细分SaaS产品赚钱" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-fuye-ch0047" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/01/22/fuye-ch0047/" class="article-date">
@@ -1503,159 +1660,6 @@
 
 
   
-    <article id="post-fuye-ch0037" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/01/18/fuye-ch0037/" class="article-date">
-  <time class="dt-published" datetime="2026-01-18T00:00:00.000Z" itemprop="datePublished">2026-01-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/01/18/fuye-ch0037/">通过宠物殡葬服务赚钱</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>在当今的中国市场，“孤独经济”与“宠物经济”双重叠加，使得宠物殡葬成为了一个极具潜力的细分赛道。这不仅仅是情感生意，更是一个需要精细化运营的商业闭环。不要把它看作简单的“火化尸体”，而要看作是<strong>“情感交付+生命礼仪”的服务产品</strong>。</p>
-<p>对于初创者，从0到1的核心不在于重资产投入（如买地建炉），而在于<strong>轻资产运营、精准获客与极致的服务体验</strong>。以下是一套符合中国国情、可落地的执行方案。</p>
-<h2 id="一、-商业模式：轻资产起步与产品分层"><a href="#一、-商业模式：轻资产起步与产品分层" class="headerlink" title="一、 商业模式：轻资产起步与产品分层"></a>一、 商业模式：轻资产起步与产品分层</h2><p>创业初期，切忌盲目通过重资产去搞定环保资质和土地，这是“找死”的节奏。最稳健的模式是<strong>“前端品牌服务+后端合作火化”</strong>。</p>
-<h3 id="1-核心SOP：标准化服务（信任基石）"><a href="#1-核心SOP：标准化服务（信任基石）" class="headerlink" title="1. 核心SOP：标准化服务（信任基石）"></a>1. 核心SOP：标准化服务（信任基石）</h3><p>只有流程标准化，才能建立信任，降低客户在悲伤中的决策成本。</p>
-<ul>
-<li><strong>24小时响应机制：</strong> 必须配备专用车和车载移动冷柜。这不是为了炫技，而是为了解决尸体腐坏和异味的痛点。</li>
-<li><strong>遗体接运与净化：</strong> 使用专用密封尸袋（杜绝黑色塑料袋，太廉价），上门后进行基础遗体美容（梳毛、清洁），这几分钟的动作是客户感知度最高的环节。</li>
-<li><strong>火化分流：</strong><ul>
-<li><strong>集体火化：</strong> 对接市政或大型无害化处理中心，主打低价，针对预算敏感群体。</li>
-<li><strong>单体火化：</strong> 核心利润点。需提供“全程可视”服务（现场观看或实时视频），这是解决客户“担心骨灰被调包”这一信任危机的唯一解法。</li>
-</ul>
-</li>
-</ul>
-<h3 id="2-增值SKU：个性化情感溢价"><a href="#2-增值SKU：个性化情感溢价" class="headerlink" title="2. 增值SKU：个性化情感溢价"></a>2. 增值SKU：个性化情感溢价</h3><p>利润往往不来自火化本身，而来自情感附加值。</p>
-<ul>
-<li><strong>告别仪式：</strong> 简单的鲜花、烛台、遗照摆台。成本极低（物料可复用），但能让客单价提升30%-50%。</li>
-<li><strong>情感载体：</strong> 即使是低成本的骨灰盅，也要提供激光刻字服务。进阶产品如“晶石纪念品”（将骨灰高温烧结成晶石）、“毛发吊坠”，这类产品体积小、溢价高、易保存，非常符合年轻人的审美。</li>
-</ul>
-<h2 id="二、-冷启动与低成本获客：流量在哪，就在哪截流"><a href="#二、-冷启动与低成本获客：流量在哪，就在哪截流" class="headerlink" title="二、 冷启动与低成本获客：流量在哪，就在哪截流"></a>二、 冷启动与低成本获客：流量在哪，就在哪截流</h2><p>宠物殡葬是典型的<strong>“低频、即时、高客单”</strong>需求。客户只有在宠物去世的那一刻才有需求，因此获客的核心是<strong>“截流”</strong>和<strong>“种草”</strong>。</p>
-<h3 id="1-线下渠道：B端定点爆破（精准流量）"><a href="#1-线下渠道：B端定点爆破（精准流量）" class="headerlink" title="1. 线下渠道：B端定点爆破（精准流量）"></a>1. 线下渠道：B端定点爆破（精准流量）</h3><p>这是最直接的获客来源，但不要指望简单的“发传单”。</p>
-<ul>
-<li><strong>宠物医院&#x2F;医生联盟：</strong> 宠物在医院离世的比例极高。<ul>
-<li><strong>落地话术：</strong> 不要跟医生谈“回扣”，要谈“解决麻烦”。告诉医生：“您专注救治，离世后的安抚和处理交给我，避免医疗纠纷，维护医院口碑。”</li>
-<li><strong>利益机制：</strong> 建立稳固的分佣体系（通常为客单价的15%-20%），或者提供“季度分红”，将利益捆绑。</li>
-</ul>
-</li>
-<li><strong>异业联盟：</strong> 寻找宠物店、宠物美容院。制作精美的“宠物急救手册”或“高龄宠物护理指南”放在店里免费取阅，背面印上你的24小时急救&#x2F;殡葬热线。这是用知识换流量。</li>
-</ul>
-<h3 id="2-线上渠道：内容情绪共鸣（长尾流量）"><a href="#2-线上渠道：内容情绪共鸣（长尾流量）" class="headerlink" title="2. 线上渠道：内容情绪共鸣（长尾流量）"></a>2. 线上渠道：内容情绪共鸣（长尾流量）</h3><p>不要花大价钱投百度的关键词竞价（SEM），那个成本太高。要利用抖音、小红书的算法推荐。</p>
-<ul>
-<li><strong>内容策略：</strong> 严禁发布引起不适的遗体画面。要发<strong>“故事”</strong>。<ul>
-<li><em>脚本公式：</em> 宠物生前的可爱片段 + 离世时的不舍 + 精心准备的告别仪式 + 主人的一句感悟。</li>
-<li><em>关键词布局：</em> #宠物火化 #彩虹桥 #宠物离世 #XX市宠物殡葬。</li>
-</ul>
-</li>
-<li><strong>同城服务霸屏：</strong> 在美团、大众点评、闲鱼开通本地服务页面。虽然流量不如短视频大，但这是客户搜索时的“信任背书”。一定要刷足好评（真实的仪式感照片），因为客户在决策时非常依赖口碑。</li>
-</ul>
-<h2 id="三、-提高留存与转介绍：把一次性买卖做成私域流量"><a href="#三、-提高留存与转介绍：把一次性买卖做成私域流量" class="headerlink" title="三、 提高留存与转介绍：把一次性买卖做成私域流量"></a>三、 提高留存与转介绍：把一次性买卖做成私域流量</h2><p>很多人认为殡葬是一次性生意，这是巨大的误区。<strong>在这个行业，口碑转介绍的转化率高达80%。</strong></p>
-<h3 id="1-情感锚点：把服务延伸到身后"><a href="#1-情感锚点：把服务延伸到身后" class="headerlink" title="1. 情感锚点：把服务延伸到身后"></a>1. 情感锚点：把服务延伸到身后</h3><ul>
-<li><strong>“头七”与“周年”回访：</strong> 绝不要电话推销。利用CRM系统记录日期，在关键节点（如离世一周年）发送一条温情的微信，或者寄送一张手写的卡片&#x2F;洗出来的照片。成本几块钱，但客户会记你一辈子。</li>
-<li><strong>线上纪念馆：</strong> 利用小程序搭建免费的“云祭祀”页面，让客户可以随时上传照片、点蜡烛。只要客户还在你的平台上祭奠，他就是你的私域用户。</li>
-</ul>
-<h3 id="2-裂变机制：用“善意”驱动传播"><a href="#2-裂变机制：用“善意”驱动传播" class="headerlink" title="2. 裂变机制：用“善意”驱动传播"></a>2. 裂变机制：用“善意”驱动传播</h3><ul>
-<li><strong>公益转化：</strong> 承诺每完成一单，以宠物的名义向流浪动物救助站捐赠1公斤粮，并把捐赠证书发给客户。客户极大概率会发朋友圈炫耀这份善意，这就是最高级的免费广告。</li>
-<li><strong>老客福利：</strong> 既然不能盼着客户“复购”，那就给客户的“新宠物”提供福利。比如送一张“新宠体检折扣券”或“宠物用品折扣卡”（通过异业合作获取），维持联系。</li>
-</ul>
-<h2 id="四、-风险控制与合规准备"><a href="#四、-风险控制与合规准备" class="headerlink" title="四、 风险控制与合规准备"></a>四、 风险控制与合规准备</h2><p>在中国做这行，合规是最大的隐形门槛。</p>
-<ul>
-<li><strong>场地选址：</strong> 严禁在居民楼、水源地附近。最好选择远郊的独立院落或工业园区。</li>
-<li><strong>资质挂靠：</strong> 个体户很难直接办理火化资质。最务实的做法是注册“宠物服务公司”或“无害化处理咨询公司”，经营范围包含“动物尸体无害化处理服务”，并与当地有环保资质的垃圾处理厂或大型火化场签订<strong>委托处理协议</strong>，确保后端合规。</li>
-</ul>
-<h2 id="五、-财务测算：不仅要看收入，更要看单体模型"><a href="#五、-财务测算：不仅要看收入，更要看单体模型" class="headerlink" title="五、 财务测算：不仅要看收入，更要看单体模型"></a>五、 财务测算：不仅要看收入，更要看单体模型</h2><p>以一个二线城市的小型团队（2人+1车）为例，务实的模型如下：</p>
-<ul>
-<li><strong>客单价：</strong> 基础火化（1200元）+ 纪念品&#x2F;仪式增值（500元） &#x3D; 1700元。</li>
-<li><strong>成本结构：</strong><ul>
-<li>渠道佣金（给医院&#x2F;介绍人）：300元</li>
-<li>油费与物料（骨灰盒、鲜花）：200元</li>
-<li>房租与设备折旧摊销：200元</li>
-<li><strong>单单毛利：</strong> 约1000元（毛利率约60%）。</li>
-</ul>
-</li>
-<li><strong>盈亏平衡点：</strong> 如果固定成本（人力+房租）每月1.5万元，每月仅需15单即可保本。</li>
-<li><strong>盈利预期：</strong> 运营成熟后，每月稳定在30-40单是正常水平，月净利可达3万-5万元。在一线城市，由于客单价更高（3000元+），这个数字会翻倍。</li>
-</ul>
-<h2 id="宠物殡葬操盘手仪表盘-The-Pet-Funeral-Dashboard"><a href="#宠物殡葬操盘手仪表盘-The-Pet-Funeral-Dashboard" class="headerlink" title="宠物殡葬操盘手仪表盘 (The Pet Funeral Dashboard)"></a>宠物殡葬操盘手仪表盘 (The Pet Funeral Dashboard)</h2><h3 id="💰-财务测算（预估模型）"><a href="#💰-财务测算（预估模型）" class="headerlink" title="💰 财务测算（预估模型）"></a>💰 财务测算（预估模型）</h3><ul>
-<li><strong>启动成本</strong>：¥20,000 - ¥50,000 (二手商务车改装 + 移动冷库 + 基础礼仪套件)</li>
-<li><strong>单模型盈利分析 (单车 2 人模式)</strong><ul>
-<li>**平均客单价 (AOV)**：¥1,200 - ¥1,800</li>
-<li><strong>单均变动成本</strong>：¥300 - ¥500 (耗材+油费+返点)</li>
-<li><strong>单均毛利</strong>：¥900 - ¥1,300</li>
-<li><strong>月单量目标</strong>：25 - 40 单</li>
-<li><strong>月净利预期</strong>：¥1.5万 - ¥3.5万</li>
-</ul>
-</li>
-<li><strong>回本周期</strong>：预计 <strong>3 - 5 个月</strong>。</li>
-</ul>
-<h3 id="📊-关键指标体系"><a href="#📊-关键指标体系" class="headerlink" title="📊 关键指标体系"></a>📊 关键指标体系</h3><ul>
-<li><strong>北极星指标</strong>：**B-End Referral Ratio (B端渠道转介占比)**。<ul>
-<li><em>标准</em>：来自宠物医院的订单占比应 &gt; 60% (确保流量稳定性)。</li>
-</ul>
-</li>
-<li><strong>KPI</strong>：<ul>
-<li>**Service Satisfaction (客户满意度)**：目标 100% (生命礼仪不容出错)。</li>
-<li>**Ancillary Sales (增值品渗透率)**：纪念石&#x2F;毛发吊坠的购买占比，目标 &gt; 30%。</li>
-</ul>
-</li>
-<li>**OKR (第一个季度目标)**：<ul>
-<li><strong>O</strong>：打通本地核心医院渠道的“截流”闭环。</li>
-<li><strong>KR1</strong>：与 5 家本地中大型宠物医院签订独家或主选合作协议。</li>
-<li><strong>KR2</strong>：实现小红书同城关键词（如“XX宠物火化”）前三搜索占位。</li>
-<li><strong>KR3</strong>：月单量稳定突破 20 单，实现单店模型收支平衡。</li>
-</ul>
-</li>
-</ul>
-<h3 id="⚠️-避坑与风控"><a href="#⚠️-避坑与风控" class="headerlink" title="⚠️ 避坑与风控"></a>⚠️ 避坑与风控</h3><ul>
-<li><strong>合规风险</strong>：严禁私自挖坑埋葬。必须对接具备环保资质的集中火化点，并保留处理记录备查。</li>
-<li><strong>邻里投诉</strong>：办公点切勿选在老旧居民区，外人对“殡葬”二字极其敏感，选址应偏向工业园或独栋小院。</li>
-</ul>
-<h2 id="六、-总结与建议"><a href="#六、-总结与建议" class="headerlink" title="六、 总结与建议"></a>六、 总结与建议</h2><p>宠物殡葬的本质，是<strong>用商业的手段，去体面地解决情感的遗憾</strong>。</p>
-<ol>
-<li><strong>先做SOP，再做规模。</strong> 哪怕只有你一个人，也要穿正装、戴白手套，仪式感是这个行业唯一的壁垒。</li>
-<li><strong>深耕B端，做透内容。</strong> 医院给你生存的底线，短视频给你爆发的上限。</li>
-<li><strong>保持敬畏。</strong> 这一行赚的是辛苦钱和良心钱，口碑一旦崩塌，全盘皆输。</li>
-</ol>
-<p>这是一个可以长期耕耘的赛道，只要你耐得住性子，做好每一个微小的服务细节，收益会随着时间的推移产生复利效应。</p>
-<hr>
-<blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：通过宠物殡葬服务赚钱。</p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/01/18/fuye-ch0037/" data-id="cmvi6pm98002tvch3hdii7vs9" data-title="通过宠物殡葬服务赚钱" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -1681,7 +1685,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AGENTS-md/" rel="tag">AGENTS.md</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI-Agent/" rel="tag">AI Agent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI-Skills/" rel="tag">AI Skills</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%88%9B%E4%B8%9A/" rel="tag">AI创业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">AI工作流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%BB%BA%E7%AB%99/" rel="tag">AI建站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E6%8A%95%E7%A0%94/" rel="tag">AI投研</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E6%B3%A1%E6%B2%AB/" rel="tag">AI泡沫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E7%AC%AC%E4%BA%8C%E5%A4%A7%E8%84%91/" rel="tag">AI第二大脑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E7%BC%96%E7%A8%8B/" rel="tag">AI编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E8%A7%86%E9%A2%91/" rel="tag">AI视频</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Agent/" rel="tag">Agent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Anthropic/" rel="tag">Anthropic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Claude/" rel="tag">Claude</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Claude-Code/" rel="tag">Claude Code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Codex/" rel="tag">Codex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DeepSeek/" rel="tag">DeepSeek</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-AdSense/" rel="tag">Google AdSense</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hostinger/" rel="tag">Hostinger</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MCP/" rel="tag">MCP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Obsidian/" rel="tag">Obsidian</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PARA/" rel="tag">PARA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prompt/" rel="tag">Prompt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Skills/" rel="tag">Skills</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Workflow/" rel="tag">Workflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/YouTube/" rel="tag">YouTube</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eSIM/" rel="tag">eSIM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yt-dlp/" rel="tag">yt-dlp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8/" rel="tag">一人公司</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/" rel="tag">中国经济</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E6%96%87%E5%86%99%E4%BD%9C/" rel="tag">中文写作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E8%AF%84/" rel="tag">书评</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%8D%E8%B4%B9%E5%B7%A5%E5%85%B7/" rel="tag">免费工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" rel="tag">公众号</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C/" rel="tag">内容创作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AE%B9%E5%8F%98%E7%8E%B0/" rel="tag">内容变现</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BA%E5%9B%BD/" rel="tag">出国</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BA%E5%B7%AE/" rel="tag">出差</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BA%E6%B5%B7%E8%B5%9A%E9%92%B1/" rel="tag">出海赚钱</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%9B%E4%B8%9A/" rel="tag">创业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%AF%E4%B8%9A/" rel="tag">副业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">动态工作流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%86%E5%8F%B2%E5%AF%B9%E6%AF%94/" rel="tag">历史对比</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E7%81%B5/" rel="tag">可灵</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9C%B0%E7%BC%98%E6%94%BF%E6%B2%BB/" rel="tag">地缘政治</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" rel="tag">学习方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E6%B5%8B/" rel="tag">实测</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%BA%A2%E4%B9%A6/" rel="tag">小红书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">工作流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%B3%E5%8F%B0%E7%AE%97%E6%B3%95/" rel="tag">平台算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%BA%90/" rel="tag">开源</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" rel="tag">开源项目</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%93%E5%B7%A5%E5%BA%A6%E5%81%87/" rel="tag">打工度假</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%95%E8%B5%84/" rel="tag">投资</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8D%A1%E6%BC%8F/" rel="tag">捡漏</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" rel="tag">效率工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E6%A1%88/" rel="tag">文案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8/" rel="tag">新手入门</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%85%E8%A1%8C/" rel="tag">旅行</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9A%97%E9%99%90%E6%B5%81/" rel="tag">暗限流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E6%B4%9E/" rel="tag">树洞</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A6%9C%E5%8D%95/" rel="tag">榜单</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B0%91%E7%B2%B9%E4%B8%BB%E4%B9%89/" rel="tag">民粹主义</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%A6%E8%89%B2/" rel="tag">润色</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BB%9A%E7%9F%B3/" rel="tag">滚石</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BE%B3%E6%B4%B2WHV/" rel="tag">澳洲WHV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB%E6%8C%87%E5%8D%97/" rel="tag">生活指南</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5/" rel="tag">电商运营</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/" rel="tag">电子书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" rel="tag">知识管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A0%8D%E4%BB%B7/" rel="tag">砍价</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%B9%BB/" rel="tag">科幻</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/" rel="tag">笔记方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AD%BE%E8%AF%81%E6%94%BB%E7%95%A5/" rel="tag">签证攻略</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90/" rel="tag">股票分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" rel="tag">自动化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93/" rel="tag">自媒体</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" rel="tag">自媒体工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/" rel="tag">被动收入</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" rel="tag">视频下载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/" rel="tag">视频剪辑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" rel="tag">语音合成</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%B8%E6%98%93%E6%88%98/" rel="tag">贸易战</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E9%80%89%E6%8B%A9/" rel="tag">软件选择</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%89%E9%A2%98/" rel="tag">选题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%B2%E9%B1%BC/" rel="tag">闲鱼</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%BF%E8%A5%BF%E8%8E%AB%E5%A4%AB/" rel="tag">阿西莫夫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9F%B3%E4%B9%90/" rel="tag">音乐</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AGENTS-md/" rel="tag">AGENTS.md</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI-Agent/" rel="tag">AI Agent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI-Skills/" rel="tag">AI Skills</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%88%9B%E4%B8%9A/" rel="tag">AI创业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">AI工作流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%BB%BA%E7%AB%99/" rel="tag">AI建站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E6%8A%95%E7%A0%94/" rel="tag">AI投研</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E6%B3%A1%E6%B2%AB/" rel="tag">AI泡沫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E7%AC%AC%E4%BA%8C%E5%A4%A7%E8%84%91/" rel="tag">AI第二大脑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E7%BC%96%E7%A8%8B/" rel="tag">AI编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E8%A7%86%E9%A2%91/" rel="tag">AI视频</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Agent/" rel="tag">Agent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Anthropic/" rel="tag">Anthropic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Claude/" rel="tag">Claude</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Claude-Code/" rel="tag">Claude Code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Codex/" rel="tag">Codex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DeepSeek/" rel="tag">DeepSeek</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-AdSense/" rel="tag">Google AdSense</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hostinger/" rel="tag">Hostinger</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MCP/" rel="tag">MCP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Next-js/" rel="tag">Next.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Obsidian/" rel="tag">Obsidian</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PARA/" rel="tag">PARA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prompt/" rel="tag">Prompt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Skills/" rel="tag">Skills</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Workflow/" rel="tag">Workflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/YouTube/" rel="tag">YouTube</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eSIM/" rel="tag">eSIM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yt-dlp/" rel="tag">yt-dlp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8/" rel="tag">一人公司</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/" rel="tag">中国经济</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E6%96%87%E5%86%99%E4%BD%9C/" rel="tag">中文写作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E8%AF%84/" rel="tag">书评</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%8D%E8%B4%B9%E5%B7%A5%E5%85%B7/" rel="tag">免费工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" rel="tag">公众号</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C/" rel="tag">内容创作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AE%B9%E5%8F%98%E7%8E%B0/" rel="tag">内容变现</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BA%E5%9B%BD/" rel="tag">出国</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BA%E5%B7%AE/" rel="tag">出差</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BA%E6%B5%B7%E8%B5%9A%E9%92%B1/" rel="tag">出海赚钱</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%9B%E4%B8%9A/" rel="tag">创业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%AF%E4%B8%9A/" rel="tag">副业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">动态工作流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%86%E5%8F%B2%E5%AF%B9%E6%AF%94/" rel="tag">历史对比</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E7%81%B5/" rel="tag">可灵</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9C%B0%E7%BC%98%E6%94%BF%E6%B2%BB/" rel="tag">地缘政治</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" rel="tag">学习方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E6%B5%8B/" rel="tag">实测</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%BA%A2%E4%B9%A6/" rel="tag">小红书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">工作流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%B3%E5%8F%B0%E7%AE%97%E6%B3%95/" rel="tag">平台算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%BA%90/" rel="tag">开源</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" rel="tag">开源项目</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%93%E5%B7%A5%E5%BA%A6%E5%81%87/" rel="tag">打工度假</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%95%E8%B5%84/" rel="tag">投资</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8D%A1%E6%BC%8F/" rel="tag">捡漏</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" rel="tag">效率工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E6%A1%88/" rel="tag">文案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8/" rel="tag">新手入门</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%85%E8%A1%8C/" rel="tag">旅行</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9A%97%E9%99%90%E6%B5%81/" rel="tag">暗限流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E6%B4%9E/" rel="tag">树洞</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A6%9C%E5%8D%95/" rel="tag">榜单</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B0%91%E7%B2%B9%E4%B8%BB%E4%B9%89/" rel="tag">民粹主义</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%A6%E8%89%B2/" rel="tag">润色</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BB%9A%E7%9F%B3/" rel="tag">滚石</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BE%B3%E6%B4%B2WHV/" rel="tag">澳洲WHV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB%E6%8C%87%E5%8D%97/" rel="tag">生活指南</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5/" rel="tag">电商运营</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/" rel="tag">电子书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" rel="tag">知识管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A0%8D%E4%BB%B7/" rel="tag">砍价</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%B9%BB/" rel="tag">科幻</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/" rel="tag">笔记方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AD%BE%E8%AF%81%E6%94%BB%E7%95%A5/" rel="tag">签证攻略</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%82%A1%E7%A5%A8/" rel="tag">股票</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90/" rel="tag">股票分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" rel="tag">自动化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93/" rel="tag">自媒体</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" rel="tag">自媒体工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E9%83%A8%E7%BD%B2/" rel="tag">自部署</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/" rel="tag">被动收入</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" rel="tag">视频下载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/" rel="tag">视频剪辑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" rel="tag">语音合成</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%B8%E6%98%93%E6%88%98/" rel="tag">贸易战</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E9%80%89%E6%8B%A9/" rel="tag">软件选择</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%89%E9%A2%98/" rel="tag">选题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%B2%E9%B1%BC/" rel="tag">闲鱼</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%BF%E8%A5%BF%E8%8E%AB%E5%A4%AB/" rel="tag">阿西莫夫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9F%B3%E4%B9%90/" rel="tag">音乐</a></li></ul>
     </div>
   </div>
 
@@ -1691,7 +1695,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/AGENTS-md/" style="font-size: 10px;">AGENTS.md</a> <a href="/tags/AI/" style="font-size: 12.22px;">AI</a> <a href="/tags/AI-Agent/" style="font-size: 10px;">AI Agent</a> <a href="/tags/AI-Skills/" style="font-size: 10px;">AI Skills</a> <a href="/tags/AIGC/" style="font-size: 13.33px;">AIGC</a> <a href="/tags/AI%E5%88%9B%E4%B8%9A/" style="font-size: 10px;">AI创业</a> <a href="/tags/AI%E5%89%AF%E4%B8%9A/" style="font-size: 20px;">AI副业</a> <a href="/tags/AI%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 13.33px;">AI工作流</a> <a href="/tags/AI%E5%BB%BA%E7%AB%99/" style="font-size: 10px;">AI建站</a> <a href="/tags/AI%E6%8A%95%E7%A0%94/" style="font-size: 10px;">AI投研</a> <a href="/tags/AI%E6%B3%A1%E6%B2%AB/" style="font-size: 10px;">AI泡沫</a> <a href="/tags/AI%E7%AC%AC%E4%BA%8C%E5%A4%A7%E8%84%91/" style="font-size: 10px;">AI第二大脑</a> <a href="/tags/AI%E7%BC%96%E7%A8%8B/" style="font-size: 11.11px;">AI编程</a> <a href="/tags/AI%E8%A7%86%E9%A2%91/" style="font-size: 10px;">AI视频</a> <a href="/tags/Agent/" style="font-size: 10px;">Agent</a> <a href="/tags/Anthropic/" style="font-size: 10px;">Anthropic</a> <a href="/tags/Claude/" style="font-size: 13.33px;">Claude</a> <a href="/tags/Claude-Code/" style="font-size: 11.11px;">Claude Code</a> <a href="/tags/Codex/" style="font-size: 14.44px;">Codex</a> <a href="/tags/DeepSeek/" style="font-size: 10px;">DeepSeek</a> <a href="/tags/Git/" style="font-size: 11.11px;">Git</a> <a href="/tags/GitHub/" style="font-size: 12.22px;">GitHub</a> <a href="/tags/Google-AdSense/" style="font-size: 10px;">Google AdSense</a> <a href="/tags/Hostinger/" style="font-size: 10px;">Hostinger</a> <a href="/tags/MCP/" style="font-size: 12.22px;">MCP</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Obsidian/" style="font-size: 12.22px;">Obsidian</a> <a href="/tags/PARA/" style="font-size: 10px;">PARA</a> <a href="/tags/Prompt/" style="font-size: 10px;">Prompt</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/Skills/" style="font-size: 12.22px;">Skills</a> <a href="/tags/Workflow/" style="font-size: 10px;">Workflow</a> <a href="/tags/YouTube/" style="font-size: 10px;">YouTube</a> <a href="/tags/eSIM/" style="font-size: 10px;">eSIM</a> <a href="/tags/yt-dlp/" style="font-size: 10px;">yt-dlp</a> <a href="/tags/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8/" style="font-size: 10px;">一人公司</a> <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/" style="font-size: 10px;">中国经济</a> <a href="/tags/%E4%B8%AD%E6%96%87%E5%86%99%E4%BD%9C/" style="font-size: 10px;">中文写作</a> <a href="/tags/%E4%B9%A6%E8%AF%84/" style="font-size: 10px;">书评</a> <a href="/tags/%E5%85%8D%E8%B4%B9%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">免费工具</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 10px;">公众号</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C/" style="font-size: 12.22px;">内容创作</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%8F%98%E7%8E%B0/" style="font-size: 10px;">内容变现</a> <a href="/tags/%E5%87%BA%E5%9B%BD/" style="font-size: 10px;">出国</a> <a href="/tags/%E5%87%BA%E5%B7%AE/" style="font-size: 10px;">出差</a> <a href="/tags/%E5%87%BA%E6%B5%B7%E8%B5%9A%E9%92%B1/" style="font-size: 10px;">出海赚钱</a> <a href="/tags/%E5%88%9B%E4%B8%9A/" style="font-size: 16.67px;">创业</a> <a href="/tags/%E5%89%AF%E4%B8%9A/" style="font-size: 13.33px;">副业</a> <a href="/tags/%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">动态工作流</a> <a href="/tags/%E5%8E%86%E5%8F%B2%E5%AF%B9%E6%AF%94/" style="font-size: 10px;">历史对比</a> <a href="/tags/%E5%8F%AF%E7%81%B5/" style="font-size: 10px;">可灵</a> <a href="/tags/%E5%9C%B0%E7%BC%98%E6%94%BF%E6%B2%BB/" style="font-size: 10px;">地缘政治</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">学习方法</a> <a href="/tags/%E5%AE%9E%E6%B5%8B/" style="font-size: 10px;">实测</a> <a href="/tags/%E5%B0%8F%E7%BA%A2%E4%B9%A6/" style="font-size: 10px;">小红书</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">工作流</a> <a href="/tags/%E5%B9%B3%E5%8F%B0%E7%AE%97%E6%B3%95/" style="font-size: 10px;">平台算法</a> <a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 12.22px;">开源</a> <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 15.56px;">开源项目</a> <a href="/tags/%E6%89%93%E5%B7%A5%E5%BA%A6%E5%81%87/" style="font-size: 10px;">打工度假</a> <a href="/tags/%E6%8A%95%E8%B5%84/" style="font-size: 10px;">投资</a> <a href="/tags/%E6%8D%A1%E6%BC%8F/" style="font-size: 10px;">捡漏</a> <a href="/tags/%E6%90%9E%E9%92%B1/" style="font-size: 18.89px;">搞钱</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">效率工具</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 15.56px;">教程</a> <a href="/tags/%E6%96%87%E6%A1%88/" style="font-size: 10px;">文案</a> <a href="/tags/%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8/" style="font-size: 10px;">新手入门</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 10px;">旅行</a> <a href="/tags/%E6%9A%97%E9%99%90%E6%B5%81/" style="font-size: 10px;">暗限流</a> <a href="/tags/%E6%A0%91%E6%B4%9E/" style="font-size: 16.67px;">树洞</a> <a href="/tags/%E6%A6%9C%E5%8D%95/" style="font-size: 10px;">榜单</a> <a href="/tags/%E6%B0%91%E7%B2%B9%E4%B8%BB%E4%B9%89/" style="font-size: 10px;">民粹主义</a> <a href="/tags/%E6%B6%A6%E8%89%B2/" style="font-size: 10px;">润色</a> <a href="/tags/%E6%BB%9A%E7%9F%B3/" style="font-size: 10px;">滚石</a> <a href="/tags/%E6%BE%B3%E6%B4%B2WHV/" style="font-size: 10px;">澳洲WHV</a> <a href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" style="font-size: 17.78px;">独立开发</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%8C%87%E5%8D%97/" style="font-size: 10px;">生活指南</a> <a href="/tags/%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5/" style="font-size: 11.11px;">电商运营</a> <a href="/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/" style="font-size: 10px;">电子书</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 11.11px;">知识管理</a> <a href="/tags/%E7%A0%8D%E4%BB%B7/" style="font-size: 10px;">砍价</a> <a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 10px;">科幻</a> <a href="/tags/%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">笔记方法</a> <a href="/tags/%E7%AD%BE%E8%AF%81%E6%94%BB%E7%95%A5/" style="font-size: 10px;">签证攻略</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">翻译</a> <a href="/tags/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90/" style="font-size: 10px;">股票分析</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 12.22px;">自动化</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93/" style="font-size: 13.33px;">自媒体</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">自媒体工具</a> <a href="/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/" style="font-size: 10px;">被动收入</a> <a href="/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" style="font-size: 10px;">视频下载</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/" style="font-size: 11.11px;">视频剪辑</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 10px;">语音合成</a> <a href="/tags/%E8%B4%B8%E6%98%93%E6%88%98/" style="font-size: 10px;">贸易战</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E9%80%89%E6%8B%A9/" style="font-size: 10px;">软件选择</a> <a href="/tags/%E9%80%89%E9%A2%98/" style="font-size: 10px;">选题</a> <a href="/tags/%E9%97%B2%E9%B1%BC/" style="font-size: 13.33px;">闲鱼</a> <a href="/tags/%E9%98%BF%E8%A5%BF%E8%8E%AB%E5%A4%AB/" style="font-size: 10px;">阿西莫夫</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 10px;">音乐</a>
+      <a href="/tags/AGENTS-md/" style="font-size: 10px;">AGENTS.md</a> <a href="/tags/AI/" style="font-size: 12px;">AI</a> <a href="/tags/AI-Agent/" style="font-size: 10px;">AI Agent</a> <a href="/tags/AI-Skills/" style="font-size: 10px;">AI Skills</a> <a href="/tags/AIGC/" style="font-size: 13px;">AIGC</a> <a href="/tags/AI%E5%88%9B%E4%B8%9A/" style="font-size: 10px;">AI创业</a> <a href="/tags/AI%E5%89%AF%E4%B8%9A/" style="font-size: 20px;">AI副业</a> <a href="/tags/AI%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 13px;">AI工作流</a> <a href="/tags/AI%E5%BB%BA%E7%AB%99/" style="font-size: 10px;">AI建站</a> <a href="/tags/AI%E6%8A%95%E7%A0%94/" style="font-size: 10px;">AI投研</a> <a href="/tags/AI%E6%B3%A1%E6%B2%AB/" style="font-size: 10px;">AI泡沫</a> <a href="/tags/AI%E7%AC%AC%E4%BA%8C%E5%A4%A7%E8%84%91/" style="font-size: 10px;">AI第二大脑</a> <a href="/tags/AI%E7%BC%96%E7%A8%8B/" style="font-size: 11px;">AI编程</a> <a href="/tags/AI%E8%A7%86%E9%A2%91/" style="font-size: 10px;">AI视频</a> <a href="/tags/Agent/" style="font-size: 10px;">Agent</a> <a href="/tags/Anthropic/" style="font-size: 10px;">Anthropic</a> <a href="/tags/Claude/" style="font-size: 13px;">Claude</a> <a href="/tags/Claude-Code/" style="font-size: 11px;">Claude Code</a> <a href="/tags/Codex/" style="font-size: 14px;">Codex</a> <a href="/tags/DeepSeek/" style="font-size: 10px;">DeepSeek</a> <a href="/tags/Git/" style="font-size: 11px;">Git</a> <a href="/tags/GitHub/" style="font-size: 12px;">GitHub</a> <a href="/tags/Google-AdSense/" style="font-size: 10px;">Google AdSense</a> <a href="/tags/Hostinger/" style="font-size: 10px;">Hostinger</a> <a href="/tags/MCP/" style="font-size: 12px;">MCP</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Next-js/" style="font-size: 10px;">Next.js</a> <a href="/tags/Obsidian/" style="font-size: 12px;">Obsidian</a> <a href="/tags/PARA/" style="font-size: 10px;">PARA</a> <a href="/tags/Prompt/" style="font-size: 10px;">Prompt</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/Skills/" style="font-size: 12px;">Skills</a> <a href="/tags/Workflow/" style="font-size: 10px;">Workflow</a> <a href="/tags/YouTube/" style="font-size: 10px;">YouTube</a> <a href="/tags/eSIM/" style="font-size: 10px;">eSIM</a> <a href="/tags/yt-dlp/" style="font-size: 10px;">yt-dlp</a> <a href="/tags/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8/" style="font-size: 10px;">一人公司</a> <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/" style="font-size: 10px;">中国经济</a> <a href="/tags/%E4%B8%AD%E6%96%87%E5%86%99%E4%BD%9C/" style="font-size: 10px;">中文写作</a> <a href="/tags/%E4%B9%A6%E8%AF%84/" style="font-size: 10px;">书评</a> <a href="/tags/%E5%85%8D%E8%B4%B9%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">免费工具</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 10px;">公众号</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C/" style="font-size: 12px;">内容创作</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%8F%98%E7%8E%B0/" style="font-size: 10px;">内容变现</a> <a href="/tags/%E5%87%BA%E5%9B%BD/" style="font-size: 10px;">出国</a> <a href="/tags/%E5%87%BA%E5%B7%AE/" style="font-size: 10px;">出差</a> <a href="/tags/%E5%87%BA%E6%B5%B7%E8%B5%9A%E9%92%B1/" style="font-size: 10px;">出海赚钱</a> <a href="/tags/%E5%88%9B%E4%B8%9A/" style="font-size: 17px;">创业</a> <a href="/tags/%E5%89%AF%E4%B8%9A/" style="font-size: 13px;">副业</a> <a href="/tags/%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">动态工作流</a> <a href="/tags/%E5%8E%86%E5%8F%B2%E5%AF%B9%E6%AF%94/" style="font-size: 10px;">历史对比</a> <a href="/tags/%E5%8F%AF%E7%81%B5/" style="font-size: 10px;">可灵</a> <a href="/tags/%E5%9C%B0%E7%BC%98%E6%94%BF%E6%B2%BB/" style="font-size: 10px;">地缘政治</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">学习方法</a> <a href="/tags/%E5%AE%9E%E6%B5%8B/" style="font-size: 10px;">实测</a> <a href="/tags/%E5%B0%8F%E7%BA%A2%E4%B9%A6/" style="font-size: 10px;">小红书</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">工作流</a> <a href="/tags/%E5%B9%B3%E5%8F%B0%E7%AE%97%E6%B3%95/" style="font-size: 10px;">平台算法</a> <a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 12px;">开源</a> <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 16px;">开源项目</a> <a href="/tags/%E6%89%93%E5%B7%A5%E5%BA%A6%E5%81%87/" style="font-size: 10px;">打工度假</a> <a href="/tags/%E6%8A%95%E8%B5%84/" style="font-size: 10px;">投资</a> <a href="/tags/%E6%8D%A1%E6%BC%8F/" style="font-size: 10px;">捡漏</a> <a href="/tags/%E6%90%9E%E9%92%B1/" style="font-size: 19px;">搞钱</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">效率工具</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 15px;">教程</a> <a href="/tags/%E6%96%87%E6%A1%88/" style="font-size: 10px;">文案</a> <a href="/tags/%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8/" style="font-size: 10px;">新手入门</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 10px;">旅行</a> <a href="/tags/%E6%9A%97%E9%99%90%E6%B5%81/" style="font-size: 10px;">暗限流</a> <a href="/tags/%E6%A0%91%E6%B4%9E/" style="font-size: 17px;">树洞</a> <a href="/tags/%E6%A6%9C%E5%8D%95/" style="font-size: 10px;">榜单</a> <a href="/tags/%E6%B0%91%E7%B2%B9%E4%B8%BB%E4%B9%89/" style="font-size: 10px;">民粹主义</a> <a href="/tags/%E6%B6%A6%E8%89%B2/" style="font-size: 10px;">润色</a> <a href="/tags/%E6%BB%9A%E7%9F%B3/" style="font-size: 10px;">滚石</a> <a href="/tags/%E6%BE%B3%E6%B4%B2WHV/" style="font-size: 10px;">澳洲WHV</a> <a href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" style="font-size: 18px;">独立开发</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%8C%87%E5%8D%97/" style="font-size: 10px;">生活指南</a> <a href="/tags/%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5/" style="font-size: 11px;">电商运营</a> <a href="/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/" style="font-size: 10px;">电子书</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 11px;">知识管理</a> <a href="/tags/%E7%A0%8D%E4%BB%B7/" style="font-size: 10px;">砍价</a> <a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 10px;">科幻</a> <a href="/tags/%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">笔记方法</a> <a href="/tags/%E7%AD%BE%E8%AF%81%E6%94%BB%E7%95%A5/" style="font-size: 10px;">签证攻略</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">翻译</a> <a href="/tags/%E8%82%A1%E7%A5%A8/" style="font-size: 10px;">股票</a> <a href="/tags/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90/" style="font-size: 10px;">股票分析</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 12px;">自动化</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93/" style="font-size: 13px;">自媒体</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">自媒体工具</a> <a href="/tags/%E8%87%AA%E9%83%A8%E7%BD%B2/" style="font-size: 10px;">自部署</a> <a href="/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/" style="font-size: 10px;">被动收入</a> <a href="/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" style="font-size: 10px;">视频下载</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/" style="font-size: 11px;">视频剪辑</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 10px;">语音合成</a> <a href="/tags/%E8%B4%B8%E6%98%93%E6%88%98/" style="font-size: 10px;">贸易战</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E9%80%89%E6%8B%A9/" style="font-size: 10px;">软件选择</a> <a href="/tags/%E9%80%89%E9%A2%98/" style="font-size: 10px;">选题</a> <a href="/tags/%E9%97%B2%E9%B1%BC/" style="font-size: 13px;">闲鱼</a> <a href="/tags/%E9%98%BF%E8%A5%BF%E8%8E%AB%E5%A4%AB/" style="font-size: 10px;">阿西莫夫</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 10px;">音乐</a>
     </div>
   </div>
 
@@ -1713,6 +1717,10 @@
       <ul>
         
           <li>
+            <a href="/2026/10/21/OpenStock-%E5%BC%80%E6%BA%90%E5%85%8D%E8%B4%B9%E5%85%A8%E7%90%83%E8%A1%8C%E6%83%85%E9%9D%A2%E6%9D%BF-%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BD%BF%E7%94%A8/">OpenStock：开源免费的全球行情面板，自己搭一个&#34;平价彭博终端&#34;</a>
+          </li>
+        
+          <li>
             <a href="/2026/10/21/AI%E5%89%AF%E4%B8%9A%E8%B5%9A%E9%92%B1%E6%96%B9%E6%A1%88%E5%8D%9A%E7%89%A9%E9%A6%86-514%E7%AF%87%E5%B7%B2%E9%95%9C%E5%83%8F/">AI 副业赚钱方案博物馆：514 篇章节已镜像到本站</a>
           </li>
         
@@ -1726,10 +1734,6 @@
         
           <li>
             <a href="/2026/10/18/%E9%97%B2%E9%B1%BC%E6%99%BA%E8%83%BD%E7%9B%91%E6%8E%A7-ai-goofish-monitor-%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BD%BF%E7%94%A8/">闲鱼捡漏自动化：ai-goofish-monitor 部署与使用全记录</a>
-          </li>
-        
-          <li>
-            <a href="/2026/10/17/VoiceStudio%E4%B8%8A%E6%89%8B-%E6%9C%AC%E5%9C%B0AI%E9%85%8D%E9%9F%B3%E5%B7%A5%E4%BD%9C%E5%AE%A4/">VoiceStudio 上手：把 ElevenLabs 搬进自己电脑，3 秒音频克隆一个声音</a>
           </li>
         
       </ul>

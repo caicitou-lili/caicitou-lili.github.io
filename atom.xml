@@ -4,10 +4,156 @@
   <subtitle>读一本好书，遇见更好的自己</subtitle>
   <link href="https://caicitou-lili.github.io/"/>
   <link rel="self" href="https://caicitou-lili.github.io/atom.xml"/>
-  <updated>2026-10-21T22:04:55+08:00</updated>
+  <updated>2026-10-21T22:22:17+08:00</updated>
   <id>https://caicitou-lili.github.io/</id>
   <author><name>caicitou-lili</name></author>
   <generator uri="https://hexo.io/">Hexo</generator>
+  <entry>
+    <title>OpenStock：开源免费的全球行情面板，自己搭一个&quot;平价彭博终端&quot;</title>
+    <link href="https://caicitou-lili.github.io/2026/10/21/OpenStock-开源免费全球行情面板-部署与使用/"/>
+    <id>https://caicitou-lili.github.io/2026/10/21/OpenStock-开源免费全球行情面板-部署与使用/</id>
+    <published>2026-10-21T22:30:00+08:00</published>
+    <updated>2026-10-21T22:22:17+08:00</updated>
+    <category term="教程"/>
+    <content type="html"><![CDATA[<p>看美股行情这件事，Pro 终端一年几百美金，免费网站又塞满广告。最近 GitHub 上有个项目火起来了：<strong>OpenStock</strong>，Open Dev Society 出品的开源行情平台——看价格、盯自选、查公司资料、画 K 线，全都不要钱，官方站已经有 13000+ 人在用。我把它拉到本地装了一遍，这篇是部署 + 使用说明。</p>
+<p>先给两个定位性提醒：它<strong>不是券商</strong>，不能交易；数据有延迟（取决于数据源），也不构成投资建议。</p>
+<h2 id="一、它能干什么"><a href="#一、它能干什么" class="headerlink" title="一、它能干什么"></a>一、它能干什么</h2><ul>
+<li><strong>7 个市场的仪表盘</strong>：美股、印度、德国、加拿大、澳大利亚、加密货币、外汇，带指数脉搏、板块热力图、领涨领跌、要闻</li>
+<li><strong>⌘K 全局搜索</strong>：覆盖 Finnhub 收录的全球交易所，股票可以像浏览器标签页一样同时开着</li>
+<li><strong>TradingView K 线</strong>：画趋势线、斐波那契、图形，支持全屏；指标（SMA&#x2F;EMA&#x2F;布林带&#x2F;VWAP&#x2F;RSI&#x2F;MACD&#x2F;Stochastic&#x2F;ATR）配一次就一直在</li>
+<li><strong>公司页</strong>：财务数据、技术指标、公司简介</li>
+<li><strong>情绪面</strong>：Reddit、X、新闻、Polymarket 舆情汇总（要配 Adanos key）</li>
+<li><strong>自选 + 提醒</strong>：最多 50 只；价格上&#x2F;下限提醒每 5 分钟查一次、邮件通知（仅 realtime 模式）</li>
+<li><strong>AI 周报</strong>：每周一早上邮件推送 AI 写的市场新闻摘要</li>
+<li><strong>账号体系</strong>：邮箱密码，可配 Google&#x2F;GitHub 登录</li>
+</ul>
+<p>技术栈是 Next.js 15 + React 19 + TypeScript + Tailwind v4 + shadcn&#x2F;ui，数据库 MongoDB（Mongoose + Better Auth），后台任务跑在 Inngest 上，行情来自 Finnhub，图表来自 TradingView 嵌入。</p>
+<h2 id="二、数据有多新——部署前先想清楚"><a href="#二、数据有多新——部署前先想清楚" class="headerlink" title="二、数据有多新——部署前先想清楚"></a>二、数据有多新——部署前先想清楚</h2><p>这是选部署方式前最该看的一张表：</p>
+<table>
+<thead>
+<tr>
+<th>部署方式</th>
+<th>报价刷新</th>
+<th>价格提醒</th>
+<th>成本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>官方社区站</td>
+<td>每小时</td>
+<td>无</td>
+<td>免费</td>
+</tr>
+<tr>
+<td>自部署（cached，默认）</td>
+<td>每小时</td>
+<td>无</td>
+<td>免费</td>
+</tr>
+<tr>
+<td><strong>自部署（realtime 模式）</strong></td>
+<td><strong>每 15 秒</strong></td>
+<td><strong>有，发邮件</strong></td>
+<td>免费（要自己的 Finnhub key）</td>
+</tr>
+</tbody></table>
+<p>划重点：realtime 模式的开关 <code>NEXT_PUBLIC_OPENSTOCK_DATA_MODE</code> 是<strong>构建时写死的</strong>，改完必须重新 build，热改不生效。</p>
+<h2 id="三、动手前准备三样东西"><a href="#三、动手前准备三样东西" class="headerlink" title="三、动手前准备三样东西"></a>三、动手前准备三样东西</h2><table>
+<thead>
+<tr>
+<th>东西</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>MongoDB</strong></td>
+<td>本地 Docker 自带一个（最省事），或 Atlas 免费集群</td>
+</tr>
+<tr>
+<td><strong>Finnhub 免费 Key</strong></td>
+<td>finnhub.io 注册即得；可以放多个 Key 逗号分隔自动轮换，每个多 60 次&#x2F;分钟</td>
+</tr>
+<tr>
+<td><strong>Better Auth 密钥</strong></td>
+<td><code>openssl rand -hex 32</code> 生成（Git Bash 里就有 openssl）</td>
+</tr>
+</tbody></table>
+<p>可选：Inngest（后台任务）、Gmail 应用密码（发邮件）、Gemini&#x2F;MiniMax Key（AI 邮件）、Adanos（情绪卡）、Kit（周报）、Google&#x2F;GitHub OAuth。</p>
+<h2 id="四、本地部署实录（Windows）"><a href="#四、本地部署实录（Windows）" class="headerlink" title="四、本地部署实录（Windows）"></a>四、本地部署实录（Windows）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/Open-Dev-Society/OpenStock.git</span><br><span class="line"><span class="built_in">cd</span> OpenStock</span><br><span class="line">npm ci</span><br><span class="line"><span class="built_in">cp</span> .env.example .<span class="built_in">env</span>          <span class="comment"># 填 MONGODB_URI、BETTER_AUTH_SECRET、FINNHUB_API_KEY</span></span><br><span class="line">node scripts/check-env.mjs    <span class="comment"># 自检 .env 缺什么</span></span><br><span class="line">npm run <span class="built_in">test</span>:db               <span class="comment"># 验证 Mongo 连接</span></span><br><span class="line">npm run dev                   <span class="comment"># http://localhost:3000</span></span><br></pre></td></tr></table></figure>
+
+<p>几个实测细节：</p>
+<ul>
+<li>Node 要 <strong>22 LTS</strong>，我用 22.22.2 没问题</li>
+<li><code>npm ci</code> 在国内走 npmmirror 镜像，427 个包两分多钟装完</li>
+<li><code>check-env.mjs</code> 很贴心，缺哪个变量直接报出来——我装完跑了一下，准确列出必填项缺失</li>
+<li>欢迎邮件、价格提醒、AI 周报都是 Inngest 任务，本地调试另开一个终端跑 <code>npx inngest-cli@latest dev</code></li>
+<li>生产模式 <code>npm run build &amp;&amp; npm start</code></li>
+</ul>
+<h2 id="五、Docker-Compose（推荐长期挂）"><a href="#五、Docker-Compose（推荐长期挂）" class="headerlink" title="五、Docker Compose（推荐长期挂）"></a>五、Docker Compose（推荐长期挂）</h2><p>官方 compose 会把应用和 MongoDB（mongo:7）一起拉起来：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> .env.example .<span class="built_in">env</span>   <span class="comment"># 填好配置</span></span><br><span class="line">docker compose up -d</span><br><span class="line"><span class="comment"># 访问 http://localhost:3000</span></span><br></pre></td></tr></table></figure>
+
+<p>三个细节值得注意：</p>
+<ol>
+<li>自带数据库的密码要在<strong>两处保持一致</strong>：<code>MONGO_ROOT_PASSWORD</code> 和 <code>MONGODB_URI</code> 里的密码；URI 里的 <code>@ : / ? #</code> 记得百分号编码</li>
+<li>MongoDB <strong>不对外暴露端口</strong>，只在 Docker 网络内可达——想用 Compass 连，自己往 compose 里加 <code>ports: [&quot;127.0.0.1:27017:27017&quot;]</code>，千万别写裸的 <code>27017:27017</code></li>
+<li>开 realtime 要设 <code>NEXT_PUBLIC_OPENSTOCK_DATA_MODE=realtime</code>，它是构建参数，改完 rebuild</li>
+</ol>
+<p>不想折腾本机，还有 Railway（README 有现成模板）和 Vercel（导入仓库 + 配环境变量）两条路，一样免费起步。</p>
+<h2 id="六、先看清楚市场覆盖，别抱错期待"><a href="#六、先看清楚市场覆盖，别抱错期待" class="headerlink" title="六、先看清楚市场覆盖，别抱错期待"></a>六、先看清楚市场覆盖，别抱错期待</h2><p>官方的 <code>MARKET_SUPPORT.md</code> 写得很诚实（2026-09 对着两个免费数据源实测过）：</p>
+<table>
+<thead>
+<tr>
+<th>市场</th>
+<th>图表</th>
+<th>报价&#x2F;提醒</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>美股（NYSE&#x2F;Nasdaq&#x2F;AMEX）</td>
+<td>实时</td>
+<td>✅ 实时报价 + 提醒</td>
+</tr>
+<tr>
+<td>加密货币（Binance 对）</td>
+<td>实时</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>外汇</td>
+<td>实时</td>
+<td>❌ 只有图表</td>
+</tr>
+<tr>
+<td>加拿大&#x2F;澳大利亚</td>
+<td>延迟</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>印度&#x2F;德国</td>
+<td>收盘数据</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>伦敦、东京、中国香港、韩国、中国台湾等</td>
+<td>K 线嵌入被屏蔽（财务&#x2F;技术指标&#x2F;简介仍可用）</td>
+<td>❌</td>
+</tr>
+</tbody></table>
+<p>两个要点：<strong>价格提醒只支持美股和加密货币</strong>（realtime 模式下每 5 分钟查一次，因为提醒检查器需要一个能高频调用的报价源）；<strong>A 股不在支持列表里</strong>，想看 A 股这个工具帮不上忙。</p>
+<p>想加市场的话改 <code>lib/markets.ts</code>，前提是该交易所的代码能在 TradingView 嵌入里渲染出来。</p>
+<h2 id="七、常见问题速查"><a href="#七、常见问题速查" class="headerlink" title="七、常见问题速查"></a>七、常见问题速查</h2><ul>
+<li><strong>改了数据模式没生效</strong> → 重新 <code>npm run build</code>（Docker 则 rebuild），构建时写死的东西热改无效</li>
+<li><strong>提醒不发邮件</strong> → 确认是 realtime 模式 + Inngest 在跑 + Gmail 应用密码已配；没配邮件的话系统会直接跳过发送</li>
+<li><strong>行情转圈</strong> → Finnhub 免费档限速，多配几个 Key 轮换，或等缓存（cached 模式每小时一批）</li>
+<li><strong>某市场 K 线打不开</strong> → TradingView 嵌入屏蔽，页面会自动改成跳转 TradingView，不是 bug</li>
+<li><strong>登录被限流</strong> → Mongo 支持的防刷速率限制，稍等再试</li>
+</ul>
+<h2 id="八、写在最后"><a href="#八、写在最后" class="headerlink" title="八、写在最后"></a>八、写在最后</h2><p>OpenStock 值得装的理由很简单：它把”看盘”这个高频动作从付费墙和广告里解放出来，K 线、指标、自选、提醒这些核心体验全部开源免费，realtime 模式只要一个免费 Finnhub key。局限也清楚：A股不支持、非美股市场数据等级低、没有交易功能。</p>
+<p>适合的人群：主要看美股和加密货币、想要一个干净无广告的自用面板、或者想拿它当 Next.js 全栈项目学习（auth、后台任务、外部 API 缓存轮换都做得很规范）。</p>
+<hr>
+<p>项目地址：<a href="https://github.com/Open-Dev-Society/OpenStock">https://github.com/Open-Dev-Society/OpenStock</a>（Open Dev Society），详细配置见仓库 README 与 <code>MARKET_SUPPORT.md</code>。本文不构成投资建议。</p>
+]]></content>
+  </entry>
   <entry>
     <title>AI 副业赚钱方案博物馆：514 篇章节已镜像到本站</title>
     <link href="https://caicitou-lili.github.io/2026/10/21/AI副业赚钱方案博物馆-514篇已镜像/"/>
@@ -1392,25 +1538,6 @@
 <hr>
 <blockquote>
 <p>本文转载自开源仓库 <a href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：“过早优化”是初创公司的慢性自杀？。</p>
-</blockquote>
-]]></content>
-  </entry>
-  <entry>
-    <title>远程团队效率低下，跨地域协作成了“信息黑洞”？</title>
-    <link href="https://caicitou-lili.github.io/2026/09/08/shudong-ch0058/"/>
-    <id>https://caicitou-lili.github.io/2026/09/08/shudong-ch0058/</id>
-    <published>2026-09-08T20:00:00+08:00</published>
-    <updated>2026-10-21T22:04:05+08:00</updated>
-    <category term="AI副业"/>
-    <content type="html"><![CDATA[<p>网友投稿：<br>为了节省成本，我们招了一半的员工在老家工作，采用远程办公模式。我发现沟通效率极低：一个本来三分钟能讲清楚的需求，在微信上能拉锯一小时。</p>
-<p>由于看不见人，我总怀疑有人在摸鱼，但又没有好的考核手段。现在的周报写得都很敷衍。远程办公对于初创公司，真的是一个伪命题吗？</p>
-<p>回复：<br>远程办公不是伪命题，但“缺乏同步机制的远程办公”一定是灾难。远程考验的不是人品，而是公司的数字化制度。</p>
-<p>解决远程低效的核心是“结果导向”和“文档驱动”。</p>
-<p>这里有3个立刻能试的方法：<br>一是“每日站会仪式感”，利用飞书或腾讯会议，早晚各15分钟，强制视频见个面，同步当天目标，消除疏离感；<br>二是“任务颗粒化”，不要布置“下周交报告”的任务，要拆解成“明天中午12点交提纲”。利用看板工具（如Notion&#x2F;Trello）透明化所有人的进度；<br>三是“全流程文档化”，杜绝语音和长文字，所有需求、逻辑、决策必须写成短文档，沉淀为知识库。</p>
-<p>看不到人也要看得到事。如果你不会管远程，在办公室也未必管得好。若在协同办公软件搭建、远程绩效管理体系上有需求，可登录jobleap.cn解决。</p>
-<hr>
-<blockquote>
-<p>本文转载自开源仓库 <a href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：远程团队效率低下，跨地域协作成了“信息黑洞”？。</p>
 </blockquote>
 ]]></content>
   </entry>
