@@ -4,10 +4,59 @@
   <subtitle>读一本好书，遇见更好的自己</subtitle>
   <link href="https://caicitou-lili.github.io/"/>
   <link rel="self" href="https://caicitou-lili.github.io/atom.xml"/>
-  <updated>2026-10-21T21:15:04+08:00</updated>
+  <updated>2026-10-21T22:04:55+08:00</updated>
   <id>https://caicitou-lili.github.io/</id>
   <author><name>caicitou-lili</name></author>
   <generator uri="https://hexo.io/">Hexo</generator>
+  <entry>
+    <title>AI 副业赚钱方案博物馆：514 篇章节已镜像到本站</title>
+    <link href="https://caicitou-lili.github.io/2026/10/21/AI副业赚钱方案博物馆-514篇已镜像/"/>
+    <id>https://caicitou-lili.github.io/2026/10/21/AI副业赚钱方案博物馆-514篇已镜像/</id>
+    <published>2026-10-21T21:50:00+08:00</published>
+    <updated>2026-10-21T22:04:55+08:00</updated>
+    <category term="AI副业"/>
+    <content type="html"><![CDATA[<p>把开源仓库 <a href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（AI 副业赚钱方案博物馆）完整镜像到了本站，方便随时翻阅。原仓库 Apache License 2.0，持续日更，本站会跟随更新。</p>
+<h2 id="这个仓库里有什么"><a href="#这个仓库里有什么" class="headerlink" title="这个仓库里有什么"></a>这个仓库里有什么</h2><p>两个系列，共 <strong>514 章</strong>，已全部分类归档：</p>
+<table>
+<thead>
+<tr>
+<th>系列</th>
+<th>篇数</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="/categories/AI%E5%89%AF%E4%B8%9A/">程序员的副业赚钱宝典</a></td>
+<td>444 章</td>
+<td>每章一个可落地的副业方案：需求验证 → MVP → 财务测算 → 关键指标 → 避坑指南</td>
+</tr>
+<tr>
+<td><a href="/categories/AI%E5%89%AF%E4%B8%9A/">创业者早期的烦恼树洞</a></td>
+<td>70 章</td>
+<td>真实创业问题解答：PMF、融资、估值、股权、现金流</td>
+</tr>
+</tbody></table>
+<p>在「分类 → AI副业」下可以看到两个子分类，或者直接用站内搜索搜关键词（比如”订阅费”、”出海”、”Prompt”）。</p>
+<h2 id="先看这几篇"><a href="#先看这几篇" class="headerlink" title="先看这几篇"></a>先看这几篇</h2><p>不想从头翻的话，推荐从这几篇入手：</p>
+<ul>
+<li>第 443 章：搭建 AI 辅助图文创作工具赚订阅费——最典型的”一个痛点一个工具一个月订阅”路线</li>
+<li>序言：打碎”技术思维”，建立”生意思维”——程序员做副业最重要的一课</li>
+<li>第 444 章：代客安装 OpenClaw 与 Claude Code 赚取服务费——信息差赚钱的样本</li>
+</ul>
+<h2 id="仓库的核心认知（浓缩版）"><a href="#仓库的核心认知（浓缩版）" class="headerlink" title="仓库的核心认知（浓缩版）"></a>仓库的核心认知（浓缩版）</h2><p>原仓库 README 里有一套完整的方法论，提炼成几条：</p>
+<ul>
+<li><strong>做内容搞流量</strong>：自媒体流量是当下用 AI 做副业最亲民的路径</li>
+<li><strong>卖铲子而非挖金子</strong>：做工具比做项目风险小得多</li>
+<li><strong>做垂类而非平台</strong>：聚焦一个领域，比做通用平台容易脱颖而出</li>
+<li><strong>从小切入</strong>：先做 Midjourney 的 API 服务，而不是一上来做”AI 平台”</li>
+<li><strong>做国外市场</strong>：付费能力更强，限制更少</li>
+<li><strong>做资产而不是卖时间</strong>：积累能持续产生收益的东西</li>
+</ul>
+<p>已验证的方向包括：套壳站、API 聚合、发卡站、垂直 AI 工具（AI 写论文等）、行业 SaaS、AI 自媒体（绘本故事、虚拟人口播、小说漫画推文、电影解说）、视频翻译搬运等。</p>
+<hr>
+<p>原文仓库：<a href="https://github.com/XiaomingX/ai-money-maker-handbook">https://github.com/XiaomingX/ai-money-maker-handbook</a>（Apache License 2.0），本站镜像仅作学习交流，版权归原作者所有。</p>
+]]></content>
+  </entry>
   <entry>
     <title>GitHub 小白零基础从 0 到 1 教程（转载整理）</title>
     <link href="https://caicitou-lili.github.io/2026/10/21/GitHub小白零基础从0到1教程/"/>
@@ -1119,1435 +1168,249 @@
 ]]></content>
   </entry>
   <entry>
-    <title>DeepSeek Harness 首发实测 + 入门教程</title>
-    <link href="https://caicitou-lili.github.io/2026/08/15/DeepSeek-Harness-实测教程/"/>
-    <id>https://caicitou-lili.github.io/2026/08/15/DeepSeek-Harness-实测教程/</id>
-    <published>2026-08-15T01:00:00+08:00</published>
-    <updated>2026-10-11T22:45:17+08:00</updated>
-    <category term="教程"/>
-    <content type="html"><![CDATA[<p>昨天注定是载入史册的魔幻一天，DeepSeek 同时放了两个大招！先是 DeepSeek V4 Pro 正式版上线，紧接着万众瞩目的 <strong>DeepSeek Harness</strong> 开源。炸裂！炸裂！炸裂！</p>
-<p>DeepSeek Harness 开源的 GitHub 仓库上线不到 1 天，就冲到了 8 万多 Star，AI 圈的顶流果然名不虚传。这下搞不好 Codex、Claude Code、Cursor 都要”凉了”……</p>
-<p>这篇文章我会从安装开始，手把手带你体验 DeepSeek Harness 的核心玩法。小白可懂，建议收藏 ⭐️</p>
-<blockquote>
-<p>建议观看视频版：<a href="https://www.bilibili.com/video/BV1VkgK6NEZS/">B站视频</a></p>
-</blockquote>
-<hr>
-<h2 id="一、DeepSeek-Harness-是什么？"><a href="#一、DeepSeek-Harness-是什么？" class="headerlink" title="一、DeepSeek Harness 是什么？"></a>一、DeepSeek Harness 是什么？</h2><p><strong>Harness</strong> 这个词翻译过来就是「驾驭」。如果把 AI 模型比作一匹马，那 Harness 就是你驾驭 AI 模型这匹马所需要的一切工程。</p>
-<p>所谓 Harness 工程，就是研究怎么让 AI 模型这匹马跑得更快、更稳，顺利完成任务。你给 AI 写的项目规则文件、配置的各种工具、安排的任务拆分和执行顺序、设计的测试检查流程，这些统统都算 Harness。</p>
-<p>有一个很精妙的公式：</p>
-<blockquote>
-<p><strong>Agent &#x3D; Model + Harness</strong></p>
-</blockquote>
-<p>模型负责思考和生成，Harness 负责把这些能力接入文件系统、终端、网页、工具链，让 AI 真正能在现实环境里干活。</p>
-<p>之前 DeepSeek 只开源了模型这一半，Harness 一直没动静，这次终于补齐了。你可以把 DeepSeek Harness 理解成一个可以高度定制的 AI 编程工具，对标 Claude Code 和 Codex。但它的野心比这些工具更大——不只是一个编程 Agent，而是一套可配置、可重组的 Agent 运行环境。官方口号是「<strong>一切皆插件</strong>」。</p>
-<hr>
-<h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><p>安装 DeepSeek Harness 真的非常简单。进入 <a href="https://harness.deepseek.com/">DeepSeek Harness 官网</a>，你会看到一行安装命令。</p>
-<p>在执行之前，首先要确保你的电脑已经安装了 Node.js 环境，没有的话去 <a href="https://nodejs.org/">Node 官网</a> 下载安装包，傻瓜式安装就行。</p>
-<p>有了环境后，复制这行命令，打开终端执行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx @deepseek-ai/dsh web</span><br></pre></td></tr></table></figure>
-
-<p>稍等一会儿，终端会输出一个网址，打开它就能进入 DeepSeek Harness 的 Web 界面。</p>
-<p>第一次使用时，需要填入 DeepSeek 的 API Key。到 <a href="https://platform.deepseek.com/">DeepSeek 开放平台</a> 创建一个 API Key（注意不要泄露），把得到的 Key 复制粘贴过来就行。</p>
-<p>到这里，DeepSeek Harness 就安装成功了，是不是很简单？</p>
-<hr>
-<h2 id="三、Harness-实战"><a href="#三、Harness-实战" class="headerlink" title="三、Harness 实战"></a>三、Harness 实战</h2><p>界面打开之后，别急着让它干活。第一次用，建议先把下面三件事搞清楚。</p>
-<h3 id="1-选一个”工作现场”"><a href="#1-选一个”工作现场”" class="headerlink" title="1. 选一个”工作现场”"></a>1. 选一个”工作现场”</h3><p>第一步是<strong>选择一个项目文件夹</strong>。Harness 会把这个目录当成它的工作现场——之后读文件、改代码、跑命令，全部围绕这个目录展开。</p>
-<p>这一点很关键：<strong>目录选错，它能帮你的范围也就错了</strong>。所以第一次实测，我建议不要直接对着你最重要的项目开刀，先建一个空目录玩两把，熟悉了再上真项目。</p>
-<h3 id="2-调三个开关"><a href="#2-调三个开关" class="headerlink" title="2. 调三个开关"></a>2. 调三个开关</h3><p>进入对话后，界面上有几个需要你决定的东西：</p>
-<ul>
-<li><strong>模型与推理等级</strong>：可以选 DeepSeek V4 Pro 等模型，并调节推理等级。等级越高，它越舍得”想”，但响应更慢、消耗也更大。日常改代码用中等档就够，遇到复杂重构再拉满。</li>
-<li><strong>权限范围</strong>：Harness 默认会在每一次写文件、执行终端命令前向你确认。刚开始强烈建议保持确认模式，等你摸清它的脾气再考虑放开。</li>
-<li><strong>工作模式</strong>：最实用的是「<strong>标准模式</strong>」。它已经预置了一整套 AI 编程工具该有的基础能力（读写文件、执行命令、检索资料、把长任务拆成待办清单等），开箱就能干活。想更轻量或更激进，再去看其他模式。</li>
-</ul>
-<h3 id="3-“一切皆插件”到底指什么"><a href="#3-“一切皆插件”到底指什么" class="headerlink" title="3. “一切皆插件”到底指什么"></a>3. “一切皆插件”到底指什么</h3><p>官方那句”一切皆插件”不是宣传口号。模型接入、工具能力、执行环境、上下文管理、甚至对外接口，都是可以被替换、被组合的插件。</p>
-<p>对普通用户来说，实际意义是：<strong>你不需要用它的全部，按需开关就行</strong>。用得越少，行为越可控，出问题的面也越小。</p>
-<h3 id="4-实测案例：让它做一个-Excel-周报生成器"><a href="#4-实测案例：让它做一个-Excel-周报生成器" class="headerlink" title="4. 实测案例：让它做一个 Excel 周报生成器"></a>4. 实测案例：让它做一个 Excel 周报生成器</h3><p>光看界面没感觉，我直接上了一个真实需求：<strong>把每周的几份数据汇总成一份 Excel 周报</strong>。</p>
-<p>我给它的原话大概是这样：</p>
-<blockquote>
-<p>在当前目录建一个脚本，读取 <code>data/</code> 里本周的表格文件，汇总成一份 Excel 周报，包含本周汇总、和上周的环比，输出到 <code>output/</code> 目录。</p>
-</blockquote>
-<p>接下来发生的事，是这次实测里最有意思的部分：</p>
-<ol>
-<li>它<strong>没有立刻开写</strong>，而是先把任务拆成了一份待办清单（todo），然后一条条执行、一条条勾掉——你能实时看到它”走到哪一步了”。</li>
-<li>它自己去<strong>翻了目录里的真实文件</strong>，发现列名和我描述的不完全一样，于是回来问我确认字段含义，而不是硬按自己的假设写下去。</li>
-<li>建目录、写脚本、装依赖、跑一遍验证输出，整个过程里每一次写文件和执行命令都弹了确认，我点了几次”同意”。</li>
-<li>第一版跑出来的表头不对，我只说了一句”周次那一列要按 ISO 周算”，它就定位到对应函数改掉了，并且重跑验证。</li>
-</ol>
-<p>整个过程不到二十分钟，我拿到了一份能直接用的周报脚本。</p>
-<p><strong>这次实测给我最大的感受是</strong>：它和”聊天窗口里让 AI 写代码”完全不是一回事。区别不在于模型多聪明，而在于它<strong>能看到真实文件、能执行、能验证、能被打断和纠偏</strong>——这才是 Harness 的价值。</p>
-<h3 id="5-给它写好”项目规则”"><a href="#5-给它写好”项目规则”" class="headerlink" title="5. 给它写好”项目规则”"></a>5. 给它写好”项目规则”</h3><p>这是我用完最想安利的一条经验。</p>
-<p>在项目根目录放一个规则文件（比如 <code>AGENTS.md</code>），把项目约定写清楚：</p>
-<ul>
-<li>用什么语言、什么框架，依赖怎么装</li>
-<li>目录结构长什么样，新文件该放哪</li>
-<li>改完代码要跑什么检查、什么测试</li>
-<li>哪些目录是禁区，不许动</li>
-</ul>
-<p>Harness 每次启动都会读这份规则。<strong>规则写得越清楚，它越少自作主张</strong>；规则含糊，你就得反复纠正。这一步偷懒，后面全是加班。</p>
-<h3 id="6-几个必须提醒的坑"><a href="#6-几个必须提醒的坑" class="headerlink" title="6. 几个必须提醒的坑"></a>6. 几个必须提醒的坑</h3><ul>
-<li><strong>权限别一上来就给满</strong>。它能读写文件、能执行命令，就意味着提示词写得含糊时，它可能做出你并不想看到的操作。</li>
-<li><strong>推理等级拉满很烧 token</strong>。等级越高越慢越贵，注意账户余额，别在简单任务上开满档。</li>
-<li><strong>它还在开发者预览阶段</strong>。接口会以破坏兼容的方式快速演进，今天写的插件明天可能需要改，别急着上生产环境。</li>
-<li><strong>别指望它替代你判断</strong>。它能帮你把活干完，但需求是否合理、结果是否正确，责任还是在你身上。</li>
-</ul>
-<hr>
-<h2 id="四、小结：值得现在上手吗"><a href="#四、小结：值得现在上手吗" class="headerlink" title="四、小结：值得现在上手吗"></a>四、小结：值得现在上手吗</h2><p>一句话总结：<strong>DeepSeek Harness 补上了 DeepSeek 生态里一直缺的那一半</strong>。</p>
-<p>模型能力大家都已经见识过了，真正拉开差距的是”怎么用好”。Harness 把文件系统、终端、工具链、任务编排这一整套东西开放出来，让”用一个模型”变成”组装一个能干活的 Agent”。</p>
-<p>我的建议是：</p>
-<ul>
-<li><strong>想尝鲜</strong>：<code>npx @deepseek-ai/dsh web</code> 一条命令就能跑起来，成本极低，值得试。</li>
-<li><strong>想认真用</strong>：先花半小时把项目规则文件写好，收益最大的一步就是这个。</li>
-<li><strong>想上生产</strong>：再等等。开发者预览阶段，接口变化快，现在铺开容易返工。</li>
-</ul>
-<p>工具会一直有新的，但”怎么把事情拆清楚、怎么给 AI 划好边界”这套能力，换哪个工具都用得上。</p>
-<p>就这样，去玩吧 🎉</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>yt-dlp 保姆级教程——免费下载全网视频无水印</title>
-    <link href="https://caicitou-lili.github.io/2026/06/19/yt-dlp保姆级教程-免费下载全网视频无水印/"/>
-    <id>https://caicitou-lili.github.io/2026/06/19/yt-dlp保姆级教程-免费下载全网视频无水印/</id>
-    <published>2026-06-19T02:30:00+08:00</published>
-    <updated>2026-10-11T23:03:23+08:00</updated>
-    <category term="教程"/>
-    <content type="html"><![CDATA[<p>想存一个抖音视频当素材，结果下载器全是坑：要么充会员，要么有水印，要么画质压成 360p，要么下两个就让你付费。</p>
-<p>这么简单的需求，凭什么还要花钱？</p>
-<p><strong>yt-dlp</strong> —— 免费、开源、0 成本，支持 <strong>1800+ 网站</strong>，抖音、YouTube、B站、推特、小红书全都能下，自动抓最高画质，抖音&#x2F;TikTok 直接无水印。</p>
-<span id="more"></span>
-
-<hr>
-<h2 id="最省事版：用-AI-帮你装（推荐）"><a href="#最省事版：用-AI-帮你装（推荐）" class="headerlink" title="最省事版：用 AI 帮你装（推荐）"></a>最省事版：用 AI 帮你装（推荐）</h2><p>如果你电脑里有 Claude Code 或 Codex，啥都不用懂，直接说一句：</p>
-<blockquote>
-<p>「帮我安装 yt-dlp 这个工具」</p>
-</blockquote>
-<p>装完之后想下哪个视频：</p>
-<blockquote>
-<p>「帮我用 yt-dlp 下载这个视频：[粘贴链接]」</p>
-</blockquote>
-<p>从安装到下载，一行命令都不用记。</p>
-<hr>
-<h2 id="手动版：一步步来"><a href="#手动版：一步步来" class="headerlink" title="手动版：一步步来"></a>手动版：一步步来</h2><h3 id="第一步：安装（只需一次）"><a href="#第一步：安装（只需一次）" class="headerlink" title="第一步：安装（只需一次）"></a>第一步：安装（只需一次）</h3><p><strong>Mac：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install yt-dlp ffmpeg</span><br></pre></td></tr></table></figure>
-<p>如果提示没有 brew，先装 brew：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/bash -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>Windows（PowerShell）：</strong></p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">irm</span> get.scoop.sh | <span class="built_in">iex</span></span><br><span class="line">scoop install yt<span class="literal">-dlp</span> ffmpeg</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>ffmpeg 用来合并高清音视频，必须一起装。</p>
-</blockquote>
-<h3 id="第二步：复制视频链接"><a href="#第二步：复制视频链接" class="headerlink" title="第二步：复制视频链接"></a>第二步：复制视频链接</h3><p>在抖音&#x2F;B站&#x2F;YouTube 点「分享 → 复制链接」，拿到网址。</p>
-<h3 id="第三步：下载"><a href="#第三步：下载" class="headerlink" title="第三步：下载"></a>第三步：下载</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yt-dlp <span class="string">&quot;视频链接&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>回车，等几秒，视频就在当前文件夹里了。</p>
-<hr>
-<h2 id="进阶用法"><a href="#进阶用法" class="headerlink" title="进阶用法"></a>进阶用法</h2><p><strong>最高画质 MP4：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yt-dlp -f <span class="string">&quot;bv*+ba/b&quot;</span> --merge-output-format mp4 <span class="string">&quot;链接&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>需要登录才能看高清？（借用浏览器 Cookie）：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yt-dlp --cookies-from-browser chrome <span class="string">&quot;链接&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>只下载音频（MP3）：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yt-dlp -x --audio-format mp3 <span class="string">&quot;链接&quot;</span></span><br></pre></td></tr></table></figure>
-
+    <title>如何处理团队里的“有毒高产者”？他能力极强，但却搞坏了所有人心情</title>
+    <link href="https://caicitou-lili.github.io/2026/09/14/shudong-ch0070/"/>
+    <id>https://caicitou-lili.github.io/2026/09/14/shudong-ch0070/</id>
+    <published>2026-09-14T20:00:00+08:00</published>
+    <updated>2026-10-21T22:04:05+08:00</updated>
+    <category term="AI副业"/>
+    <content type="html"><![CDATA[<p>网友投稿：<br>我们公司有一个大拿，技术水平全公司第一，产出也非常惊人。但他性格极其傲慢，经常在公共场合羞辱其他同事的工作产出，甚至直接嘲讽我的战略。</p>
+<p>现在大家都很怕和他合作。虽然他很重要，但我发现他就像公司里的一颗定时炸弹，团队士气越来越低。我该不该开掉他？</p>
+<p>回复：<br>这叫“有毒高产者（Toxic High Performer）”。这种人短期能帮你打胜仗，长期会毁了你的组织土壤。</p>
+<p>解决原则是：价值观高于能力。如果无法矫正，必须清理。</p>
+<p>这里有3个立刻能试的方法：<br>一是“私下约谈与边界设定”，明确告诉他：由于他的沟通方式，正在导致人才流失，这是公司不可接受的损失。给他一个观察期；<br>二是“人才备份计划”，既然他有威胁，就立刻开始私下招募能替代他一部分功能的备选人才，或者进行内部技术分权；<br>三是“果断切割”，如果观察期内没有改善，哪怕短期项目受损，也要在全员面前体面地送他走。这不仅是为了止损，更是为了告诉所有人：我们保护每位员工的尊严。</p>
+<p>宁要一群羊带出的狮子，不要一只坏了整锅汤的害群之马。若在核心团队激励体系、初创企业文化守则制定上有需求，可登录jobleap.cn解决。</p>
 <hr>
 <blockquote>
-<p>💡 这个工具支持的 1800+ 网站：抖音、YouTube、B站、推特&#x2F;X、小红书、TikTok、Instagram、Facebook、Vimeo、PornHub、Twitch……你能想到的基本都支持。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>📌 原文作者：<a href="https://x.com/Leobai825">@Leobai825</a> 天策<br>原文数据：2万浏览 · 124 点赞 · 171 收藏<br>原文链接：<a href="https://x.com/Leobai825/status/2067854120392720471">X.com</a></p>
+<p>本文转载自开源仓库 <a href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：如何处理团队里的“有毒高产者”？他能力极强，但却搞坏了所有人心情。</p>
 </blockquote>
 ]]></content>
   </entry>
   <entry>
-    <title>AI解读周杰伦歌词，3个月3万粉，一本电子书卖12万</title>
-    <link href="https://caicitou-lili.github.io/2026/06/19/AI解读周杰伦歌词-3个月3万粉-电子书卖12万/"/>
-    <id>https://caicitou-lili.github.io/2026/06/19/AI解读周杰伦歌词-3个月3万粉-电子书卖12万/</id>
-    <published>2026-06-19T02:00:00+08:00</published>
-    <updated>2026-10-11T23:03:23+08:00</updated>
-    <category term="效率工具"/>
-    <content type="html"><![CDATA[<p>一个叫「歌词教授」的 bot，专门用 AI 分析经典歌词。把周杰伦、林俊杰那些听了二十年的歌喂给 AI，让它用「中文系教授」的口吻逐句拆解歌词。</p>
-<p>每一篇都像论文摘要，但莫名好笑。三个月涨了 <strong>3 万粉</strong>。更狠的是，他把热门解读打包成电子书《那些年我们没听懂的歌词》，39 元一份，卖了近三千份——<strong>12 万</strong>。用 AI 把青春回忆变成了可复利的内容资产。</p>
-<span id="more"></span>
-
-<hr>
-<h2 id="一、他到底在卖什么？"><a href="#一、他到底在卖什么？" class="headerlink" title="一、他到底在卖什么？"></a>一、他到底在卖什么？</h2><p>卖的不是歌词分析，是「原来我的青春这么有文化」的恍然大悟。</p>
-<p><strong>内容配方：用最正经的学术语言，分析最熟悉的流行歌词。</strong></p>
-<p>比如周杰伦《晴天》里那句「刮风这天我试过握着你手」，正常人听就是校园恋爱。他的 bot 会写：</p>
-<blockquote>
-<p>「握」字值得注意。不是「牵」，不是「拉」，是「握」。这个动作带有试探性和短暂性，暗示叙述者对这段关系的不确定。配合「试过」这一过去式表达，构成青春期情感中典型的「未完成的尝试」。</p>
-</blockquote>
-<p>你一边觉得好笑，一边又真的被提醒了：原来这首歌写这么好。</p>
-<hr>
-<h2 id="二、工具拆解：两件套就够了"><a href="#二、工具拆解：两件套就够了" class="headerlink" title="二、工具拆解：两件套就够了"></a>二、工具拆解：两件套就够了</h2><p><strong>🤖 Claude&#x2F;GPT：主引擎</strong></p>
-<p>把歌词贴进去，配上系统提示词，AI 自动输出教授风格解读：</p>
-<blockquote>
-<p>你是中文系资深教授，专攻流行歌词研究。用学术口吻分析以下歌词，每句从修辞手法、情感表达、文化隐喻三个角度拆解。语气一本正经但内容有洞察力。控制在 200 字以内，结尾加一句「教授点评」金句。</p>
-</blockquote>
-<p><strong>📊 Canva：电子书排版</strong></p>
-<p>把爆款解读导出，用 Canva 排版，选文艺风格模板，加目录和封面，导出 PDF。全程两小时。</p>
-<hr>
-<h2 id="三、Prompt-模板：三种风格切换"><a href="#三、Prompt-模板：三种风格切换" class="headerlink" title="三、Prompt 模板：三种风格切换"></a>三、Prompt 模板：三种风格切换</h2><p><strong>学术派（数据最好）</strong></p>
-<blockquote>
-<p>用比较文学视角分析[歌名]的[具体歌词]。联系同时代流行文化背景，指出意象选择的独特性。结尾用一句话概括这首歌的情感内核。</p>
-</blockquote>
-<p><strong>段子手派（涨粉快）</strong></p>
-<blockquote>
-<p>用中文系教授的语气解读[歌词]，但允许适度吐槽。比如「这句歌词如果放在高考阅读理解里，标准答案会写三行，但作词人可能只是觉得押韵」。有趣但不恶搞。</p>
-</blockquote>
-<p><strong>情怀派（转化高）</strong></p>
-<blockquote>
-<p>温柔地分析[歌词]，带一点怀旧口吻。解读过程让人想起第一次听这首歌的场景。结尾落在「这首歌陪我们走过了怎样的时光」。</p>
-</blockquote>
-<hr>
-<h2 id="四、变现路径：三步走"><a href="#四、变现路径：三步走" class="headerlink" title="四、变现路径：三步走"></a>四、变现路径：三步走</h2><table>
-<thead>
-<tr>
-<th>步骤</th>
-<th>操作</th>
-<th>要点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>第一步</td>
-<td>免费内容测爆款</td>
-<td>每天 3-5 条，周杰伦&gt;林俊杰&gt;五月天&gt;S.H.E，老歌&gt;新歌，慢歌&gt;快歌，情歌&gt;快节奏</td>
-</tr>
-<tr>
-<td>第二步</td>
-<td>爆款引导关注</td>
-<td>每条结尾加：「关注我，每天用中文系教授视角拆解一首老歌」</td>
-</tr>
-<tr>
-<td>第三步</td>
-<td>打包电子书</td>
-<td>攒 50 篇热门解读，定价 39 元（一杯咖啡钱），封面写：「那些年我们循环播放的歌，真的听懂了吗？」</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="五、为什么这个模式厉害？"><a href="#五、为什么这个模式厉害？" class="headerlink" title="五、为什么这个模式厉害？"></a>五、为什么这个模式厉害？</h2><p><strong>选择了一个自带流量的 IP 池。</strong> 不用解释周杰伦是谁，歌词刻在 80 后 90 后的 DNA 里，看到标题就想点进去。</p>
-<p><strong>内容资产化。</strong> 每一条解读都不浪费。发的时候是涨粉内容，攒起来是付费产品。一份电子书卖几千次，边际成本为零。</p>
-<p><strong>护城河是品味。</strong> AI 能写解读，但选哪首歌、用什么语气、把握什么分寸，靠的是对青春的共同记忆。</p>
-<hr>
-<h2 id="六、能复制的五个方向"><a href="#六、能复制的五个方向" class="headerlink" title="六、能复制的五个方向"></a>六、能复制的五个方向</h2><table>
-<thead>
-<tr>
-<th>方向</th>
-<th>素材</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>🎬 电影台词解读</td>
-<td>王家卫、周星驰台词拆解</td>
-</tr>
-<tr>
-<td>📺 电视剧名场面</td>
-<td>《甄嬛传》《武林外传》潜台词分析</td>
-</tr>
-<tr>
-<td>🎮 游戏文案赏析</td>
-<td>经典 RPG 剧情和台词的文学分析</td>
-</tr>
-<tr>
-<td>📖 网文名场面</td>
-<td>用严肃文学视角分析爆款网文</td>
-</tr>
-<tr>
-<td>🎵 歌词翻译 bot</td>
-<td>把中文歌词翻成莎士比亚风格英文</td>
-</tr>
-</tbody></table>
-<p>每一条都是同一条流水线，换个 Prompt 就能跑。</p>
-<hr>
-<p>39 元买的不是一本书，是「原来我的青春这么有文化」的满足感。最好的内容副业，不是创造新东西，是<strong>把大家心里已经有但说不清楚的感觉，翻译出来。</strong></p>
+    <title>“爱上你的解决方案，而不是问题本身”——一个致命的创业幻觉</title>
+    <link href="https://caicitou-lili.github.io/2026/09/14/shudong-ch0069/"/>
+    <id>https://caicitou-lili.github.io/2026/09/14/shudong-ch0069/</id>
+    <published>2026-09-14T08:00:00+08:00</published>
+    <updated>2026-10-21T22:04:05+08:00</updated>
+    <category term="AI副业"/>
+    <content type="html"><![CDATA[<p>网友投稿：<br>我们团队打磨了一项非常牛的技术，通过极复杂的算法解决了一件我们觉得“非常有价值”的事情。但在市场推广中，用户直言：这东西确实牛，但我没这个需求，我有更简单的替代方案。</p>
+<p>团队现在非常有挫败感，大家觉得自己一年的心血白费了。我们该如何从这种“自嗨式创业”中走出来？</p>
+<p>回复：<br>这是“锤子找钉子”的典型案例。你手里拿的是一把极其精美的锤子，却发现满世界都是螺丝。</p>
+<p>创业的成功不是因为你的解决方案多炫，而是因为你准确切中了用户的病灶。</p>
+<p>这里有3个立刻能试的方法：<br>一是“市场毒打法”，把你们引以为傲的方案脱去华丽的外衣，用一句话总结价值，去问不认识的陌生人是否愿意为此掏10块钱；<br>二是“需求溯源”，回到起点，看看那个问题到底是不是一个高频、刚需、且让用户感到极大痛苦（Pain Point）的深坑；<br>三是“技术降维”，利用你们现有的技术积累，去适配市场上真正爆发的、但目前解决得很差的新场景。</p>
+<p>自嗨是创业者的精神毒品。清醒过来，去找那个“着火的房子”。若在硬核技术商业化场景探索、需求真伪识别上有瓶颈，可登录jobleap.cn解决。</p>
 <hr>
 <blockquote>
-<p>📌 原文作者：<a href="https://x.com/WittWang01">@WittWang01</a> Witt | AI职场热点老兵<br>原文数据：1145浏览 · 8 点赞 · 23 收藏<br>原文链接：<a href="https://x.com/WittWang01/status/2067924414491177118">X.com</a></p>
+<p>本文转载自开源仓库 <a href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：“爱上你的解决方案，而不是问题本身”——一个致命的创业幻觉。</p>
 </blockquote>
 ]]></content>
   </entry>
   <entry>
-    <title>做内容最该装的5个AI Skills——从选题到复盘全流程</title>
-    <link href="https://caicitou-lili.github.io/2026/06/17/做内容最该装的5个AI-Skills-从选题到复盘全流程/"/>
-    <id>https://caicitou-lili.github.io/2026/06/17/做内容最该装的5个AI-Skills-从选题到复盘全流程/</id>
-    <published>2026-06-17T02:00:00+08:00</published>
-    <updated>2026-10-11T23:03:23+08:00</updated>
-    <category term="效率工具"/>
-    <content type="html"><![CDATA[<p>做内容最痛苦的不是写不出来，而是<strong>每天都要重新找选题、重写提示词、反复改文案、手动分发</strong>，还不知道有没有用。</p>
-<p>很多人用 AI 做内容是这样的：今天让 ChatGPT 写一篇，明天让 Claude 改一版，后天让 Gemini 总结几个选题。结果每次都要重新解释账号定位、目标用户、内容风格、平台规则——很累。</p>
-<p>真正高效的做法不是”多收藏几个 AI 工具”，而是给自己搭一套<strong>可复用的内容 Skills</strong>。</p>
-<blockquote>
-<p>Skill 是什么？把一类重复任务，封装成一套固定流程。以后你不是从零问 AI，而是直接调用这套流程。</p>
-</blockquote>
-<span id="more"></span>
-
-<hr>
-<h2 id="1-选题雷达-Skill"><a href="#1-选题雷达-Skill" class="headerlink" title="1. 选题雷达 Skill"></a>1. 选题雷达 Skill</h2><p>做内容第一步不是写文章，而是<strong>找问题</strong>。很多人写不出内容是因为没有稳定选题来源。</p>
-<p><strong>它解决什么：</strong> 每天帮你从热点、同行、评论区、用户问题里抓选题。</p>
-<ul>
-<li>收集同行爆款标题</li>
-<li>拆解评论区真实需求</li>
-<li>整理平台热点</li>
-<li>提炼用户痛点</li>
-<li>生成选题库</li>
-<li>判断选题适合哪个平台</li>
-</ul>
-<hr>
-<h2 id="2-定位画像-Skill"><a href="#2-定位画像-Skill" class="headerlink" title="2. 定位画像 Skill"></a>2. 定位画像 Skill</h2><p>很多人内容做不起来不是因为不努力，而是<strong>账号太散</strong>。今天发 AI 工具，明天发副业，后天发情绪——用户不知道你到底是干什么的。</p>
-<p><strong>它解决什么：</strong> 你到底服务谁、解决什么问题、用什么风格说话。</p>
-<p>做完你会清楚：你的账号不只是”讲 AI 工具”，而是——</p>
-<blockquote>
-<p>面向独立开发者，讲能落地的 AI 工具和自动化工作流。<br>面向职场人，讲 AI 提效和知识管理。<br>面向自媒体人，讲 AI 内容生产流程。</p>
-</blockquote>
-<hr>
-<h2 id="3-内容生产-Skill"><a href="#3-内容生产-Skill" class="headerlink" title="3. 内容生产 Skill"></a>3. 内容生产 Skill</h2><p>有了选题和定位，下一步才是写内容。</p>
-<p><strong>它解决什么：</strong> 把一个选题快速变成大纲、正文、脚本、封面文案。</p>
-<p><strong>关键：</strong> 不要直接说”帮我写一篇文章”——这样很容易写成套话。要给它结构和限制。</p>
-<p>如果你要做视频，改成：</p>
-<blockquote>
-<p>“请把这篇内容改成 60 秒短视频脚本。</p>
-<ol>
-<li>前 3 秒有钩子</li>
-<li>分成 5 个镜头</li>
-<li>每个镜头给画面建议</li>
-<li>每句口播不超过 20 个字</li>
-<li>结尾引导收藏”</li>
-</ol>
-</blockquote>
-<hr>
-<h2 id="4-拟人润色-Skill"><a href="#4-拟人润色-Skill" class="headerlink" title="4. 拟人润色 Skill"></a>4. 拟人润色 Skill</h2><p>AI 写出来的内容经常有几个问题：太像说明书、太正确、太平、太长、没有人味、没有节奏。</p>
-<p><strong>它解决什么：</strong> 让内容更像真实创作者说出来的，不是让内容变油腻，而是去掉”AI 味”。</p>
-<p>那些”在当今社会””随着时代发展””众所周知”——不是不能用，而是用多了就很假。</p>
-<hr>
-<h2 id="5-分发复盘-Skill"><a href="#5-分发复盘-Skill" class="headerlink" title="5. 分发复盘 Skill"></a>5. 分发复盘 Skill</h2><p>很多人内容写完就结束了。但真正做内容，<strong>发布只是开始</strong>。</p>
-<p>同一篇内容在不同平台不能直接复制：</p>
-<table>
-<thead>
-<tr>
-<th>平台</th>
-<th>侧重点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>小红书</td>
-<td>封面和收藏点</td>
-</tr>
-<tr>
-<td>公众号</td>
-<td>结构和信息密度</td>
-</tr>
-<tr>
-<td>X&#x2F;Twitter</td>
-<td>观点和传播性</td>
-</tr>
-<tr>
-<td>视频号</td>
-<td>口播和节奏</td>
-</tr>
-</tbody></table>
-<p><strong>它解决什么：</strong> 把一篇内容拆成多个平台版本，并根据数据持续优化。</p>
-<hr>
-<h2 id="小白怎么搭第一套内容-Skills？"><a href="#小白怎么搭第一套内容-Skills？" class="headerlink" title="小白怎么搭第一套内容 Skills？"></a>小白怎么搭第一套内容 Skills？</h2><p>用 5 个固定提示词，分别保存成 5 个文档：</p>
-<blockquote>
-<p>选题雷达 Skill → 账号定位 Skill → 内容生产 Skill → 拟人润色 Skill → 分发复盘 Skill</p>
-</blockquote>
-<p><strong>每次做内容，按这个顺序跑：</strong></p>
-<table>
-<thead>
-<tr>
-<th>步骤</th>
-<th>操作</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>第一步</td>
-<td>跑选题：让 AI 给 20 个选题，筛掉空泛、太大、没痛点的</td>
-</tr>
-<tr>
-<td>第二步</td>
-<td>对齐定位：不适合目标用户的，再爆也先别做</td>
-</tr>
-<tr>
-<td>第三步</td>
-<td>生成正文：让 AI 按你的结构出初稿，不要自由发挥</td>
-</tr>
-<tr>
-<td>第四步</td>
-<td>做拟人润色：删废话、去 AI 味、加金句、改节奏</td>
-</tr>
-<tr>
-<td>第五步</td>
-<td>拆平台版本：同一篇内容，拆成不同平台格式</td>
-</tr>
-<tr>
-<td>第六步</td>
-<td>发布后复盘：用数据反推下次选题</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="哪些人最适合用这套-Skills？"><a href="#哪些人最适合用这套-Skills？" class="headerlink" title="哪些人最适合用这套 Skills？"></a>哪些人最适合用这套 Skills？</h2><ul>
-<li>✅ <strong>自媒体新手：</strong> 最大问题不是不会写，是不知道每天写什么</li>
-<li>✅ <strong>公众号&#x2F;小红书博主：</strong> 需要稳定产出，不想每天从零开始</li>
-<li>✅ <strong>独立开发者：</strong> 产品日志、工具测评、增长文章、用户案例</li>
-<li>✅ <strong>电商&#x2F;本地生活&#x2F;知识付费：</strong> 大量商品、服务、用户问题可变成选题</li>
-<li>✅ <strong>运营和市场人员：</strong> 方案、脚本、活动文案、社媒内容</li>
-</ul>
-<hr>
-<h2 id="这-5-个-Skills-不能帮你做什么？"><a href="#这-5-个-Skills-不能帮你做什么？" class="headerlink" title="这 5 个 Skills 不能帮你做什么？"></a>这 5 个 Skills 不能帮你做什么？</h2><p>先把话说清楚——它不能保证篇篇爆、不能替代真实经验、不能自动理解你的用户、不能把烂选题变成好内容、不能替你持续发布和复盘。</p>
-<p><strong>AI Skill 真正的价值是：</strong> 把重复动作标准化 → 把好经验复用起来 → 把内容流程跑顺 → 把创作从靠灵感变成靠系统。</p>
-<hr>
-<h2 id="我的建议：先搭最小内容流水线"><a href="#我的建议：先搭最小内容流水线" class="headerlink" title="我的建议：先搭最小内容流水线"></a>我的建议：先搭最小内容流水线</h2><p>别想太多，直接照这个做：</p>
-<ol>
-<li>选一个账号方向</li>
-<li>写清楚目标用户</li>
-<li>保存 5 个固定提示词</li>
-<li>每天生成 10 个选题</li>
-<li>每天只写 1 篇</li>
-<li>发布后记录数据</li>
-<li>每周复盘一次</li>
-</ol>
-<p><strong>第一周不要追求爆款。只做一件事：把流程跑通。</strong></p>
-<p>对新手来说，最重要的不是立刻涨粉，而是建立<strong>稳定的产出能力</strong>。</p>
+    <title>决策中的“民主陷阱”：为什么开了一下午会，什么事都没定下来？</title>
+    <link href="https://caicitou-lili.github.io/2026/09/13/shudong-ch0068/"/>
+    <id>https://caicitou-lili.github.io/2026/09/13/shudong-ch0068/</id>
+    <published>2026-09-13T20:00:00+08:00</published>
+    <updated>2026-10-21T22:04:05+08:00</updated>
+    <category term="AI副业"/>
+    <content type="html"><![CDATA[<p>网友投稿：<br>我一直想做一家扁平化、民主的公司，遇到重大决策（比如新产品的UI风格、或是团建地点）我都想听听大家的意见。</p>
+<p>结果就是，每次开会都是七嘴八舌，谁也说服不了谁。我作为创始人，不想显得霸道，但看着时间流逝没有结论，我非常烦躁。创业初期，我们真的需要这种“集体决策”吗？</p>
+<p>回复：<br>创业公司最不需要的就是“绝对民主”。初创公司是一艘在风暴中航行的快艇，需要的是船长，而不是委员会。</p>
+<p>解决决策低效的关键是“听取多数人意见，参考少数人建议，一个人拍板”。</p>
+<p>这里有3个立刻能试的方法：<br>一是“会前准备制”，所有讨论必须在开会前发文档。如果大家没看，会议直接取消。开会只谈分歧点，不谈普及；<br>二是“决策人制度”，每件事明确一个终极负责人（DRI），他可以听大家的想法，但最终决定权和责任都在他一个人身上；<br>三是“快速试错法”，如果两个方案看起来差不多，不要再争了。随便选一个先上线，让市场反馈替你们投票。</p>
+<p>在初创期，一个中等的决策执行下去，也好过一个完美的决策迟迟不发。若在办公流程优化、高效会议标准建立上有困惑，可登录jobleap.cn解决。</p>
 <hr>
 <blockquote>
-<p>💡 真正的重点不是”装了某个神奇插件”，而是：<strong>做内容的人，别再靠灵感硬撑，要用 AI 把重复流程变成可复用系统。</strong></p>
-<p>工具会变，平台会变，热点会变。但内容生产的底层流程不会变：找到用户问题 → 讲清你的观点 → 给出可执行方法 → 持续发布和复盘。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>📌 原文作者：<a href="https://x.com/yunxi0623">@yunxi0623</a> 云析<br>原文数据：7162浏览 · 143 点赞 · 228 收藏<br>原文链接：<a href="https://x.com/yunxi0623/status/2066861480579125719">X.com</a></p>
+<p>本文转载自开源仓库 <a href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：决策中的“民主陷阱”：为什么开了一下午会，什么事都没定下来？。</p>
 </blockquote>
 ]]></content>
   </entry>
   <entry>
-    <title>GitHub 奶爸级入门教程——从注册到开源贡献</title>
-    <link href="https://caicitou-lili.github.io/2026/06/17/GitHub奶爸级入门教程-从注册到开源贡献/"/>
-    <id>https://caicitou-lili.github.io/2026/06/17/GitHub奶爸级入门教程-从注册到开源贡献/</id>
-    <published>2026-06-17T01:30:00+08:00</published>
-    <updated>2026-10-11T23:03:23+08:00</updated>
-    <category term="教程"/>
-    <content type="html"><![CDATA[<p>GitHub 有多牛？<strong>1.8 亿开发者，至少 6 亿仓库</strong>。腾讯、阿里、字节的开源项目全在上面。有最近爆火的 OpenClaw，有数字人，有 Skill 仓库，甚至还有阿波罗登月的代码。</p>
-<p>GitHub 可不是程序员专属。AI 编程能力变强之后，现在几乎要<strong>人手一个 GitHub 仓库</strong>了。</p>
-<p>这篇奶爸级教程带你从零搞懂：注册、搜索、仓库操作、Git 使用、部署上线、开源贡献。</p>
-<span id="more"></span>
-
-<hr>
-<h2 id="开源是什么"><a href="#开源是什么" class="headerlink" title="开源是什么"></a>开源是什么</h2><p>代码本质上是文字。<strong>不开源</strong> &#x3D; 这段文字只在你电脑里，别人看不到。<strong>开源</strong> &#x3D; 放到 GitHub 上设成公开仓库，任何人都能看、能复制、能拿去改。</p>
-<p>但开源不等于放弃所有权。许可证规定别人能做什么：</p>
-<ul>
-<li><strong>MIT 协议：</strong> 最宽松，几乎不限制</li>
-<li><strong>GPL 协议：</strong> 最严格，别人用了你的代码，他自己的代码也得开源</li>
-<li><strong>什么都不放：</strong> 法律上默认保留所有权利</li>
-</ul>
-<hr>
-<h2 id="Git-和-GitHub-的区别"><a href="#Git-和-GitHub-的区别" class="headerlink" title="Git 和 GitHub 的区别"></a>Git 和 GitHub 的区别</h2><p><strong>不是一回事。</strong></p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Git</th>
-<th>GitHub</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>是什么</td>
-<td>版本控制工具</td>
-<td>代码托管网站</td>
-</tr>
-<tr>
-<td>在哪</td>
-<td>你电脑上</td>
-<td>云端服务器</td>
-</tr>
-<tr>
-<td>功能</td>
-<td>记录每次改动，能退回任意历史版本</td>
-<td>共享代码、协作开发</td>
-</tr>
-<tr>
-<td>联网</td>
-<td>不需要</td>
-<td>需要</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>Git 是你电脑上的版本记录本，GitHub 是这本记录本的云端备份加共享平台。</p>
-</blockquote>
-<hr>
-<h2 id="注册与安全"><a href="#注册与安全" class="headerlink" title="注册与安全"></a>注册与安全</h2><h3 id="注册账号"><a href="#注册账号" class="headerlink" title="注册账号"></a>注册账号</h3><ol>
-<li>打开 github.com → 点 <strong>Sign up</strong></li>
-<li>填邮箱、密码、用户名、国家</li>
-<li><strong>邮箱用 Gmail</strong>——后面 Supabase、Vercel、Cloudflare 全支持 Google 一键登录。QQ 邮箱和 163 邮箱经常把验证邮件扔进垃圾箱</li>
-<li>用户名别起 test001，用真名拼音或长期英文 ID</li>
-</ol>
-<h3 id="开双重认证（2FA）"><a href="#开双重认证（2FA）" class="headerlink" title="开双重认证（2FA）"></a>开双重认证（2FA）</h3><p><strong>必须开。</strong> GitHub 从 2023 年起强制要求做过代码贡献的账号开 2FA。</p>
-<p>路径：右上角头像 → Settings → Password and authentication → Two-factor authentication → Enable → 选 Authenticator app</p>
-<p>下载 Google Authenticator，扫码绑定。<strong>16 个恢复码必须存好</strong>——手机丢了这是唯一的救命钥匙。</p>
-<hr>
-<h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><p>右上角 + 号 → New repository：</p>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>建议</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>仓库名</td>
-<td>全小写英文，用连字符，如 <code>my-first-project</code></td>
-</tr>
-<tr>
-<td>Description</td>
-<td>一句话说清楚干什么的，建议填</td>
-</tr>
-<tr>
-<td>Public &#x2F; Private</td>
-<td>免费账号两种都能无限建</td>
-</tr>
-<tr>
-<td>Add a README</td>
-<td><strong>勾上</strong>，这是仓库的脸面</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="搜索项目"><a href="#搜索项目" class="headerlink" title="搜索项目"></a>搜索项目</h2><p>顶部搜索栏直接打字，几个最常用限定符：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">language:python         只搜 Python 项目</span><br><span class="line">stars:&gt;1000             只要 Star 过千的热门</span><br><span class="line">pushed:&gt;2026-01-01      今年还在更新的活跃项目</span><br><span class="line">in:name                 关键词出现在仓库名里</span><br></pre></td></tr></table></figure>
-
-<p><strong>组合示范：</strong> <code>machine learning language:python stars:&gt;5000 pushed:&gt;2026-01-01</code></p>
-<p>比在搜索引擎里搜”某某项目推荐”快一个数量级，没 SEO 灌水文章夹在中间。</p>
-<hr>
-<h2 id="读懂一个仓库"><a href="#读懂一个仓库" class="headerlink" title="读懂一个仓库"></a>读懂一个仓库</h2><p>打开任意仓库页面，从上到下：</p>
-<table>
-<thead>
-<tr>
-<th>区域</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>Star</strong></td>
-<td>收藏+点赞，Star 数越高项目越受欢迎</td>
-</tr>
-<tr>
-<td><strong>Fork</strong></td>
-<td>把整个仓库复制到你账号下，独立副本随便改</td>
-</tr>
-<tr>
-<td><strong>Watch</strong></td>
-<td>订阅更新通知</td>
-</tr>
-<tr>
-<td><strong>Code 标签</strong></td>
-<td>最核心——看代码和文件</td>
-</tr>
-<tr>
-<td><strong>Issues</strong></td>
-<td>工单区，提 bug、提需求、问怎么用</td>
-</tr>
-<tr>
-<td><strong>Pull Requests</strong></td>
-<td>合并请求，给别人项目贡献代码的入口</td>
-</tr>
-<tr>
-<td><strong>README.md</strong></td>
-<td>项目说明书，看陌生项目先看这个</td>
-</tr>
-</tbody></table>
-<p><strong>绿色 Code 按钮</strong> &#x3D; 下载代码入口。右侧 About 栏显示简介、语言、Star 数、Fork 数。</p>
-<hr>
-<h2 id="本地-Git-操作（零命令）"><a href="#本地-Git-操作（零命令）" class="headerlink" title="本地 Git 操作（零命令）"></a>本地 Git 操作（零命令）</h2><p><strong>不需要装 Git，不需要背命令。</strong> 打开 AI 编程工具（Cursor、Claude Code、Copilot、Trae 都行），对它说这六句话：</p>
-<table>
-<thead>
-<tr>
-<th>操作</th>
-<th>对 AI 说</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>初始化</td>
-<td>“帮我初始化 Git 仓库”</td>
-</tr>
-<tr>
-<td>下载别人仓库</td>
-<td>“帮我把这个仓库克隆到本地 github.com&#x2F;xxx&#x2F;xxx”</td>
-</tr>
-<tr>
-<td>提交改动</td>
-<td>“提交所有改动，说明是：修复了登录页白屏”</td>
-</tr>
-<tr>
-<td>推送到 GitHub</td>
-<td>“推送到 GitHub”</td>
-</tr>
-<tr>
-<td>拉取远端更新</td>
-<td>“拉一下最新代码”</td>
-</tr>
-<tr>
-<td>关联远端仓库</td>
-<td>“帮我把这个项目关联到 GitHub 上的 xxx 仓库，然后推送上去”</td>
-</tr>
-</tbody></table>
-<p>Agent 在后台自动执行一切，包括自动配好 SSH Key。</p>
-<hr>
-<h2 id="部署上线"><a href="#部署上线" class="headerlink" title="部署上线"></a>部署上线</h2><table>
-<thead>
-<tr>
-<th>类型</th>
-<th>平台</th>
-<th>对 AI 说</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>静态 HTML</td>
-<td><strong>GitHub Pages</strong></td>
-<td>“帮我把这个仓库部署到 GitHub Pages”</td>
-</tr>
-<tr>
-<td>React&#x2F;Vue&#x2F;Next.js</td>
-<td><strong>Vercel</strong></td>
-<td>“帮我把这个项目部署到 Vercel”</td>
-</tr>
-</tbody></table>
-<p>每次 git push 自动重新部署。免费套餐个人项目够用，加载速度比国内很多付费虚拟主机还快。</p>
-<hr>
-<h2 id="Fork-PR：开源贡献核心流程"><a href="#Fork-PR：开源贡献核心流程" class="headerlink" title="Fork + PR：开源贡献核心流程"></a>Fork + PR：开源贡献核心流程</h2><ol>
-<li><strong>Fork：</strong> 点右上角 Fork 按钮，把目标仓库复制到自己账号下</li>
-<li><strong>Clone：</strong> 把自己 Fork 的仓库拉到本地</li>
-<li><strong>改代码：</strong> 在本地改，提交，推送</li>
-<li><strong>发起 PR：</strong> 打开自己 Fork 仓库的 GitHub 页面 → 点 Compare and pull request → 填写标题和描述说清楚改了什么</li>
-<li><strong>等合并：</strong> 原作者审核，可能让你改几处，也可能直接 Merge</li>
-</ol>
-<hr>
-<h2 id="推荐浏览的开源项目"><a href="#推荐浏览的开源项目" class="headerlink" title="推荐浏览的开源项目"></a>推荐浏览的开源项目</h2><table>
-<thead>
-<tr>
-<th>项目</th>
-<th>Star</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a href="https://github.com/QwenLM/Qwen">Qwen</a></td>
-<td>-</td>
-<td>阿里开源大语言模型，7B-72B 全量开放</td>
-</tr>
-<tr>
-<td><a href="https://github.com/chrislgarry/Apollo-11">Apollo-11</a></td>
-<td>30K+</td>
-<td>1969 年阿波罗 11 号制导计算机原始代码</td>
-</tr>
-<tr>
-<td><a href="https://github.com/Anduin2017/HowToCook">HowToCook</a></td>
-<td>80K</td>
-<td>程序员做饭指南，每道菜标难度、材料精确到克</td>
-</tr>
-<tr>
-<td><a href="https://github.com/byoungd/English-level-up-tips">English-level-up-tips</a></td>
-<td>46K</td>
-<td>英语提升技巧，7 层结构从基础到 AI 工具</td>
-</tr>
-</tbody></table>
-<p>看这些项目不需要完全看懂代码。打开先看 README，再看文件结构，感受真实项目长什么样。这种浏览本身就是最好的学习。</p>
-<hr>
-<p>剩下的就一件事了——打开 GitHub，搜一个你感兴趣的项目，点进去看它的 README 和文件结构。再用 git clone 拉到本地，改点东西，push 上去。<strong>踩过一次完整流程，这些知识才是你的。</strong></p>
+    <title>只顾着“拉新”却忘了“留旧”：老客户流失率突然飙升怎么办？</title>
+    <link href="https://caicitou-lili.github.io/2026/09/13/shudong-ch0067/"/>
+    <id>https://caicitou-lili.github.io/2026/09/13/shudong-ch0067/</id>
+    <published>2026-09-13T08:00:00+08:00</published>
+    <updated>2026-10-21T22:04:05+08:00</updated>
+    <category term="AI副业"/>
+    <content type="html"><![CDATA[<p>网友投稿：<br>我们最近把所有的营销资源都投到了拉新上，确实也带来了很多新流量。但上周复盘发现，我们的老客户续费率掉了一半，而且投诉率激增。</p>
+<p>老用户觉得我们“喜新厌旧”，现在的服务响应速度远不如以前。我现在意识到，拉一个新客的成本是留一个老客的5倍。这种“漏水的水桶”该如何修补？</p>
+<p>回复：<br>恭喜你意识到了这一点。初创公司的根基在那群陪你走过最艰难时期的老客户身上。</p>
+<p>修补水桶的核心是“服务回补”和“荣誉激励”。</p>
+<p>这里有3个立刻能试的方法：<br>一是“老客户道歉信+补偿”，创始人亲自发声，承认最近在管理上的疏忽，并给所有老客户发放高价值的代金券或特权；<br>二是“设置CSO（首席客户服务官）”，哪怕只有一个人的团队，也要有人专门负责老客户的满意度，直接向你汇报；<br>三是“老客户共创会”，邀请高价值的老客户参与下一阶段的产品测试，给他们“原始股用户”的荣誉感。</p>
+<p>新客决定你能走多快，老客决定你能走多远。若在客户关系管理（CRM）体系搭建、用户留存策略设计上有困惑，可登录jobleap.cn解决。</p>
 <hr>
 <blockquote>
-<p>📌 原文作者：<a href="https://x.com/laowangbabababa">@laowangbabababa</a> 老王霸 AI Lab<br>原文数据：63.2万浏览 · 645 点赞 · 189 转推 · 1572 收藏<br>原文链接：<a href="https://x.com/laowangbabababa/status/2061384966227849698">X.com</a></p>
+<p>本文转载自开源仓库 <a href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：只顾着“拉新”却忘了“留旧”：老客户流失率突然飙升怎么办？。</p>
 </blockquote>
 ]]></content>
   </entry>
   <entry>
-    <title>零代码+AI暴利组合拳——单页工具站月入$135,000美金全攻略</title>
-    <link href="https://caicitou-lili.github.io/2026/06/17/零代码AI工具站月入13万美金全攻略/"/>
-    <id>https://caicitou-lili.github.io/2026/06/17/零代码AI工具站月入13万美金全攻略/</id>
-    <published>2026-06-17T01:00:00+08:00</published>
-    <updated>2026-10-11T23:03:23+08:00</updated>
-    <category term="效率工具"/>
-    <content type="html"><![CDATA[<p>你敢相信吗？有一类闷声发大财的单页网站，你可能用过，但你绝对想不到它背后究竟有多暴利。</p>
-<p>老外日常：在 Google 搜 <code>word unscramble</code>，点进去一个简陋工具页，输入乱序字母，一秒拼出单词。用完就关，停留不到3分钟。</p>
-<p>残酷真相：就这一个”无聊”的拼单词单页站，每月独立访客<strong>千万级别</strong>，Google 注册搜索关键词超 <strong>27 万个</strong>，每月躺赚广告费能让站长全款买豪车。</p>
-<p>在 2026 年的 AI 时代，技术壁垒已被彻底粉碎。这篇攻略手把手教你用”零代码+AI”把枯燥的单页工具站变成 24 小时收割美金的数字资产。</p>
-<span id="more"></span>
-
-<hr>
-<h2 id="1-暴利铁证：闷声发大财的”无聊”工具站"><a href="#1-暴利铁证：闷声发大财的”无聊”工具站" class="headerlink" title="1. 暴利铁证：闷声发大财的”无聊”工具站"></a>1. 暴利铁证：闷声发大财的”无聊”工具站</h2><p><strong>真实标杆案例：</strong></p>
-<table>
-<thead>
-<tr>
-<th>网站</th>
-<th>类型</th>
-<th>月流量</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a href="https://wordfinder.yourdictionary.com/">WordFinder</a></td>
-<td>字谜重组</td>
-<td>千万级 UV</td>
-</tr>
-<tr>
-<td><a href="https://unscramblex.com/">UnscrambleX</a></td>
-<td>拼单词</td>
-<td>千万级 UV</td>
-</tr>
-<tr>
-<td><a href="https://sleepcalculator.com/">Sleep Calculator</a></td>
-<td>睡眠计算</td>
-<td>月入$7-8K</td>
-</tr>
-<tr>
-<td><a href="https://www.online-calculator.com/">Online Calculator</a></td>
-<td>在线计算器</td>
-<td>月入数万美元</td>
-</tr>
-</tbody></table>
-<p><strong>工具站 3 大获利逻辑：</strong></p>
-<ol>
-<li><strong>精准截流：</strong> 工具站搞的是极其具体的长尾搜索词。用户5秒拿到答案就走，Google 反而给你的站加分，排名稳如老狗。</li>
-<li><strong>高互动倍率：</strong> 用户会反复调参数、点结果，人均 PV 达 5 倍以上，广告展示量翻倍翻倍再翻倍。</li>
-<li><strong>技术门槛民主化：</strong> 以前要么学几个月编程，要么花大几千请外包。现在用大白话跟 AI 聊，20 分钟上线。</li>
-</ol>
-<blockquote>
-<p>💡 核心铁律：变现本质是”建立资产”，不是”出卖劳动力”。停止做内容苦力，转批量生产数字工具。</p>
-</blockquote>
-<hr>
-<h2 id="2-商业闭环：从搜索到美金进账"><a href="#2-商业闭环：从搜索到美金进账" class="headerlink" title="2. 商业闭环：从搜索到美金进账"></a>2. 商业闭环：从搜索到美金进账</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户搜索精准关键词 → 进入工具站疯狂交互 → 触发 Google 广告展示 → 美金自动进账</span><br></pre></td></tr></table></figure>
-
-<p><strong>很多人误区：</strong> 以为用户必须点击广告你才能拿钱。错！现在的 AdSense 广告流模式，只要广告在页面上成功展示（Impression），你就在收钱。</p>
-<p><strong>变现数学公式：</strong></p>
-<blockquote>
-<p>3,000,000 访客 × 5 次互动 × $9 RPM &#x3D; <strong>$135,000&#x2F;月</strong></p>
-</blockquote>
-<p>欧美市场 RPM 现实范围在 <strong>$3 - $12</strong> 之间，取中位数 $9 计算。</p>
-<hr>
-<h2 id="3-选品调研：Semrush-挖蓝海关键词"><a href="#3-选品调研：Semrush-挖蓝海关键词" class="headerlink" title="3. 选品调研：Semrush 挖蓝海关键词"></a>3. 选品调研：Semrush 挖蓝海关键词</h2><p>凭空拍脑袋想工具 &#x3D; 新手 100% 失败。</p>
-<p><strong>Semrush 高价值词库筛选标准：</strong></p>
-<ul>
-<li>✅ <strong>锁定美国市场：</strong> 死盯 USA，欧美用户 RPM 是亚洲的数倍到数十倍</li>
-<li>✅ <strong>工具后缀词搜索：</strong> Generator（生成器）、Calculator（计算器）、Checker（检测器）、Converter（转换器）</li>
-<li>✅ <strong>暴力过滤 KD：</strong> 关键词难度限制在 0%-49%，干掉大站垄断的红海词</li>
-<li>✅ <strong>瞄准长尾：</strong> 如美国自由职业者 1099 税务表格生成工具，搜它的人目的性极强，转化意愿高得吓人</li>
-</ul>
-<hr>
-<h2 id="4-零代码实操：Hostinger-AI-极致复刻"><a href="#4-零代码实操：Hostinger-AI-极致复刻" class="headerlink" title="4. 零代码实操：Hostinger AI 极致复刻"></a>4. 零代码实操：Hostinger AI 极致复刻</h2><h3 id="两步提示词建站法"><a href="#两步提示词建站法" class="headerlink" title="两步提示词建站法"></a>两步提示词建站法</h3><p><strong>第一步：生成专业建站 Prompt</strong></p>
-<blockquote>
-<p>“你是一位全球顶尖全栈工程师兼顶级 SEO 专家。我准备在 Hostinger AI 建站平台搭建一个专门收割关键词搜索流量的单页工具站：[输入关键词]。<br>请参考行业标杆网站架构：[输入竞品 URL]，为我一键建站输出极其详细的提示词。<br>必须包含：响应式前端布局、核心算法逻辑、高阶 SEO 架构（TDK 埋词、H1-H3 层级、图片 Alt）、【核心死命令】接入免费公开第三方动态 API 确保实时数据。底部预留 Contact Us、Terms of Service、Privacy Policy 页面入口。”</p>
-</blockquote>
-<p><strong>第二步：Hostinger AI 一键生成</strong></p>
-<ul>
-<li>选 <a href="https://www.hostinger.com/">Hostinger</a> Popular 套餐，第一年免费送域名，同一服务器可建 <strong>25 个独立网站</strong></li>
-<li>把 AI 生成的超长提示词粘贴到 Hostinger AI 聊天框，2 分钟生成</li>
-<li><strong>像素级修正法：</strong> 截图对手最好看的 UI，发给 AI：”参考这个风格微调我的页面”</li>
-</ul>
-<p><strong>打破数据限制（关键）：</strong> 必须接入免费公开第三方 API，确保用户输入任何参数都能实时调取数万条真实数据，别搞死数据。</p>
-<hr>
-<h2 id="5-变现合规：Google-AdSense-过审策略"><a href="#5-变现合规：Google-AdSense-过审策略" class="headerlink" title="5. 变现合规：Google AdSense 过审策略"></a>5. 变现合规：Google AdSense 过审策略</h2><h3 id="必备合规页面（少一个直接拒）"><a href="#必备合规页面（少一个直接拒）" class="headerlink" title="必备合规页面（少一个直接拒）"></a>必备合规页面（少一个直接拒）</h3><ul>
-<li>✅ <strong>Contact Us：</strong> 真实有效邮箱，证明背后是活人</li>
-<li>✅ <strong>Terms of Service：</strong> 详细免责声明</li>
-<li>✅ <strong>Privacy Policy（重中之重）：</strong> 必须明确写——“Google 等第三方广告商会使用 Cookie 技术，根据用户浏览历史投放定制化广告”</li>
-</ul>
-<h3 id="AI-辅助”高价值内容”过审"><a href="#AI-辅助”高价值内容”过审" class="headerlink" title="AI 辅助”高价值内容”过审"></a>AI 辅助”高价值内容”过审</h3><p>纯工具页文本量少，易被判”低价值内容”。用 AI 在博客同步生成 <strong>5-10 篇</strong>围绕工具关键词的高质量深度文章，强行拉高网站内容权重。</p>
-<blockquote>
-<p>“请作为全球资深 SEO 专家，围绕关键词 [工具主关键词]，撰写 5 篇结构严谨、有独特洞察力的长文原创博客。H2&#x2F;H3 清晰层级、段落饱满、符合 Google Helpful Content 收录逻辑。”</p>
-</blockquote>
-<p>文章发布后，前往 AdSense 后台复制广告代码，让 AI 植入到 <code>&lt;head&gt;</code> 标签中，坐等审核通过。</p>
-<hr>
-<h2 id="6-真实拆解：-135K-月夸张吗？"><a href="#6-真实拆解：-135K-月夸张吗？" class="headerlink" title="6. 真实拆解：$135K&#x2F;月夸张吗？"></a>6. 真实拆解：$135K&#x2F;月夸张吗？</h2><h3 id="为什么数据是真实的"><a href="#为什么数据是真实的" class="headerlink" title="为什么数据是真实的"></a>为什么数据是真实的</h3><table>
-<thead>
-<tr>
-<th>变量</th>
-<th>依据</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>月 UV 300万</td>
-<td>WordFinder &#x2F; UnscrambleX 自然搜索流量常年稳定</td>
-</tr>
-<tr>
-<td>PV&#x2F;UV &#x3D; 5</td>
-<td>用户反复调参数、点击释义，工具站天然放大展示量</td>
-</tr>
-<tr>
-<td>RPM $9</td>
-<td>美国高客单价流量 + 金融&#x2F;税务&#x2F;高互动游戏类别</td>
-</tr>
-</tbody></table>
-<h3 id="普通人现实的差距"><a href="#普通人现实的差距" class="headerlink" title="普通人现实的差距"></a>普通人现实的差距</h3><ul>
-<li><strong>流量被头部垄断：</strong> 超级大词被老站霸榜</li>
-<li><strong>沙盒期：</strong> 新站 1-3 个月考察，需持续用 AI 补充内容集群</li>
-<li><strong>国家杂乱导致 RPM 缩水：</strong> 吸引印度&#x2F;东南亚流量，RPM 可能跌到 $0.5</li>
-</ul>
-<h3 id="普通人最现实的路径：矩阵打法"><a href="#普通人最现实的路径：矩阵打法" class="headerlink" title="普通人最现实的路径：矩阵打法"></a>普通人最现实的路径：矩阵打法</h3><p>不要意淫超级爆款，用 <strong>25 个站点矩阵</strong> 跟概率做朋友：</p>
-<blockquote>
-<p>单站 5,000 UV × 5 PV × $4 RPM &#x3D; <strong>$100&#x2F;月</strong><br>25 站 &#x3D; <strong>$2,500&#x2F;月（约 1.8 万人民币）</strong></p>
-</blockquote>
-<p>重点是做完之后几乎不需要再花时间维护——纯被动睡后收入。</p>
-<hr>
-<h2 id="7-你的-24-小时行动清单"><a href="#7-你的-24-小时行动清单" class="headerlink" title="7. 你的 24 小时行动清单"></a>7. 你的 24 小时行动清单</h2><ul>
-<li><input disabled="" type="checkbox"> <strong>查：</strong> 登录 <a href="https://www.semrush.com/">Semrush</a>，挖出前五个蓝海工具长尾词</li>
-<li><input disabled="" type="checkbox"> <strong>搭：</strong> 在 <a href="https://www.hostinger.com/">Hostinger</a> 输入 AI 生成的专业 Prompt，2 分钟砸出第一个工具站</li>
-<li><input disabled="" type="checkbox"> <strong>补：</strong> 补齐三大合规页面 + AI 灌入 5 篇博客 + 申请 AdSense 代码入站</li>
-<li><input disabled="" type="checkbox"> <strong>复制：</strong> 把这套 SOP 原地复制 25 遍，开启美金数字资产矩阵</li>
-</ul>
+    <title>救命钱还是夺命索？面对带额外严苛条件的投资该不该签？</title>
+    <link href="https://caicitou-lili.github.io/2026/09/12/shudong-ch0066/"/>
+    <id>https://caicitou-lili.github.io/2026/09/12/shudong-ch0066/</id>
+    <published>2026-09-12T20:00:00+08:00</published>
+    <updated>2026-10-21T22:04:05+08:00</updated>
+    <category term="AI副业"/>
+    <content type="html"><![CDATA[<p>网友投稿：<br>我们公司账上钱只能撑三个月了，最近有一个投资人愿意投我们，但他在合同里加了极其严苛的条款：比如一票否决权、过高的业绩承诺，甚至要求创始人个人资产担保。</p>
+<p>我感觉他在趁火打劫。签了，我可能倾家荡产且失去公司控制权；不签，公司可能立刻就倒闭。我该如何在这种博弈中寻找一线生机？</p>
+<p>回复：<br>这在资本市场寒冬是常见现象。这种钱叫“Dirty Money”，吃下去可能会噎死，不吃会饿死。</p>
+<p>寻找生机的关键是“争取退出权”和“设置博弈天花板”。</p>
+<p>这里有3个立刻能试的方法：<br>一是“底线条款死守”，绝对不签创始人个人无限责任担保。你可以失去股权，但不能背上这辈子换不清的债；<br>二是“对赌目标合理化”，通过详尽的数据报告，向投资人说明原定目标的不科学性，争取更稳健的、阶梯式的对赌条件；<br>三是“小额众筹或过桥贷款”，与其签卖身契，不如尝试让老股东给一笔小的过桥贷，撑到你能谈下一家比较人性化的机构。</p>
+<p>活下去固然重要，但千万别把灵魂卖给魔鬼。若在投资协议深度解析、紧急融资策略咨询上有需求，可登录jobleap.cn解决。</p>
 <hr>
 <blockquote>
-<p>📌 原文作者：<a href="https://x.com/ai_laotie">@ai_laotie</a> 老铁AI实战<br>原文数据：5.8万浏览 · 155 点赞 · 428 收藏<br>原文链接：<a href="https://x.com/ai_laotie/status/2065974378635129177">X.com</a></p>
+<p>本文转载自开源仓库 <a href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：救命钱还是夺命索？面对带额外严苛条件的投资该不该签？。</p>
 </blockquote>
 ]]></content>
   </entry>
   <entry>
-    <title>闲鱼11个神操作——从捡漏到月入过万</title>
-    <link href="https://caicitou-lili.github.io/2026/06/15/闲鱼11个神操作-从捡漏到月入过万/"/>
-    <id>https://caicitou-lili.github.io/2026/06/15/闲鱼11个神操作-从捡漏到月入过万/</id>
-    <published>2026-06-15T01:00:00+08:00</published>
-    <updated>2026-10-11T23:03:23+08:00</updated>
-    <category term="效率工具"/>
-    <content type="html"><![CDATA[<p>我敢打赌，90%的人打开闲鱼只会做一件事：</p>
-<p>搜”iPhone”、”洗衣机”、”冰箱”，然后在职业卖家的链接里比价。比了半天，发现跟淘宝差不多。</p>
-<p>这不是你的问题。是你和职业选手坐在同一张牌桌上。你搜”商品”的时候，别人在搜”处境”。差距不在货源，不在运气，在<strong>信息差</strong>。</p>
-<p>11个真正有用的神操作，每个后面都有一句话：<strong>你现在就可以这样干。</strong></p>
-<span id="more"></span>
-
-<hr>
-<h2 id="01-买家捡漏：反向关键词搜”处境”"><a href="#01-买家捡漏：反向关键词搜”处境”" class="headerlink" title="01 | 买家捡漏：反向关键词搜”处境”"></a>01 | 买家捡漏：反向关键词搜”处境”</h2><p>大多数人打开闲鱼，想的是”我要买什么”。内行想的是”谁在急着卖”。</p>
-<p>职业卖家没有时间压力，挂着慢慢卖。真正便宜的东西，来自有处境压力的人。</p>
-<p><strong>复制这些关键词去搜：</strong></p>
-<blockquote>
-<p>分手 急出 | 搬家 清仓 | 离职 带不走 | 公司倒闭 | 前男友送的 | 考研上岸 | 骨折价 | 自提优先 | 老婆不让</p>
-</blockquote>
-<p>有人搜”分手 钻戒”，花3000块买到原价1.2万的钻戒。卖家只想尽快清掉”伤心物”。</p>
-<hr>
-<h2 id="02-三句话砍价法"><a href="#02-三句话砍价法" class="headerlink" title="02 | 三句话砍价法"></a>02 | 三句话砍价法</h2><p>很多人不敢砍价，或者只会说”老板便宜点”。</p>
-<p><strong>正确流程：</strong></p>
-<p><strong>第一步：</strong> 搜你想买的商品，筛选”已售出”，看最近7天真实成交价。</p>
-<p><strong>第二步：</strong> 发这条消息：</p>
-<blockquote>
-<p>“老板，东西成色确实好，真心想要。就是我注意到这里有点小痕迹，你看能不能XX（填成交价）？我秒拍秒确认，不墨迹。”</p>
-</blockquote>
-<p>先夸对方（给面子）→ 指出小问题（给台阶）→ 承诺秒付（给安全感）。</p>
-<p><strong>第三步：</strong> 筹码叠加再砍一刀：”我同城自提”、”打包多件”、”今天就能付款”。</p>
-<hr>
-<h2 id="03-搜这两个词，捡大漏"><a href="#03-搜这两个词，捡大漏" class="headerlink" title="03 | 搜这两个词，捡大漏"></a>03 | 搜这两个词，捡大漏</h2><ul>
-<li><strong>「仅拆封」</strong>——盒子打开了，东西没用过</li>
-<li><strong>「轻微划痕」</strong>——你可能肉眼都看不出来</li>
-</ul>
-<p>一个空气炸锅市场价599。搜”仅拆封”，299买到。用一年再挂闲鱼卖120。相当于花179块用了一年。</p>
-<hr>
-<h2 id="04-盯”个人闲置大户”，3折拿"><a href="#04-盯”个人闲置大户”，3折拿" class="headerlink" title="04 | 盯”个人闲置大户”，3折拿"></a>04 | 盯”个人闲置大户”，3折拿</h2><p><strong>特征：</strong> 评价不多但全好评、东西杂（母婴&#x2F;数码+家居）、长期上新。</p>
-<p><strong>画像：</strong> 搬家宝妈、毕业留学生。</p>
-<p><strong>操作：</strong> 关注→上新秒问→打包砍价。他们不靠这个吃饭，东西卖不掉就捐了，给钱就卖。</p>
-<hr>
-<h2 id="05-卖虚拟服务，零成本"><a href="#05-卖虚拟服务，零成本" class="headerlink" title="05 | 卖虚拟服务，零成本"></a>05 | 卖虚拟服务，零成本</h2><p>2025年闲鱼发布技能服务的卖家：<strong>1962万人</strong>，00后占41%。</p>
-<p>你不用是专家，只要比别人多会一点：</p>
-<table>
-<thead>
-<tr>
-<th>服务</th>
-<th>价格</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>帮下载论文</td>
-<td>5元&#x2F;次</td>
-</tr>
-<tr>
-<td>帮P图修图</td>
-<td>3-10元&#x2F;张</td>
-</tr>
-<tr>
-<td>帮剪短视频</td>
-<td>15-30元&#x2F;条</td>
-</tr>
-<tr>
-<td>叫醒监督学习</td>
-<td>考研季暴增300%</td>
-</tr>
-</tbody></table>
-<p>真实案例：00后卖”骂醒恋爱脑”，30元&#x2F;次，月入8000+。</p>
-<hr>
-<h2 id="06-低价收、加价卖"><a href="#06-低价收、加价卖" class="headerlink" title="06 | 低价收、加价卖"></a>06 | 低价收、加价卖</h2><p>核心公式：<strong>信息差 + 错配匹配 &#x3D; 差价</strong></p>
-<p>有人专门在拼多多百亿补贴买AirPods，挂闲鱼加价150-200。月出30单，白赚4500-6000。</p>
-<blockquote>
-<p>⚠️ 注意：2026年闲鱼开始打击”明显无货源”账号，月销超一定量会被要求提供进货凭证。</p>
-</blockquote>
-<hr>
-<h2 id="07-闲鱼特惠寄：3-6元发全国"><a href="#07-闲鱼特惠寄：3-6元发全国" class="headerlink" title="07 | 闲鱼特惠寄：3-6元发全国"></a>07 | 闲鱼特惠寄：3-6元发全国</h2><p>闲鱼和快递公司有合作价，比你自寄便宜30%-50%。</p>
-<p><strong>路径：</strong> 闲鱼App → 我的 → 闲鱼特惠寄。大件发德邦&#x2F;顺丰，6折起。</p>
-<hr>
-<h2 id="08-擦亮别乱擦（越擦越降权）"><a href="#08-擦亮别乱擦（越擦越降权）" class="headerlink" title="08 | 擦亮别乱擦（越擦越降权）"></a>08 | 擦亮别乱擦（越擦越降权）</h2><p><strong>什么时候能擦亮：</strong> 发布超过7天，浏览量在下降。</p>
-<p><strong>什么时候绝对不要擦：</strong> 发布不到48小时、有浏览量没收藏、有人正在和你私聊。</p>
-<p><strong>提高曝光的真正办法：</strong></p>
-<ul>
-<li><strong>定价锚点法：</strong> 搜同类商品，定中间偏下5%-10%</li>
-<li><strong>限时折扣法：</strong> 标题写”5天后涨价”，点击率提高30%</li>
-<li><strong>蹭热点：</strong> 加高考、毕业季、618等热搜词</li>
-<li><strong>更新商品比擦亮有效10倍：</strong> 卖不掉的下架重发</li>
-</ul>
-<hr>
-<h2 id="09-标题即流量"><a href="#09-标题即流量" class="headerlink" title="09 | 标题即流量"></a>09 | 标题即流量</h2><p><strong>公式：</strong> <code>[核心词] + [场景词] + [价格锚点]</code></p>
-<ul>
-<li>❌ 错误示范：”闲置手机便宜出”</li>
-<li>✅ 正确示范：”iPhone 14 Pro 国行256G 高考后换机急出 比市场价低500”</li>
-</ul>
-<p><strong>黄金发布时间：</strong> 工作日晚上7-10点，周末上午10-12点、下午3-5点。别凌晨2点发。</p>
-<hr>
-<h2 id="10-养号3天计划"><a href="#10-养号3天计划" class="headerlink" title="10 | 养号3天计划"></a>10 | 养号3天计划</h2><table>
-<thead>
-<tr>
-<th>天数</th>
-<th>操作</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Day 1</td>
-<td>只浏览点赞</td>
-</tr>
-<tr>
-<td>Day 2</td>
-<td>买个小东西</td>
-</tr>
-<tr>
-<td>Day 3</td>
-<td>授权芝麻信用，发布第一个商品</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>🚫 绝不：用脚本、用模拟器、多账号群控。闲鱼异常识别维度已达37项，抓到永封。</p>
-</blockquote>
-<hr>
-<h2 id="11-内行避坑：5个必知的骗局"><a href="#11-内行避坑：5个必知的骗局" class="headerlink" title="11 | 内行避坑：5个必知的骗局"></a>11 | 内行避坑：5个必知的骗局</h2><p>闲鱼暗语对照表——常见骗局关键词要警惕，如上号、解绑、远程、保证金、验货宝绕开等。</p>
-<hr>
-<p>闲鱼从来不奖励最聪明的人，只奖励<strong>最先动手的人</strong>。</p>
-<p>你搜iPhone的时候，别人在搜”分手急出”。你犹豫发不发的时候，别人已经发了第一个商品。</p>
+    <title>招来了“大厂高管”却水土不服：名气很大，干活很虚怎么办？</title>
+    <link href="https://caicitou-lili.github.io/2026/09/12/shudong-ch0065/"/>
+    <id>https://caicitou-lili.github.io/2026/09/12/shudong-ch0065/</id>
+    <published>2026-09-12T08:00:00+08:00</published>
+    <updated>2026-10-21T22:04:05+08:00</updated>
+    <category term="AI副业"/>
+    <content type="html"><![CDATA[<p>网友投稿：<br>我们为了提升品牌形象，花重金请了一个曾在知名大厂做总监的大咖过来当VP。结果入职后，他每天都在谈战略、画大饼，还带了一堆繁琐的流程过来，却从不肯下场亲手写哪怕一份方案。</p>
+<p>甚至他提出的很多想法，完全不符合我们这个阶段的实际。团队其他老核心也对他有意见。这种“庙小容不下大佛”的错配，我该如何处理？</p>
+<p>回复：<br>大厂高管是“重武器”，但初创公司现在需要的是“尖刀班”。大厂擅长在成熟体系内资源调度，而你需要的是在荒野里活下去。</p>
+<p>这种错配在初创期非常高发，核心在于“降维打击”还是“降维瘫痪”。</p>
+<p>这里有3个立刻能试的方法：<br>一是“下场测试期”，入职第一个月，不谈管理，只让他负责一个具体的项目执行。如果连细节都抓不住，说明他不适合你的阶段；<br>二是“文化反向对齐”，明确告知他：这儿没有秘书，没有现成的资源，只有解决问题的创始人和战友，请收起大厂优越感；<br>三是“果断纠偏”，如果磨合两个月还没产出实际价值，且导致团队内耗，哪怕赔偿也要请他走，不要让组织氛围坏掉。</p>
+<p>最贵的不一定是最好的，最合适的才是最好的。若在初创高管团队搭建、面试高级人才的底层逻辑上有需要，可登录jobleap.cn解决。</p>
 <hr>
 <blockquote>
-<p>📌 原文作者：<a href="https://x.com/tun2049">@tun2049</a> 天机奇谈<br>原文数据：1.2万浏览 · 63 点赞 · 20 转推 · 156 收藏<br>原文链接：<a href="https://x.com/tun2049/status/2066102525485625560">X.com</a></p>
+<p>本文转载自开源仓库 <a href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：招来了“大厂高管”却水土不服：名气很大，干活很虚怎么办？。</p>
 </blockquote>
 ]]></content>
   </entry>
   <entry>
-    <title>6个AI项目自动化闲鱼 — 24小时帮你捡漏接单</title>
-    <link href="https://caicitou-lili.github.io/2026/06/08/6个AI项目自动化闲鱼-24小时帮你捡漏接单/"/>
-    <id>https://caicitou-lili.github.io/2026/06/08/6个AI项目自动化闲鱼-24小时帮你捡漏接单/</id>
-    <published>2026-06-08T06:30:00+08:00</published>
-    <updated>2026-10-11T23:03:23+08:00</updated>
-    <category term="效率工具"/>
-    <content type="html"><![CDATA[<p>想用闲鱼赚点副业收入？</p>
-<p>别人还在手动刷商品、回消息、盯订单的时候，有人已经用 AI 24 小时帮自己捡漏、接单、找货源了。</p>
-<p>GitHub 上这 6 个项目值得收藏 👇</p>
-<span id="more"></span>
-
-<h2 id="1-ai-goofish-monitor"><a href="#1-ai-goofish-monitor" class="headerlink" title="1. ai-goofish-monitor"></a>1. ai-goofish-monitor</h2><p>实时监控闲鱼商品。刚上架的低价好货，AI 第一时间帮你发现。<strong>捡漏党必备。</strong></p>
-<p>🔗 <a href="https://github.com/op7418/ai-goofish-monitor">GitHub</a></p>
-<h2 id="2-XianyuAutoAgent"><a href="#2-XianyuAutoAgent" class="headerlink" title="2. XianyuAutoAgent"></a>2. XianyuAutoAgent</h2><p>AI 自动回复买家。咨询、砍价、追问参数，AI 全程接待。<strong>睡觉也能接单。</strong></p>
-<p>🔗 <a href="https://github.com/op7418/XianyuAutoAgent">GitHub</a></p>
-<h2 id="3-xianyu-auto-reply-fix"><a href="#3-xianyu-auto-reply-fix" class="headerlink" title="3. xianyu-auto-reply-fix"></a>3. xianyu-auto-reply-fix</h2><p>多账号运营神器。自动回复、自动发货、消息通知、后台管理。<strong>适合批量做号。</strong></p>
-<p>🔗 <a href="https://github.com/op7418/xianyu-auto-reply-fix">GitHub</a></p>
-<h2 id="4-xianyu-spider"><a href="#4-xianyu-spider" class="headerlink" title="4. xianyu_spider"></a>4. xianyu_spider</h2><p>闲鱼商品数据采集工具。自动搜集热门商品和价格数据。<strong>找爆款、做倒卖、分析市场更轻松。</strong></p>
-<p>🔗 <a href="https://github.com/op7418/xianyu_spider">GitHub</a></p>
-<h2 id="5-Playwright"><a href="#5-Playwright" class="headerlink" title="5. Playwright"></a>5. Playwright</h2><p>自动化神器。自动搜索、自动监控、自动采集。<strong>很多闲鱼 AI 项目底层都在用它。</strong></p>
-<p>🔗 <a href="https://github.com/microsoft/playwright">GitHub</a></p>
-<h2 id="6-Browser-Use"><a href="#6-Browser-Use" class="headerlink" title="6. Browser Use"></a>6. Browser Use</h2><p>一句话让 AI 帮你操作浏览器。自动找货、筛选商品、整理信息。<strong>适合做闲鱼 Agent。</strong></p>
-<p>🔗 <a href="https://github.com/browser-use/browser-use">GitHub</a></p>
+    <title>被“虚荣指标”蒙蔽了双眼：DAU很高，为什么就是不挣钱？</title>
+    <link href="https://caicitou-lili.github.io/2026/09/11/shudong-ch0064/"/>
+    <id>https://caicitou-lili.github.io/2026/09/11/shudong-ch0064/</id>
+    <published>2026-09-11T20:00:00+08:00</published>
+    <updated>2026-10-21T22:04:05+08:00</updated>
+    <category term="AI副业"/>
+    <content type="html"><![CDATA[<p>网友投稿：<br>我们的产品最近数据涨势极好，日活（DAU）翻了三倍。我们在朋友圈疯狂庆祝，投资人也夸我们势头猛。</p>
+<p>但冷静下来看财报，我发现我们的ARPU（人均贡献收入）在下降，营销获客成本（CAC）在上涨。现在的繁荣全是靠烧钱换来的，一旦停了推广，数据就开始腰斩。我这种“虚假繁荣”的情况，是该继续烧钱拿份额，还是该刹车保命？</p>
+<p>回复：<br>这叫“虚荣指标（Vanity Metrics）陷阱”。高增长掩盖了极其脆弱的商业模式，这是一剂毒药。</p>
+<p>创业回归本质只有一件事：你提供的价值是否大于你获取该价值的成本。</p>
+<p>这里有3个立刻能试的方法：<br>一是“核心北极星指标调优”，把精力从DAU转向“次日留存”和“LTV（用户终身价值）”，只有爱你的用户才是有意义的；<br>二是“ROI硬脱钩”，强迫自己做一个测试：在零投放的情况下，看看自然留存的用户能产生多少订单，这是你的基本盘；<br>三是“精细化运营，而非砸钱”，把买流量的钱省下来，去做产品细节优化，让存量用户产生复购。</p>
+<p>不要为了给投资人看数据而烧掉你的未来。若在商业模式验证、精细化增长流量模型上有瓶颈，可登录jobleap.cn解决。</p>
 <hr>
 <blockquote>
-<p>💡 以前做闲鱼拼的是时间。现在拼的是<strong>自动化程度</strong>。</p>
-<p>别人熬夜蹲商品、回消息、盯订单的时候，你的 AI 已经在帮你干活了。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>📌 原文作者：<a href="https://x.com/Smartpigai">@Smartpigai</a> Smartpig<br>原文数据：1万浏览 · 153 点赞 · 42 转推<br>原文链接：<a href="https://x.com/Smartpigai/status/2063845428471173322">X.com</a></p>
+<p>本文转载自开源仓库 <a href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：被“虚荣指标”蒙蔽了双眼：DAU很高，为什么就是不挣钱？。</p>
 </blockquote>
 ]]></content>
   </entry>
   <entry>
-    <title>给 Codex 装上投资 Skills：5 个 AI 投研开源项目</title>
-    <link href="https://caicitou-lili.github.io/2026/06/08/给Codex装上投资Skills-5个AI投研开源项目/"/>
-    <id>https://caicitou-lili.github.io/2026/06/08/给Codex装上投资Skills-5个AI投研开源项目/</id>
-    <published>2026-06-08T06:00:00+08:00</published>
-    <updated>2026-10-11T23:03:23+08:00</updated>
-    <category term="效率工具"/>
-    <content type="html"><![CDATA[<p>Serenity 火了以后，很多人第一反应是去抄作业。</p>
-<p>但其实我们可以给 Codex 装上这些投资类 Skills 和 AI 投研框架后，它可以变成一个<strong>股票研究助理</strong>：帮你拆产业链、读财报、看情绪、查风险、做估值、写反方报告，甚至把策略拿去回测。</p>
-<p><strong>先收藏这 5 个 GitHub 项目！别让 AI 直接替你买股票，先让它帮你把研究做扎实。</strong></p>
-<span id="more"></span>
-
-<hr>
-<h2 id="1-UZI-Skill-⭐-2-4K"><a href="#1-UZI-Skill-⭐-2-4K" class="headerlink" title="1. UZI-Skill ⭐ 2.4K"></a>1. UZI-Skill ⭐ 2.4K</h2><p>中文投资者最值得先看的一个！</p>
-<p>它把 <strong>A股、港股、美股</strong> 分析做成了一套完整流程：深度分析、陷阱排查、龙虎榜、投资大佬评审团、22维数据、180条量化规则。</p>
-<p>适合拿来做个股初筛、风险排查和中文市场研究。</p>
-<p>🔗 <a href="https://github.com/op7418/UZI-Skill">github.com&#x2F;op7418&#x2F;UZI-Skill</a></p>
-<hr>
-<h2 id="2-TradingAgents-⭐-83-7K"><a href="#2-TradingAgents-⭐-83-7K" class="headerlink" title="2. TradingAgents ⭐ 83.7K"></a>2. TradingAgents ⭐ 83.7K</h2><p>GitHub 上最火的 AI 金融交易框架之一。</p>
-<p>它把一个投研团队拆成多个 Agent：<strong>基本面分析、情绪分析、新闻分析、技术分析、研究员、交易员、风控团队。</strong></p>
-<p>如果你想看看”AI 投研团队”到底怎么协作，这个项目最有代表性。</p>
-<p>🔗 <a href="https://github.com/TauricResearch/TradingAgents">github.com&#x2F;TauricResearch&#x2F;TradingAgents</a></p>
+    <title>团队超过20人后的“信息烟囱”：为什么大家越来越不通气了？</title>
+    <link href="https://caicitou-lili.github.io/2026/09/11/shudong-ch0063/"/>
+    <id>https://caicitou-lili.github.io/2026/09/11/shudong-ch0063/</id>
+    <published>2026-09-11T08:00:00+08:00</published>
+    <updated>2026-10-21T22:04:05+08:00</updated>
+    <category term="AI副业"/>
+    <content type="html"><![CDATA[<p>网友投稿：<br>以前我们五六个人的时候，大家坐一圈，任何事吼一嗓子全公司都知道。现在核心团队加上外协有20多个人了，我发现研发部不知道产品部改了逻辑，销售部承诺的交期，运营部完全不清楚。</p>
+<p>大家各干各的，出现了严重的内耗和推诿。这种“部门墙”在这么小的公司也会出现吗？我该如何打破这种信息孤岛？</p>
+<p>回复：<br>当一个组织超过12人（一个餐桌坐不下）时，自发的沟通就会失效。你需要刻意制造“信息流动”。</p>
+<p>打破信息孤岛的关键是“透明化”和“跨部门同步”。</p>
+<p>这里有3个立刻能试的方法：<br>一是“周中全员同步会”，每周三抽出20分钟，每个部门负责人同步本周最重要的3件事，杜绝冗长汇报，只说关联信息；<br>二是“全员公开看板”，利用在线协作工具，让所有人都能看到各个项目的实时状态，权限尽量开放，减少打听成本；<br>三是“跨部门吐槽大会”，定期举办非正式茶话会，让大家说出在配合中遇到的不爽，把矛盾放在台面上解决。</p>
+<p>沟通也是生产力，不要让沉默杀死了协作。若在企业数字化协同方案、信息透明化机制建设上有需求，可登录jobleap.cn解决。</p>
 <hr>
 <blockquote>
-<p>📌 原文作者：<a href="https://x.com/369Serena">@369Serena</a> Serena<br>原文数据：4.5万浏览 · 670 点赞<br>原文链接：<a href="https://x.com/369Serena/status/2063599357119603154">X.com</a></p>
-<p><em>免责声明：本文为工具介绍，不构成任何投资建议。</em></p>
+<p>本文转载自开源仓库 <a href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：团队超过20人后的“信息烟囱”：为什么大家越来越不通气了？。</p>
 </blockquote>
 ]]></content>
   </entry>
   <entry>
-    <title>澳洲打工度假 WHV 全攻略 — 从申请到落地</title>
-    <link href="https://caicitou-lili.github.io/2026/06/08/澳洲打工度假WHV全攻略-从申请到落地/"/>
-    <id>https://caicitou-lili.github.io/2026/06/08/澳洲打工度假WHV全攻略-从申请到落地/</id>
-    <published>2026-06-08T05:30:00+08:00</published>
-    <updated>2026-10-11T23:03:23+08:00</updated>
-    <category term="教程"/>
-    <content type="html"><![CDATA[<p>很多人想去澳洲 WHV，是因为想换个环境、逃离内耗、重新开始。但打工度假不是一张自动通往自由生活的门票——你要面对抽签、材料、预算、租房、找工作、保险、税号、工资权益，以及刚落地时的孤独和不确定。</p>
-<p><strong>这篇不是劝退，而是帮你在出发前先看清成本：怎么申请、怎么集二签、落地后先办什么、哪里能省钱、哪些坑不要踩。</strong></p>
-<span id="more"></span>
-
-<hr>
-<h2 id="先看清-WHV-的三笔成本"><a href="#先看清-WHV-的三笔成本" class="headerlink" title="先看清 WHV 的三笔成本"></a>先看清 WHV 的三笔成本</h2><p><strong>第一笔是金钱成本。</strong> 签证费、机票、保险、房租押金、生活启动资金。官方通常要求约 AUD 5,000 + 机票费用，但建议准备得更宽裕。</p>
-<p><strong>第二笔是时间成本。</strong> 抽签、准备材料、等下签、找房、找工作、办银行卡、申请 TFN，都不是一天完成的。刚到澳洲的前两周，很容易一边花钱一边还没收入。</p>
-<p><strong>第三笔是心理成本。</strong> 语言不顺、找工作被拒、租房不稳定、朋友不在身边。这些都很正常。WHV 不是逃离生活的捷径，但它可以是一次重新训练自己生活能力的机会。</p>
-<hr>
-<h2 id="一、WHV-462-申请攻略"><a href="#一、WHV-462-申请攻略" class="headerlink" title="一、WHV 462 申请攻略"></a>一、WHV 462 申请攻略</h2><h3 id="1-什么是-WHV"><a href="#1-什么是-WHV" class="headerlink" title="1. 什么是 WHV"></a>1. 什么是 WHV</h3><p>中国大陆护照对应的是 <strong>462 Work and Holiday visa</strong>。允许在澳洲停留 12 个月，期间可以旅行、合法打工、学习最多 4 个月，并多次出入境。</p>
-<h3 id="2-一签申请条件"><a href="#2-一签申请条件" class="headerlink" title="2. 一签申请条件"></a>2. 一签申请条件</h3><ul>
-<li><strong>年龄</strong>：18-30 岁</li>
-<li><strong>护照</strong>：中国大陆有效护照</li>
-<li><strong>资金</strong>：约 AUD 5,000 + 离境机票费用</li>
-<li><strong>学历</strong>：高等教育学历，或完成至少 2 年本科课程</li>
-<li><strong>英语</strong>：IELTS 均分 4.5（Functional English）</li>
-<li><strong>健康与品行</strong>：可能需要体检、无犯罪证明</li>
-</ul>
-<h3 id="3-462-抽签流程"><a href="#3-462-抽签流程" class="headerlink" title="3. 462 抽签流程"></a>3. 462 抽签流程</h3><p>中国大陆申请人需要先参加 pre-application ballot（抽签）：</p>
-<ol>
-<li>创建或登录 ImmiAccount</li>
-<li>提交 Registration - Work and Holiday Visa (462) 抽签注册</li>
-<li>支付抽签注册费</li>
-<li>等待随机抽选</li>
-<li>被抽中后收到邮件通知，在规定时间内递交正式申请</li>
-<li>上传材料、支付签证费、按要求体检</li>
-<li>下签后在规定时间内入境，首次入境当天开始计算 12 个月</li>
-</ol>
-<h3 id="4-材料清单"><a href="#4-材料清单" class="headerlink" title="4. 材料清单"></a>4. 材料清单</h3><p>护照首页、身份证正反面、学历证明和成绩单、英语成绩单、银行流水或存款证明、证件照、个人简历、体检结果、无犯罪证明（按需）、中文材料的英文翻译件。</p>
-<blockquote>
-<p>⚠️ 抽签注册时，姓名、生日、护照号、身份证号<strong>一定不要填错</strong>。</p>
-</blockquote>
-<h3 id="5-二签和三签：集签攻略"><a href="#5-二签和三签：集签攻略" class="headerlink" title="5. 二签和三签：集签攻略"></a>5. 二签和三签：集签攻略</h3><ul>
-<li><strong>二签</strong>：一签期间完成至少 3 个月（88 个日历日）指定工作</li>
-<li><strong>三签</strong>：二签期间完成至少 6 个月（179 个日历日）指定工作</li>
-</ul>
-<p>指定工作需同时满足”行业”和”地区”要求——常见包括北澳及偏远地区的农业、旅游酒店、建筑、灾害恢复等。</p>
-<blockquote>
-<p>⚠️ 集签时一定要保存证据：工资单、银行入账记录、雇主合同、工作地点 postcode、雇主 ABN。**不要只听老板口头说”能集二签”**。</p>
-</blockquote>
-<h3 id="6-工作限制与权益"><a href="#6-工作限制与权益" class="headerlink" title="6. 工作限制与权益"></a>6. 工作限制与权益</h3><p>WHV 通常有同一雇主 6 个月限制（condition 8547），部分行业可豁免。如果遇到乱扣工资、不给 payslip、低于最低工资，可以查 <strong>Fair Work</strong>。签证持有人在澳洲也有基本工作权利。</p>
-<hr>
-<h2 id="二、落地澳洲生活指南"><a href="#二、落地澳洲生活指南" class="headerlink" title="二、落地澳洲生活指南"></a>二、落地澳洲生活指南</h2><table>
-<thead>
-<tr>
-<th>事项</th>
-<th>要点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>电话卡</strong></td>
-<td>Telstra 覆盖最好（农场&#x2F;偏远地区首选）；Optus 城市够用；不要一落地就签长期合约，先去超市买 prepaid SIM</td>
-</tr>
-<tr>
-<td><strong>银行卡</strong></td>
-<td>落地后尽快办。推荐 Commonwealth Bank &#x2F; Westpac &#x2F; NAB &#x2F; ANZ。开户需护照、签证、澳洲手机号、澳洲地址</td>
-</tr>
-<tr>
-<td><strong>TFN 税号</strong></td>
-<td>工作一定会用到。ATO 官网免费申请，不要用收费中介网站</td>
-</tr>
-<tr>
-<td><strong>Super 养老金</strong></td>
-<td>雇主必须缴。离开澳洲后可申请 DASP 取回部分（会扣税）</td>
-</tr>
-<tr>
-<td><strong>租房</strong></td>
-<td>按周报价。常用平台：Flatmates、realestate.com.au、Domain。没看房不要转钱！Bond 走官方 bond authority</td>
-</tr>
-<tr>
-<td><strong>省钱买菜</strong></td>
-<td>ALDI 买基础 + 亚洲超市买调料和米 + Coles&#x2F;Woolies 只买半价 special</td>
-</tr>
-<tr>
-<td><strong>医疗</strong></td>
-<td>WHV 通常不能享受 Medicare，建议买 OVHC 旅行医疗保险。澳洲救护车和急诊很贵，不建议裸奔</td>
-</tr>
-<tr>
-<td><strong>找工作</strong></td>
-<td>Seek、Indeed、Jora、Workforce Australia、Backpacker Job Board、FB 群组、walk-in。餐饮需 RSA，建筑需 White Card</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="三、可以丢给-AI-的提示词"><a href="#三、可以丢给-AI-的提示词" class="headerlink" title="三、可以丢给 AI 的提示词"></a>三、可以丢给 AI 的提示词</h2><p>不要把护照号、身份证号发给 AI。隐去敏感信息后可以这样问：</p>
-<p><strong>找工作版：</strong> “我在澳洲 WHV，目前在[城市]，有[技能&#x2F;经验]，英语水平[程度]，帮我优化简历和 cover letter 用于申请[岗位类型]”</p>
-<p><strong>租房避坑版：</strong> “帮我整理澳洲租房 inspection checklist，包括要看什么、要问房东什么问题、red flags”</p>
+    <title>当心“创始人销售天花板”：你是公司最大的销售，却也是最大的瓶颈？</title>
+    <link href="https://caicitou-lili.github.io/2026/09/10/shudong-ch0062/"/>
+    <id>https://caicitou-lili.github.io/2026/09/10/shudong-ch0062/</id>
+    <published>2026-09-10T20:00:00+08:00</published>
+    <updated>2026-10-21T22:04:05+08:00</updated>
+    <category term="AI副业"/>
+    <content type="html"><![CDATA[<p>网友投稿：<br>我们公司现在的客户，90%都是靠我（创始人）一个人的脸面和关系谈下来的。这种模式在初期很高效，但现在问题出现了：我一人分身乏术，一旦我不出门，订单就停滞。</p>
+<p>我试着招了两个销售经理，但他们总是谈不成，客户总要求见我。我感觉我被困在销售一线上，没法去管研发和融资了。如何把创始人的销售能力复制给团队？</p>
+<p>回复：<br>你正在经历“从个人英雄主义到组织作战”的脱壳期。如果你不退下来，公司永远做不大。</p>
+<p>复制销售能力的内核不是复制你的“脸面”，而是复制你的“话术和逻辑”。</p>
+<p>这里有3个立刻能试的方法：<br>一是“销售全案SOP化”，把你每次谈单的逻辑、Q&amp;A、以及那些打动客户的瞬间，写成可以背诵的标准教材；<br>二是“陪跑式转交”，带着新销售谈前三次，第四次让他主谈，你旁听，结束后进行深度复盘，而不是直接甩手不管；<br>三是“品牌背书替代个人背书”，把你的个人IP逐渐转化为产品功能背书，让客户买的是“产品能解决问题”，而不是“创始人够义气”。</p>
+<p>一个好的CEO应该逐渐变得“在销售环节无足轻重”。若在销售漏斗管理、B2B销售体系搭建上有困惑，可登录jobleap.cn解决。</p>
 <hr>
 <blockquote>
-<p>📌 原文作者：<a href="https://x.com/king1818888">@king1818888</a> Kimberly<br>原文链接：<a href="https://x.com/king1818888/status/2063825549638967747">X.com</a></p>
+<p>本文转载自开源仓库 <a href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：当心“创始人销售天花板”：你是公司最大的销售，却也是最大的瓶颈？。</p>
 </blockquote>
 ]]></content>
   </entry>
   <entry>
-    <title>别再伺候 AI 了：5 个方法狠狠压榨 Codex</title>
-    <link href="https://caicitou-lili.github.io/2026/06/08/别再伺候AI了-5个方法狠狠压榨Codex/"/>
-    <id>https://caicitou-lili.github.io/2026/06/08/别再伺候AI了-5个方法狠狠压榨Codex/</id>
-    <published>2026-06-08T05:00:00+08:00</published>
-    <updated>2026-10-11T23:03:23+08:00</updated>
-    <category term="效率工具"/>
-    <content type="html"><![CDATA[<p>这篇文章想解决一个很具体的问题：</p>
-<p>你已经开始用 Codex 了，但每次还是要自己复制资料、补充背景、反复解释需求，最后感觉不是 AI 在帮你省时间，而是你在陪 AI 加班。</p>
-<p>我自己也经历过这个阶段。Codex 真正好用，不是因为我写出了多么神的 prompt，而是我开始<strong>把一些重复动作交给它自己跑。</strong></p>
-<p>这篇就把我目前最常用的 5 个方法整理出来。你不需要一次全配完，先挑一个最适合自己的场景试起来就行。</p>
-<span id="more"></span>
-
-<hr>
-<h2 id="1-插件：先让-Codex-长出手脚"><a href="#1-插件：先让-Codex-长出手脚" class="headerlink" title="1. 插件：先让 Codex 长出手脚"></a>1. 插件：先让 Codex 长出手脚</h2><p>没有插件的 Codex，只能回答你。接上插件以后，它才开始能做事。</p>
-<p>我最直观的感受来自 <strong>Gmail</strong>。以前处理邮件很烦——先扫标题、再点进去看、再判断要不要回、再想怎么回。现在直接让 Codex 用 Gmail 插件处理第一轮：哪些紧急、哪些要回、哪些只是通知，先筛出来。需要回复的，它先起草。<strong>我只负责看一眼，改两句。</strong></p>
-<blockquote>
-<p>Gmail、Slack、Figma、Notion、Google Drive、GitHub，这些插件接上以后，Codex 就不再只是一个聊天 AI，而是能进工具里帮你干活的助手。</p>
-</blockquote>
-<p><strong>小白配置：</strong></p>
-<ol>
-<li>打开 Codex app</li>
-<li>进左侧或设置里的 Plugins</li>
-<li>搜索 Gmail &#x2F; Google Drive &#x2F; GitHub 等插件</li>
-<li>点安装或连接，按提示登录授权</li>
-<li>回到对话里，明确告诉 Codex 用哪个插件</li>
-</ol>
-<hr>
-<h2 id="2-Goal-Mode：不要给任务，给目标"><a href="#2-Goal-Mode：不要给任务，给目标" class="headerlink" title="2. Goal Mode：不要给任务，给目标"></a>2. Goal Mode：不要给任务，给目标</h2><p>很多人用 Codex 是这样用的：”帮我看一下这个文件。””再改一下。””这里不对。””继续。”</p>
-<p>这其实还是你在牵着它走。你累，它也容易跑偏。</p>
-<p><strong>Goal Mode 更像是你给它一个终点，然后让它自己拆步骤、执行、检查、修正。</strong></p>
-<p>OpenAI 在 2026 年 5 月的 release notes 里提到，Goal mode 已在 Codex app、IDE extension 和 CLI 里可用。你可以定义结果和成功标准，让 Codex 持续朝目标推进。</p>
-<p>举个例子——改论文格式。我以前会一步步说：先改标题，再调引用，再检查格式。后来发现没必要。更好的方式是直接告诉它：</p>
-<blockquote>
-<p>“把这篇论文改到目标期刊格式，成功标准是标题、摘要、引用、图表编号、参考文献都符合要求，最后给我修改总结。”</p>
-</blockquote>
-<p><strong>普通模式是你说一步，它走一步。Goal Mode 是你定义终点，它自己找路。</strong></p>
-<hr>
-<h2 id="3-自动化：让-Codex-每天自己上班"><a href="#3-自动化：让-Codex-每天自己上班" class="headerlink" title="3. 自动化：让 Codex 每天自己上班"></a>3. 自动化：让 Codex 每天自己上班</h2><p>真正省时间的东西，不是”我叫它，它很快”。是**”我不叫它，它也会按时出现”**——这就是 Automations。</p>
-<p>别一上来就让它”帮我赚钱””帮我运营账号”，太虚了。先从每天、每周重复的小流程开始。比如：</p>
-<ul>
-<li>每天早上检查项目错误日志，整理新增问题</li>
-<li>每天早上整理 AI &#x2F; Codex &#x2F; MCP 的重要更新</li>
-</ul>
-<p>我自己比较喜欢后者。醒来之后先看一份筛过的简报，而不是钻进信息流里捞半小时。</p>
-<p><strong>小白配置：</strong></p>
-<ol>
-<li>先在普通对话里手动跑一次</li>
-<li>确认输出格式满意</li>
-<li>对 Codex 说：把刚才这个任务创建成自动化</li>
-<li>去左侧 Automations 检查任务</li>
-<li>确认频率、提示词、状态</li>
-<li>先跑 2-3 次，再改 prompt</li>
-</ol>
-<hr>
-<h2 id="4-MCP-Obsidian：把-Codex-接进你的知识库"><a href="#4-MCP-Obsidian：把-Codex-接进你的知识库" class="headerlink" title="4. MCP + Obsidian：把 Codex 接进你的知识库"></a>4. MCP + Obsidian：把 Codex 接进你的知识库</h2><p>互联网给 Codex 外部信息。<strong>Obsidian 给 Codex 你的个人上下文。</strong> 这俩不一样。</p>
-<p>很多人说 AI 不懂自己。其实也正常——你的笔记、经验、素材、项目复盘都在 Obsidian 里，Codex 没看见，当然只能泛泛地写。</p>
-<p>MCP 解决的就是这个问题。通过 MCP，你可以让 Codex 连接 Obsidian、文档库、内部工具。</p>
-<p><strong>小白配置：</strong></p>
-<ol>
-<li>在 Obsidian 安装 Local REST API with MCP</li>
-<li>打开插件，确认 REST API 服务已启动</li>
-<li>记录插件里的 API Key</li>
-<li>在 Codex 的 MCP 配置里添加 Obsidian server</li>
-<li>重启 Codex</li>
-<li>让 Codex 测试读取一篇笔记</li>
-</ol>
-<p><strong>这一步打通的不是一个工具，而是你的长期积累。</strong></p>
-<hr>
-<h2 id="5-Skills：把常用流程固化"><a href="#5-Skills：把常用流程固化" class="headerlink" title="5. Skills：把常用流程固化"></a>5. Skills：把常用流程固化</h2><p><strong>如果一个流程你重复做了 3 次，就应该把它变成 Skill。</strong></p>
-<p>插件解决”去哪里拿资料”，Skills 解决”按什么流程做”。Skill 就是你写给 Codex 的 SOP。</p>
-<p>比如你经常让 Codex 写 X 长文——不要每次都重新说：开头要有钩子、不要 AI 味、先讲痛点、再给方法、每个方法要有例子、最后要有行动号召。<strong>这些东西，应该沉淀成一个 Skill。</strong></p>
-<p><strong>小白配置：</strong></p>
-<ol>
-<li>先让 Codex 跑通一次完整任务</li>
-<li>结果满意后，让 Codex 把流程整理成 Skill</li>
-<li>检查 Skill 是否包含适用场景、输入要求、流程、质量标准</li>
-<li>下次直接调用</li>
-</ol>
-<p>更高级一点，可以做<strong>父子 Skill</strong>：父 Skill 判断任务类型（长文&#x2F;表格&#x2F;查资料&#x2F;报告），子 Skill 负责具体执行。</p>
-<hr>
-<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>很多时候不是你不会用 AI，而是我们还停留在”每次都重新解释一遍”的阶段。</p>
-<p><strong>更推荐的方式：先从一个最小场景开始。</strong> 比如先装一个 Gmail 插件、或者先把每天都要看的信息做成自动化、或者先把你最常写的一类文章做成 Skill。</p>
-<p>不用一下子把 5 个方法全部配齐。你只要先跑通一个，就会明显感觉到——Codex 不再只是回答你，而是开始替你分担一小段流程。</p>
+    <title>初次创业者的“财务盲区”：别让税务和合规成了绊脚石</title>
+    <link href="https://caicitou-lili.github.io/2026/09/10/shudong-ch0061/"/>
+    <id>https://caicitou-lili.github.io/2026/09/10/shudong-ch0061/</id>
+    <published>2026-09-10T08:00:00+08:00</published>
+    <updated>2026-10-21T22:04:05+08:00</updated>
+    <category term="AI副业"/>
+    <content type="html"><![CDATA[<p>网友投稿：<br>我是做技术外包起家的，最近刚正式注册了公司。我一直觉得只要业务好、账上有钱就行，对报税、社保基数、甚至发票管理都很随意。</p>
+<p>结果最近税务局找上门，说我们存在虚增成本和不规范操作，面临巨额罚款。我整个人都懵了，原本想用来发年终奖的钱全搭进去了。创业者早期真的需要雇一个专业的财务吗？</p>
+<p>回复：<br>很多技术背景的创始人在这里都会栽跟头。税务合规不是锦上添花，而是你的安全底线。</p>
+<p>在早期，你不需要专职CFO，但需要对财务有敬畏之心。</p>
+<p>这里有3个立刻能试的方法：<br>一是“外包财务深度合作”，不要只选最便宜的代理记账公司，要选能提供基本财税咨询服务的合作伙伴，定期审阅账目；<br>二是“专款专用制度”，严禁创始人的个人开支和公司账目混用，这是违法且极其危险的行为；<br>三是“合规知识快充”，花半天时间学一下增值税、企业所得税和个税的基本逻辑，至少要能看懂纳税申报表。</p>
+<p>业务冲锋很重要，但后勤出了事，前线也会崩。若在初创企业财税合规方案、融资后的税务规划上有需求，可登录jobleap.cn解决。</p>
 <hr>
 <blockquote>
-<p>📌 原文作者：<a href="https://x.com/369Serena">@369Serena</a> Serena<br>原文数据：19.2万浏览 · 755 点赞<br>原文链接：<a href="https://x.com/369Serena/status/2060330862223515816">X.com</a></p>
+<p>本文转载自开源仓库 <a href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：初次创业者的“财务盲区”：别让税务和合规成了绊脚石。</p>
 </blockquote>
 ]]></content>
   </entry>
   <entry>
-    <title>历史的镜子：1926—1930 与 2026—2030，我们站在哪里？</title>
-    <link href="https://caicitou-lili.github.io/2026/06/08/历史的镜子-1926与2026我们站在哪里/"/>
-    <id>https://caicitou-lili.github.io/2026/06/08/历史的镜子-1926与2026我们站在哪里/</id>
-    <published>2026-06-08T04:30:00+08:00</published>
-    <updated>2026-10-11T23:03:23+08:00</updated>
-    <category term="随笔"/>
-    <content type="html"><![CDATA[<blockquote>
-<p>“历史不会简单重复，但它押着相同的韵脚。”——马克·吐温</p>
-</blockquote>
-<h2 id="引言：两个时代的奇异共鸣"><a href="#引言：两个时代的奇异共鸣" class="headerlink" title="引言：两个时代的奇异共鸣"></a>引言：两个时代的奇异共鸣</h2><p>每一代人都觉得自己活在史无前例的时代。但历史学家知道，人类的剧本反复循环——技术革命带来财富幻觉，财富幻觉滋养政治极端，政治极端催生贸易对抗，贸易对抗击碎繁荣，繁荣崩塌之后才有真正的重建。</p>
-<p>今天，当我们把 2024—2026 年的世界与 1926—1929 年并排摆放，那种令人不安的相似性便会扑面而来：同样的股市狂欢，同样的技术乐观主义，同样的民粹政治崛起，同样的贸易保护主义回潮。</p>
-<p>当然，历史不是命运。这个世界也有 1926 年不曾拥有的东西——央行工具箱、社会安全网、全球治理框架，以及那段历史留下的惨烈教训。但教训需要被记得，才能发挥作用。</p>
-<span id="more"></span>
-
-<hr>
-<h2 id="一、股市：两个时代的泡沫解剖"><a href="#一、股市：两个时代的泡沫解剖" class="headerlink" title="一、股市：两个时代的泡沫解剖"></a>一、股市：两个时代的泡沫解剖</h2><h3 id="1926—1929：全民疯狂的最后一舞"><a href="#1926—1929：全民疯狂的最后一舞" class="headerlink" title="1926—1929：全民疯狂的最后一舞"></a>1926—1929：全民疯狂的最后一舞</h3><p>一战结束后，美国独享技术红利。汽车、收音机、电话、电影——每一项都是当时的「颠覆性技术」。1921 年至 1929 年，美国国民生产总值增长了 50%，但股票价格却平均上涨了 **334%**，成交量增长了 **1478%**。</p>
-<p>信用是那个时代的燃料。普通人借钱炒股，用保证金 10 美元撬动 100 美元的仓位。1927 年，美联储为了「稳定国际货币体系」将贴现利率从 4% 下调至 3.5%，廉价资金如洪水般冲入股市。</p>
-<p>1929 年 10 月 29 日，黑色星期二，那个时代最终落幕。</p>
-<h3 id="2024—2026：AI-驱动的新型狂热"><a href="#2024—2026：AI-驱动的新型狂热" class="headerlink" title="2024—2026：AI 驱动的新型狂热"></a>2024—2026：AI 驱动的新型狂热</h3><p>一百年后，剧情的结构惊人相似，但主角换成了人工智能。</p>
-<p>截至 2025 年底，标普 500 估值处于历史 35 年 95% 分位以上。「美股七雄」合计市值一度占据标普 500 总市值的三分之一以上。英伟达市值一度接近 5 万亿美元，OpenAI 估值在短短数年内跃升至 8500 亿美元——尽管该公司从未实现盈利。</p>
-<p>资本循环同样令人迷惑：巨头们相互融资、相互采购，形成「左手倒右手」的营收回流。2025 年，约 <strong>80% 部署 AI 的企业未能实现净利润提升</strong>，<strong>95% 的生成式 AI 试点项目没有带来直接财务回报</strong>。这和 1928 年如出一辙：股市的辉煌遮蔽了实体经济的隐患。</p>
-<h3 id="关键差异"><a href="#关键差异" class="headerlink" title="关键差异"></a>关键差异</h3><ul>
-<li>当前科技巨头是真实盈利的企业，不是纯粹讲故事的公司</li>
-<li>约 50% 美股市值由被动资金持有，形成结构性托底</li>
-<li>现代央行有丰富的危机工具</li>
-</ul>
-<p><strong>然而，工具的存在不代表问题消失，只代表崩塌的方式可能不同——不是一夜间的雪崩，而是漫长的通货膨胀式消耗。</strong></p>
-<hr>
-<h2 id="二、政治：从民主繁荣到民粹浪潮"><a href="#二、政治：从民主繁荣到民粹浪潮" class="headerlink" title="二、政治：从民主繁荣到民粹浪潮"></a>二、政治：从民主繁荣到民粹浪潮</h2><p>那个时代政治的核心逻辑是：<strong>经济失败 → 民众恐惧 → 强人崇拜 → 制度崩溃。</strong></p>
-<p>2024 年，特朗普再次当选；欧洲右翼民粹力量在法、德、意持续扩张；阿根廷米莱政府奉行激进自由意志主义。</p>
-<p>民粹主义的崛起与 1920 年代惊人相似：全球化带来财富增长，但分配高度不平均；技术进步提升效率，但中等收入群体感受到的只是被边缘化。</p>
-<hr>
-<h2 id="三、贸易：同一把刀，再次出鞘"><a href="#三、贸易：同一把刀，再次出鞘" class="headerlink" title="三、贸易：同一把刀，再次出鞘"></a>三、贸易：同一把刀，再次出鞘</h2><p>1930 年，美国通过《斯穆特—霍利关税法》，将两万多种进口商品关税大幅提高。结果：1929 年至 1934 年间，**世界贸易总量下降了约 66%**。</p>
-<p>2025 年，特朗普政府发动大规模关税攻势，逻辑几乎如出一辙。保护主义在历史上从未真正修复结构性问题，只会加速危机的扩散。</p>
-<hr>
-<h2 id="四、技术与社会：汽车时代-vs-AI-时代"><a href="#四、技术与社会：汽车时代-vs-AI-时代" class="headerlink" title="四、技术与社会：汽车时代 vs. AI 时代"></a>四、技术与社会：汽车时代 vs. AI 时代</h2><p>福特 T 型车在 1927 年前卖出 1500 万辆，但技术进步的红利高度集中于少数人。1920 年代美国的贫富差距达到历史高点。</p>
-<p>今天，AI 正在扮演当年汽车的角色。预计 AI 将影响中等收入群体人数在 2025 年减少 <strong>2200 万</strong>，2035 年减少 <strong>4200 万</strong>。AI 对白领的冲击远超历次技术革命。而拥有 AI 的人、开发 AI 的人和投资 AI 的人，财富将急剧集中。</p>
-<hr>
-<h2 id="五、中国：方程式里最大的未知数"><a href="#五、中国：方程式里最大的未知数" class="headerlink" title="五、中国：方程式里最大的未知数"></a>五、中国：方程式里最大的未知数</h2><p>在 1929 年的全球大萧条中，没有中国这个变量。今天截然不同。</p>
-<h3 id="政治体制对生产力的系统性压制"><a href="#政治体制对生产力的系统性压制" class="headerlink" title="政治体制对生产力的系统性压制"></a>政治体制对生产力的系统性压制</h3><p>民营企业曾贡献超过 60% 的 GDP 和 80% 以上的城镇就业。但近年来，互联网平台整治、教育行业清零、房地产「三道红线」等强力监管，让企业家信心跌至历史低点。<strong>问题不仅在于政策本身，更在于政策的不可预期性。</strong></p>
-<h3 id="外资撤离与产业链出走"><a href="#外资撤离与产业链出走" class="headerlink" title="外资撤离与产业链出走"></a>外资撤离与产业链出走</h3><p>2024 年，中国实际使用外资金额同比大跌 **27.1%**，创历史最大跌幅。产业链的迁移是结构性的、难以逆转的。</p>
-<h3 id="地方债务：悬而未决的定时炸弹"><a href="#地方债务：悬而未决的定时炸弹" class="headerlink" title="地方债务：悬而未决的定时炸弹"></a>地方债务：悬而未决的定时炸弹</h3><p>全国地方政府债务余额已达 <strong>47.54 万亿元</strong>，这还仅是显性债务。土地出让金随房地产市场持续低迷而急剧萎缩——这是一个典型的资产负债表衰退。</p>
-<h3 id="民生凋敝：消费端的慢速崩塌"><a href="#民生凋敝：消费端的慢速崩塌" class="headerlink" title="民生凋敝：消费端的慢速崩塌"></a>民生凋敝：消费端的慢速崩塌</h3><p>2024 年，中国物价长期处于通缩边缘，居民消费意愿低迷。2024 年 11 月，资本市场单月资金外流创历史新高，达 <strong>457 亿美元</strong>。消费不振、投资收缩、出口受阻，中国经济正在三大引擎同时熄火的边缘徘徊。</p>
-<hr>
-<h2 id="六、展望-2026—2030：五种可能的未来"><a href="#六、展望-2026—2030：五种可能的未来" class="headerlink" title="六、展望 2026—2030：五种可能的未来"></a>六、展望 2026—2030：五种可能的未来</h2><h3 id="情景一：软着陆（乐观基准）"><a href="#情景一：软着陆（乐观基准）" class="headerlink" title="情景一：软着陆（乐观基准）"></a>情景一：软着陆（乐观基准）</h3><p>AI 泡沫结构性分化收缩，贸易战通过谈判降级，中国完成痛苦但可控的结构性调整。</p>
-<h3 id="情景二：结构性重组（中性路径）"><a href="#情景二：结构性重组（中性路径）" class="headerlink" title="情景二：结构性重组（中性路径）"></a>情景二：结构性重组（中性路径）</h3><p>AI 行业完成洗牌，股市整体下跌 20%—35%，但未触发系统性金融危机。中国以更高代价完成转型。</p>
-<h3 id="情景三：滞胀螺旋（温和悲观）"><a href="#情景三：滞胀螺旋（温和悲观）" class="headerlink" title="情景三：滞胀螺旋（温和悲观）"></a>情景三：滞胀螺旋（温和悲观）</h3><p>贸易战持续升级，供应链重组推高全球通胀。中国地方债务危机局部爆发，成为全球风险放大器。</p>
-<h3 id="情景四：技术奇点提前（黑天鹅）"><a href="#情景四：技术奇点提前（黑天鹅）" class="headerlink" title="情景四：技术奇点提前（黑天鹅）"></a>情景四：技术奇点提前（黑天鹅）</h3><p>AGI 突破比预期更早，触发前所未有的就业冲击——股市可能先暴涨再暴跌。</p>
-<h3 id="情景五：地缘重组与集团化（结构性悲观）"><a href="#情景五：地缘重组与集团化（结构性悲观）" class="headerlink" title="情景五：地缘重组与集团化（结构性悲观）"></a>情景五：地缘重组与集团化（结构性悲观）</h3><p>中美科技脱钩走向全面对立，全球经济分裂为两个平行的技术生态圈。世界秩序进入 1930 年代式的大国竞争螺旋。</p>
-<hr>
-<h2 id="七、今天与-1926-的本质区别"><a href="#七、今天与-1926-的本质区别" class="headerlink" title="七、今天与 1926 的本质区别"></a>七、今天与 1926 的本质区别</h2><ol>
-<li><p><strong>社会安全网</strong>：1929 年美国没有失业保险、联邦医疗保障。今天任何主要民主国家都不会坐视民众陷入绝对贫困。</p>
-</li>
-<li><p><strong>央行的学习</strong>：伯南克研究大萧条毕生，现代央行不会重蹈紧缩货币的覆辙——但危机形式会变成通胀而非通缩。</p>
-</li>
-<li><p><strong>中国变量</strong>：1930 年代的崩溃传导链相对清晰。今天中国的走向，将在相当程度上决定这个十年的底色。</p>
-</li>
-<li><p><strong>信息速度</strong>：今天危机传导速度快了数百倍，但政策响应速度也快得多——既更危险，又更可控。</p>
-</li>
-</ol>
-<hr>
-<h2 id="结语：我们能从镜子里学到什么？"><a href="#结语：我们能从镜子里学到什么？" class="headerlink" title="结语：我们能从镜子里学到什么？"></a>结语：我们能从镜子里学到什么？</h2><p>1926 年与今天的相似，是结构性的：都是技术繁荣后期，都是泡沫积累阶段，都是民粹抬头时刻，都是贸易壁垒重建之年。</p>
-<p>但 1926 年的世界缺乏制度韧性，缺乏历史教训，缺乏全球协调机制。今天的世界有这些。<strong>但有并不意味着会用，记得并不意味着会行动。</strong></p>
-<p><strong>历史的镜子照见的不是宿命，而是选择。</strong> 那些在 1930 年代做出糟糕选择的人们，也曾经知道有更好的选项。他们只是没有选。</p>
-<p>这一次，希望我们能做得更好一些。</p>
+    <title>入职六个月内的“员工高流失潮”，是制度问题还是文化问题？</title>
+    <link href="https://caicitou-lili.github.io/2026/09/09/shudong-ch0060/"/>
+    <id>https://caicitou-lili.github.io/2026/09/09/shudong-ch0060/</id>
+    <published>2026-09-09T20:00:00+08:00</published>
+    <updated>2026-10-21T22:04:05+08:00</updated>
+    <category term="AI副业"/>
+    <content type="html"><![CDATA[<p>网友投稿：<br>最近我发现一个恐怖的规律：我们招的人，往往在入职三到五个月之间就离职，甚至连试用期都没过。</p>
+<p>我问他们原因，有的说太累，有的说氛围紧张，有的甚至说没搞懂我们到底是干嘛的。我有给期权，环境也不差，为什么留不住人？这种“试用期离职率”该如何降下来？</p>
+<p>回复：<br>入职半年的离职，90%是因为“预期不符”和“入职体验（Onboarding）”太差。</p>
+<p>这不是因为累，是因为他们觉得“累得不值”或者“找不到方向”。</p>
+<p>这里有3个立刻能试的方法：<br>一是“入职30-60-90天计划”，给每个新入职的人明确的阶段性成就感，让他们知道每天在为什么而奋斗；<br>二是“导师带教制（Mentor）”，给新人指定一个老员工，不只带业务，更带他在混乱的初创环境里“活下去”，缓解孤独感；<br>三是“面试去滤镜”，在面试阶段就说明白：我们这儿节奏快、压力大、可能要做职责外的事，先过滤掉想找安稳的人。</p>
+<p>招人是相亲，留人是过日子。前三天的感觉，决定了前三年的留存。若在初创团队新人养成手册、雇主品牌建设上有难题，可登录jobleap.cn解决。</p>
 <hr>
 <blockquote>
-<p>📌 原文作者：<a href="https://x.com/Huanusa">@Huanusa</a> Huan<br>原文数据：40.7 万浏览 · 84 点赞 · 169 收藏<br><em>本文为基于历史对比的思辨性分析，不构成任何投资建议。</em></p>
+<p>本文转载自开源仓库 <a href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：入职六个月内的“员工高流失潮”，是制度问题还是文化问题？。</p>
 </blockquote>
 ]]></content>
   </entry>
   <entry>
-    <title>我现在留软件只看一件事</title>
-    <link href="https://caicitou-lili.github.io/2026/06/08/我现在留软件只看一件事/"/>
-    <id>https://caicitou-lili.github.io/2026/06/08/我现在留软件只看一件事/</id>
-    <published>2026-06-08T04:00:00+08:00</published>
-    <updated>2026-10-11T23:03:23+08:00</updated>
-    <category term="随笔"/>
-    <content type="html"><![CDATA[<p>如果你也收藏过一堆「Mac 必装软件清单」，下了删、删了下，最后 Dock 里雷打不动还是那几个——那这篇可能跟你有点关系。</p>
-<p>我不是来再列一个清单的。</p>
-<p>看软件的标准我变了。以前看功能强不强，现在只看一件事：<strong>它能不能真的接住我手里的活。</strong></p>
-<p>不是演示视频里那种。也不是官网那个很漂亮的流程图。就是我每天实际在干的事——写稿、改本地文件、录一段教程、查页面、导文档、从微信里捞材料、再把它变成能发出去的东西。</p>
-<p>时间长了，我发现能留下来的软件，背后其实是同一套逻辑。后来我把这套逻辑归成三个问题——</p>
-<span id="more"></span>
-
-<h2 id="三个筛选问题"><a href="#三个筛选问题" class="headerlink" title="三个筛选问题"></a>三个筛选问题</h2><p><strong>它处理的是真实文件吗？</strong></p>
-<p>如果一个软件只在自己的界面里好看，文件拿不出来、路径找不到、别的工具接不上，我就会很谨慎。迟早会遇到迁移和整理的问题，越往后越难受。</p>
-<p><strong>它有没有减少搬运？</strong></p>
-<p>有些工具看着自动化了，实际只是把东西从一个窗口挪到另一个窗口。表面上多了一个步骤，背后还是人肉复制粘贴。这种工具我用不久。</p>
-<p><strong>它会不会反复出现在同一个场景里？</strong></p>
-<p>偶尔惊艳一下不够。它得在写作、开发、录屏、发布、复盘这些事里反复出现，才值得占一个稳定的位置。</p>
-<p>下面这几个软件，都是被这三个问题筛过一轮还留在我 Mac 上的。</p>
-<hr>
-<h2 id="Codex：留下的原因跟聊天没关系"><a href="#Codex：留下的原因跟聊天没关系" class="headerlink" title="Codex：留下的原因跟聊天没关系"></a>Codex：留下的原因跟聊天没关系</h2><p>Codex 对我来说不是一个「跟 AI 聊天」的东西。</p>
-<p>如果它只是个聊天窗口，那替代品一堆。网页 ChatGPT 能聊，Claude 能聊，各种工具都能聊。聊完还得复制、粘贴、整理、改文件——多来几次，人又退化成搬运工了。</p>
-<p><strong>它真正让我留下来的点：能直接进工作区。</strong></p>
-<p>我有一套内容日历，每天一个文件夹，里面固定有几个环节。比如 Day 1 有 idea、source、working、cover-prompt 这些文件，Day 2 也是同样的结构，只是内容不同。</p>
-<p>我现在做 X 内容工作流，不是让它给我「想 10 个选题」就完了。是让它读 30-day-content-calendar.md，看 Day 1 &#x2F; Day 2 的文件结构，再照这个模式把 Day 3 的 idea、source、working、cover-prompt 建好。</p>
-<p><strong>这不是给建议，是落地到文件。</strong></p>
-<p>第二天我能接着改，这套流程也能复制到下一篇。中间少了一大堆「我记得昨天好像让 AI 写过一版但又找不到了」的混乱。</p>
-<p>所以对我来说，Codex 的替代品不是另一个聊天机器人。是<strong>我自己手动在 Finder、Obsidian、终端之间来回倒腾文件。</strong> 这个替换成本太高了。</p>
-<hr>
-<h2 id="Obsidian：留下来，是因为它不绑架我的文件"><a href="#Obsidian：留下来，是因为它不绑架我的文件" class="headerlink" title="Obsidian：留下来，是因为它不绑架我的文件"></a>Obsidian：留下来，是因为它不绑架我的文件</h2><p>跟插件多不多也没太大关系。插件多有时候反而是坑。</p>
-<p>Obsidian 我留着，就一个理由：<strong>它说到底还是 Markdown 文件。</strong></p>
-<p>账号定位、写作习惯、项目记忆、草稿、复盘，全落在本地文件夹里。Codex 能读，别的工具也能读。哪天不用 Obsidian 了，文件全在。</p>
-<p>这点对我太重要了。很多内容不是一气写完的。今天是个想法，明天变 source，后天改 working，最后才进 final。中间要是全锁在某个 App 的数据库里，我就会开始焦虑：迁移怎么办、搜索怎么办、同步靠不靠谱、权限会不会抽风。</p>
-<p>Obsidian 当然有替代品。Notion 更好看，飞书文档协作更强，Apple Notes 更轻。但我现在最需要的不是「搭一个好看的知识库」，而是<strong>长期可搜索、可迁移、工具能直接读写。</strong></p>
-<hr>
-<h2 id="终端类工具：就一个要求——别碍事"><a href="#终端类工具：就一个要求——别碍事" class="headerlink" title="终端类工具：就一个要求——别碍事"></a>终端类工具：就一个要求——别碍事</h2><p>终端这种东西，很难说出什么花来。但每天都会碰到它。</p>
-<p>跑脚本、看日志、查路径、起本地服务、验证文件有没有生成——最后都会回到命令行。尤其是录 Codex 教程的时候，终端现场操作比讲概念管用得多。</p>
-<p><strong>Ghostty</strong> 在我这就是这个位置。</p>
-<p>说一个很具体的画面。录教程的时候，我切到终端跑命令，输出一行行往下走，观众得一眼看清刚刚发生了什么。如果这时候终端弹一个 AI 补全提示、来一段语法高亮动画、右下角再冒个通知——画面就废了，录完还得剪。Ghostty 在这个场景里几乎没存在感，屏干净，字清楚，没了。</p>
-<p>我现在不太想在终端上折腾「智能功能」。<strong>终端一抢戏，观众不知道看哪。</strong></p>
-<hr>
-<h2 id="Chrome：留着，不是因为我喜欢它"><a href="#Chrome：留着，不是因为我喜欢它" class="headerlink" title="Chrome：留着，不是因为我喜欢它"></a>Chrome：留着，不是因为我喜欢它</h2><p>Chrome 这个软件挺尴尬的。不轻，也不总是省心。但很多场景你躲不掉。</p>
-<p>登录态、插件、网页调试、发布预览、X 后台、各种工具页面——这些事基本都发生在 Chrome 里。尤其是做教程或者排障的时候，问题不是「浏览器哪个好看」，是这个页面在你真实登录状态下到底跑没跑通。</p>
-<p>Safari 能顶一部分日常浏览，Arc 之类的设计感也更好。但只要涉及插件、兼容性、自动化验证，Chrome 大概率还是得拉回来。</p>
-<p><strong>每次发内容之前，我得在 Chrome 里登着 X 后台，打开发布页，确认预览没问题。</strong> 这件事 Safari 偶尔掉登录态，Arc 插件兼容有时候不确定。折腾两次我就懒得换了。</p>
-<hr>
-<h2 id="Screen-Studio：内容最后是要被看见的"><a href="#Screen-Studio：内容最后是要被看见的" class="headerlink" title="Screen Studio：内容最后是要被看见的"></a>Screen Studio：内容最后是要被看见的</h2><p>如果只是自己写笔记，录屏工具没那么紧要。</p>
-<p>但我的内容不全是写给自己看的。Codex 怎么跑、文件怎么生成、一个流程怎么从空白到交付——这些光靠文字讲，写着写着就变说明书了。</p>
-<p><strong>录下来就不一样了。屏幕过程放在那里，很多细节不用硬解释。</strong></p>
-<p>一个命令跑完生成 Markdown，网页加载失败又恢复，文件从 draft 变 final。文字里写十句，不如让它实际发生一次。</p>
-<hr>
-<h2 id="那些「不酷」的软件，也会一直留着"><a href="#那些「不酷」的软件，也会一直留着" class="headerlink" title="那些「不酷」的软件，也会一直留着"></a>那些「不酷」的软件，也会一直留着</h2><p>有些软件不适合写进酷炫清单，但它就是会在你的 Mac 上待着。</p>
-<p><strong>比如 WPS。</strong> 你可以嫌它不够优雅，也可以说 Pages、Office、Google Docs 都能替。但在中文工作环境里，别人发来的文档、表格、PDF，经常就是得用它开。</p>
-<p><strong>比如 WeChat。</strong> 它不是什么生产力工具，但很多材料就是从这来的。截图、语音、链接、聊天里冒出来的一个问题，都是内容和工作的入口。</p>
-<p><strong>但入口不能变成终点。</strong> 微信里收到的东西，只停在聊天记录里，过两天就找不到了。真正有用的材料，要么变成 Markdown，要么变成截图文件，要么进某个项目目录。</p>
-<p>所以这些软件的角色很明确：<strong>接收和中转。</strong> 别指望它们承载长期记忆。</p>
-<hr>
-<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>所以我现在不怎么追求「Mac 必装」这种东西了。</p>
-<p>更像是在问：我手上这几条真实的工作链路里，哪个位置还缺东西？哪个位置已经被软件填上了？哪个位置只是我被新鲜感骗了一下？</p>
-<p>今晚如果要清 App，我不从 Dock 开始。</p>
-<p><strong>我从最近一周真干了什么开始看。</strong> 写了什么，改了什么，录了什么，发了什么，卡在什么地方。能接住这些的留下，接不住的，别急着装回来。</p>
+    <title>“过早优化”是初创公司的慢性自杀？</title>
+    <link href="https://caicitou-lili.github.io/2026/09/09/shudong-ch0059/"/>
+    <id>https://caicitou-lili.github.io/2026/09/09/shudong-ch0059/</id>
+    <published>2026-09-09T08:00:00+08:00</published>
+    <updated>2026-10-21T22:04:05+08:00</updated>
+    <category term="AI副业"/>
+    <content type="html"><![CDATA[<p>网友投稿：<br>我们是技术流团队，核心开发特别追求完美。为了一个几乎不可能发生的“高并发场景”，他坚持要重构底层架构，说现在不弄好以后会塌。</p>
+<p>这直接导致我们的MVP版本延期了两个月。我也觉得他专业，但看着账上的钱在烧，却没有产品去换市场反馈，我急得要命。如何说服技术团队接受“够用就好”？</p>
+<p>回复：<br>硅谷那句话永远是对的：如果你不为你的第一个版本感到羞愧，那你就上线太晚了。</p>
+<p>初创期的价值在于“反馈速度”，而非“完美架构”。</p>
+<p>这里有3个立刻能试的方法：<br>一是“倒计时上线法”，设定一个硬性的、不可逾越的上线日期，逼迫团队在这个日期前只做最核心的功能；<br>二是“MVP思维洗脑”，给技术团队灌输：如果没人用，你的千万级并发架构就是一堆废铜烂铁；<br>三是“技术债务管理”，允许团队留下一些不完美的实现，但要在文档中记录为“技术债务”，等拿了下一轮融资后再集中清理。</p>
+<p>活下来是程序员最大的“优化”。若在敏捷迭代流程设计、极简MVP方案制定上有需求，可登录jobleap.cn解决。</p>
 <hr>
 <blockquote>
-<p>📌 原文作者：<a href="https://x.com/Liu_zhongxisn">@Liu_zhongxisn</a> Drunk<br>原文链接：<a href="https://x.com/Liu_zhongxisn/status/2063647703536689546">X.com</a></p>
+<p>本文转载自开源仓库 <a href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：“过早优化”是初创公司的慢性自杀？。</p>
 </blockquote>
 ]]></content>
   </entry>
   <entry>
-    <title>Claude Opus 4.8 运营 YouTube 剪辑频道月入 $16,567 — 完整指南</title>
-    <link href="https://caicitou-lili.github.io/2026/06/08/Claude-Opus-4.8运营YouTube剪辑频道月入16K美元/"/>
-    <id>https://caicitou-lili.github.io/2026/06/08/Claude-Opus-4.8运营YouTube剪辑频道月入16K美元/</id>
-    <published>2026-06-08T03:30:00+08:00</published>
-    <updated>2026-10-11T23:03:23+08:00</updated>
-    <category term="效率工具"/>
-    <content type="html"><![CDATA[<p>TJRmindset 7 天内获得了 <strong>535,276 次观看</strong>。YouTube 估计该频道每月赚 $199。</p>
-<p>听起来很糟糕——直到你意识到 <strong>YouTube 不是这门生意的核心。</strong></p>
-<p>YouTube 自动化曾经意味着无人脸视频、廉价配音、盗用 Reddit 故事。那个版本正在消亡。更好的版本很简单：<strong>拿一个已经有注意力的创作者，剪辑最精彩的瞬间，发布到所有平台，把流量接到真正的变现产品上。</strong></p>
-<p>这就是剪辑号的本质：不是内容创作，是<strong>分发</strong>。</p>
-<span id="more"></span>
-
-<h2 id="被误读的数据"><a href="#被误读的数据" class="headerlink" title="被误读的数据"></a>被误读的数据</h2><p>TJRmindset 不是一个大型 YouTube 频道。它只有大约 14.7K 订阅者和 1.1K 个视频。</p>
-<p>vidiQ 面板显示了大多数人忽视的部分：7 天内获得 53.5 万次观看，预估月 YouTube 收入 $199，平均视频长度 1.6 分钟。</p>
-<p>如果你认为这门生意是 YouTube AdSense，那看起来是浪费时间。<strong>但那个页面有一个 bio 链接——这才是重点。</strong></p>
-<p>剪辑本身不是产品。<strong>剪辑是流量。后端才是产品：</strong> 创作者项目、付费社区、交易课程、联盟交易、剪辑服务，或者付费分发的客户。</p>
-<blockquote>
-<p>🎯 <strong>第一条规则：不要为观看量构建。要观看量背后的变现路径构建。</strong></p>
-</blockquote>
-<hr>
-<h2 id="16-567-月-的数学"><a href="#16-567-月-的数学" class="headerlink" title="$16,567&#x2F;月 的数学"></a>$16,567&#x2F;月 的数学</h2><p>如果剪辑号每月推向 400 万追踪观看量，后端每千次观看支付约 $4.14，那就是每月约 $16,567。</p>
-<p>同样的注意力，AdSense 上看起来毫无价值，但当它喂养正确的后端时就变得有价值。这个收益可以来自创作者合作、Whop 风格的内容奖励、联盟交易、付费漏斗、或者只看预约电话的客户。</p>
-<p><strong>同样的剪辑。同样的观看量。不同的商业模式。</strong></p>
-<p>这就是为什么大多数 YouTube 自动化教程是错的——它们教人追逐平台分成，而真正的玩法是拥有变现产品、合作项目或分发服务。</p>
-<hr>
-<h2 id="为什么是-Claude-Opus-4-8？"><a href="#为什么是-Claude-Opus-4-8？" class="headerlink" title="为什么是 Claude Opus 4.8？"></a>为什么是 Claude Opus 4.8？</h2><p>Claude Opus 4.8 有趣不是因为它能写文案——那太廉价了。<strong>它有趣是因为它能像一个运营者一样行动。</strong></p>
-<p>Anthropic 说 Opus 4.8 在 Agent 化任务上更好、判断更敏锐、长周期工作更强，并为 Claude Code 内的动态工作流而构建。API 文档还显示：<strong>1M 上下文支持、128K 最大输出、自适应思考、快速模式。</strong></p>
-<p>翻译成人话：它能容纳更多上下文、遵循更大的计划、使用工具、发现更多错误、更长时间保持任务——这正是一个剪辑号需要的。</p>
-<p><strong>人类编辑一次做一个剪辑。运营者运行的是整台机器：</strong> 剪哪个创作者、哪些视频在积压队列里、哪些 hook 在赢、哪些平台今天需要发帖、哪些已经排好、哪些失败了、哪些应该重发、哪个账号有信号、这个流量在喂养哪个产品？</p>
-<p><strong>这不是编辑问题，这是运营问题。</strong></p>
-<hr>
-<h2 id="完整技术栈"><a href="#完整技术栈" class="headerlink" title="完整技术栈"></a>完整技术栈</h2><p>三个部分：</p>
-<h3 id="1-Claude-Opus-4-8-—-大脑"><a href="#1-Claude-Opus-4-8-—-大脑" class="headerlink" title="1. Claude Opus 4.8 — 大脑"></a>1. Claude Opus 4.8 — 大脑</h3><p>运行工作流。告诉它创作者、变现产品、内容来源、发布规则和每周目标。Claude 使用 MCP 服务器来完成工作，而不是给你一个还需要你执行的计划。</p>
-<h3 id="2-Vugola-MCP-—-剪辑器"><a href="#2-Vugola-MCP-—-剪辑器" class="headerlink" title="2. Vugola MCP — 剪辑器"></a>2. Vugola MCP — 剪辑器</h3><p>把长视频转为短视频。MCP 服务器让 Claude 可以直接调用 Vugola：提交 YouTube 视频、请求 9:16 剪辑、选择字幕风格、轮询任务状态、下载完成剪辑、检查使用额度。</p>
-<h3 id="3-Postiz-MCP-—-分发引擎"><a href="#3-Postiz-MCP-—-分发引擎" class="headerlink" title="3. Postiz MCP — 分发引擎"></a>3. Postiz MCP — 分发引擎</h3><p>把完成的剪辑转为排期分发。没有 Postiz，你只有库存。有了 Postiz，你有了分发。</p>
-<hr>
-<h2 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h2><h3 id="1-安装-Vugola-MCP"><a href="#1-安装-Vugola-MCP" class="headerlink" title="1) 安装 Vugola MCP"></a>1) 安装 Vugola MCP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查 Node 版本（需要 20+）</span></span><br><span class="line">node -v</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置 API Key（以 vug_sk_ 开头）</span></span><br><span class="line"><span class="built_in">export</span> VUGOLA_API_KEY=<span class="string">&quot;vug_sk_your_key_here&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Claude Code 安装</span></span><br><span class="line">claude mcp add vugola -- npx -y vugola-mcp@1.3.1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或带环境变量</span></span><br><span class="line">claude mcp add vugola \</span><br><span class="line">  -e VUGOLA_API_KEY=<span class="string">&quot;vug_sk_your_key_here&quot;</span> \</span><br><span class="line">  -- npx -y vugola-mcp@1.3.1</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-连接-Postiz-MCP"><a href="#2-连接-Postiz-MCP" class="headerlink" title="2) 连接 Postiz MCP"></a>2) 连接 Postiz MCP</h3><p>在 Postiz 中：Settings → Developers → Public API，复制 API Key。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">claude mcp add --transport http postiz \</span><br><span class="line">  <span class="string">&quot;https://api.postiz.com/mcp/YOUR_POSTIZ_API_KEY&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="3-验证"><a href="#3-验证" class="headerlink" title="3) 验证"></a>3) 验证</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">claude mcp list</span><br></pre></td></tr></table></figure>
-
-<p>然后问 Claude：</p>
-<ul>
-<li>“列出我连接的社交媒体账号。”</li>
-<li>“检查我的 Vugola 使用量和积分。”</li>
-</ul>
-<hr>
-<h2 id="一个-Prompt-运行整台机器"><a href="#一个-Prompt-运行整台机器" class="headerlink" title="一个 Prompt 运行整台机器"></a>一个 Prompt 运行整台机器</h2><p>两个 MCP 服务器都连接后，你可以给 Claude 一个运营级别的 prompt：</p>
-<blockquote>
-<p>你在为一个剪辑号运营：[创作者名称]。</p>
-<p>目标：发布能引导关注到 [变现产品] 的短视频剪辑。</p>
-<p>源视频：[粘贴 YouTube URL]</p>
-<p>用 Vugola 创建 10 个 9:16 竖屏剪辑，使用极简字幕。优先选取情绪爆发点、炫富瞬间、冲突、身份展示、惊讶时刻或强力观点。不要选平淡的教育内容。</p>
-<p>剪辑完成后，下载并用 Postiz 将最好的 6 个排期到 YouTube Shorts、Instagram Reels、TikTok 和 X。每天在美中时间上午 9 点和下午 6 点各发 1 条，连续 3 天。为每个平台撰写原生文案。返回最终日历。</p>
-</blockquote>
-<p><strong>这就是 AI 工具和 AI 运营者的区别。</strong> 工具给你剪辑，运营者把剪辑变成分发。</p>
-<hr>
-<h2 id="Claude-该评判什么"><a href="#Claude-该评判什么" class="headerlink" title="Claude 该评判什么"></a>Claude 该评判什么</h2><p>不要让它剪一切，那只会批量产出垃圾。<strong>让它评判瞬间。</strong></p>
-<p>TJR 的爆款不是那些整齐的教程，<strong>而是：身份瞬间、炫富瞬间、情绪爆发、争论、难以置信、车、钱、税、生活方式、痛苦和可引用的金句。</strong></p>
-<table>
-<thead>
-<tr>
-<th>领域</th>
-<th>剪辑重点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>健身</td>
-<td>羞耻、蜕变、自律、痛苦、自我</td>
-</tr>
-<tr>
-<td>商业</td>
-<td>金钱、错误、身份、机会</td>
-</tr>
-<tr>
-<td>交易</td>
-<td>风险、炫富、盈利、亏损、自信</td>
-</tr>
-<tr>
-<td>播客</td>
-<td>忏悔、冲突、禁忌、情绪真相</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="30-天路线图"><a href="#30-天路线图" class="headerlink" title="30 天路线图"></a>30 天路线图</h2><table>
-<thead>
-<tr>
-<th>周</th>
-<th>任务</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>第 1 周</strong></td>
-<td>选一个创作者和一个变现路径。不是选一个领域——选一个<strong>人</strong>。找有长视频、有变现需求的人。</td>
-</tr>
-<tr>
-<td><strong>第 2 周</strong></td>
-<td>小量测试。用 Vugola 从 3-5 个长视频生成剪辑。每天 2-3 条。不要第一天就发 30 条——那是机器人行为。</td>
-</tr>
-<tr>
-<td><strong>第 3 周</strong></td>
-<td>给爆款打分。追踪 hook 类型、话题、创作者瞬间、平台、观看量、留存率。让 Claude 总结什么在赢。</td>
-</tr>
-<tr>
-<td><strong>第 4 周</strong></td>
-<td>规模化获胜模式。如果身份剪辑赢了，做更多。如果教育型死了，停止念旧。把流量集中到转化高的变现产品。</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="什么会杀死这门生意"><a href="#什么会杀死这门生意" class="headerlink" title="什么会杀死这门生意"></a>什么会杀死这门生意</h2><ul>
-<li>❌ <strong>没有后端变现</strong>——只有观看量没有变现路径，只是多巴胺。</li>
-<li>❌ <strong>没有许可或合作</strong>——纯靠盗用创作者内容，等于建在沙子上。</li>
-<li>❌ <strong>没有量</strong>——一天一条不是媒体机器，是日记本。</li>
-<li>❌ <strong>没有品味</strong>——AI 省下了劳动力，但不会把无聊的剪辑变有趣。</li>
-<li>❌ <strong>没有排期工具</strong>——没有 Postiz，10 个文件夹里的剪辑和 10 个分布到 4 个平台的排期，区别就是「库存」和「分发」。</li>
-<li>❌ <strong>没有反馈循环</strong>——不追踪什么在赢，只是在赌。</li>
-</ul>
-<hr>
-<h2 id="更大的图景"><a href="#更大的图景" class="headerlink" title="更大的图景"></a>更大的图景</h2><p>Claude Opus 4.8 不是在让 YouTube 自动化变容易，<strong>它在改变 YouTube 自动化的含义。</strong></p>
-<p>旧玩法：做视频、上传视频、祈求 AdSense。新玩法：<strong>找到注意力、剪辑注意力、排期注意力、把注意力路由到变现产品。</strong></p>
-<p>一个 14.7K 订阅者的页面可以一周拉到 53.5 万观看，从外面看还是很小。<strong>看懂后端的人会看到底层的资产：一个流量资产、一个分发层、一台等待运营者的媒体机器。</strong></p>
+    <title>远程团队效率低下，跨地域协作成了“信息黑洞”？</title>
+    <link href="https://caicitou-lili.github.io/2026/09/08/shudong-ch0058/"/>
+    <id>https://caicitou-lili.github.io/2026/09/08/shudong-ch0058/</id>
+    <published>2026-09-08T20:00:00+08:00</published>
+    <updated>2026-10-21T22:04:05+08:00</updated>
+    <category term="AI副业"/>
+    <content type="html"><![CDATA[<p>网友投稿：<br>为了节省成本，我们招了一半的员工在老家工作，采用远程办公模式。我发现沟通效率极低：一个本来三分钟能讲清楚的需求，在微信上能拉锯一小时。</p>
+<p>由于看不见人，我总怀疑有人在摸鱼，但又没有好的考核手段。现在的周报写得都很敷衍。远程办公对于初创公司，真的是一个伪命题吗？</p>
+<p>回复：<br>远程办公不是伪命题，但“缺乏同步机制的远程办公”一定是灾难。远程考验的不是人品，而是公司的数字化制度。</p>
+<p>解决远程低效的核心是“结果导向”和“文档驱动”。</p>
+<p>这里有3个立刻能试的方法：<br>一是“每日站会仪式感”，利用飞书或腾讯会议，早晚各15分钟，强制视频见个面，同步当天目标，消除疏离感；<br>二是“任务颗粒化”，不要布置“下周交报告”的任务，要拆解成“明天中午12点交提纲”。利用看板工具（如Notion&#x2F;Trello）透明化所有人的进度；<br>三是“全流程文档化”，杜绝语音和长文字，所有需求、逻辑、决策必须写成短文档，沉淀为知识库。</p>
+<p>看不到人也要看得到事。如果你不会管远程，在办公室也未必管得好。若在协同办公软件搭建、远程绩效管理体系上有需求，可登录jobleap.cn解决。</p>
 <hr>
 <blockquote>
-<p>📌 原文作者：<a href="https://x.com/VadimStrizheus">@VadimStrizheus</a> — 19 岁，VugolaAI 创始人<br>原文数据：37 转推 · 340 点赞 · 895 收藏 · 53.6 万浏览<br>原文链接：<a href="https://x.com/VadimStrizheus/status/2062561233925013527">X.com</a></p>
+<p>本文转载自开源仓库 <a href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：远程团队效率低下，跨地域协作成了“信息黑洞”？。</p>
 </blockquote>
 ]]></content>
   </entry>
