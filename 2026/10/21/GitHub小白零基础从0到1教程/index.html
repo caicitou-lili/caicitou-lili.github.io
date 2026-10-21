@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>GitHub 小白零基础从 0 到 1 教程（转载整理） | 菜菜读书笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="转载说明：本文整理自 X（Twitter）作者 @AdrianPunk115 的长文《GitHub 小白零基础从 0 到 1 教程》，版权归原作者所有。全文与配图已完整转存，仅作学习交流。  从零开始，一步一步学会用 GitHub 管理你的代码。不需要任何基础，跟着做就行。 📑 目录 什么是 GitHub？和 Git 有什么区别？  注册 GitHub 账号  安装 Git  初次配置 Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitHub 小白零基础从 0 到 1 教程（转载整理）">
+<meta property="og:url" content="https://caicitou-lili.github.io/2026/10/21/GitHub%E5%B0%8F%E7%99%BD%E9%9B%B6%E5%9F%BA%E7%A1%80%E4%BB%8E0%E5%88%B01%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="菜菜读书笔记">
+<meta property="og:description" content="转载说明：本文整理自 X（Twitter）作者 @AdrianPunk115 的长文《GitHub 小白零基础从 0 到 1 教程》，版权归原作者所有。全文与配图已完整转存，仅作学习交流。  从零开始，一步一步学会用 GitHub 管理你的代码。不需要任何基础，跟着做就行。 📑 目录 什么是 GitHub？和 Git 有什么区别？  注册 GitHub 账号  安装 Git  初次配置 Git">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/github101/01.jpg">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/github101/02.jpg">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/github101/03.jpg">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/github101/04.jpg">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/github101/05.jpg">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/github101/06.jpg">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/github101/07.jpg">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/github101/08.jpg">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/github101/09.jpg">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/github101/10.jpg">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/github101/11.jpg">
+<meta property="article:published_time" content="2026-10-21T13:20:00.000Z">
+<meta property="article:modified_time" content="2026-10-21T13:15:04.140Z">
+<meta property="article:author" content="caicitou-lili">
+<meta property="article:tag" content="GitHub">
+<meta property="article:tag" content="Git">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="新手入门">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://caicitou-lili.github.io/images/github101/01.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="菜菜读书笔记" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0">  <link rel="stylesheet" href="/css/local-search.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">菜菜读书笔记</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">读一本好书，遇见更好的自己</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/tags">标签</a>
+        
+          <a class="main-nav-link" href="/categories">分类</a>
+        
+          <a class="main-nav-link" href="/rollingstone-500/">音乐</a>
+        
+          <a class="main-nav-link" href="/poetry/">诗歌</a>
+        
+          <a class="main-nav-link" href="/ziwei/">紫微</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          
+            <a class="nav-icon" target="_blank" rel="noopener" href="https://github.com/caicitou-lili"><span class="fa fa-github"></span></a>
+          
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="/search.json" method="get" class="search-form" id="local-search-form" role="search" autocomplete="off">
+  <input type="search" name="q" id="local-search-input" class="search-form-input" placeholder="搜索文章…" aria-label="站内搜索">
+  <button type="submit" class="search-form-submit" aria-label="搜索">&#xF002;</button>
+</form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-GitHub小白零基础从0到1教程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/10/21/GitHub%E5%B0%8F%E7%99%BD%E9%9B%B6%E5%9F%BA%E7%A1%80%E4%BB%8E0%E5%88%B01%E6%95%99%E7%A8%8B/" class="article-date">
+  <time class="dt-published" datetime="2026-10-21T13:20:00.000Z" itemprop="datePublished">2026-10-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      GitHub 小白零基础从 0 到 1 教程（转载整理）
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p><strong>转载说明</strong>：本文整理自 X（Twitter）作者 <a target="_blank" rel="noopener" href="https://x.com/AdrianPunk115">@AdrianPunk115</a> 的长文<a target="_blank" rel="noopener" href="https://x.com/AdrianPunk115/status/2074744543170469894">《GitHub 小白零基础从 0 到 1 教程》</a>，版权归原作者所有。全文与配图已完整转存，仅作学习交流。</p>
+</blockquote>
+<p>从零开始，一步一步学会用 GitHub 管理你的代码。不需要任何基础，跟着做就行。</p>
+<h1 id="📑-目录"><a href="#📑-目录" class="headerlink" title="📑 目录"></a>📑 目录</h1><ol>
+<li><p>什么是 GitHub？和 Git 有什么区别？</p>
+</li>
+<li><p>注册 GitHub 账号</p>
+</li>
+<li><p>安装 Git</p>
+</li>
+<li><p>初次配置 Git</p>
+</li>
+<li><p>创建你的第一个仓库</p>
+</li>
+<li><p>核心操作：clone、add、commit、push</p>
+</li>
+<li><p>分支（Branch）入门</p>
+</li>
+<li><p>Pull Request：协作的第一步</p>
+</li>
+<li><p>如何使用别人的仓库（重点）</p>
+</li>
+<li><p>常用命令速查表</p>
+</li>
+</ol>
+<hr>
+<h1 id="一、-什么是-GitHub？和-Git-有什么区别？"><a href="#一、-什么是-GitHub？和-Git-有什么区别？" class="headerlink" title="一、 什么是 GitHub？和 Git 有什么区别？"></a>一、 什么是 GitHub？和 Git 有什么区别？</h1><p>很多新手会把 Git 和 GitHub 搞混，先花一分钟把它们分清楚：</p>
+<p><img src="/images/github101/01.jpg" alt="图 1"></p>
+<p>💡 一句话理解： Git 是你电脑上的「存档工具」，GitHub 是把存档「同步到云端 + 和别人协作」的平台。你可以只用 Git 不用 GitHub，但用 GitHub 一定会用到 Git。</p>
+<p><img src="/images/github101/02.jpg" alt="图 2"></p>
+<hr>
+<h1 id="二、注册-GitHub-账号"><a href="#二、注册-GitHub-账号" class="headerlink" title="二、注册 GitHub 账号"></a>二、注册 GitHub 账号</h1><p>第 1 步： 打开 github.com，点击右上角 Sign up。</p>
+<p>第 2 步： 输入你的邮箱、设置密码、取一个用户名（Username）。</p>
+<p>⚠️ 用户名很重要！ 用户名会出现在你的仓库地址里（github.com&#x2F;你的用户名&#x2F;项目名），一旦定下来不太方便改，建议认真取一个。全小写英文 + 连字符是比较稳妥的风格。</p>
+<p>第 3 步： 完成邮箱验证（GitHub 会发一封验证邮件，点里面的链接即可）。</p>
+<p>第 4 步： 选择免费方案（Free），这就够用了。后面会问你一些问卷（可跳过）。</p>
+<p>✅ 完成后你会进入 GitHub 主页，右上角能看到你的头像，说明注册成功了。</p>
+<hr>
+<h1 id="三、-安装-Git"><a href="#三、-安装-Git" class="headerlink" title="三、 安装 Git"></a>三、 安装 Git</h1><p>GitHub 网站只是「云端仓库」，你还需要在电脑上装 Git 这个工具来操作代码。</p>
+<h2 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法一：用 Homebrew 安装（推荐）</span></span><br><span class="line">brew install git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法二：直接输入 git，系统会弹窗提示安装 Xcode 命令行工具</span></span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><p>去官网下载安装包：git-scm.com&#x2F;download&#x2F;win</p>
+<p>下载后一路「Next」即可，默认设置对新手完全够用。安装完成后你会得到一个 Git Bash 终端，后面用它来敲命令。</p>
+<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Ubuntu / Debian</span></span><br><span class="line"><span class="built_in">sudo</span> apt install git</span><br><span class="line"></span><br><span class="line"><span class="comment"># CentOS / Fedora</span></span><br><span class="line"><span class="built_in">sudo</span> yum install git</span><br></pre></td></tr></table></figure>
+
+<h2 id="验证安装"><a href="#验证安装" class="headerlink" title="验证安装"></a>验证安装</h2><p>在终端输入，看到版本号就说明装好了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br><span class="line"><span class="comment"># 输出类似：git version 2.43.0</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="四、初次配置-Git"><a href="#四、初次配置-Git" class="headerlink" title="四、初次配置 Git"></a>四、初次配置 Git</h1><p>安装好后，先告诉 Git「你是谁」。每次提交代码时，Git 会把你的名字和邮箱记录上去。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置你的名字（替换成你自己的）</span></span><br><span class="line">git config --global user.name <span class="string">&quot;你的名字&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置你的邮箱（用注册 GitHub 的邮箱）</span></span><br><span class="line">git config --global user.email <span class="string">&quot;你的邮箱@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>💡 –global 表示「全局设置」，只需要配置一次，以后所有项目都会用这个身份。如果某个项目想用不同身份，去掉 –global 在项目目录里单独设置即可。</p>
+<p>验证配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --list</span><br><span class="line"><span class="comment"># 会输出你刚才设置的 user.name 和 user.email</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="五、创建你的第一个仓库"><a href="#五、创建你的第一个仓库" class="headerlink" title="五、创建你的第一个仓库"></a>五、创建你的第一个仓库</h1><p>仓库（Repository，简称 repo）就是一个项目的文件夹，GitHub 上所有的代码都放在仓库里。</p>
+<h2 id="在-GitHub-网站上创建"><a href="#在-GitHub-网站上创建" class="headerlink" title="在 GitHub 网站上创建"></a>在 GitHub 网站上创建</h2><p>第 1 步： 登录 GitHub，点击右上角 + → New repository。</p>
+<p>第 2 步： 填写信息：</p>
+<ul>
+<li><p>Repository name：仓库名，比如 my-first-project</p>
+</li>
+<li><p>Description：项目描述（可选）</p>
+</li>
+<li><p>Public &#x2F; Private：公开还是私有，新手选 Public 练手</p>
+</li>
+<li><p>勾选 “Add a README file”：会自动生成一个说明文件</p>
+</li>
+</ul>
+<p>第 3 步： 点击 Create repository，搞定！🎉</p>
+<p>✅ 什么是 README？</p>
+<blockquote>
+<p> README 是项目的「说明书」，用 Markdown 语法写。别人打开你的仓库第一眼看到的就是它。写清楚项目是做什么的、怎么用，是一个好习惯。</p>
+</blockquote>
+<hr>
+<h1 id="六、核心操作：clone、add、commit、push"><a href="#六、核心操作：clone、add、commit、push" class="headerlink" title="六、核心操作：clone、add、commit、push"></a>六、核心操作：clone、add、commit、push</h1><p>这是 Git 最核心的四个操作，记住这四个就能完成 80% 的工作。</p>
+<p><img src="/images/github101/03.jpg" alt="图 3"></p>
+<h2 id="①-clone-—-把远程仓库下载到本地"><a href="#①-clone-—-把远程仓库下载到本地" class="headerlink" title="① clone — 把远程仓库下载到本地"></a>① clone — 把远程仓库下载到本地</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在 GitHub 仓库页面点绿色的 &quot;Code&quot; 按钮复制地址</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/用户名/仓库名.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 会下载一个同名文件夹，进入它</span></span><br><span class="line"><span class="built_in">cd</span> 仓库名</span><br></pre></td></tr></table></figure>
+
+<h2 id="②-add-—-把修改的文件加入「暂存区」"><a href="#②-add-—-把修改的文件加入「暂存区」" class="headerlink" title="② add — 把修改的文件加入「暂存区」"></a>② add — 把修改的文件加入「暂存区」</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加单个文件</span></span><br><span class="line">git add 文件名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加所有修改（最常用）</span></span><br><span class="line">git add .</span><br></pre></td></tr></table></figure>
+
+<p>⚠️ 注意那个点！ git add . 后面有一个英文句号，表示「当前目录下所有改动的文件」。新手经常漏掉这个点。</p>
+<h2 id="③-commit-—-把暂存区的修改「存档」"><a href="#③-commit-—-把暂存区的修改「存档」" class="headerlink" title="③ commit — 把暂存区的修改「存档」"></a>③ commit — 把暂存区的修改「存档」</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;本次修改的说明&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>✅ commit message 怎么写？</p>
+<blockquote>
+<p>简洁说清楚这次改了什么，比如 “修复登录按钮无法点击的 bug”、”添加用户注册页面”。以后翻历史记录时，这些说明就是你的「存档标签」。</p>
+</blockquote>
+<h2 id="④-push-—-把本地存档推送到-GitHub-云端"><a href="#④-push-—-把本地存档推送到-GitHub-云端" class="headerlink" title="④ push — 把本地存档推送到 GitHub 云端"></a>④ push — 把本地存档推送到 GitHub 云端</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<h2 id="🔄-完整流程演示"><a href="#🔄-完整流程演示" class="headerlink" title="🔄 完整流程演示"></a>🔄 完整流程演示</h2><p>假设你 clone 了一个项目，修改了 README，想同步到 GitHub：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 看看改了什么</span></span><br><span class="line">git status</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 把修改加入暂存区</span></span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 存档</span></span><br><span class="line">git commit -m <span class="string">&quot;更新 README 说明&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 推送到 GitHub</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<p>去 GitHub 网页刷新一下，就能看到你的修改了！</p>
+<hr>
+<h1 id="七、分支（Branch）入门"><a href="#七、分支（Branch）入门" class="headerlink" title="七、分支（Branch）入门"></a>七、分支（Branch）入门</h1><p>分支是 Git 最强大的功能之一。简单说，分支就是一条平行的开发线，你可以在上面随便改，不影响主干。</p>
+<p><img src="/images/github101/04.jpg" alt="图 4"></p>
+<h2 id="常用分支命令"><a href="#常用分支命令" class="headerlink" title="常用分支命令"></a>常用分支命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看当前有哪些分支（带 * 号的是当前所在分支）</span></span><br><span class="line">git branch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建并切换到新分支</span></span><br><span class="line">git checkout -b feature-login</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换回主干</span></span><br><span class="line">git checkout main</span><br><span class="line"></span><br><span class="line"><span class="comment"># 把 feature-login 分支合并到当前分支</span></span><br><span class="line">git merge feature-login</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除已合并的分支</span></span><br><span class="line">git branch -d feature-login</span><br></pre></td></tr></table></figure>
+
+<p>💡 什么时候用分支？</p>
+<blockquote>
+<p>想加新功能、修 bug，但又怕搞坏现有代码？开一个分支在上面改，改好了再合并回主干。万一改崩了，主干不受影响。这是团队协作的标准做法。</p>
+</blockquote>
+<hr>
+<h1 id="八、Pull-Request：协作的第一步"><a href="#八、Pull-Request：协作的第一步" class="headerlink" title="八、Pull Request：协作的第一步"></a>八、Pull Request：协作的第一步</h1><p>Pull Request（简称 PR） 是 GitHub 上的协作机制。简单说就是：「我改了一些代码，请大家审查一下，没问题就合并进去。」</p>
+<h2 id="典型场景"><a href="#典型场景" class="headerlink" title="典型场景"></a>典型场景</h2><ol>
+<li><p>你 fork（复制）了别人的项目到自己账号下</p>
+</li>
+<li><p>clone 到本地，开一个分支做修改</p>
+</li>
+<li><p>push 回你自己的 GitHub 仓库</p>
+</li>
+<li><p>在 GitHub 上发起 Pull Request，请求原项目作者审查</p>
+</li>
+<li><p>作者审查通过后，点击 Merge 合并</p>
+</li>
+</ol>
+<h2 id="怎么发起-PR"><a href="#怎么发起-PR" class="headerlink" title="怎么发起 PR"></a>怎么发起 PR</h2><p>第 1 步： 在你 fork 的仓库页面，切换到你修改过的分支。</p>
+<p>第 2 步： 点击 Contribute → Open pull request。</p>
+<p>第 3 步： 写清楚标题和说明：「我做了什么修改、为什么」，点击 Create pull request。</p>
+<p>✅ 开源贡献： 很多开源项目（Vue、React、Linux 内核等）都欢迎 PR。即使只是修一个文档错别字，也是对开源社区的贡献！</p>
+<p>💡 绿色的 Code 按钮是你最常用的入口 — clone 仓库时就从这里复制地址。</p>
+<h2 id="⑤-文件列表"><a href="#⑤-文件列表" class="headerlink" title="⑤ 文件列表"></a>⑤ 文件列表</h2><p>每一行是一个文件或文件夹，从左到右：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">文件名          最后修改者      提交说明              提交hash + 时间</span><br><span class="line">📁 skills/      jinchenma94    添加新skill          08d4226 · 2 weeks ago</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>点文件夹 → 进入看里面的文件</p>
+</li>
+<li><p>点文件名 → 查看文件内容</p>
+</li>
+<li><p>点提交说明 → 看这次提交具体改了什么（diff）</p>
+</li>
+<li><p>点提交 hash（如 08d4226）→ 跳到这次提交的详情页</p>
+</li>
+<li><p>最右侧 X Commits → 查看完整的提交历史</p>
+</li>
+</ul>
+<h2 id="⑥-README-预览区"><a href="#⑥-README-预览区" class="headerlink" title="⑥ README 预览区"></a>⑥ README 预览区</h2><p>打开仓库默认滚动到的区域，是 README.md 的渲染效果。新手第一件事就是认真读这里，项目是干啥的、怎么装、怎么用，都写在里面。</p>
+<h2 id="⑩-右侧信息栏"><a href="#⑩-右侧信息栏" class="headerlink" title="⑩ 右侧信息栏"></a>⑩ 右侧信息栏</h2><p><img src="/images/github101/05.jpg" alt="图 5"></p>
+<hr>
+<h1 id="九、如何使用别人的仓库（重点）"><a href="#九、如何使用别人的仓库（重点）" class="headerlink" title="九、如何使用别人的仓库（重点）"></a>九、如何使用别人的仓库（重点）</h1><blockquote>
+<p>这可能是新手最常遇到的场景：你在 GitHub 上看到一个不错的项目，想用到自己电脑上，但不知道怎么操作。这节手把手教你。</p>
+</blockquote>
+<h2 id="🔍-第一步：找到并打开一个仓库"><a href="#🔍-第一步：找到并打开一个仓库" class="headerlink" title="🔍 第一步：找到并打开一个仓库"></a>🔍 第一步：找到并打开一个仓库</h2><p>方式一：直接点链接</p>
+<p>别人分享的 GitHub 链接，比如<a target="_blank" rel="noopener" href="https://github.com/adrianpunk/Punk-Skill%EF%BC%8C%E7%82%B9%E5%BC%80%E5%B0%B1%E6%98%AF%E3%80%82">https://github.com/adrianpunk/Punk-Skill，点开就是。</a></p>
+<p>方式二：搜索</p>
+<ul>
+<li>在 GitHub 首页顶部搜索框输入关键词（比如 adrianpunk），按回车</li>
+</ul>
+<h2 id="👀-第二步：看懂仓库页面"><a href="#👀-第二步：看懂仓库页面" class="headerlink" title="👀 第二步：看懂仓库页面"></a>👀 第二步：看懂仓库页面</h2><p>打开一个仓库后，页面信息量很大，新手重点看这几块：</p>
+<p><img src="/images/github101/06.jpg" alt="图 6"></p>
+<p>重点关注的指标：</p>
+<p><img src="/images/github101/07.jpg" alt="图 7"></p>
+<p>💡 新手建议： 打开仓库第一件事就是滚到下面认真读 README。好的 README 会写清楚安装步骤和使用方法，照着做就行。</p>
+<h2 id="🎯-打开一个仓库后的正确阅读顺序"><a href="#🎯-打开一个仓库后的正确阅读顺序" class="headerlink" title="🎯 打开一个仓库后的正确阅读顺序"></a>🎯 打开一个仓库后的正确阅读顺序</h2><ol>
+<li><p>看右上角数据：Stars 多不多 → 判断项目靠不靠谱</p>
+</li>
+<li><p>读 README：项目是干啥的、怎么装、怎么用</p>
+</li>
+<li><p>看 LICENSE：能不能商用、有没有限制</p>
+</li>
+<li><p>看最近提交时间：还在维护吗？太久的可能有问题</p>
+</li>
+<li><p>看 Issues：有没有未解决的严重 bug</p>
+</li>
+<li><p>点 Code 绿色按钮：复制地址，clone 到本地</p>
+</li>
+</ol>
+<p><img src="/images/github101/08.jpg" alt="图 8"></p>
+<h2 id="📥-第三步：把代码弄到你电脑上"><a href="#📥-第三步：把代码弄到你电脑上" class="headerlink" title="📥 第三步：把代码弄到你电脑上"></a>📥 第三步：把代码弄到你电脑上</h2><p>有三种方式，从简单到进阶：</p>
+<hr>
+<p>方式 A：Download ZIP（最简单，不需要 Git）</p>
+<p>适合：只想看看代码、跑一下，不需要后续更新</p>
+<ol>
+<li><p>点仓库页面绿色的 Code 按钮</p>
+</li>
+<li><p>点 Download ZIP</p>
+</li>
+<li><p>解压到你想放的文件夹</p>
+</li>
+</ol>
+<p>⚠️ 缺点：下载的是某个时间点的快照，以后原作者更新了，你拿不到，得重新下载。</p>
+<hr>
+<p>方式 B：git clone（推荐！能随时更新）</p>
+<p>适合：想在本地用、想跟随后续更新、想学习代码</p>
+<p>什么是 clone？</p>
+<p>clone &#x3D; 把整个远程仓库完整复制到你的电脑上，包括所有文件、提交历史、分支信息。</p>
+<p>它和「Download ZIP」的区别是：clone 保留了完整的 Git 历史，以后可以 git pull 拉取最新更新。</p>
+<p>操作步骤：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ① 在仓库页面点绿色 &quot;Code&quot; 按钮，复制 HTTPS 地址</span></span><br><span class="line"><span class="comment">#    地址长这样：https://github.com/adrianpunk/Punk-Skill.git</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ② 打开终端，cd 到你想存放代码的文件夹</span></span><br><span class="line"><span class="built_in">cd</span> ~/Desktop       <span class="comment"># 比如放桌面</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ③ 执行 clone 命令</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/adrianpunk/Punk-Skill.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># ④ 会自动创建一个同名文件夹，进入它</span></span><br><span class="line"><span class="built_in">cd</span> Punk-Skill</span><br><span class="line"></span><br><span class="line"><span class="comment"># ⑤ 看看里面有什么</span></span><br><span class="line"><span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
+
+<p>clone 之后怎么更新？</p>
+<p>以后原作者更新了代码，你只需要在项目文件夹里执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br><span class="line"><span class="comment"># 就会把远程的最新代码拉下来，合并到你本地</span></span><br></pre></td></tr></table></figure>
+
+<p>💡 clone 只需要执行一次。之后更新用 pull 就行。这就像你「订阅」了一个项目，随时可以同步最新内容。</p>
+<hr>
+<p>方式 C：Fork + Clone（想修改并贡献代码）</p>
+<p>适合：你想改别人的代码，甚至想提交 PR 贡献回去</p>
+<p>Fork 和 Clone 有什么区别？</p>
+<p><img src="/images/github101/09.jpg" alt="图 9"></p>
+<p>操作步骤：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ① 在仓库页面点右上角 &quot;Fork&quot; 按钮</span></span><br><span class="line"><span class="comment">#    会复制一份到你自己的 GitHub：github.com/你的用户名/项目名</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ② clone 你 fork 的那份（不是原仓库！）</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/你的用户名/项目名.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># ③ 进入项目</span></span><br><span class="line"><span class="built_in">cd</span> 项目名</span><br><span class="line"></span><br><span class="line"><span class="comment"># ④ 关联原仓库（方便以后同步原作者的更新）</span></span><br><span class="line">git remote add upstream https://github.com/原作者/项目名.git</span><br></pre></td></tr></table></figure>
+
+<p>以后想同步原作者的更新：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拉取原仓库的最新代码</span></span><br><span class="line">git fetch upstream</span><br><span class="line"></span><br><span class="line"><span class="comment"># 把更新合并到你的主干</span></span><br><span class="line">git checkout main</span><br><span class="line">git merge upstream/main</span><br><span class="line"></span><br><span class="line"><span class="comment"># 推送到你自己的 GitHub fork</span></span><br><span class="line">git push origin main</span><br></pre></td></tr></table></figure>
+
+<p>这个流程画成图就是这样：</p>
+<p><img src="/images/github101/10.jpg" alt="图 10"></p>
+<h2 id="🚀-第四步：clone-下来之后干什么？"><a href="#🚀-第四步：clone-下来之后干什么？" class="headerlink" title="🚀 第四步：clone 下来之后干什么？"></a>🚀 第四步：clone 下来之后干什么？</h2><p>代码下载到本地后，别急着改，先做这几件事：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ① 认真读 README！找安装和使用说明</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ② 看看有没有依赖需要安装</span></span><br><span class="line"><span class="comment">#    Node.js 项目：</span></span><br><span class="line">npm install        <span class="comment"># 或 yarn install / pnpm install</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#    Python 项目：</span></span><br><span class="line">pip install -r requirements.txt</span><br><span class="line"></span><br><span class="line"><span class="comment">#    Go 项目：</span></span><br><span class="line">go mod download</span><br><span class="line"></span><br><span class="line"><span class="comment"># ③ 启动项目（具体命令看 README）</span></span><br><span class="line">npm run dev        <span class="comment"># 前端项目常见</span></span><br><span class="line">python main.py     <span class="comment"># Python 项目常见</span></span><br><span class="line">go run main.go     <span class="comment"># Go 项目常见</span></span><br></pre></td></tr></table></figure>
+
+<p>💡 判断项目类型的方法：</p>
+<ul>
+<li><p>看到 package.json → Node.js &#x2F; 前端项目 → 用 npm install</p>
+</li>
+<li><p>看到 requirements.txt 或 setup.py → Python 项目 → 用 pip install</p>
+</li>
+<li><p>看到 go.mod → Go 项目 → 用 go mod download</p>
+</li>
+<li><p>看到 pom.xml → Java Maven 项目 → 用 mvn install</p>
+</li>
+<li><p>看到 Cargo.toml → Rust 项目 → 用 cargo build</p>
+</li>
+</ul>
+<h2 id="📋-完整实战：从发现到使用"><a href="#📋-完整实战：从发现到使用" class="headerlink" title="📋 完整实战：从发现到使用"></a>📋 完整实战：从发现到使用</h2><p>假设你在 GitHub 上看到一个不错的待办事项项目，完整流程：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 打开仓库页面，读 README，了解项目</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 复制 clone 地址，下载到本地</span></span><br><span class="line"><span class="built_in">cd</span> ~/Projects</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/someone/todo-app.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 进入项目</span></span><br><span class="line"><span class="built_in">cd</span> todo-app</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 安装依赖</span></span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5. 启动项目</span></span><br><span class="line">npm run dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 6. 用了一段时间后，想看看有没有更新</span></span><br><span class="line">git pull</span><br><span class="line"></span><br><span class="line"><span class="comment"># 7. 如果想自己改代码，先建个分支</span></span><br><span class="line">git checkout -b my-feature</span><br><span class="line"></span><br><span class="line"><span class="comment"># 8. 改完代码后提交</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;添加暗色主题&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 9. 如果想贡献回原项目 → fork + push + 发 PR</span></span><br><span class="line"><span class="comment">#    如果只是自己用 → 到这就行了</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="十、常用命令速查表"><a href="#十、常用命令速查表" class="headerlink" title="十、常用命令速查表"></a>十、常用命令速查表</h1><p><img src="/images/github101/11.jpg" alt="图 11"></p>
+<p>⚠️ git reset –hard 会永久丢弃所有未提交的修改，不可恢复！用之前确认你真的不需要那些改动了。</p>
+<hr>
+<h1 id="🎯-新手心法"><a href="#🎯-新手心法" class="headerlink" title="🎯 新手心法"></a>🎯 新手心法</h1><ul>
+<li><p>勤 commit：每完成一小步就提交一次，存档点越密越安全</p>
+</li>
+<li><p>commit message 写清楚：未来的你会感谢现在写说明的你</p>
+</li>
+<li><p>改之前先 pull：避免和别人的修改冲突</p>
+</li>
+<li><p>不确定就先 <code>git status</code>：随时了解当前状态</p>
+</li>
+<li><p>重要操作前先备份：git reset –hard 之前三思</p>
+</li>
+</ul>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>Punk｜中科大 MBA｜HerName 首席设计师｜Stanley 商学院执行院长｜</p>
+<p>｜AI提示词｜分享小白能看懂、复制能上手的 AI &#x2F; 搞钱方法｜</p>
+<p>@AdrianPunk115</p>
+<hr>
+<p><strong>原文</strong></p>
+<ul>
+<li>原帖：<a target="_blank" rel="noopener" href="https://x.com/AdrianPunk115/status/2074744543170469894">https://x.com/AdrianPunk115/status/2074744543170469894</a></li>
+<li>本文仅作存档与学习交流，文字、图片版权归原作者所有；如需引用请注明出处。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://caicitou-lili.github.io/2026/10/21/GitHub%E5%B0%8F%E7%99%BD%E9%9B%B6%E5%9F%BA%E7%A1%80%E4%BB%8E0%E5%88%B01%E6%95%99%E7%A8%8B/" data-id="cmvi4xyva0000tgh38nyb7v6x" data-title="GitHub 小白零基础从 0 到 1 教程（转载整理）" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8/" rel="tag">新手入门</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2026/10/20/%E5%8F%AF%E7%81%B54-0%E5%AE%9E%E6%B5%8B%E4%B8%8EAI%E7%9F%AD%E5%89%A7%E5%85%A8%E6%B5%81%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">动动嘴就能做 AI 短剧，还能自动剪辑：可灵 4.0 实测与全流程教程</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%A6%E8%AF%84/">书评</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/">效率工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9F%B3%E4%B9%90/">音乐</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AGENTS-md/" rel="tag">AGENTS.md</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI-Agent/" rel="tag">AI Agent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI-Skills/" rel="tag">AI Skills</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%88%9B%E4%B8%9A/" rel="tag">AI创业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">AI工作流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%BB%BA%E7%AB%99/" rel="tag">AI建站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E6%8A%95%E7%A0%94/" rel="tag">AI投研</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E6%B3%A1%E6%B2%AB/" rel="tag">AI泡沫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E7%AC%AC%E4%BA%8C%E5%A4%A7%E8%84%91/" rel="tag">AI第二大脑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E7%BC%96%E7%A8%8B/" rel="tag">AI编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E8%A7%86%E9%A2%91/" rel="tag">AI视频</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Agent/" rel="tag">Agent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Anthropic/" rel="tag">Anthropic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Claude/" rel="tag">Claude</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Claude-Code/" rel="tag">Claude Code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Codex/" rel="tag">Codex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DeepSeek/" rel="tag">DeepSeek</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-AdSense/" rel="tag">Google AdSense</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hostinger/" rel="tag">Hostinger</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MCP/" rel="tag">MCP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Obsidian/" rel="tag">Obsidian</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PARA/" rel="tag">PARA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prompt/" rel="tag">Prompt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Skills/" rel="tag">Skills</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Workflow/" rel="tag">Workflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/YouTube/" rel="tag">YouTube</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eSIM/" rel="tag">eSIM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yt-dlp/" rel="tag">yt-dlp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8/" rel="tag">一人公司</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/" rel="tag">中国经济</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E6%96%87%E5%86%99%E4%BD%9C/" rel="tag">中文写作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E8%AF%84/" rel="tag">书评</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%8D%E8%B4%B9%E5%B7%A5%E5%85%B7/" rel="tag">免费工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" rel="tag">公众号</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C/" rel="tag">内容创作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AE%B9%E5%8F%98%E7%8E%B0/" rel="tag">内容变现</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BA%E5%9B%BD/" rel="tag">出国</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BA%E5%B7%AE/" rel="tag">出差</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BA%E6%B5%B7%E8%B5%9A%E9%92%B1/" rel="tag">出海赚钱</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%AF%E4%B8%9A/" rel="tag">副业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">动态工作流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%86%E5%8F%B2%E5%AF%B9%E6%AF%94/" rel="tag">历史对比</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E7%81%B5/" rel="tag">可灵</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9C%B0%E7%BC%98%E6%94%BF%E6%B2%BB/" rel="tag">地缘政治</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" rel="tag">学习方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E6%B5%8B/" rel="tag">实测</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%BA%A2%E4%B9%A6/" rel="tag">小红书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">工作流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%B3%E5%8F%B0%E7%AE%97%E6%B3%95/" rel="tag">平台算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%BA%90/" rel="tag">开源</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" rel="tag">开源项目</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%93%E5%B7%A5%E5%BA%A6%E5%81%87/" rel="tag">打工度假</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%95%E8%B5%84/" rel="tag">投资</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8D%A1%E6%BC%8F/" rel="tag">捡漏</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" rel="tag">效率工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E6%A1%88/" rel="tag">文案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8/" rel="tag">新手入门</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%85%E8%A1%8C/" rel="tag">旅行</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9A%97%E9%99%90%E6%B5%81/" rel="tag">暗限流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A6%9C%E5%8D%95/" rel="tag">榜单</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B0%91%E7%B2%B9%E4%B8%BB%E4%B9%89/" rel="tag">民粹主义</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%A6%E8%89%B2/" rel="tag">润色</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BB%9A%E7%9F%B3/" rel="tag">滚石</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BE%B3%E6%B4%B2WHV/" rel="tag">澳洲WHV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB%E6%8C%87%E5%8D%97/" rel="tag">生活指南</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5/" rel="tag">电商运营</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/" rel="tag">电子书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" rel="tag">知识管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A0%8D%E4%BB%B7/" rel="tag">砍价</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%B9%BB/" rel="tag">科幻</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/" rel="tag">笔记方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AD%BE%E8%AF%81%E6%94%BB%E7%95%A5/" rel="tag">签证攻略</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90/" rel="tag">股票分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" rel="tag">自动化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93/" rel="tag">自媒体</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" rel="tag">自媒体工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/" rel="tag">被动收入</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" rel="tag">视频下载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/" rel="tag">视频剪辑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" rel="tag">语音合成</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%B8%E6%98%93%E6%88%98/" rel="tag">贸易战</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E9%80%89%E6%8B%A9/" rel="tag">软件选择</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%89%E9%A2%98/" rel="tag">选题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%B2%E9%B1%BC/" rel="tag">闲鱼</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%BF%E8%A5%BF%E8%8E%AB%E5%A4%AB/" rel="tag">阿西莫夫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9F%B3%E4%B9%90/" rel="tag">音乐</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AGENTS-md/" style="font-size: 10px;">AGENTS.md</a> <a href="/tags/AI/" style="font-size: 14px;">AI</a> <a href="/tags/AI-Agent/" style="font-size: 10px;">AI Agent</a> <a href="/tags/AI-Skills/" style="font-size: 10px;">AI Skills</a> <a href="/tags/AIGC/" style="font-size: 16px;">AIGC</a> <a href="/tags/AI%E5%88%9B%E4%B8%9A/" style="font-size: 10px;">AI创业</a> <a href="/tags/AI%E5%89%AF%E4%B8%9A/" style="font-size: 10px;">AI副业</a> <a href="/tags/AI%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 16px;">AI工作流</a> <a href="/tags/AI%E5%BB%BA%E7%AB%99/" style="font-size: 10px;">AI建站</a> <a href="/tags/AI%E6%8A%95%E7%A0%94/" style="font-size: 10px;">AI投研</a> <a href="/tags/AI%E6%B3%A1%E6%B2%AB/" style="font-size: 10px;">AI泡沫</a> <a href="/tags/AI%E7%AC%AC%E4%BA%8C%E5%A4%A7%E8%84%91/" style="font-size: 10px;">AI第二大脑</a> <a href="/tags/AI%E7%BC%96%E7%A8%8B/" style="font-size: 12px;">AI编程</a> <a href="/tags/AI%E8%A7%86%E9%A2%91/" style="font-size: 10px;">AI视频</a> <a href="/tags/Agent/" style="font-size: 10px;">Agent</a> <a href="/tags/Anthropic/" style="font-size: 10px;">Anthropic</a> <a href="/tags/Claude/" style="font-size: 16px;">Claude</a> <a href="/tags/Claude-Code/" style="font-size: 12px;">Claude Code</a> <a href="/tags/Codex/" style="font-size: 18px;">Codex</a> <a href="/tags/DeepSeek/" style="font-size: 10px;">DeepSeek</a> <a href="/tags/Git/" style="font-size: 12px;">Git</a> <a href="/tags/GitHub/" style="font-size: 14px;">GitHub</a> <a href="/tags/Google-AdSense/" style="font-size: 10px;">Google AdSense</a> <a href="/tags/Hostinger/" style="font-size: 10px;">Hostinger</a> <a href="/tags/MCP/" style="font-size: 14px;">MCP</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Obsidian/" style="font-size: 14px;">Obsidian</a> <a href="/tags/PARA/" style="font-size: 10px;">PARA</a> <a href="/tags/Prompt/" style="font-size: 10px;">Prompt</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/Skills/" style="font-size: 14px;">Skills</a> <a href="/tags/Workflow/" style="font-size: 10px;">Workflow</a> <a href="/tags/YouTube/" style="font-size: 10px;">YouTube</a> <a href="/tags/eSIM/" style="font-size: 10px;">eSIM</a> <a href="/tags/yt-dlp/" style="font-size: 10px;">yt-dlp</a> <a href="/tags/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8/" style="font-size: 10px;">一人公司</a> <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/" style="font-size: 10px;">中国经济</a> <a href="/tags/%E4%B8%AD%E6%96%87%E5%86%99%E4%BD%9C/" style="font-size: 10px;">中文写作</a> <a href="/tags/%E4%B9%A6%E8%AF%84/" style="font-size: 10px;">书评</a> <a href="/tags/%E5%85%8D%E8%B4%B9%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">免费工具</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 10px;">公众号</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C/" style="font-size: 14px;">内容创作</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%8F%98%E7%8E%B0/" style="font-size: 10px;">内容变现</a> <a href="/tags/%E5%87%BA%E5%9B%BD/" style="font-size: 10px;">出国</a> <a href="/tags/%E5%87%BA%E5%B7%AE/" style="font-size: 10px;">出差</a> <a href="/tags/%E5%87%BA%E6%B5%B7%E8%B5%9A%E9%92%B1/" style="font-size: 10px;">出海赚钱</a> <a href="/tags/%E5%89%AF%E4%B8%9A/" style="font-size: 16px;">副业</a> <a href="/tags/%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">动态工作流</a> <a href="/tags/%E5%8E%86%E5%8F%B2%E5%AF%B9%E6%AF%94/" style="font-size: 10px;">历史对比</a> <a href="/tags/%E5%8F%AF%E7%81%B5/" style="font-size: 10px;">可灵</a> <a href="/tags/%E5%9C%B0%E7%BC%98%E6%94%BF%E6%B2%BB/" style="font-size: 10px;">地缘政治</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">学习方法</a> <a href="/tags/%E5%AE%9E%E6%B5%8B/" style="font-size: 10px;">实测</a> <a href="/tags/%E5%B0%8F%E7%BA%A2%E4%B9%A6/" style="font-size: 10px;">小红书</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">工作流</a> <a href="/tags/%E5%B9%B3%E5%8F%B0%E7%AE%97%E6%B3%95/" style="font-size: 10px;">平台算法</a> <a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 14px;">开源</a> <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 18px;">开源项目</a> <a href="/tags/%E6%89%93%E5%B7%A5%E5%BA%A6%E5%81%87/" style="font-size: 10px;">打工度假</a> <a href="/tags/%E6%8A%95%E8%B5%84/" style="font-size: 10px;">投资</a> <a href="/tags/%E6%8D%A1%E6%BC%8F/" style="font-size: 10px;">捡漏</a> <a href="/tags/%E6%90%9E%E9%92%B1/" style="font-size: 10px;">搞钱</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">效率工具</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 20px;">教程</a> <a href="/tags/%E6%96%87%E6%A1%88/" style="font-size: 10px;">文案</a> <a href="/tags/%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8/" style="font-size: 10px;">新手入门</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 10px;">旅行</a> <a href="/tags/%E6%9A%97%E9%99%90%E6%B5%81/" style="font-size: 10px;">暗限流</a> <a href="/tags/%E6%A6%9C%E5%8D%95/" style="font-size: 10px;">榜单</a> <a href="/tags/%E6%B0%91%E7%B2%B9%E4%B8%BB%E4%B9%89/" style="font-size: 10px;">民粹主义</a> <a href="/tags/%E6%B6%A6%E8%89%B2/" style="font-size: 10px;">润色</a> <a href="/tags/%E6%BB%9A%E7%9F%B3/" style="font-size: 10px;">滚石</a> <a href="/tags/%E6%BE%B3%E6%B4%B2WHV/" style="font-size: 10px;">澳洲WHV</a> <a href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" style="font-size: 10px;">独立开发</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%8C%87%E5%8D%97/" style="font-size: 10px;">生活指南</a> <a href="/tags/%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5/" style="font-size: 12px;">电商运营</a> <a href="/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/" style="font-size: 10px;">电子书</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 12px;">知识管理</a> <a href="/tags/%E7%A0%8D%E4%BB%B7/" style="font-size: 10px;">砍价</a> <a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 10px;">科幻</a> <a href="/tags/%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">笔记方法</a> <a href="/tags/%E7%AD%BE%E8%AF%81%E6%94%BB%E7%95%A5/" style="font-size: 10px;">签证攻略</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">翻译</a> <a href="/tags/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90/" style="font-size: 10px;">股票分析</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 14px;">自动化</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93/" style="font-size: 16px;">自媒体</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">自媒体工具</a> <a href="/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/" style="font-size: 10px;">被动收入</a> <a href="/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" style="font-size: 10px;">视频下载</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/" style="font-size: 12px;">视频剪辑</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 10px;">语音合成</a> <a href="/tags/%E8%B4%B8%E6%98%93%E6%88%98/" style="font-size: 10px;">贸易战</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E9%80%89%E6%8B%A9/" style="font-size: 10px;">软件选择</a> <a href="/tags/%E9%80%89%E9%A2%98/" style="font-size: 10px;">选题</a> <a href="/tags/%E9%97%B2%E9%B1%BC/" style="font-size: 16px;">闲鱼</a> <a href="/tags/%E9%98%BF%E8%A5%BF%E8%8E%AB%E5%A4%AB/" style="font-size: 10px;">阿西莫夫</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 10px;">音乐</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/10/">十月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/08/">八月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">六月 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/10/21/GitHub%E5%B0%8F%E7%99%BD%E9%9B%B6%E5%9F%BA%E7%A1%80%E4%BB%8E0%E5%88%B01%E6%95%99%E7%A8%8B/">GitHub 小白零基础从 0 到 1 教程（转载整理）</a>
+          </li>
+        
+          <li>
+            <a href="/2026/10/20/%E5%8F%AF%E7%81%B54-0%E5%AE%9E%E6%B5%8B%E4%B8%8EAI%E7%9F%AD%E5%89%A7%E5%85%A8%E6%B5%81%E7%A8%8B/">动动嘴就能做 AI 短剧，还能自动剪辑：可灵 4.0 实测与全流程教程</a>
+          </li>
+        
+          <li>
+            <a href="/2026/10/18/%E9%97%B2%E9%B1%BC%E6%99%BA%E8%83%BD%E7%9B%91%E6%8E%A7-ai-goofish-monitor-%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BD%BF%E7%94%A8/">闲鱼捡漏自动化：ai-goofish-monitor 部署与使用全记录</a>
+          </li>
+        
+          <li>
+            <a href="/2026/10/17/VoiceStudio%E4%B8%8A%E6%89%8B-%E6%9C%AC%E5%9C%B0AI%E9%85%8D%E9%9F%B3%E5%B7%A5%E4%BD%9C%E5%AE%A4/">VoiceStudio 上手：把 ElevenLabs 搬进自己电脑，3 秒音频克隆一个声音</a>
+          </li>
+        
+          <li>
+            <a href="/2026/10/11/MoneyPrinterTurbo-%E5%AE%9E%E6%B5%8B/">MoneyPrinterTurbo 实测：给它一个主题，自动生成一条短视频</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        内容采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 授权，转载请注明出处。
+      
+      &copy; 2026 caicitou-lili<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/tags" class="mobile-nav-link">标签</a>
+  
+    <a href="/categories" class="mobile-nav-link">分类</a>
+  
+    <a href="/rollingstone-500/" class="mobile-nav-link">音乐</a>
+  
+    <a href="/poetry/" class="mobile-nav-link">诗歌</a>
+  
+    <a href="/ziwei/" class="mobile-nav-link">紫微</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+<div id="local-search-panel" class="ls-panel" role="listbox" aria-label="搜索结果" hidden>
+  <div class="ls-panel-inner">
+    <div class="ls-hint">输入关键词开始搜索</div>
+    <div class="ls-results"></div>
+  </div>
+</div>
+<script src="/js/local-search.js" defer></script>
+</body>
+</html>
