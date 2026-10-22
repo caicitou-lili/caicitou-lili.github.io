@@ -96,10 +96,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-fuye-ch0418" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-fuye-ch0429" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/07/26/fuye-ch0418/" class="article-date">
-  <time class="dt-published" datetime="2026-07-26T12:00:00.000Z" itemprop="datePublished">2026-07-26</time>
+    <a href="/2026/08/01/fuye-ch0429/" class="article-date">
+  <time class="dt-published" datetime="2026-08-01T00:00:00.000Z" itemprop="datePublished">2026-08-01</time>
 </a>
     
   <div class="article-category">
@@ -114,7 +114,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/07/26/fuye-ch0418/">第418章：Web3 智能合约一键扫描插件——普通投资者的“反割韭菜利刃”</a>
+      <a class="p-name article-title" href="/2026/08/01/fuye-ch0429/">第429章：机器人产业链的“卖水人”——仿真数据、高精度标注与核心零部件</a>
     </h1>
   
 
@@ -122,71 +122,64 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>Web3 最大的问题是项目方“跑路”和“土狗”。程序员不要去发币，要做“安全插件”：给普通人提供一个 Chrome 插件，只要在交互前点击一下，就能通过代码逻辑分析，告诉他这个合约有没有“增发权”、“拉黑权”或“一键跑路函数”。</p>
+        <p>机器人（尤其是具身智能）是下一个十年的黄金赛道。程序员不一定要去造整机，因为硬件烧钱且周期长。要做机器人产业的“B 端供应商”：卖训练用的仿真数据、处理高精度的行业标注，甚至整合上游供应链提供关键硬件。</p>
 <h3 id="1-需求验证-Validation"><a href="#1-需求验证-Validation" class="headerlink" title="1. 需求验证 (Validation)"></a>1. 需求验证 (Validation)</h3><ul>
-<li><strong>痛点</strong>：小白看不懂 Solidity 代码，只能听群里的 KOL 忽悠；很多项目看起来很正规，其实代码里留了“后门”。</li>
-<li><strong>目标人群</strong>：Web3 散户、DEFI 深度参与者、撸毛党。</li>
-<li><strong>验证手段</strong>：在推特或 Web3 社群发个“今日避坑：XX 项目代码里有无限授权逻辑，我是如何用脚本识破的”，看大家是否在求这个脚本。</li>
+<li><strong>痛点</strong>：机器人训练需要数百万小时的交互数据，实机采集太慢、太贵且容易损毁；初创团队很难找到靠谱的小批量高精度关节轴承或执行器。</li>
+<li><strong>目标人群</strong>：机器人初创公司、高校实验室、工业自动化集成商。</li>
+<li><strong>验证手段</strong>：在机器人开发者社区（如 ROS 论坛、知乎机器人专栏）观察大家在仿真环境搭建、数据标注和零部件采购上的吐槽点。</li>
 </ul>
 <h3 id="2-程序员的-MVP-模式"><a href="#2-程序员的-MVP-模式" class="headerlink" title="2. 程序员的 MVP 模式"></a>2. 程序员的 MVP 模式</h3><ul>
-<li><strong>拒绝过度开发</strong>：不要想做自己的链上钱包。</li>
-<li><strong>产品化服务方案</strong>：<ol>
-<li><strong>形态</strong>：Chrome 浏览器插件（在 Uniswap&#x2F;PancakeSwap 等页面自动弹出）。</li>
-<li><strong>核心功能</strong>：<ul>
-<li><strong>代码静态分析</strong>：基于开源的审计模板，自动检测恶性函数。</li>
-<li>蜜罐检测：模拟执行，看能不能买入不能卖出。</li>
-<li><strong>持仓透明度分析</strong>：直接显示前十名持仓是否有高度重合（老鼠仓）。</li>
-</ul>
-</li>
+<li><strong>“数字化”卖水商方案</strong>：<ol>
+<li>**仿真数据合成 (Synthetic Data)**：使用 NVIDIA Isaac Sim 或 Gazebo 搭建通用的居家&#x2F;工业场景，利用域随机化（Domain Randomization）生成数十万组带自动标注的视觉&#x2F;力觉数据包，打包出售。</li>
+<li><strong>高精度标注服务</strong>：针对机器人特有的需求（如 6D 位姿标注、语义分割、点云清洗），开发一套半自动化的标注工具，提供更高质量的 B 端数据加工。</li>
+<li><strong>硬件贸易与技术方案</strong>：筛选并整合国内优质的关节轴承、谐波减速器或无框力矩电机供应商，为海外独立开发者或国内小团队提供“硬件选型 + 驱动匹配”的一站式小包。</li>
 </ol>
 </li>
-<li><strong>技术栈</strong>：Javascript + Ethers.js + 现成安全 API (如：GoPlus Security)。</li>
+<li><strong>技术栈</strong>：Isaac Sim &#x2F; Omniverse + Python (DRL) + Point Cloud Library (PCL) + ROS2。</li>
 </ul>
 <h3 id="💰-财务测算（预估模型）"><a href="#💰-财务测算（预估模型）" class="headerlink" title="💰 财务测算（预估模型）"></a>💰 财务测算（预估模型）</h3><ul>
-<li><strong>启动成本</strong>：¥500（数据节点费用 + 基础域名）。</li>
-<li><strong>单客模型</strong>：<ul>
-<li>定价 (Pricing)：基础版免费；高级项目深度穿透报告 ¥9.9&#x2F;次或专业版 ¥199&#x2F;永久。</li>
-<li><strong>收益</strong>：订阅费 + 向合规交易所引流的佣金。</li>
+<li><strong>启动成本</strong>：¥5,000 - ¥20,000（主要用于高性能 GPU 工作站租赁及首批硬件样品的周转金）。</li>
+<li><strong>收益模型</strong>：<ul>
+<li><strong>定制数据包</strong>：单套行业数据集（如“厨房抓取专用”）售价 ¥5,000 - ¥50,000 不等。</li>
+<li><strong>硬件代采&#x2F;方案</strong>：单台执行器毛利 15% - 25%，胜在客单价高且具备技术壁垒。</li>
 </ul>
 </li>
-<li>回本周期：售出前 5 个专业版。</li>
-<li><strong>收入天花板</strong>：月入 2万+ 纯被动式收益。</li>
+<li><strong>回本周期</strong>：谈成功 1-2 个企业级客户或长期实验室供货意向。</li>
 </ul>
 <h3 id="📈-关键指标-Metrics"><a href="#📈-关键指标-Metrics" class="headerlink" title="📈 关键指标 (Metrics)"></a>📈 关键指标 (Metrics)</h3><ul>
-<li><strong>北极星指标</strong>：帮用户“拦截的潜在高风险合约数量”。</li>
+<li><strong>北极星指标</strong>：数据的“Sim-to-Real（仿真到现实）”迁移成功率。</li>
 <li><strong>KPI</strong>：<ul>
-<li>零日风险的响应速度（新土狗上线多久能识别）。</li>
-<li>插件的周活跃用户（WAU）。</li>
+<li>潜在企业客户的询盘数。</li>
+<li>仿真数据集的生成速率与多维覆盖度。</li>
 </ul>
 </li>
 <li><strong>OKR</strong>：<ul>
-<li><strong>O</strong>：成为 Web3 散户的“贴身保镖”。</li>
-<li><strong>KR1</strong>：集成超过 50 条典型的“割韭菜”代码特征库。</li>
-<li><strong>KR2</strong>：支持主流 5 条公链（ETH, BSC, SOL 等）的合约识别。</li>
-<li><strong>KR3</strong>：在 Chrome 商店获得 4.8 分以上的好评及 5,000+ 安装。</li>
+<li><strong>O</strong>：成为细分机器人领域的优质供应商。</li>
+<li><strong>KR1</strong>：建立一套支持自动域随机化的场景生成流水线。</li>
+<li><strong>KR2</strong>：积累 500 个以上的高意向 B 端决策者联系方式。</li>
 </ul>
 </li>
 </ul>
 <h3 id="⚠️-避坑指南"><a href="#⚠️-避坑指南" class="headerlink" title="⚠️ 避坑指南"></a>⚠️ 避坑指南</h3><ul>
-<li><strong>安全风险</strong>：<strong>严禁索要用户助记词</strong>！绝不涉及转账操作，仅做静态分析和模拟。</li>
-<li><strong>技术抗性</strong>：黑产技术升级很快，需要你有极强的 Solidity 代码审计直觉，不断更新你的规则库。</li>
+<li><strong>技术壁垒风险</strong>：仿真数据如果不准（Physics Engine 配置错误），对客户来说就是垃圾。必须深度理解物理仿真参数。</li>
+<li><strong>库存与售后</strong>：硬件涉及零部件磨损和售后，不要轻易囤货，采用“技术咨询 + 代采购”的轻资产模式起步。</li>
+<li><strong>合规性</strong>：B 端生意非常看重合同和交付标准，确保数据生成的版权归属清晰。</li>
 </ul>
-<h3 id="模拟实战：小-A-的“土狗猎手”"><a href="#模拟实战：小-A-的“土狗猎手”" class="headerlink" title="模拟实战：小 A 的“土狗猎手”"></a>模拟实战：小 A 的“土狗猎手”</h3><p>小 A 在币圈亏了几次后痛定思痛。</p>
+<h3 id="模拟实战：小毕的“关节轴承生意”"><a href="#模拟实战：小毕的“关节轴承生意”" class="headerlink" title="模拟实战：小毕的“关节轴承生意”"></a>模拟实战：小毕的“关节轴承生意”</h3><p>小毕是一名机器人算法工程师。</p>
 <ul>
-<li><strong>起步</strong>：他写了个 Python 脚本天天扫新上线的土狗币。</li>
-<li><strong>难点</strong>：很多代码是混淆过的，肉眼看不出来。</li>
-<li><strong>解决</strong>：他用了大模型辅助分析，专门训练了一个识别“后门”的 Prompt 逻辑。</li>
-<li><strong>结果</strong>：他成功在群友被收割前预警了 3 次，群友纷纷给他打赏并要求他把这东西做成插件，现在他光靠插件的“打赏功能”就能月入数千。</li>
+<li><strong>起步</strong>：他发现很多个人开发者在网上买不到高精度、小尺寸的关节轴承，要么太贵，要么不零售。</li>
+<li><strong>行动</strong>：他联系了山东和江苏的几家老牌精密零件厂，利用自己的技术背景，给每一款轴承都配上了详细的 CAD 图纸和运动学选型建议，挂在独立站上外销。</li>
+<li><strong>结果</strong>：他不仅通过差价赚到了钱，还顺便接到了几家机器人公司的“仿真环境搭建”外包项目，从“卖零件”成功转型为“卖方案”，现在他的 B 端副业利润已经稳定在每月 4 万以上。</li>
 </ul>
 <hr>
 <blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第418章：Web3 智能合约一键扫描插件——普通投资者的“反割韭菜利刃”。</p>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第429章：机器人产业链的“卖水人”——仿真数据、高精度标注与核心零部件。</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/07/26/fuye-ch0418/" data-id="cmvi6pml80182vch3bxxz02xk" data-title="第418章：Web3 智能合约一键扫描插件——普通投资者的“反割韭菜利刃”" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/08/01/fuye-ch0429/" data-id="cmvi6pmlr0192vch319nm3y10" data-title="第429章：机器人产业链的“卖水人”——仿真数据、高精度标注与核心零部件" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -200,10 +193,10 @@
 
 
   
-    <article id="post-fuye-ch0417" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-fuye-ch0428" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/07/26/fuye-ch0417/" class="article-date">
-  <time class="dt-published" datetime="2026-07-26T00:00:00.000Z" itemprop="datePublished">2026-07-26</time>
+    <a href="/2026/07/31/fuye-ch0428/" class="article-date">
+  <time class="dt-published" datetime="2026-07-31T12:00:00.000Z" itemprop="datePublished">2026-07-31</time>
 </a>
     
   <div class="article-category">
@@ -218,7 +211,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/07/26/fuye-ch0417/">第417章：智能养宠计划与健康看板——把猫主子“数字化”</a>
+      <a class="p-name article-title" href="/2026/07/31/fuye-ch0428/">第428章：AI 漫剧流水线——从提示词到流量变现的“自动分镜师”</a>
     </h1>
   
 
@@ -226,71 +219,72 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>别去做交易 App，那涉及活体运输极重。程序员要做的是“硬件+软件的养护方案”：通过连接智能喂食器、通过视觉 AI 识别猫咪的排泄&#x2F;进食行为，为养宠家庭提供一份数字化的“健康周报”。</p>
+        <p>AI 漫剧（AI Comics&#x2F;Dramas）是目前短视频平台的超级风口。通过 AI 生成高度一致的角色，配合跌宕起伏的网文剧本，程序员可以利用脚本自动化流程，甚至不需要画笔就能批量产出具备电影感的视觉内容。</p>
 <h3 id="1-需求验证-Validation"><a href="#1-需求验证-Validation" class="headerlink" title="1. 需求验证 (Validation)"></a>1. 需求验证 (Validation)</h3><ul>
-<li><strong>痛点</strong>：上班族不在家，不知道猫有没有好好吃饭、有没有软便（健康风向标）；出差时对家里的环境焦虑。</li>
-<li><strong>目标人群</strong>：二三线城市精致养宠的白领&#x2F;程序员、家里有慢性病宠物的家庭。</li>
-<li><strong>验证手段</strong>：在宠物社群发一张你用家里的监控头配合脚本跑出的“猫咪今日饮水量和进食频率曲线图”，看大家是否想要同款工具。</li>
+<li><strong>痛点</strong>：传统漫画制作周期长、成本高；普通短视频创作者缺乏绘画和视觉表达能力；网文读者渴望更直观的互动体验。</li>
+<li><strong>目标人群</strong>：网文爱好者、漫改短视频受众、寻求低成本宣发内容的企业。</li>
+<li><strong>验证手段</strong>：在抖音或小红书发布 3-5 个由 AI 生成的剧情片段（如“重生之我是架构师”），观察点赞、收藏及催更评论。</li>
 </ul>
 <h3 id="2-程序员的-MVP-模式"><a href="#2-程序员的-MVP-模式" class="headerlink" title="2. 程序员的 MVP 模式"></a>2. 程序员的 MVP 模式</h3><ul>
-<li><strong>拒绝过度开发</strong>：不要想一上来就自己做硬件。</li>
-<li><strong>产品化服务方案</strong>：<ol>
-<li><strong>形态</strong>：微信小程序 + 第三方智能硬件 API 接入。</li>
-<li><strong>核心功能</strong>：<ul>
-<li><strong>视觉检测</strong>：调用家里现有的摄像头（通过 ONVIF 协议），用 AI 识别猫咪上厕所的频率和时长，异常则报警。</li>
-<li>科学喂养建议：录入宠物品种、年龄，自动计算每日推荐热量。</li>
-<li>线上病历本：记录疫苗、驱虫时间，并在到期前一周自动弹窗。</li>
-</ul>
-</li>
+<li><strong>极致自动化</strong>：程序员的核心优势在于“管线 (Pipeline)”化生产。</li>
+<li><strong>产品化生产方案</strong>：<ol>
+<li><strong>剧本拆解</strong>：使用 ChatGPT&#x2F;DeepSeek 将爽文剧情自动拆解为详细的“画面描述词 (Prompts)”。</li>
+<li>**角色一致性 (Character Consistency)**：利用 Midjourney 的 <code>--cref</code> 参数或 Flux 的 LoRA 训练，确保同一个角色在不同镜头下长相统一。</li>
+<li><strong>批量生图</strong>：编写 Python 脚本调用 API 或 ComfyUI 后端，批量生成分镜图。</li>
+<li><strong>动态化与配音</strong>：使用 Runway&#x2F;Luma 让静止图动起来，结合异步生成的 AI 配音（如剪映、OpenVoice），最后在剪映中一键合成。</li>
 </ol>
 </li>
-<li><strong>技术栈</strong>：Python (OpenCV&#x2F;AI 识别) + Fastapi + 微信订阅消息。</li>
+<li><strong>技术栈</strong>：Python + ComfyUI&#x2F;Automatic1111 + GPT-4o + 剪映 API。</li>
 </ul>
 <h3 id="💰-财务测算（预估模型）"><a href="#💰-财务测算（预估模型）" class="headerlink" title="💰 财务测算（预估模型）"></a>💰 财务测算（预估模型）</h3><ul>
-<li><strong>启动成本</strong>：¥500（API 调用费 + 云服务器）。</li>
-<li><strong>单客模型</strong>：<ul>
-<li>定价 (Pricing)：基础版免费；高级 AI 监控分析 ¥99&#x2F;年。</li>
-<li><strong>收益</strong>：软件订阅费 + 宠粮&#x2F;保险的分销佣金。</li>
+<li><strong>启动成本</strong>：¥300 - ¥800&#x2F;月（主要用于顶级生图模型订阅及算力租赁）。</li>
+<li><strong>单条模型</strong>：<ul>
+<li><strong>制作时长</strong>：通过自动化工具，单条视频制作时间可缩短至 30 分钟。</li>
+<li><strong>收益来源</strong>：<ul>
+<li>平台流量分成（中视频计划）。</li>
+<li>网文推文转化（按转化人头结算，单价 ¥6-¥10 不等）。</li>
+<li>账号代运营或定制化视频制作（单条报价 ¥200-¥500）。</li>
 </ul>
 </li>
-<li><strong>回本周期</strong>：获取前 50 个付费订阅。</li>
-<li><strong>收入天花板</strong>：月入 1-2 万，核心价值在于长期的数据积累。</li>
+</ul>
+</li>
+<li><strong>回本周期</strong>：跑通第一个爆款视频（通常需 1-2 周持续更新）。</li>
 </ul>
 <h3 id="📈-关键指标-Metrics"><a href="#📈-关键指标-Metrics" class="headerlink" title="📈 关键指标 (Metrics)"></a>📈 关键指标 (Metrics)</h3><ul>
-<li><strong>北极星指标</strong>：用户的“宠物品种数据录入率”。</li>
+<li><strong>北极星指标</strong>：账号粉丝的“催更率”与“作品完播率”。</li>
 <li><strong>KPI</strong>：<ul>
-<li>AI 识别宠物行为的准确度。</li>
-<li>用户在异常情况下的响应及时度。</li>
+<li>作品发布频率（建议每日 1-2 更）。</li>
+<li>外部链接&#x2F;私域转化率。</li>
 </ul>
 </li>
 <li><strong>OKR</strong>：<ul>
-<li><strong>O</strong>：成为养宠人的“专业数字管家”。</li>
-<li><strong>KR1</strong>：实现跨 3 种主流摄像头品牌的 API 实拍取流。</li>
-<li><strong>KR2</strong>：健康周报生成率达到 100%。</li>
-<li><strong>KR3</strong>：与 2 家宠物线上保险公司达成联运。</li>
+<li><strong>O</strong>：打造一个高粘性的 AI 漫剧垂直矩阵。</li>
+<li><strong>KR1</strong>：建立一套从文本到视频的 80% 自动化处理流程。</li>
+<li><strong>KR2</strong>：单月内产出 3 条以上点赞破万的爆款。</li>
+<li><strong>KR3</strong>：达成与 2 家网文平台的推文合作授权。</li>
 </ul>
 </li>
 </ul>
 <h3 id="⚠️-避坑指南"><a href="#⚠️-避坑指南" class="headerlink" title="⚠️ 避坑指南"></a>⚠️ 避坑指南</h3><ul>
-<li><strong>隐私风险</strong>：由于涉及家用摄像头，必须有极其严格的隐私声明和链路加密，数据尽可能在本地处理。</li>
-<li><strong>技术盲区</strong>：宠物行为识别是个细活（如：猫和狗的姿态不一样），早期先专攻一类（如：猫）。</li>
+<li><strong>版权陷阱</strong>：确保使用的生图模型支持商用，剧本需获得原作者授权或进行大幅度二次创作。</li>
+<li><strong>查重机制</strong>：由于 AI 风格趋同，单纯通过简单 Prompt 生成的画面容易被平台判定为“低质量同质化”，必须加入独特的视觉滤镜或剪辑节奏。</li>
+<li><strong>逻辑断层</strong>：AI 不懂分镜逻辑，程序员需要介入微调关键帧的衔接。</li>
 </ul>
-<h3 id="模拟实战：小-A-的“喵管家”"><a href="#模拟实战：小-A-的“喵管家”" class="headerlink" title="模拟实战：小 A 的“喵管家”"></a>模拟实战：小 A 的“喵管家”</h3><p>小 A 回家晚，经常担心家里的猫郁郁寡欢。</p>
+<h3 id="模拟实战：老王的“代码江湖”"><a href="#模拟实战：老王的“代码江湖”" class="headerlink" title="模拟实战：老王的“代码江湖”"></a>模拟实战：老王的“代码江湖”</h3><p>老王是一名后端，他用 AI 制作了一系列“程序员修仙传”漫剧。</p>
 <ul>
-<li><strong>起步</strong>：他把家里的老旧摄像头录像导出来跑了下运动检测。</li>
-<li><strong>难点</strong>：很难区分是猫在动还是光影在动。</li>
-<li><strong>解决</strong>：他由于懂技术，训了一个专门针对猫形态的小模型。</li>
-<li><strong>结果</strong>：他现在每天下班路上都能收到一份“主子今天玩了 2 小时，吃了 3 次饭”的简报，并顺手做成了成品分发给同事。</li>
+<li><strong>起步</strong>：他手动生成了几张图片拼成视频，效果平平。</li>
+<li><strong>突破</strong>：他写了一个脚本，把代码中的 Bug 抽象成各种“心魔”怪物，并利用 ComfyUI 的 Workflows 实现了画风的高度统一。</li>
+<li><strong>结果</strong>：这种极客风格的漫画在技术圈迅速走红，他通过视频下方的“云算力推荐”和“后端课程推广”，每月的副业收入竟然超过了本职工资的 50%。</li>
 </ul>
 <hr>
 <blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第417章：智能养宠计划与健康看板——把猫主子“数字化”。</p>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第428章：AI 漫剧流水线——从提示词到流量变现的“自动分镜师”。</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/07/26/fuye-ch0417/" data-id="cmvi6pml6017wvch3fcnufg0w" data-title="第417章：智能养宠计划与健康看板——把猫主子“数字化”" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/07/31/fuye-ch0428/" data-id="cmvi6pmlk018tvch31loqeipu" data-title="第428章：AI 漫剧流水线——从提示词到流量变现的“自动分镜师”" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -304,10 +298,10 @@
 
 
   
-    <article id="post-fuye-ch0416" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-fuye-ch0427" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/07/25/fuye-ch0416/" class="article-date">
-  <time class="dt-published" datetime="2026-07-25T12:00:00.000Z" itemprop="datePublished">2026-07-25</time>
+    <a href="/2026/07/31/fuye-ch0427/" class="article-date">
+  <time class="dt-published" datetime="2026-07-31T00:00:00.000Z" itemprop="datePublished">2026-07-31</time>
 </a>
     
   <div class="article-category">
@@ -322,7 +316,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/07/25/fuye-ch0416/">第416章：潮玩溢价监测与二手交易估价——给收藏家的“避雷雷达”</a>
+      <a class="p-name article-title" href="/2026/07/31/fuye-ch0427/">第427章：定制咖啡豆订阅与口味画像系统——程序员的“提神算法”</a>
     </h1>
   
 
@@ -330,71 +324,71 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>潮玩圈（盲盒、手办）和股市一样，溢价波动剧烈。程序员不要去做炒货的，要做“潮玩指数 App”：汇总全网（千岛、咸鱼等）的最新成交数据，告诉玩家哪个 IP 正在崩盘，哪个 IP 正在被资本炒作。</p>
+        <p>咖啡生意是刚需。程序员不要去开线下店，房租会把你吃掉。要做“数字化订阅服务”：通过小程序的口味测评，给用户精准推荐并周期性寄送独立烘焙工作室的豆子，做咖啡圈的“精品买手”。</p>
 <h3 id="1-需求验证-Validation"><a href="#1-需求验证-Validation" class="headerlink" title="1. 需求验证 (Validation)"></a>1. 需求验证 (Validation)</h3><ul>
-<li><strong>痛点</strong>：玩家不知道手里的盲盒隐藏款到底值多少钱；想收某个热门 IP 却不知道现在是不是高位被套。</li>
-<li><strong>目标人群</strong>：盲盒重度玩家（娃妈&#x2F;娃爸）、潮玩二手倒卖商。</li>
-<li><strong>验证手段</strong>：在小红书发一张你汇总的“本月 Labubu 相关单品价格波动表”，看评论区求链接、求数据的热情。</li>
+<li><strong>痛点</strong>：用户想喝好豆子但选不来（危地马拉、耶加雪菲分不清）；线下精品咖啡店豆子贵且种类少。</li>
+<li><strong>目标人群</strong>：每天必喝手冲&#x2F;意式的办公室白领、极客程序员、咖啡初学者。</li>
+<li><strong>验证手段</strong>：在公司楼下或程序员群发个调查：“如果你告诉我你喜欢的酸度和苦度，我能每个月给你寄出一款绝不重样的顶级小众豆子，你打算多少钱月购？”</li>
 </ul>
 <h3 id="2-程序员的-MVP-模式"><a href="#2-程序员的-MVP-模式" class="headerlink" title="2. 程序员的 MVP 模式"></a>2. 程序员的 MVP 模式</h3><ul>
-<li><strong>拒绝过度开发</strong>：不要想做交易功能。</li>
+<li><strong>拒绝过度开发</strong>：不要想自己烘豆子。</li>
 <li><strong>产品化服务方案</strong>：<ol>
-<li><strong>形态</strong>：微信小程序或网页版行情站。</li>
+<li><strong>形态</strong>：微信小程序 + 订阅电商系统。</li>
 <li><strong>核心功能</strong>：<ul>
-<li><strong>全网比价&#x2F;估价</strong>：输入潮玩名称，AI 自动扫描各平台成交价并给出推荐买&#x2F;卖价。</li>
-<li>溢价排行：展示哪些单品近期涨幅惊人。</li>
-<li>收藏管家：记录你手中的藏品，实时计算你现在的“身价”。</li>
+<li><strong>口味计算器</strong>：通过 5 个维度（酸、苦、醇厚、花果香、坚果香）生成用户的“咖啡基因图谱”。</li>
+<li>定期自动寄送：每个月 1 号或 15 号准时配送最新烘焙出的挂耳或豆子。</li>
+<li>冲煮助手：扫包装上的二维码，自动弹出现在水温、研磨度和冲煮手法的视频建议。</li>
 </ul>
 </li>
 </ol>
 </li>
-<li><strong>技术栈</strong>：Python (数据抓取) + Pandas (数据分析) + Uniapp。</li>
+<li><strong>技术栈</strong>：Wechat Mini-Program + 云数据库 + 极简算法匹配。</li>
 </ul>
 <h3 id="💰-财务测算（预估模型）"><a href="#💰-财务测算（预估模型）" class="headerlink" title="💰 财务测算（预估模型）"></a>💰 财务测算（预估模型）</h3><ul>
-<li><strong>启动成本</strong>：¥500（基础爬虫代理费 + 域名费）。</li>
+<li><strong>启动成本</strong>：¥2,000（预购一批包装袋 + 与本地 1-2 家优质烘焙房谈下代理价）。</li>
 <li><strong>单客模型</strong>：<ul>
-<li>定价 (Pricing)：基础行情分析免费；高级预测数据 ¥9.9&#x2F;月；专业商用版 ¥99&#x2F;月。</li>
-<li><strong>单客毛利</strong>：¥8+ (毛利率极高，靠量取胜)。</li>
+<li>定价 (Pricing)：包月订阅 ¥99&#x2F;月（含 250g 豆子）；包季 ¥269。</li>
+<li><strong>单客毛利</strong>：¥40+ (主要赚大宗采购与零售之间的差价)。</li>
 </ul>
 </li>
-<li><strong>回本周期</strong>：获取首批 100 个种子用户。</li>
-<li><strong>收入天花板</strong>：成为圈内公认的“行情风向标”，月入 1.5万+ 广告费与订阅费。</li>
+<li><strong>回本周期</strong>：获取前 50 个稳定订阅会员。</li>
+<li><strong>收入天花板</strong>：月入 2万+（取决于你的品牌格调和复购率）。</li>
 </ul>
 <h3 id="📈-关键指标-Metrics"><a href="#📈-关键指标-Metrics" class="headerlink" title="📈 关键指标 (Metrics)"></a>📈 关键指标 (Metrics)</h3><ul>
-<li><strong>北极星指标</strong>：用户的“日均价格查询次数”。</li>
+<li><strong>北极星指标</strong>：用户的“订阅复购率 (Renewal Rate)”。</li>
 <li><strong>KPI</strong>：<ul>
-<li>估价与实际成交价的偏差率。</li>
-<li>数据库内覆盖的 IP 数量。</li>
+<li>每月新增注册用户数。</li>
+<li>用户口味测评的完成度。</li>
 </ul>
 </li>
 <li><strong>OKR</strong>：<ul>
-<li><strong>O</strong>：成为潮玩圈的“大智慧&#x2F;同花顺”。</li>
-<li><strong>KR1</strong>：收录市场上排名前 100 的潮流艺术 IP 及单品。</li>
-<li><strong>KR2</strong>：实现全平台成交数据的 24 小时实时同步。</li>
-<li><strong>KR3</strong>：获得 3 个以上潮玩大 V 的主动推荐。</li>
+<li><strong>O</strong>：成为咖啡爱好者的“选豆大脑”。</li>
+<li><strong>KR1</strong>：与 5 家以上不同风格的顶级烘焙工作室达成供货协议。</li>
+<li><strong>KR2</strong>：实现从测评到订单自动生产的闭环操作。</li>
+<li><strong>KR3</strong>：积累 1,000 名以上的长期月付订阅用户。</li>
 </ul>
 </li>
 </ul>
 <h3 id="⚠️-避坑指南"><a href="#⚠️-避坑指南" class="headerlink" title="⚠️ 避坑指南"></a>⚠️ 避坑指南</h3><ul>
-<li><strong>数据准确性</strong>：二手平台脏数据多（如刷单），需要算法剔除过高和过低的虚假成交。</li>
-<li><strong>版权风险</strong>：仅展示数据和公开图片，严禁将官宣图作为商业卖点或声明归属。</li>
+<li><strong>损耗风险</strong>：咖啡豆有时效性，烘焙后超过 1 个月风味大减。必须采用“众筹预售+即刻烘焙+极速快递”的模式。</li>
+<li><strong>物流门槛</strong>：确保包装具备单向排气阀，防止运输中胀气或漏气影响品质。</li>
 </ul>
-<h3 id="模拟实战：小-A-的“娃咖行情”"><a href="#模拟实战：小-A-的“娃咖行情”" class="headerlink" title="模拟实战：小 A 的“娃咖行情”"></a>模拟实战：小 A 的“娃咖行情”</h3><p>小 A 是个潮玩发烧友，经常被黄牛割。</p>
+<h3 id="模拟实战：小-A-的“极客咖啡”"><a href="#模拟实战：小-A-的“极客咖啡”" class="headerlink" title="模拟实战：小 A 的“极客咖啡”"></a>模拟实战：小 A 的“极客咖啡”</h3><p>小 A 是个重度咖啡因依赖者。</p>
 <ul>
-<li><strong>起步</strong>：他写了个小的爬虫把热门盲盒的咸鱼价格爬了下来。</li>
-<li><strong>难点</strong>：很多商品描述极其模糊（如：只写“出个小红”）。</li>
-<li><strong>解决</strong>：他引入了 LLM 对标题和描述进行语义识别，自动匹配到具体的 IP 编号。</li>
-<li><strong>结果</strong>：他上线了一个名为“XX 行情”的小程序，第一个月就有 5000 多个同好在上面查价，他也顺势开了会员专区。</li>
+<li><strong>起步</strong>：他写了个简单的逻辑，把自己平时喜欢的几款豆子做成了“盲盒”订阅发给同事。</li>
+<li><strong>难点</strong>：由于每个人的口味太主观，开始时很多人退款。</li>
+<li><strong>解决</strong>：他引入了“反馈回传”，用户喝完给这袋豆子打分，下个月系统自动调整推送的酸苦比例。</li>
+<li><strong>结果</strong>：他的小程序在程序员圈子传开了，大家觉得“用算法喝咖啡”非常酷，现在他每月的“咖啡被动收入”已经足够付他在市中心租房的房租了。</li>
 </ul>
 <hr>
 <blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第416章：潮玩溢价监测与二手交易估价——给收藏家的“避雷雷达”。</p>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第427章：定制咖啡豆订阅与口味画像系统——程序员的“提神算法”。</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/07/25/fuye-ch0416/" data-id="cmvi6pml4017tvch3hlg59iy0" data-title="第416章：潮玩溢价监测与二手交易估价——给收藏家的“避雷雷达”" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/07/31/fuye-ch0427/" data-id="cmvi6pmlj018qvch3d5pjesq4" data-title="第427章：定制咖啡豆订阅与口味画像系统——程序员的“提神算法”" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -408,10 +402,10 @@
 
 
   
-    <article id="post-fuye-ch0415" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-fuye-ch0426" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/07/25/fuye-ch0415/" class="article-date">
-  <time class="dt-published" datetime="2026-07-25T00:00:00.000Z" itemprop="datePublished">2026-07-25</time>
+    <a href="/2026/07/30/fuye-ch0426/" class="article-date">
+  <time class="dt-published" datetime="2026-07-30T12:00:00.000Z" itemprop="datePublished">2026-07-30</time>
 </a>
     
   <div class="article-category">
@@ -426,7 +420,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/07/25/fuye-ch0415/">第415章：闲置交易自动捡漏机器人——“倒手族”的极速先锋</a>
+      <a class="p-name article-title" href="/2026/07/30/fuye-ch0426/">第426章：AI 留学文书诊断与申请进度管家——你的“数字留学顾问”</a>
     </h1>
   
 
@@ -434,71 +428,71 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>做二手 App 是平台的事，程序员要做的是“平台的寄生者”：编写监控脚本，在闲鱼、转转等平台监控特定关键词（如：“急售”、“不包邮”、“老婆不让玩”），一旦发现远低于市场价的宝贝，秒速推送给自己或抢购。</p>
+        <p>不要去开留学中介，那需要大量的线下地推和人力成本。程序员要做的是“效率套件”：通过 LLM 帮留学生自动批改文书、预测名校录取率，并在整个申请周期（通常 1 年）内提供进度提醒和资料同步。</p>
 <h3 id="1-需求验证-Validation"><a href="#1-需求验证-Validation" class="headerlink" title="1. 需求验证 (Validation)"></a>1. 需求验证 (Validation)</h3><ul>
-<li><strong>痛点</strong>：好的骨折价商品上线就没，普通人用手划的速度根本抢不到。</li>
-<li><strong>目标人群</strong>：二手房商、职业倒二手的“黄牛”、数码拾遗者。</li>
-<li><strong>验证手段</strong>：去闲鱼搜“显卡”，不停刷新，看那些极低价的是不是几秒钟内就成了“卖掉了”。在博主粉丝群问：“如果有工具能帮你抢掉 90% 的低价显卡，你愿意付月费吗？”</li>
+<li><strong>痛点</strong>：中介文书千篇一律，模板化严重；自己写又怕语法错误和逻辑不通；申请多所学校时，DDL（截止日期）极其混乱。</li>
+<li><strong>目标人群</strong>：准备 DIY 留学的大学生、小型留学工作室、留学博主。</li>
+<li><strong>验证手段</strong>：在小红书、飞鸽等留学社群问：“如果有一个根据你简历自动分析名校适配度并批改文书的 AI 工具，只要中介费的 1%，你愿意付费吗？”</li>
 </ul>
 <h3 id="2-程序员的-MVP-模式"><a href="#2-程序员的-MVP-模式" class="headerlink" title="2. 程序员的 MVP 模式"></a>2. 程序员的 MVP 模式</h3><ul>
-<li><strong>拒绝过度开发</strong>：不要想做自己的交易平台。</li>
+<li><strong>拒绝过度开发</strong>：不要想一上来就做全案咨询。</li>
 <li><strong>产品化服务方案</strong>：<ol>
-<li><strong>形态</strong>：桌面端监控程序或移动端模拟器脚本。</li>
+<li><strong>形态</strong>：Chrome 插件（适配各个大学申请官网）或 网页端工作台。</li>
 <li><strong>核心功能</strong>：<ul>
-<li><strong>毫秒级刷新</strong>：监控特定搜索页面的最新变动。</li>
-<li>多重过滤：不仅看价格，还看卖家信用（防骗）、发货地（防邮费坑）。</li>
-<li>自动发起私聊：发现目标后自动发送打招呼语（如：“在吗？有意要了”）。</li>
+<li><strong>文书 AI 深度批改</strong>：不仅改语法，还根据目标学校的偏好（如：哈佛看重领导力、斯坦福看重创新）给出逻辑建议。</li>
+<li>智能 DDL 提醒：自动抓取全球 Top 500 名校的所有申请节点。</li>
+<li>背景提升建议：根据当前简历，AI 推荐最缺的一项竞赛或实习。</li>
 </ul>
 </li>
 </ol>
 </li>
-<li><strong>技术栈</strong>：Python + Playwright&#x2F;uiautomator2 + SQLite (记录已扫描 ID)。</li>
+<li><strong>技术栈</strong>：Next.js + OpenAI&#x2F;DeepSeek API + LangChain。</li>
 </ul>
 <h3 id="💰-财务测算（预估模型）"><a href="#💰-财务测算（预估模型）" class="headerlink" title="💰 财务测算（预估模型）"></a>💰 财务测算（预估模型）</h3><ul>
-<li><strong>启动成本</strong>：¥300（服务器费 + 测试账号费）。</li>
+<li><strong>启动成本</strong>：¥1,000（主要是 LLM 的 API 调用费与种子用户测试费）。</li>
 <li><strong>单客模型</strong>：<ul>
-<li>定价 (Pricing)：基础捡漏群 ¥59&#x2F;月；单机版软件订阅 ¥199&#x2F;月。</li>
-<li><strong>收益</strong>：自己捡漏一单带来的差价（如捡漏一台 iPhone 可赚 500+）+ 软件销售。</li>
+<li>定价 (Pricing)：单次文书诊断 ¥99；全周期申请管家 ¥599&#x2F;年。</li>
+<li><strong>单客毛利</strong>：¥400+ (除去 API 成本)。</li>
 </ul>
 </li>
-<li><strong>回本周期</strong>：捡漏成功 1 单即可回本。</li>
-<li><strong>收入天花板</strong>：月入 2万+ 的倒卖利润或软件订阅额。</li>
+<li><strong>回本周期</strong>：获取前 10 个种子付费用户。</li>
+<li><strong>收入天花板</strong>：月入 5万+（利用留学季的高客单价特性）。</li>
 </ul>
 <h3 id="📈-关键指标-Metrics"><a href="#📈-关键指标-Metrics" class="headerlink" title="📈 关键指标 (Metrics)"></a>📈 关键指标 (Metrics)</h3><ul>
-<li><strong>北极星指标</strong>：监控到低于市价 20% 商品的“首发响应时间”。</li>
+<li><strong>北极星指标</strong>：用户的“Offer 拿到率”或“申请行为完成度”。</li>
 <li><strong>KPI</strong>：<ul>
-<li>监控频率（次&#x2F;秒）。</li>
-<li>推送后的点击转化率。</li>
+<li>AI 给出建议的采纳率。</li>
+<li>DDL 提醒的打开率。</li>
 </ul>
 </li>
 <li><strong>OKR</strong>：<ul>
-<li><strong>O</strong>：成为全网二手市场的“捡漏之王”。</li>
-<li><strong>KR1</strong>：覆盖闲鱼、转转、找靓机三大平台的核心数码类目。</li>
-<li><strong>KR2</strong>：实现捡漏成功的平均人手响应时间缩短至 1 秒以内。</li>
-<li><strong>KR3</strong>：积累 100 个以上的高频付费黄牛客户。</li>
+<li><strong>O</strong>：成为 DIY 留学党的“必备导航”。</li>
+<li><strong>KR1</strong>：覆盖全球前 200 所主流大学的所有实时申请数据。</li>
+<li><strong>KR2</strong>：实现文书批改逻辑在专业外教评估中通过率 &gt; 90%。</li>
+<li><strong>KR3</strong>：积累 5,000 名以上的活跃准留学生用户。</li>
 </ul>
 </li>
 </ul>
 <h3 id="⚠️-避坑指南"><a href="#⚠️-避坑指南" class="headerlink" title="⚠️ 避坑指南"></a>⚠️ 避坑指南</h3><ul>
-<li><strong>账号风控</strong>：高频扫描容易导致封号，必须引入多账号轮询和 IP 自动代理。</li>
-<li><strong>骗子预警</strong>：有些低价是钓鱼，脚本需自动识别信用分低于一定标准的极低价物品并标记。</li>
+<li><strong>虚假宣传风险</strong>：<strong>绝不承诺保录取</strong>！必须在醒目位置标注本工具仅供参考。</li>
+<li><strong>数据隐私</strong>：留学申请涉及大量个人私密信息（成绩单、简历），必须做到加密存储，甚至提供阅后即焚功能。</li>
 </ul>
-<h3 id="模拟实战：小-A-的“闲鱼闪购”"><a href="#模拟实战：小-A-的“闲鱼闪购”" class="headerlink" title="模拟实战：小 A 的“闲鱼闪购”"></a>模拟实战：小 A 的“闲鱼闪购”</h3><p>小 A 是个乐高迷，发现二手乐高水很深。</p>
+<h3 id="模拟实战：小-A-的“留学直通车”"><a href="#模拟实战：小-A-的“留学直通车”" class="headerlink" title="模拟实战：小 A 的“留学直通车”"></a>模拟实战：小 A 的“留学直通车”</h3><p>小 A 帮表弟改文书改到吐。</p>
 <ul>
-<li><strong>起步</strong>：他写了个脚本监控绝版套装的关键词。</li>
-<li><strong>难点</strong>：闲鱼的 App 端协议经常加密，普通的网页爬虫失效。</li>
-<li><strong>解决</strong>：他改用了真实手机端自动化模拟（手机群控），虽然慢点但非常稳。</li>
-<li><strong>结果</strong>：他在一个月内捡漏到了 5 套近乎全新的典藏版乐高，倒手赚了 3000 块，并顺便把这个脚本租给了同好群的朋友。</li>
+<li><strong>起步</strong>：他写了个套路了几个名校录取模版并用 GPT-4 自动生成的工具。</li>
+<li><strong>难点</strong>：AI 生成的语言容易被大学的 AI 检测器（如 GPTZero）识破。</li>
+<li><strong>解决</strong>：他调整了 Prompt，增加了个性化故事提取环节，让 AI 只是“润色”而非“代写”。</li>
+<li><strong>结果</strong>：表弟和他的三个同学都用了小 A 的工具并成功拿到了 Offer，小 A 现在在留学圈靠“技术流”的名声已经接不过来单子了。</li>
 </ul>
 <hr>
 <blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第415章：闲置交易自动捡漏机器人——“倒手族”的极速先锋。</p>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第426章：AI 留学文书诊断与申请进度管家——你的“数字留学顾问”。</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/07/25/fuye-ch0415/" data-id="cmvi6pml3017qvch36rfg85k7" data-title="第415章：闲置交易自动捡漏机器人——“倒手族”的极速先锋" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/07/30/fuye-ch0426/" data-id="cmvi6pmli018nvch35pui7cxf" data-title="第426章：AI 留学文书诊断与申请进度管家——你的“数字留学顾问”" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -512,10 +506,10 @@
 
 
   
-    <article id="post-fuye-ch0414" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-fuye-ch0425" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/07/24/fuye-ch0414/" class="article-date">
-  <time class="dt-published" datetime="2026-07-24T12:00:00.000Z" itemprop="datePublished">2026-07-24</time>
+    <a href="/2026/07/30/fuye-ch0425/" class="article-date">
+  <time class="dt-published" datetime="2026-07-30T00:00:00.000Z" itemprop="datePublished">2026-07-30</time>
 </a>
     
   <div class="article-category">
@@ -530,7 +524,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/07/24/fuye-ch0414/">第414章：两轮电动车智能防盗与轨迹看板——外卖骑手的“定心丸”</a>
+      <a class="p-name article-title" href="/2026/07/30/fuye-ch0425/">第425章：酒吧数字互动墙与点单增强系统——让“氛围感”变成代码</a>
     </h1>
   
 
@@ -538,72 +532,71 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>不要去开实体门店，那太重。程序员要做的是“车辆数字化套件”：通过加装低成本的 4G 定位模块或利用某些车型的官方 API，为高价值车辆提供轨迹追踪、电池监控、以及被盗后的高频定位回传功能。</p>
+        <p>不要在大街上开酒吧，竞争太激烈。程序员要做的是“酒吧的气氛组长”：给酒吧老板提供一套弹幕上墙、霸屏打赏、以及数字化扫码点单的互动方案，提升酒水客单价。</p>
 <h3 id="1-需求验证-Validation"><a href="#1-需求验证-Validation" class="headerlink" title="1. 需求验证 (Validation)"></a>1. 需求验证 (Validation)</h3><ul>
-<li><strong>痛点</strong>：外卖骑手的车价值数千元，被盗是灭顶之灾；电池由于高频充放电，健康度难以掌握，容易在送单路上突然“趴窝”。</li>
-<li><strong>目标人群</strong>：高频用车的外卖&#x2F;快递员、高端两轮电动车（如九号、小牛）的极客车主。</li>
-<li><strong>验证手段</strong>：在骑手聚集的社群或特定的车友论坛（如：百度贴吧、本地车友群）发个视频：“实测：我如何通过一段代码，在手机上实时看我电瓶车的电流波动和精准坐标，防止电瓶被偷”。</li>
+<li><strong>痛点</strong>：传统的酒吧互动全靠歌手或 DJ，缺乏观众参与感；想认识邻桌又尴尬。</li>
+<li><strong>目标人群</strong>：网红清吧、Live House、二三线城市的小型社交酒吧。</li>
+<li><strong>验证手段</strong>：在点评网找本地刚开业的酒吧，给老板看一段“手机发弹幕，大屏幕秒出，还能打赏给歌手”的视频演示。</li>
 </ul>
 <h3 id="2-程序员的-MVP-模式"><a href="#2-程序员的-MVP-模式" class="headerlink" title="2. 程序员的 MVP 模式"></a>2. 程序员的 MVP 模式</h3><ul>
-<li><strong>拒绝过度开发</strong>：不要想做自己的整车。</li>
+<li><strong>拒绝过度开发</strong>：不要想做自己的社交 App。</li>
 <li><strong>产品化服务方案</strong>：<ol>
-<li><strong>形态</strong>：小程序 + 外置 4G 模组（可选）。</li>
+<li><strong>形态</strong>：H5 小程序（扫桌面二维码进入）+ 浏览器端投放程序（酒吧投影&#x2F;大屏幕）。</li>
 <li><strong>核心功能</strong>：<ul>
-<li><strong>异动震动告警</strong>：车辆被挪动、电池被拔出时，微信秒级推送。</li>
-<li>轨迹回回看与里程统计：自动计算每天的送单油&#x2F;电耗成本。</li>
-<li>电池健康监测：通过电压变化趋势，预测电池寿命。</li>
+<li><strong>弹幕&#x2F;大屏幕互动</strong>：用户在手机上发的文字、表情包实时出现在酒吧大屏幕上。</li>
+<li>霸屏表白：用户付费（如 9.9 元）霸占屏幕 1 分钟，老板分账。</li>
+<li>赠送虚拟礼物：给歌手或特定桌位送虚拟酒水，触发满屏特效。</li>
 </ul>
 </li>
-<li><strong>交付方式</strong>：硬件（淘宝代发）+ 软件（SaaS 订阅）。</li>
 </ol>
 </li>
-<li><strong>技术栈</strong>：Node.js&#x2F;Go + MQTT (实时通信) + 云数据库。</li>
+<li><strong>技术栈</strong>：Vue3 + Go (High Concurrency) + WebSocket (Real-time update).</li>
 </ul>
 <h3 id="💰-财务测算（预估模型）"><a href="#💰-财务测算（预估模型）" class="headerlink" title="💰 财务测算（预估模型）"></a>💰 财务测算（预估模型）</h3><ul>
-<li><strong>启动成本</strong>：¥1,000（采购 3-5 个不同厂家的定位模组样机进行适配）。</li>
+<li><strong>启动成本</strong>：¥500（租一台高带宽服务器支持视频推流和实时长连接）。</li>
 <li><strong>单客模型</strong>：<ul>
-<li>定价 (Pricing)：硬件 ¥99；软件服务费 ¥39&#x2F;季或 ¥99&#x2F;年。</li>
-<li><strong>单客毛利</strong>：软硬件综合毛利 ¥120+。</li>
+<li>定价 (Pricing)：基础入驻费 ¥0；“霸屏&#x2F;打赏”流水抽佣 10%-20%。</li>
+<li><strong>单客毛利</strong>：完全看酒吧的人流，一个月可能从 500 到 5000 不等。</li>
 </ul>
 </li>
-<li><strong>回本周期</strong>：售出前 10 套设备。</li>
-<li><strong>收入天花板</strong>：月入 1-2 万纯被动收入（通过外卖站点团购）。</li>
+<li><strong>回本周期</strong>：第一场周末活动结束后。</li>
+<li><strong>收入天花板</strong>：月入 2万+（通过代理商地推到全国酒吧）。</li>
 </ul>
 <h3 id="📈-关键指标-Metrics"><a href="#📈-关键指标-Metrics" class="headerlink" title="📈 关键指标 (Metrics)"></a>📈 关键指标 (Metrics)</h3><ul>
-<li><strong>北极星指标</strong>：设备的“在线稳定运行天数”。</li>
+<li><strong>北极星指标</strong>：单店每晚的“互动行为总数”。</li>
 <li><strong>KPI</strong>：<ul>
-<li>定位误差范围（米级）。</li>
-<li>告警消息的送达延迟。</li>
+<li>霸屏付费转化率。</li>
+<li>活跃用户停留时长。</li>
 </ul>
 </li>
 <li><strong>OKR</strong>：<ul>
-<li><strong>O</strong>：成为骑手圈最值得信赖的“数字化护卫”。</li>
-<li><strong>KR1</strong>：完成对 3 种主流 4G 物联网通讯协议的兼容。</li>
-<li><strong>KR2</strong>：实现移动端的“三秒实时定位回传”。</li>
-<li><strong>KR3</strong>：在 1 个外卖站点实现 50% 以上的加装覆盖率。</li>
+<li><strong>O</strong>：让每一家沉闷的酒吧都“动起来”。</li>
+<li><strong>KR1</strong>：实现单机支持 1000 人以上的高并发弹幕不延迟。</li>
+<li><strong>KR2</strong>：上线 10 种以上酷炫的 3D 礼物动效。</li>
+<li><strong>KR3</strong>：在 1 个月内落地 3 个核心商圈的酒吧标杆。</li>
 </ul>
 </li>
 </ul>
 <h3 id="⚠️-避坑指南"><a href="#⚠️-避坑指南" class="headerlink" title="⚠️ 避坑指南"></a>⚠️ 避坑指南</h3><ul>
-<li><strong>防风控风险</strong>：部分车厂会限制第三方抓取数据，建议采用外置硬件方案作为备选方案，不依赖官方 API。</li>
-<li><strong>硬件损耗</strong>：车上环境恶劣（颠簸、日晒），硬件选择必须具备工业级防水防震性能。</li>
+<li><strong>内容审核</strong>：酒吧环境复杂，弹幕必须通过 AI（接入腾讯&#x2F;阿里内容安全 API）进行毫秒级过滤，严防黄赌毒内容。</li>
+<li><strong>二清风险</strong>：代收打赏款涉及支付合规，建议走正规的持牌支付分账接口或让酒水款直接进老板账户再分成。</li>
 </ul>
-<h3 id="模拟实战：小-A-的“丢不了”"><a href="#模拟实战：小-A-的“丢不了”" class="headerlink" title="模拟实战：小 A 的“丢不了”"></a>模拟实战：小 A 的“丢不了”</h3><p>小 A 发现在他住的片区，骑手们的电瓶经常丢。</p>
+<h3 id="模拟实战：小-A-的“酒吧大咖”"><a href="#模拟实战：小-A-的“酒吧大咖”" class="headerlink" title="模拟实战：小 A 的“酒吧大咖”"></a>模拟实战：小 A 的“酒吧大咖”</h3><p>小 A 去酒吧发现大家都在刷手机不交流。</p>
 <ul>
-<li><strong>起步</strong>：他写了个对接特定 4G 模组的小程序。</li>
-<li><strong>难点</strong>：4G 模组的功耗很高，经常把电瓶车的小电瓶抽干。</li>
-<li><strong>解决</strong>：他优化了心跳包频率，并在车辆熄火后进入“深度睡眠，定时唤醒”模式。</li>
-<li><strong>结果</strong>：他把这东西卖给了片区的队长，现在整个站点的丢车率降到了零。</li>
+<li><strong>起步</strong>：他写了个简单的弹幕墙脚本并在一家熟人酒吧测试。</li>
+<li><strong>难点</strong>：有人在上面乱发广告，环境变得很差。</li>
+<li><strong>解决</strong>：他引入了门槛机制：每晚可以免费发 5 条，之后付费或求助好友点赞。</li>
+<li><strong>结果</strong>：酒吧的互动氛围明显变好，老板因为酒水卖得更多了，给了小 A 每月可观的维护费。</li>
 </ul>
 <hr>
 <blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第414章：两轮电动车智能防盗与轨迹看板——外卖骑手的“定心丸”。</p>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第425章：酒吧数字互动墙与点单增强系统——让“氛围感”变成代码。</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/07/24/fuye-ch0414/" data-id="cmvi6pml2017nvch37j9b9xdq" data-title="第414章：两轮电动车智能防盗与轨迹看板——外卖骑手的“定心丸”" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/07/30/fuye-ch0425/" data-id="cmvi6pmlh018kvch3gvjhc4bu" data-title="第425章：酒吧数字互动墙与点单增强系统——让“氛围感”变成代码" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -617,10 +610,10 @@
 
 
   
-    <article id="post-fuye-ch0413" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-fuye-ch0424" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/07/24/fuye-ch0413/" class="article-date">
-  <time class="dt-published" datetime="2026-07-24T00:00:00.000Z" itemprop="datePublished">2026-07-24</time>
+    <a href="/2026/07/29/fuye-ch0424/" class="article-date">
+  <time class="dt-published" datetime="2026-07-29T12:00:00.000Z" itemprop="datePublished">2026-07-29</time>
 </a>
     
   <div class="article-category">
@@ -635,7 +628,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/07/24/fuye-ch0413/">第413章：极简股权管理系统——初创团队的“信任基座”</a>
+      <a class="p-name article-title" href="/2026/07/29/fuye-ch0424/">第424章：剧本杀馆数字化中台——赋能“剧作与 DM”的管理中心</a>
     </h1>
   
 
@@ -643,72 +636,279 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>别去做天使投资。程序员要做的是给那些“刚拿到钱”或“刚合伙”的团队，做一个极简的股权动态管理工具。帮他们管好股权激励、期权池、以及未来的每一笔增资，避开“合伙人翻脸”这种低级错误。</p>
+        <p>不要去开实体剧本杀店，那是重资产且极度依赖自然流量。程序员要做的是“赋能者”：为剧本杀店老板提供一套包含 DM（主持人）调度、剧本版权加密分发、以及玩家沉浸式互动（BGM&#x2F;灯光联动）的数字化系统。</p>
 <h3 id="1-需求验证-Validation"><a href="#1-需求验证-Validation" class="headerlink" title="1. 需求验证 (Validation)"></a>1. 需求验证 (Validation)</h3><ul>
-<li><strong>痛点</strong>：老板不知道期权怎么分才合法；算不清融资一轮后自己的股份被稀释到多少；发给员工的期权全是白条，员工根本不信。</li>
-<li><strong>目标人群</strong>：完成天使轮的创业团队、有 3 个以上合伙人的初创工作室。</li>
-<li><strong>验证手段</strong>：在创业者社群问：“如果能一键算清你下一轮融资后的股权占比分布图，且能在线给合伙人发电子凭证，有人想白嫖内测吗？”</li>
+<li><strong>痛点</strong>：老板不知道 DM 有没有推销不适合玩家的本子；灯光和音乐全靠 DM 手动点，非常容易出戏；剧本版权被倒卖。</li>
+<li><strong>目标人群</strong>：中大型剧本杀馆、连锁加盟品牌、独立 DM 工作室。</li>
+<li><strong>验证手段</strong>：在剧本杀行业群发消息：“开发了一套能自动联动投影和灯光的剧本助手，能把 DM 的门槛降低一半，有人想在店里试用吗？”</li>
 </ul>
-<h3 id="程序员的-MVP-模式"><a href="#程序员的-MVP-模式" class="headerlink" title="程序员的 MVP 模式"></a>程序员的 MVP 模式</h3><ul>
-<li><strong>拒绝过度开发</strong>：不要想做自己的电子签平台。</li>
+<h3 id="2-程序员的-MVP-模式"><a href="#2-程序员的-MVP-模式" class="headerlink" title="2. 程序员的 MVP 模式"></a>2. 程序员的 MVP 模式</h3><ul>
+<li><strong>拒绝过度开发</strong>：不要想做剧本杀社交平台。</li>
+<li><strong>产品化服务方案</strong>：<ol>
+<li><strong>形态</strong>：Pad 端工作台 + 智能家居网关。</li>
+<li><strong>核心功能</strong>：<ul>
+<li><strong>BGM&#x2F;灯光一键联动</strong>：DM 按照剧本进度点击，对应的音乐和氛围灯自动切换。</li>
+<li>电子搜证系统：玩家扫码搜证，线索自动同步到手机，减少纸质教具损耗。</li>
+<li>DM 绩效考核：统计每位 DM 的带场次数、评价分及开本时长。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><strong>技术栈</strong>：Node.js + Electron (Pad&#x2F;桌面端) + Zigbee&#x2F;WiFi 协议 (灯控)。</li>
+</ul>
+<h3 id="💰-财务测算（预估模型）"><a href="#💰-财务测算（预估模型）" class="headerlink" title="💰 财务测算（预估模型）"></a>💰 财务测算（预估模型）</h3><ul>
+<li><strong>启动成本</strong>：¥1,000（基础控制中枢 + 测试灯光系统）。</li>
+<li><strong>单客模型</strong>：<ul>
+<li>定价 (Pricing)：软件服务费 ¥299&#x2F;月&#x2F;店；灯控硬件套装 ¥2,999&#x2F;包间。</li>
+<li><strong>单客毛利</strong>：¥2,000+ (硬件溢价 + 持续订阅)。</li>
+</ul>
+</li>
+<li><strong>回本周期</strong>：签下 2 家旗舰店客户。</li>
+<li><strong>收入天花板</strong>：月入 3 万+（区域代理模式或全国连锁品牌集采）。</li>
+</ul>
+<h3 id="📈-关键指标-Metrics"><a href="#📈-关键指标-Metrics" class="headerlink" title="📈 关键指标 (Metrics)"></a>📈 关键指标 (Metrics)</h3><ul>
+<li><strong>北极星指标</strong>：系统驱动下的“总带场分钟数”。</li>
+<li><strong>KPI</strong>：<ul>
+<li>DM 在带场过程中对系统的调用频率。</li>
+<li>客户评分中关于“沉浸感”的比例提升。</li>
+</ul>
+</li>
+<li><strong>OKR</strong>：<ul>
+<li><strong>O</strong>：成为剧本杀行业的“工业化基石”。</li>
+<li><strong>KR1</strong>：完成对主流 5 个智能灯光品牌的协议适配。</li>
+<li><strong>KR2</strong>：实现剧本流程的“傻瓜式”可视化编排系统。</li>
+<li><strong>KR3</strong>：签约 10 家以上排名前 50 的网红剧本杀馆。</li>
+</ul>
+</li>
+</ul>
+<h3 id="⚠️-避坑指南"><a href="#⚠️-避坑指南" class="headerlink" title="⚠️ 避坑指南"></a>⚠️ 避坑指南</h3><ul>
+<li><strong>版权合规</strong>：不涉及剧本内容本身的售卖，仅提供技术载体，规避内容审核风险。</li>
+<li><strong>地摊风险</strong>：此类系统极其依赖线下安装指导，初期建议只做本地或提供远程标准化配置包。</li>
+</ul>
+<h3 id="模拟实战：小-A-的“剧本魔法师”"><a href="#模拟实战：小-A-的“剧本魔法师”" class="headerlink" title="模拟实战：小 A 的“剧本魔法师”"></a>模拟实战：小 A 的“剧本魔法师”</h3><p>小 A 玩本时发现 DM 忙着翻脚本找 BGM。</p>
+<ul>
+<li><strong>起步</strong>：他写了个通过 WebSocket 远程弹琴控制 BGM 的小程序。</li>
+<li><strong>难点</strong>：很多老牌剧本杀店已经买了类似的系统，但极其难用。</li>
+<li><strong>解决</strong>：他从“沉浸感”切入，做了个类似“舞台灯光音响控制台”的简化版。</li>
+<li><strong>结果</strong>：现在本地最大的连锁店都换上了他的系统，现在他成了本地剧本杀圈子里最有名的“赛博 DM”。</li>
+</ul>
+<hr>
+<blockquote>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第424章：剧本杀馆数字化中台——赋能“剧作与 DM”的管理中心。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://caicitou-lili.github.io/2026/07/29/fuye-ch0424/" data-id="cmvi6pmlf018hvch36ash628k" data-title="第424章：剧本杀馆数字化中台——赋能“剧作与 DM”的管理中心" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-fuye-ch0423" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/07/29/fuye-ch0423/" class="article-date">
+  <time class="dt-published" datetime="2026-07-29T00:00:00.000Z" itemprop="datePublished">2026-07-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/07/29/fuye-ch0423/">第423章：电子数码全网差价雷达——给小 B 商家的“扫货器”</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>个人消费者查价用比价系统，但电子产品倒卖商需要的是“速度”。程序员不要去卖手机，要做商家的“情报局”：通过监控京东、淘宝、拼多多、官旗甚至海外亚马逊的瞬间闪惠，告诉数码炒家什么时候该“抄底”囤货。</p>
+<h3 id="1-需求验证-Validation"><a href="#1-需求验证-Validation" class="headerlink" title="1. 需求验证 (Validation)"></a>1. 需求验证 (Validation)</h3><ul>
+<li><strong>痛点</strong>：iPhone 降价往往就在那几分钟，商家没法一直守在屏幕前；不同平台由于优惠券叠加后的“史低价”极难计算。</li>
+<li><strong>目标人群</strong>：个体数码商户、二手手机倒卖商、数码自媒体。</li>
+<li><strong>验证手段</strong>：在“数码行情交流群”发个消息：“实测，我剛监听到拼多多某店的 iPhone 16 比市场均价低 200，有人想要自动监控脚本吗？”</li>
+</ul>
+<h3 id="2-程序员的-MVP-模式"><a href="#2-程序员的-MVP-模式" class="headerlink" title="2. 程序员的 MVP 模式"></a>2. 程序员的 MVP 模式</h3><ul>
+<li><strong>拒绝过度开发</strong>：不要想做导购。</li>
+<li><strong>产品化服务方案</strong>：<ol>
+<li><strong>形态</strong>：Windows&#x2F;Mac 桌面客户端（保证极低响应延迟）。</li>
+<li><strong>核心功能</strong>：<ul>
+<li><strong>全网比价引擎</strong>：自动叠加百亿补贴、全场满减券后的“最终到手价”。</li>
+<li>库存预警：监控特定型号是否补货、库存是否即将告罄。</li>
+<li><strong>成交轨迹</strong>：统计过去 24 小时该单品的最高&#x2F;最低价格轨迹。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><strong>技术栈</strong>：Go (保证并发抓取速度) + WebSocket (实时推送到桌面)。</li>
+</ul>
+<h3 id="💰-财务测算（预估模型）"><a href="#💰-财务测算（预估模型）" class="headerlink" title="💰 财务测算（预估模型）"></a>💰 财务测算（预估模型）</h3><ul>
+<li><strong>启动成本</strong>：¥1,000（服务器费 + 高频爬虫绕过平台限制的成本）。</li>
+<li><strong>单客模型</strong>：<ul>
+<li>定价 (Pricing)：基础周报免费；实时异动监控 ¥299&#x2F;月；高级定制 SKU 监控 ¥999&#x2F;年。</li>
+<li><strong>单客毛利</strong>：¥200+ (主要靠技术门槛产生的溢价)。</li>
+</ul>
+</li>
+<li><strong>回本周期</strong>：售出前 5 个专业版订阅。</li>
+<li><strong>收入天花板</strong>：月入 2-5 万（取决于你监控的广度和准度）。</li>
+</ul>
+<h3 id="📈-关键指标-Metrics"><a href="#📈-关键指标-Metrics" class="headerlink" title="📈 关键指标 (Metrics)"></a>📈 关键指标 (Metrics)</h3><ul>
+<li><strong>北极星指标</strong>：监控到“全网史低价”的次数。</li>
+<li><strong>KPI</strong>：<ul>
+<li>价格监控的时延（秒级）。</li>
+<li>优惠券识别的涵盖率。</li>
+</ul>
+</li>
+<li><strong>OKR</strong>：<ul>
+<li><strong>O</strong>：成为数码商人的“超级眼睛”。</li>
+<li><strong>KR1</strong>：覆盖前 4 大主流电商平台的全部数码 SKU。</li>
+<li><strong>KR2</strong>：实现包括黑卡、券后价在内的复杂价格自动换算，准确率 &gt; 95%。</li>
+<li><strong>KR3</strong>：获得 50 个以上的长期付费专业代购客户。</li>
+</ul>
+</li>
+</ul>
+<h3 id="⚠️-避坑指南"><a href="#⚠️-避坑指南" class="headerlink" title="⚠️ 避坑指南"></a>⚠️ 避坑指南</h3><ul>
+<li><strong>反爬压力</strong>：电商平台的价格数据极其重要，反爬异常强，需要建立稳定的分布式爬虫集群。</li>
+<li><strong>算力资源</strong>：全量监控 5000+ SKU 极其耗 CPU，建议采用“关键 SKU 优先+全量轮询”的策略。</li>
+</ul>
+<h3 id="模拟实战：小-A-的“数码雷达”"><a href="#模拟实战：小-A-的“数码雷达”" class="headerlink" title="模拟实战：小 A 的“数码雷达”"></a>模拟实战：小 A 的“数码雷达”</h3><p>小 A 的亲戚在深圳华强北做生意。</p>
+<ul>
+<li><strong>起步</strong>：小 A 帮他写了个把各平台价格汇聚到一张大表上的同步工具。</li>
+<li><strong>难点</strong>：很多优惠券需要手动领了才能看到价格。</li>
+<li><strong>解决</strong>：他引入了模拟人工领券测算逻辑（无交易，只测算），解决了“隐形券”后的真实到手价计算。</li>
+<li><strong>结果</strong>：亲戚靠他的情报多次精准“抄底”大批量货源，小 A 从中拿到了几万块的技术入股分红。</li>
+</ul>
+<hr>
+<blockquote>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第423章：电子数码全网差价雷达——给小 B 商家的“扫货器”。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://caicitou-lili.github.io/2026/07/29/fuye-ch0423/" data-id="cmvi6pmle018evch32v6reqtz" data-title="第423章：电子数码全网差价雷达——给小 B 商家的“扫货器”" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-fuye-ch0422" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/07/28/fuye-ch0422/" class="article-date">
+  <time class="dt-published" datetime="2026-07-28T12:00:00.000Z" itemprop="datePublished">2026-07-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/07/28/fuye-ch0422/">第422章：桌游/密室拼场排队系统——解决“三缺一”的流量孤岛</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>不要去开密室，那是重资产且极度依赖选址。程序员要做的是“社交节点”：给所有的线下娱乐场所提供“公海拼人系统”，打破各家密室、桌游馆、羽毛球馆的信息孤岛。</p>
+<h3 id="1-需求验证-Validation"><a href="#1-需求验证-Validation" class="headerlink" title="1. 需求验证 (Validation)"></a>1. 需求验证 (Validation)</h3><ul>
+<li><strong>痛点</strong>：三缺一开不了局，老板急着想凑人开场，玩家也想找同好；原本在微信群喊，信息极易被淹没。</li>
+<li><strong>目标人群</strong>：单身孤独的城市青年、100+ 离散经营的密室&#x2F;桌游馆。</li>
+<li><strong>验证手段</strong>：在周末下午去本地最大的密室馆蹲点，看有多少人在门口焦急等待“凑人”，给老板看一眼你的“一键拼人”小程序样稿。</li>
+</ul>
+<h3 id="2-程序员的-MVP-模式"><a href="#2-程序员的-MVP-模式" class="headerlink" title="2. 程序员的 MVP 模式"></a>2. 程序员的 MVP 模式</h3><ul>
+<li><strong>拒绝过度开发</strong>：不要想做下一个美团。</li>
 <li><strong>产品化服务方案</strong>：<ol>
 <li><strong>形态</strong>：微信小程序。</li>
 <li><strong>核心功能</strong>：<ul>
-<li><strong>稀释模拟器</strong>：动动手指，模拟输入融资额、估值，系统自动输出股权结构图。</li>
-<li>期权激励池看板：每个员工登录就能看到自己归属了多少、值多少钱（即时算力）。</li>
-<li>合规提醒：法律规定的一些关键节点（如股东会决议）自动提醒。</li>
+<li><strong>动态排队池</strong>：实时显示“哪家店差几个人几点开”。</li>
+<li><strong>标签化社交</strong>：玩家可标记自己的属性（如：硬核推理、喜欢尖叫、新人友好）。</li>
+<li>商家端提醒：当某场人数凑齐时，自动给商家发模板消息提醒准备。</li>
 </ul>
 </li>
-<li><strong>交付方式</strong>：基础版免费，深度咨询服务（外包给律所）或高级定制版收费。</li>
 </ol>
 </li>
-<li><strong>技术栈</strong>：React&#x2F;Next.js + 云数据库 + 电子存证 API。</li>
+<li><strong>技术栈</strong>：Uniapp + 微信订阅消息服务。</li>
 </ul>
 <h3 id="💰-财务测算（预估模型）"><a href="#💰-财务测算（预估模型）" class="headerlink" title="💰 财务测算（预估模型）"></a>💰 财务测算（预估模型）</h3><ul>
-<li><strong>启动成本</strong>：¥500（云服务器 + 基础接口）。</li>
+<li><strong>启动成本</strong>：¥300（基础服务器 + 域名验证）。</li>
 <li><strong>单客模型</strong>：<ul>
-<li>定价 (Pricing)：高级报表 ¥299&#x2F;年；定制股权方案代入指导 ¥1,999&#x2F;次。</li>
-<li><strong>单客毛利</strong>：¥250+ (毛利率极高)。</li>
+<li>定价 (Pricing)：商家入住月费 ¥199；或按拼成功的人次收费（¥1&#x2F;人次）。</li>
+<li><strong>单客毛利</strong>：¥150+ (主要靠后期被动增长)。</li>
 </ul>
 </li>
-<li><strong>回本周期</strong>：签下前 3 个付费团队。</li>
-<li><strong>收入天花板</strong>：月入 1-2 万纯被动（软件费）+ 咨询分成。</li>
+<li><strong>回本周期</strong>：签下前 5 家深度合作的实体店。</li>
+<li><strong>收入天花板</strong>：月入 1-2 万，核心在于地推和本地商家资源的掌控。</li>
 </ul>
 <h3 id="📈-关键指标-Metrics"><a href="#📈-关键指标-Metrics" class="headerlink" title="📈 关键指标 (Metrics)"></a>📈 关键指标 (Metrics)</h3><ul>
-<li><strong>北极星指标</strong>：平台上的“月活跃变动的股权总价值”。</li>
+<li><strong>北极星指标</strong>：通过小程序“成功拼场的总场次”。</li>
 <li><strong>KPI</strong>：<ul>
-<li>模拟器测算的准确度。</li>
-<li>电子凭证的签署率。</li>
+<li>拼场成功率（从发起点到满人的比例）。</li>
+<li>单用户周复访率。</li>
 </ul>
 </li>
 <li><strong>OKR</strong>：<ul>
-<li><strong>O</strong>：成为创业合伙的首选“数字底账”。</li>
-<li><strong>KR1</strong>：集成符合中国《公司法》的标准化稀释算法库。</li>
-<li><strong>KR2</strong>：实现股权变动时的全体股东自动推送机制。</li>
-<li><strong>KR3</strong>：获得 200 个以上的付费团队订阅。</li>
+<li><strong>O</strong>：成为本地娱乐社交的“撮合枢纽”。</li>
+<li><strong>KR1</strong>：入驻本地排名前 50 的高质量线下娱乐场所。</li>
+<li><strong>KR2</strong>：将拼场等待时长缩短 30% 以上。</li>
+<li><strong>KR3</strong>：积累 5,000 名以上的活跃“拼友”数据库。</li>
 </ul>
 </li>
 </ul>
 <h3 id="⚠️-避坑指南"><a href="#⚠️-避坑指南" class="headerlink" title="⚠️ 避坑指南"></a>⚠️ 避坑指南</h3><ul>
-<li><strong>法务风险</strong>：工具不代表最终法律文本。核心协议签署必须提醒用户线下核实或聘请律师。</li>
-<li><strong>抗性较大</strong>：很多老板内心并不想让员工看清具体的股权结构，需提供“权限分级查看”功能。</li>
+<li><strong>用户质量</strong>：谨防营销号和广告党入群骚扰，系统必须有实名认证或信用分惩罚机制。</li>
+<li><strong>爽约风险</strong>：拼场最怕临开场放鸽子。必须引入“押金开局”和“爽约黑名单”制度。</li>
 </ul>
-<h3 id="模拟实战：小-A-的“股东账单”"><a href="#模拟实战：小-A-的“股东账单”" class="headerlink" title="模拟实战：小 A 的“股东账单”"></a>模拟实战：小 A 的“股东账单”</h3><p>小 A 的几个朋友合伙开奶茶店。</p>
+<h3 id="模拟实战：小-A-的“拼场大本营”"><a href="#模拟实战：小-A-的“拼场大本营”" class="headerlink" title="模拟实战：小 A 的“拼场大本营”"></a>模拟实战：小 A 的“拼场大本营”</h3><p>小 A 是个推理迷，每次玩剧本杀都要喊半天人。</p>
 <ul>
-<li><strong>起步</strong>：大家出资不一样，干活也不一样，分账分不匀。</li>
-<li><strong>难点</strong>：把“贡献度”如何量化到股权里。</li>
-<li><strong>解决</strong>：小 A 写了个“动态股权预警器”，根据每个人的出资、工时、资源自动动态建议占比。</li>
-<li><strong>结果</strong>：大家觉得及其公允，小 A 顺带把这套算法包装成了一款小程序产品。</li>
+<li><strong>起步</strong>：他先写了个简单的 H5，让他在的 5 个桌游群的人都能看到谁想玩。</li>
+<li><strong>难点</strong>：很多商家想让他做成收费系统，但老板不想看复杂的报表。</li>
+<li><strong>解决</strong>：他把设计做到了极致简化，老板点一下“一键发布”，全城想玩的都能收到推送。</li>
+<li><strong>结果</strong>：他现在是本地 20 多家剧本杀店的“技术合伙人”，不仅免费玩，每个月还能拿走几千块的维护费。</li>
 </ul>
 <hr>
 <blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第413章：极简股权管理系统——初创团队的“信任基座”。</p>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第422章：桌游&#x2F;密室拼场排队系统——解决“三缺一”的流量孤岛。</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/07/24/fuye-ch0413/" data-id="cmvi6pml1017kvch3gpx5ervy" data-title="第413章：极简股权管理系统——初创团队的“信任基座”" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/07/28/fuye-ch0422/" data-id="cmvi6pmld018bvch3dldlbkqa" data-title="第422章：桌游/密室拼场排队系统——解决“三缺一”的流量孤岛" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -722,10 +922,10 @@
 
 
   
-    <article id="post-fuye-ch0412" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-fuye-ch0421" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/07/23/fuye-ch0412/" class="article-date">
-  <time class="dt-published" datetime="2026-07-23T12:00:00.000Z" itemprop="datePublished">2026-07-23</time>
+    <a href="/2026/07/28/fuye-ch0421/" class="article-date">
+  <time class="dt-published" datetime="2026-07-28T00:00:00.000Z" itemprop="datePublished">2026-07-28</time>
 </a>
     
   <div class="article-category">
@@ -740,7 +940,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/07/23/fuye-ch0412/">第412章：BP 深度解析与竞品扫描器——融资人的“透视镜”</a>
+      <a class="p-name article-title" href="/2026/07/28/fuye-ch0421/">第421章：AI 动漫滤镜与二创 API——短视频创作者的“变装黑科技”</a>
     </h1>
   
 
@@ -748,71 +948,71 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>别去做财务顾问（FA）。程序员要做的是“融资情报工具”：利用 AI 帮投资人快速解析一份商业计划书（BP），并利用全网数据自动生成该项目的竞品对比图谱。让原本需要花 3 天的初审工作缩短到 3 分钟。</p>
+        <p>二创视频在 B 站和抖快非常火。程序员不要去剪辑视频，要做“二创加速器”：提供极其丝滑的“真人转动漫”、“画面动漫化风格增强”的 API 或轻量化工具，帮博主一键生产爆款内容。</p>
 <h3 id="1-需求验证-Validation"><a href="#1-需求验证-Validation" class="headerlink" title="1. 需求验证 (Validation)"></a>1. 需求验证 (Validation)</h3><ul>
-<li><strong>痛点</strong>：投资经理（VC）每天看 50 份 BP，效率低到怀疑人生；很多项目的数据是吹出来的，需要交叉验证。</li>
-<li><strong>目标人群</strong>：初级投资经理、财务顾问个人、想拿融资但不知道自己几斤几两的创始人。</li>
-<li><strong>验证手段</strong>：在 VC 圈发个朋友圈：“我做了个 BP 自动扫描器，输入 BP 就能帮你找出项目最虚的地方和前 5 个最直接的竞争对手，有人想测吗？”</li>
+<li><strong>痛点</strong>：普通用户不会用 ComfyUI&#x2F;Stable Diffusion，嫌电脑显卡带不动；市面上的滤镜太土，没有“日漫感”。</li>
+<li><strong>目标人群</strong>：动漫博主、游戏解说、颜值博主（做变装内容）。</li>
+<li><strong>验证手段</strong>：在 B 站发一个真人视频转动漫的对比 Demo，在评论区放出：“如果你想给你的视频加这种滤镜，我这有现成的 API，私信我体验”。</li>
 </ul>
 <h3 id="2-程序员的-MVP-模式"><a href="#2-程序员的-MVP-模式" class="headerlink" title="2. 程序员的 MVP 模式"></a>2. 程序员的 MVP 模式</h3><ul>
-<li><strong>拒绝过度开发</strong>：不要想做自己的投资平台。</li>
+<li><strong>拒绝过度开发</strong>：不要想做自己的社交 App。</li>
 <li><strong>产品化服务方案</strong>：<ol>
-<li><strong>形态</strong>：网页端或飞书&#x2F;钉钉插件。</li>
+<li><strong>形态</strong>：微信小程序（上传视频即处理）或 剪映&#x2F;PR 的外挂插件。</li>
 <li><strong>核心功能</strong>：<ul>
-<li><strong>数据透视</strong>：自动从 PPT 提取财务数据并核对逻辑（如：收入增长和成本是否匹配）。</li>
-<li>竞品扫描：根据 BP 里的关键词，去天眼查、IT 桔子等平台自动抓取同赛道玩家。</li>
-<li>终极风险提示：AI 根据历史失败案例，提示本项目的潜在死法。</li>
+<li><strong>时间轴稳定性优化</strong>：解决 AI 视频常见的闪烁问题。</li>
+<li>风格化定制：提供“新海诚风”、“宫崎骏风”、“赛博朋克风”等预设。</li>
+<li>批量预处理：帮博主批量把图片素材动漫化，提升剪辑效率。</li>
 </ul>
 </li>
-<li><strong>技术栈</strong>：LLM + Python (PPTX&#x2F;PDF 解析) + 第三方工商 API。</li>
 </ol>
 </li>
+<li><strong>技术栈</strong>：Python + Stable Diffusion WebUI API + MoviePy。</li>
 </ul>
 <h3 id="💰-财务测算（预估模型）"><a href="#💰-财务测算（预估模型）" class="headerlink" title="💰 财务测算（预估模型）"></a>💰 财务测算（预估模型）</h3><ul>
-<li><strong>启动成本</strong>：¥500（API 费用 + 域名费）。</li>
+<li><strong>启动成本</strong>：¥2,000（一台带 4090 的算力服务器或按需租云算力）。</li>
 <li><strong>单客模型</strong>：<ul>
-<li>定价 (Pricing)：单次解析 ¥59；月度专业版 ¥599。</li>
-<li><strong>单客毛利</strong>：¥40+ (毛利率高，主要靠量)。</li>
+<li>定价 (Pricing)：单次转换 ¥1&#x2F;分钟；会员 ¥199&#x2F;月无限量。</li>
+<li><strong>单客毛利</strong>：¥0.5+ (扣除电费和算力费)。</li>
 </ul>
 </li>
-<li><strong>回本周期</strong>：签下 1 个投资经理包月。</li>
-<li><strong>收入天花板</strong>：如果能进入机构采购，年入百万级。</li>
+<li><strong>回本周期</strong>：售出前 20 份包月会员。</li>
+<li><strong>收入天花板</strong>：月入 3万+，门槛在于对 AI 模型的微调 (Fine-tuning) 能力。</li>
 </ul>
 <h3 id="📈-关键指标-Metrics"><a href="#📈-关键指标-Metrics" class="headerlink" title="📈 关键指标 (Metrics)"></a>📈 关键指标 (Metrics)</h3><ul>
-<li><strong>北极星指标</strong>：通过工具完成的“BP 深度解析总量”。</li>
+<li><strong>北极星指标</strong>：通过 API 生成的“总视频分钟数”。</li>
 <li><strong>KPI</strong>：<ul>
-<li>财务逻辑矛盾的召回率。</li>
-<li>竞品推荐的重合度。</li>
+<li>平均生成时长（转换效率）。</li>
+<li>视频帧与帧之间的稳定性指标。</li>
 </ul>
 </li>
 <li><strong>OKR</strong>：<ul>
-<li><strong>O</strong>：成为 VC 圈初审阶段的“标配效率利器”。</li>
-<li><strong>KR1</strong>：实现对主流 PPT&#x2F;PDF 格式 99% 的解析成功率。</li>
-<li><strong>KR2</strong>：集成超过 10 万家早期项目的工商和融资库。</li>
-<li><strong>KR3</strong>：与 3 家知名的 FA 机构达成内测入驻。</li>
+<li><strong>O</strong>：成为短视频二创的首选“视觉引擎”。</li>
+<li><strong>KR1</strong>：实现从上传到下载全流程在 5 分钟内完成。</li>
+<li><strong>KR2</strong>：集成超过 10 种独家微调的动漫画风模型。</li>
+<li><strong>KR3</strong>：获得 100 个以上头部博主的长期调用合作。</li>
 </ul>
 </li>
 </ul>
 <h3 id="⚠️-避坑指南"><a href="#⚠️-避坑指南" class="headerlink" title="⚠️ 避坑指南"></a>⚠️ 避坑指南</h3><ul>
-<li><strong>隐私风险</strong>：BP 极度敏感，必须签署极严的保密协议或支持私有化部署。</li>
-<li><strong>语义壁垒</strong>：不同行业对同一个词的定义不一样，需要针对医疗、硬科技等垂直赛道做 Prompt 优化。</li>
+<li><strong>算力瓶颈</strong>：视频处理及其耗资源，必须具备队列排队系统和 GPU 动态扩容逻辑。</li>
+<li><strong>版权风险</strong>：确保训练模型所用的样片符合合规路径，不侵犯他人的画师版权。</li>
 </ul>
-<h3 id="模拟实战：小-A-的“投研副手”"><a href="#模拟实战：小-A-的“投研副手”" class="headerlink" title="模拟实战：小 A 的“投研副手”"></a>模拟实战：小 A 的“投研副手”</h3><p>小 A 的亲戚在做 VC。</p>
+<h3 id="模拟实战：小-A-的“漫影生成器”"><a href="#模拟实战：小-A-的“漫影生成器”" class="headerlink" title="模拟实战：小 A 的“漫影生成器”"></a>模拟实战：小 A 的“漫影生成器”</h3><p>小 A 是个 AI 绘画爱好者。</p>
 <ul>
-<li><strong>起步</strong>：小 A 帮他写了个脚本，把邮箱里收到的所有 BP 里的核心指标自动填到 Excel 里。</li>
-<li><strong>难点</strong>：很多 BP 为了美观没用表格，全是散碎文字。</li>
-<li><strong>解决</strong>：他用了长文本大模型进行结构化提取。</li>
-<li><strong>结果</strong>：亲戚的朋友们发现这东西能帮他们每天早下班两小时，纷纷表示愿意每个月付几百块给他们也装一套。</li>
+<li><strong>起步</strong>：他写了个脚本帮女朋友把一张照片转成了精致的二次元头像。</li>
+<li><strong>难点</strong>：转视频时，每一帧的颜色都不一样，闪烁得厉害。</li>
+<li><strong>解决</strong>：他引入了 AnimateDiff 和 ControlNet 锁住画面的一致性。</li>
+<li><strong>结果</strong>：女朋友发到抖音火了，现在他每天都要处理几百个博主的代加工需求，已经开始考虑租用云端 GPU 集群。</li>
 </ul>
 <hr>
 <blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第412章：BP 深度解析与竞品扫描器——融资人的“透视镜”。</p>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第421章：AI 动漫滤镜与二创 API——短视频创作者的“变装黑科技”。</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/07/23/fuye-ch0412/" data-id="cmvi6pml0017hvch3fa88g2er" data-title="第412章：BP 深度解析与竞品扫描器——融资人的“透视镜”" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/07/28/fuye-ch0421/" data-id="cmvi6pmlc0188vch3hmtp8jkv" data-title="第421章：AI 动漫滤镜与二创 API——短视频创作者的“变装黑科技”" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -826,10 +1026,10 @@
 
 
   
-    <article id="post-fuye-ch0411" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-fuye-ch0420" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/07/23/fuye-ch0411/" class="article-date">
-  <time class="dt-published" datetime="2026-07-23T00:00:00.000Z" itemprop="datePublished">2026-07-23</time>
+    <a href="/2026/07/27/fuye-ch0420/" class="article-date">
+  <time class="dt-published" datetime="2026-07-27T12:00:00.000Z" itemprop="datePublished">2026-07-27</time>
 </a>
     
   <div class="article-category">
@@ -844,7 +1044,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/07/23/fuye-ch0411/">第411章：政策补贴自动匹配系统——科技公司的“资产放大器”</a>
+      <a class="p-name article-title" href="/2026/07/27/fuye-ch0420/">第420章：校园外卖末端配送分排系统——解决“最后 500 米”的混乱</a>
     </h1>
   
 
@@ -852,280 +1052,71 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>别去做线下咨询。程序员要通过爬虫抓取全网的科技补贴政策（专精特新、高新认定、研发奖补），然后根据公司的税务和财务指标，用算法自动匹配出最适合薅的“政府羊毛”。</p>
+        <p>高校通常不让外卖进宿舍楼。程序员不要去送外卖，要做“校园跑腿调度器”：帮校园内的跑腿团队提供订单抓取、路由优化和宿舍楼精准分发的管理工具。</p>
 <h3 id="1-需求验证-Validation"><a href="#1-需求验证-Validation" class="headerlink" title="1. 需求验证 (Validation)"></a>1. 需求验证 (Validation)</h3><ul>
-<li><strong>痛点</strong>：政策太多太杂，很多小公司根本不知道自己符合哪条补贴，白白浪费钱；线下中介抽佣太狠 (20%-30%)。</li>
-<li><strong>目标人群</strong>：创业公司、制造业小工厂、科技型中小企业。</li>
-<li><strong>验证手段</strong>：去企查查搜“高新企业”，给那些刚拿证没多久的企业发个信息：“我司通过大数据比对发现贵司还符合另外 3 项省市级补助，若愿意尝试请联络”。</li>
+<li><strong>痛点</strong>：外卖堆在校门口容易丢、容易凉；学生团队手工接单效率极低，经常漏单。</li>
+<li><strong>目标人群</strong>：校园创业团队（跑腿队）、校园生活服务公众号主。</li>
+<li><strong>验证手段</strong>：在学校外卖代拿群看每天的爆单情况。观察有多少人在群里喊“谁帮我带份饭”。</li>
 </ul>
 <h3 id="2-程序员的-MVP-模式"><a href="#2-程序员的-MVP-模式" class="headerlink" title="2. 程序员的 MVP 模式"></a>2. 程序员的 MVP 模式</h3><ul>
-<li><strong>拒绝过度开发</strong>：不要想做自己的政府外包系统。</li>
+<li><strong>拒绝过度开发</strong>：不要做自己的美团 App。</li>
 <li><strong>产品化服务方案</strong>：<ol>
-<li><strong>数据抓取机器人</strong>：每日抓取各省市工信、科技厅的公开申报通知。</li>
+<li><strong>形态</strong>：微信群机器人 + 极简接单小程序。</li>
 <li><strong>核心功能</strong>：<ul>
-<li><strong>“一键诊断”</strong>：用户输入公司名字，自动通过公开财报、专利数据匹配最合适的补贴项。</li>
-<li>倒计时提醒：申报截止日期前 15 天提示。</li>
-<li>辅导材料自动生成：基于大模型协助撰写申报书的初稿。</li>
+<li><strong>外卖柜码合并</strong>：支持扫描校门口外卖柜短信，自动提取取餐码并分发给对应的跑腿员。</li>
+<li>宿舍楼路径规划：根据宿舍楼分布，自动把订单合并为“一楼多单”的最优路径。</li>
+<li>佣金自动分账：跑腿结束后，佣金自动打入学生兼职账户。</li>
 </ul>
 </li>
-<li><strong>交付方式</strong>：网页端诊断器 + 按需代办服务（外包）。</li>
 </ol>
 </li>
-<li><strong>技术栈</strong>：Python + Scrapy + LLM (用于阅读并解析复杂的政策公文)。</li>
+<li><strong>技术栈</strong>：Node.js + 云函数 + OCR (识别取餐短信)。</li>
 </ul>
 <h3 id="💰-财务测算（预估模型）"><a href="#💰-财务测算（预估模型）" class="headerlink" title="💰 财务测算（预估模型）"></a>💰 财务测算（预估模型）</h3><ul>
-<li><strong>启动成本</strong>：¥1,000（服务器费 + 数据存储）。</li>
+<li><strong>启动成本</strong>：¥300（微信开发费用 + 云数据库）。</li>
 <li><strong>单客模型</strong>：<ul>
-<li>定价 (Pricing)：诊断报告 ¥199&#x2F;份；如果代办成功，收取 5%-10% 分成（远低于线下同行）。</li>
-<li><strong>单客毛利</strong>：后期极其稳定，几乎是纯利。</li>
+<li>定价 (Pricing)：按单抽成（例如：代拿费 2 元&#x2F;单，系统抽 0.1 元）。</li>
+<li><strong>收益</strong>：如果一个学校每天 1500 单代拿，日均收入 150 元。</li>
 </ul>
 </li>
-<li><strong>回本周期</strong>：签下第 1 个成功代办的单子（通常补贴几十万，提成就有几万）。</li>
-<li><strong>收入天花板</strong>：月入 3-8 万（取决于你签约的企业数量）。</li>
+<li><strong>回本周期</strong>：一个学校平稳运行 10 天。</li>
+<li><strong>收入天花板</strong>：月入 1.5 万（多校联运且完全自动化运营）。</li>
 </ul>
 <h3 id="📈-关键指标-Metrics"><a href="#📈-关键指标-Metrics" class="headerlink" title="📈 关键指标 (Metrics)"></a>📈 关键指标 (Metrics)</h3><ul>
-<li><strong>北极星指标</strong>：帮客户“匹配到的补贴总额”。</li>
+<li><strong>北极星指标</strong>：系统的“日处理订单总量”。</li>
 <li><strong>KPI</strong>：<ul>
-<li>政策抓取的及时性。</li>
-<li>匹配规则的准确率。</li>
+<li>从校门到宿舍的平均送达时长。</li>
+<li>错拿&#x2F;漏拿率。</li>
 </ul>
 </li>
 <li><strong>OKR</strong>：<ul>
-<li><strong>O</strong>：成为科技企业的“政策活字典”。</li>
-<li><strong>KR1</strong>：覆盖全国前 15 个重点城市的全部科创政策。</li>
-<li><strong>KR2</strong>：实现申报书初稿生成的自动化程度大于 60%。</li>
-<li><strong>KR3</strong>：与 10 家本地的财税公司达成联合推广协议。</li>
+<li><strong>O</strong>：成为校园物流的“末端指挥部”。</li>
+<li><strong>KR1</strong>：实现短信取餐码的自动解析，准确率 &gt; 98%。</li>
+<li><strong>KR2</strong>：实现 100% 的线上结算与分账，告别手工算账。</li>
+<li><strong>KR3</strong>：单校日活跃单量稳定在 2000 单以上。</li>
 </ul>
 </li>
 </ul>
 <h3 id="⚠️-避坑指南"><a href="#⚠️-避坑指南" class="headerlink" title="⚠️ 避坑指南"></a>⚠️ 避坑指南</h3><ul>
-<li><strong>诚信风险</strong>：严禁造假骗补。只做符合条件的合规申报。</li>
-<li><strong>政策解读难度</strong>：政策经常变，需要有专门的逻辑来处理政策的效力期和重叠排斥关系。</li>
+<li><strong>竞争风险</strong>：学校官方可能有自己的配送系统，要做的是通过“极速响应”和“低门槛”形成差异化竞合。</li>
+<li><strong>丢失赔付</strong>：系统必须具备拍照复核功能，明确丢失责任。</li>
 </ul>
-<h3 id="模拟实战：小-A-的“补贴雷达”"><a href="#模拟实战：小-A-的“补贴雷达”" class="headerlink" title="模拟实战：小 A 的“补贴雷达”"></a>模拟实战：小 A 的“补贴雷达”</h3><p>小 A 是个做 SaaS 的，自己申请补贴时快吐了。</p>
+<h3 id="模拟实战：小-A-的“闪电校配”"><a href="#模拟实战：小-A-的“闪电校配”" class="headerlink" title="模拟实战：小 A 的“闪电校配”"></a>模拟实战：小 A 的“闪电校配”</h3><p>小 A 的室友在做代拿，每天在 Excel 里记账快烦死了。</p>
 <ul>
-<li><strong>起步</strong>：他写了个脚本定期抓本市的工信局网站。</li>
-<li><strong>难点</strong>：很多公文是极其难读的公文体，关键词匹配不准。</li>
-<li><strong>解决</strong>：他用了大模型，对每篇公文生成了 3 行字的“人话总结”，包含钱数、要求和 deadline。</li>
-<li><strong>结果</strong>：他把这个“人话频道”开放给身边的创业圈，大家惊为天人，纷纷愿意付费让他帮盯着。</li>
+<li><strong>起步</strong>：小 A 写了个把截图转成任务清单的脚本。</li>
+<li><strong>难点</strong>：高峰期 20 多个跑腿员抢单，系统容易崩。</li>
+<li><strong>解决</strong>：他引入了分布式消息队列（RocketMQ），保证订单不丢失、不超发。</li>
+<li><strong>结果</strong>：室友的团队扩招到了 50 人，成了学校最大的配送队，小 A 负责收系统的稳定分成。</li>
 </ul>
 <hr>
 <blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第411章：政策补贴自动匹配系统——科技公司的“资产放大器”。</p>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第420章：校园外卖末端配送分排系统——解决“最后 500 米”的混乱。</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/07/23/fuye-ch0411/" data-id="cmvi6pmkz017evch3afjkejdu" data-title="第411章：政策补贴自动匹配系统——科技公司的“资产放大器”" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-fuye-ch0410" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/07/22/fuye-ch0410/" class="article-date">
-  <time class="dt-published" datetime="2026-07-22T12:00:00.000Z" itemprop="datePublished">2026-07-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/07/22/fuye-ch0410/">第410章：极简 A 股行情监控推送站——切入“短线客”的情绪点</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>别去做证券 App，那需要卷死。程序员要做的是“行情的异动监听器”：通过脚本监听 5000 只股票的瞬间异动（如：突然的大笔封单、特定板块的集体启动），并第一时间推送到短线客的微信或钉钉里。</p>
-<h3 id="1-需求验证-Validation"><a href="#1-需求验证-Validation" class="headerlink" title="1. 需求验证 (Validation)"></a>1. 需求验证 (Validation)</h3><ul>
-<li><strong>痛点</strong>：等你看看到东方财富的推送，股票已经涨停了；上班族想盯着某个板块却没法一直看盘。</li>
-<li><strong>目标人群</strong>：上班族股民、短线游资跟风盘、量化初学者。</li>
-<li><strong>验证手段</strong>：在特定的股票论坛发贴：“我是个程序员，我写了个实时监控‘地天板’和‘板块共振’的脚本，有人想进测试群吗？”</li>
-</ul>
-<h3 id="2-程序员的-MVP-模式"><a href="#2-程序员的-MVP-模式" class="headerlink" title="2. 程序员的 MVP 模式"></a>2. 程序员的 MVP 模式</h3><ul>
-<li><strong>拒绝过度开发</strong>：不要想做交易功能。</li>
-<li><strong>产品化服务方案</strong>：<ol>
-<li><strong>形态</strong>：微信群机器人或 Telegram 频道。</li>
-<li><strong>核心功能</strong>：<ul>
-<li><strong>异动推送</strong>：某股 1 分钟涨幅超过 3%、千万级大单压顶。</li>
-<li>关键词监听：监听龙虎榜、特定大佬的持仓变动公告并秒级解读。</li>
-<li>自定义预警：用户输入“如果 XXX 跌到某个位置通知我”。</li>
-</ul>
-</li>
-</ol>
-</li>
-<li><strong>技术栈</strong>：Go (高并发监听) + InfluxDB + 现成数据接口 (如：EasySinaData)。</li>
-</ul>
-<h3 id="💰-财务测算（预估模型）"><a href="#💰-财务测算（预估模型）" class="headerlink" title="💰 财务测算（预估模型）"></a>💰 财务测算（预估模型）</h3><ul>
-<li><strong>启动成本</strong>：¥1,000（国外 VPS 保证低延迟 + 数据接口费）。</li>
-<li><strong>单客模型</strong>：<ul>
-<li>定价 (Pricing)：基础预警群 ¥99&#x2F;季度；私人定制预警 ¥499&#x2F;年。</li>
-<li><strong>单客毛利</strong>：¥80+ (毛利率 &gt; 80%)。</li>
-</ul>
-</li>
-<li><strong>回本周期</strong>：累积 10 个季度付费用户。</li>
-<li><strong>收入天花板</strong>：由于数据源成本相对固定，规模越大越赚钱，年入 10万+ 纯被动，不需要人工运营。</li>
-</ul>
-<h3 id="📈-关键指标-Metrics"><a href="#📈-关键指标-Metrics" class="headerlink" title="📈 关键指标 (Metrics)"></a>📈 关键指标 (Metrics)</h3><ul>
-<li><strong>北极星指标</strong>：推送与真实行情异动之间的“毫秒级时延”。</li>
-<li><strong>KPI</strong>：<ul>
-<li>每日推送的准确率。</li>
-<li>群内用户的活跃留存。</li>
-</ul>
-</li>
-<li><strong>OKR</strong>：<ul>
-<li><strong>O</strong>：成为股民手中最灵敏的“探针”。</li>
-<li><strong>KR1</strong>：实现沪深两市全量个股的二级行情覆盖。</li>
-<li><strong>KR2</strong>：将消息推送到用户端的延迟缩短到 500ms 以内。</li>
-<li><strong>KR3</strong>：积累 1,000 名以上的活跃订阅用户。</li>
-</ul>
-</li>
-</ul>
-<h3 id="⚠️-避坑指南"><a href="#⚠️-避坑指南" class="headerlink" title="⚠️ 避坑指南"></a>⚠️ 避坑指南</h3><ul>
-<li><strong>法务风险</strong>：<strong>严禁推荐股票</strong>！仅限数据客观事实（如涨了、跌了、有大单）的推送。</li>
-<li><strong>接口稳定性</strong>：数据源不稳定是最大的雷，建议准备 2-3 套冗余数据源。</li>
-</ul>
-<h3 id="模拟实战：小-A-的“涨停先知”"><a href="#模拟实战：小-A-的“涨停先知”" class="headerlink" title="模拟实战：小 A 的“涨停先知”"></a>模拟实战：小 A 的“涨停先知”</h3><p>小 A 是个爱炒股的代码猴。</p>
-<ul>
-<li><strong>起步</strong>：他给自己写了个钉钉机器人，一旦某个持仓股有异动就叫他。</li>
-<li><strong>难点</strong>：消息太多干扰很大。</li>
-<li><strong>解决</strong>：他引入了“过滤噪音”逻辑（只有板块中 3 只以上同时异动才算真正异动）。</li>
-<li><strong>结果</strong>：这个逻辑及其好用，帮他避开了多次诱多，他在股民群一分享，瞬间大家都要付费入他的推送群。</li>
-</ul>
-<hr>
-<blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第410章：极简 A 股行情监控推送站——切入“短线客”的情绪点。</p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/07/22/fuye-ch0410/" data-id="cmvi6pmky017bvch33cf1gq7d" data-title="第410章：极简 A 股行情监控推送站——切入“短线客”的情绪点" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-fuye-ch0409" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/07/22/fuye-ch0409/" class="article-date">
-  <time class="dt-published" datetime="2026-07-22T00:00:00.000Z" itemprop="datePublished">2026-07-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/07/22/fuye-ch0409/">第409章：AI 合同审查机器人——中小企业的“数字法务”</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>不要去考律师证。程序员要利用大模型的长文本理解能力，做极其垂直的“合同风险扫描工具”：帮没钱请法务的小公司，在签署采购合同、入职合同、租房合同时，自动找出其中的陷阱条款。</p>
-<h3 id="1-需求验证-Validation"><a href="#1-需求验证-Validation" class="headerlink" title="1. 需求验证 (Validation)"></a>1. 需求验证 (Validation)</h3><ul>
-<li><strong>痛点</strong>：中小老板看不懂十几页的合同，怕被坑，请个律师审一下要几百块；HR 每天审入职合同极其机械。</li>
-<li><strong>目标人群</strong>：个体工商户、小外贸公司、甚至是你身边的程序员（签劳动合同时）。</li>
-<li><strong>验证手段</strong>：在朋友圈发个广告：“免费帮看合同风险，支持 Word&#x2F;PDF 拖入，由专门训练的‘法律大模型’审核，限前 5 名”。</li>
-</ul>
-<h3 id="2-程序员的-MVP-模式"><a href="#2-程序员的-MVP-模式" class="headerlink" title="2. 程序员的 MVP 模式"></a>2. 程序员的 MVP 模式</h3><ul>
-<li><strong>拒绝过度开发</strong>：不要想做全功能的律所管理系统。</li>
-<li><strong>产品化服务方案</strong>：<ol>
-<li><strong>形态</strong>：网页端或 Chrome 插件。</li>
-<li><strong>核心功能</strong>：<ul>
-<li><strong>风险高亮</strong>：自动识别霸王条款、违约金不对等、账期漏洞。</li>
-<li>补充建议：针对风险点，AI 给出推荐的修改版本建议。</li>
-<li>法律常识检索：遇到特定行业术语，一键解释。</li>
-</ul>
-</li>
-<li><strong>技术栈</strong>：LLM (DeepSeek&#x2F;GPT-4o-mini) + LangChain + Python (文本提取)。</li>
-</ol>
-</li>
-</ul>
-<h3 id="💰-财务测算（预估模型）"><a href="#💰-财务测算（预估模型）" class="headerlink" title="💰 财务测算（预估模型）"></a>💰 财务测算（预估模型）</h3><ul>
-<li><strong>启动成本</strong>：¥300（API 费用 + 服务器瓶颈费）。</li>
-<li><strong>单客模型</strong>：<ul>
-<li>定价 (Pricing)：单份合同扫描 ¥19.9；企业包年 ¥399（不限次数）。</li>
-<li><strong>单客毛利</strong>：¥15+ (毛利率约 75%)。</li>
-</ul>
-</li>
-<li><strong>回本周期</strong>：签下前 10 个包年企业客户。</li>
-<li><strong>收入天花板</strong>：通过分销给财务公司&#x2F;HR 服务商，月入 2万+。</li>
-</ul>
-<h3 id="📈-关键指标-Metrics"><a href="#📈-关键指标-Metrics" class="headerlink" title="📈 关键指标 (Metrics)"></a>📈 关键指标 (Metrics)</h3><ul>
-<li><strong>北极星指标</strong>：用户“上传审核的合同总页数”。</li>
-<li><strong>KPI</strong>：<ul>
-<li>核心法律风险的漏报率。</li>
-<li>次月活跃度（ retention）。</li>
-</ul>
-</li>
-<li><strong>OKR</strong>：<ul>
-<li><strong>O</strong>：成为小微企业的“第一道法律防火墙”。</li>
-<li><strong>KR1</strong>：集成劳动法、合同法等核心法律的知识库。</li>
-<li><strong>KR2</strong>：实现对 PDF 表格数据的逻辑勾稽关系校验。</li>
-<li><strong>KR3</strong>：获得 100 名高频使用的付费小老板。</li>
-</ul>
-</li>
-</ul>
-<h3 id="⚠️-避坑指南"><a href="#⚠️-避坑指南" class="headerlink" title="⚠️ 避坑指南"></a>⚠️ 避坑指南</h3><ul>
-<li><strong>法律风险</strong>：必须在醒目位置标注：<strong>“本工具由 AI 生成，不构成正式法律建议，仅供参考”</strong>。</li>
-<li><strong>隐私风险</strong>：合同包含公司秘密，必须承诺并不由系统存储用户上传的原文件。</li>
-</ul>
-<h3 id="模拟实战：小-A-的“合同医生”"><a href="#模拟实战：小-A-的“合同医生”" class="headerlink" title="模拟实战：小 A 的“合同医生”"></a>模拟实战：小 A 的“合同医生”</h3><p>小 A 的朋友签一个加盟合同，差点掉进坑里。</p>
-<ul>
-<li><strong>起步</strong>：小 A 调了下 DeepSeek 的 Prompt，喂了几份典型坑人的加盟合同让它学习。</li>
-<li><strong>难点</strong>：有些合同是图片扫描件，AI 读不动。</li>
-<li><strong>解决</strong>：他集成了高精度的 OCR 库，把图片转成 Markdown 排版后再审。</li>
-<li><strong>结果</strong>：大模型审出的几个隐藏条款（比如：总部有权单方面提高原材料价格）没被任何财务发现，帮朋友省了几万块。后来他以此为噱头，做成了一个付费按件计费的小工具。</li>
-</ul>
-<hr>
-<blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第409章：AI 合同审查机器人——中小企业的“数字法务”。</p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/07/22/fuye-ch0409/" data-id="cmvi6pmkw0178vch3h8go2b85" data-title="第409章：AI 合同审查机器人——中小企业的“数字法务”" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/07/27/fuye-ch0420/" data-id="cmvi6pmla0185vch3gq8k8i3y" data-title="第420章：校园外卖末端配送分排系统——解决“最后 500 米”的混乱" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -1143,7 +1134,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/11/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/55/">55</a><a class="extend next" rel="next" href="/page/13/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/11/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/56/">56</a><a class="extend next" rel="next" href="/page/13/">下一页 &raquo;</a>
   </nav>
 
 </section>
@@ -1154,7 +1145,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%A6%E8%AF%84/">书评</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/">效率工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9F%B3%E4%B9%90/">音乐</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%A6%E8%AF%84/">书评</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%A4%A7%E6%A8%A1%E5%9E%8B/">动手学大模型</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/">效率工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9F%B3%E4%B9%90/">音乐</a></li></ul>
     </div>
   </div>
 
@@ -1174,7 +1165,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/AGENTS-md/" style="font-size: 10px;">AGENTS.md</a> <a href="/tags/AI/" style="font-size: 12px;">AI</a> <a href="/tags/AI-Agent/" style="font-size: 10px;">AI Agent</a> <a href="/tags/AI-Skills/" style="font-size: 10px;">AI Skills</a> <a href="/tags/AIGC/" style="font-size: 13px;">AIGC</a> <a href="/tags/AI%E5%88%9B%E4%B8%9A/" style="font-size: 10px;">AI创业</a> <a href="/tags/AI%E5%89%AF%E4%B8%9A/" style="font-size: 20px;">AI副业</a> <a href="/tags/AI%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 13px;">AI工作流</a> <a href="/tags/AI%E5%BB%BA%E7%AB%99/" style="font-size: 10px;">AI建站</a> <a href="/tags/AI%E6%8A%95%E7%A0%94/" style="font-size: 10px;">AI投研</a> <a href="/tags/AI%E6%B3%A1%E6%B2%AB/" style="font-size: 10px;">AI泡沫</a> <a href="/tags/AI%E7%AC%AC%E4%BA%8C%E5%A4%A7%E8%84%91/" style="font-size: 10px;">AI第二大脑</a> <a href="/tags/AI%E7%BC%96%E7%A8%8B/" style="font-size: 11px;">AI编程</a> <a href="/tags/AI%E8%A7%86%E9%A2%91/" style="font-size: 10px;">AI视频</a> <a href="/tags/Agent/" style="font-size: 10px;">Agent</a> <a href="/tags/Anthropic/" style="font-size: 10px;">Anthropic</a> <a href="/tags/Claude/" style="font-size: 13px;">Claude</a> <a href="/tags/Claude-Code/" style="font-size: 11px;">Claude Code</a> <a href="/tags/Codex/" style="font-size: 14px;">Codex</a> <a href="/tags/DeepSeek/" style="font-size: 10px;">DeepSeek</a> <a href="/tags/Git/" style="font-size: 11px;">Git</a> <a href="/tags/GitHub/" style="font-size: 12px;">GitHub</a> <a href="/tags/Google-AdSense/" style="font-size: 10px;">Google AdSense</a> <a href="/tags/Hostinger/" style="font-size: 10px;">Hostinger</a> <a href="/tags/MCP/" style="font-size: 12px;">MCP</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Next-js/" style="font-size: 10px;">Next.js</a> <a href="/tags/Obsidian/" style="font-size: 12px;">Obsidian</a> <a href="/tags/PARA/" style="font-size: 10px;">PARA</a> <a href="/tags/Prompt/" style="font-size: 10px;">Prompt</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/Skills/" style="font-size: 12px;">Skills</a> <a href="/tags/Workflow/" style="font-size: 10px;">Workflow</a> <a href="/tags/YouTube/" style="font-size: 10px;">YouTube</a> <a href="/tags/eSIM/" style="font-size: 10px;">eSIM</a> <a href="/tags/yt-dlp/" style="font-size: 10px;">yt-dlp</a> <a href="/tags/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8/" style="font-size: 10px;">一人公司</a> <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/" style="font-size: 10px;">中国经济</a> <a href="/tags/%E4%B8%AD%E6%96%87%E5%86%99%E4%BD%9C/" style="font-size: 10px;">中文写作</a> <a href="/tags/%E4%B9%A6%E8%AF%84/" style="font-size: 10px;">书评</a> <a href="/tags/%E5%85%8D%E8%B4%B9%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">免费工具</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 10px;">公众号</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C/" style="font-size: 12px;">内容创作</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%8F%98%E7%8E%B0/" style="font-size: 10px;">内容变现</a> <a href="/tags/%E5%87%BA%E5%9B%BD/" style="font-size: 10px;">出国</a> <a href="/tags/%E5%87%BA%E5%B7%AE/" style="font-size: 10px;">出差</a> <a href="/tags/%E5%87%BA%E6%B5%B7%E8%B5%9A%E9%92%B1/" style="font-size: 10px;">出海赚钱</a> <a href="/tags/%E5%88%9B%E4%B8%9A/" style="font-size: 17px;">创业</a> <a href="/tags/%E5%89%AF%E4%B8%9A/" style="font-size: 13px;">副业</a> <a href="/tags/%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">动态工作流</a> <a href="/tags/%E5%8E%86%E5%8F%B2%E5%AF%B9%E6%AF%94/" style="font-size: 10px;">历史对比</a> <a href="/tags/%E5%8F%AF%E7%81%B5/" style="font-size: 10px;">可灵</a> <a href="/tags/%E5%9C%B0%E7%BC%98%E6%94%BF%E6%B2%BB/" style="font-size: 10px;">地缘政治</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">大模型</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">学习方法</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" style="font-size: 10px;">学习路线</a> <a href="/tags/%E5%AE%9E%E6%B5%8B/" style="font-size: 10px;">实测</a> <a href="/tags/%E5%B0%8F%E7%BA%A2%E4%B9%A6/" style="font-size: 10px;">小红书</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">工作流</a> <a href="/tags/%E5%B9%B3%E5%8F%B0%E7%AE%97%E6%B3%95/" style="font-size: 10px;">平台算法</a> <a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 12px;">开源</a> <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 16px;">开源项目</a> <a href="/tags/%E6%89%93%E5%B7%A5%E5%BA%A6%E5%81%87/" style="font-size: 10px;">打工度假</a> <a href="/tags/%E6%8A%95%E8%B5%84/" style="font-size: 10px;">投资</a> <a href="/tags/%E6%8D%A1%E6%BC%8F/" style="font-size: 10px;">捡漏</a> <a href="/tags/%E6%90%9E%E9%92%B1/" style="font-size: 19px;">搞钱</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">效率工具</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 15px;">教程</a> <a href="/tags/%E6%96%87%E6%A1%88/" style="font-size: 10px;">文案</a> <a href="/tags/%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8/" style="font-size: 10px;">新手入门</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 10px;">旅行</a> <a href="/tags/%E6%9A%97%E9%99%90%E6%B5%81/" style="font-size: 10px;">暗限流</a> <a href="/tags/%E6%A0%91%E6%B4%9E/" style="font-size: 17px;">树洞</a> <a href="/tags/%E6%A6%9C%E5%8D%95/" style="font-size: 10px;">榜单</a> <a href="/tags/%E6%B0%91%E7%B2%B9%E4%B8%BB%E4%B9%89/" style="font-size: 10px;">民粹主义</a> <a href="/tags/%E6%B6%A6%E8%89%B2/" style="font-size: 10px;">润色</a> <a href="/tags/%E6%BB%9A%E7%9F%B3/" style="font-size: 10px;">滚石</a> <a href="/tags/%E6%BE%B3%E6%B4%B2WHV/" style="font-size: 10px;">澳洲WHV</a> <a href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" style="font-size: 18px;">独立开发</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%8C%87%E5%8D%97/" style="font-size: 10px;">生活指南</a> <a href="/tags/%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5/" style="font-size: 11px;">电商运营</a> <a href="/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/" style="font-size: 10px;">电子书</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 11px;">知识管理</a> <a href="/tags/%E7%A0%8D%E4%BB%B7/" style="font-size: 10px;">砍价</a> <a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 10px;">科幻</a> <a href="/tags/%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">笔记方法</a> <a href="/tags/%E7%AD%BE%E8%AF%81%E6%94%BB%E7%95%A5/" style="font-size: 10px;">签证攻略</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">翻译</a> <a href="/tags/%E8%82%A1%E7%A5%A8/" style="font-size: 10px;">股票</a> <a href="/tags/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90/" style="font-size: 10px;">股票分析</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 12px;">自动化</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93/" style="font-size: 13px;">自媒体</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">自媒体工具</a> <a href="/tags/%E8%87%AA%E9%83%A8%E7%BD%B2/" style="font-size: 10px;">自部署</a> <a href="/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/" style="font-size: 10px;">被动收入</a> <a href="/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" style="font-size: 10px;">视频下载</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/" style="font-size: 11px;">视频剪辑</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 10px;">语音合成</a> <a href="/tags/%E8%B4%B8%E6%98%93%E6%88%98/" style="font-size: 10px;">贸易战</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E9%80%89%E6%8B%A9/" style="font-size: 10px;">软件选择</a> <a href="/tags/%E9%80%89%E9%A2%98/" style="font-size: 10px;">选题</a> <a href="/tags/%E9%97%B2%E9%B1%BC/" style="font-size: 13px;">闲鱼</a> <a href="/tags/%E9%98%BF%E8%A5%BF%E8%8E%AB%E5%A4%AB/" style="font-size: 10px;">阿西莫夫</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 10px;">音乐</a>
+      <a href="/tags/AGENTS-md/" style="font-size: 10px;">AGENTS.md</a> <a href="/tags/AI/" style="font-size: 11.82px;">AI</a> <a href="/tags/AI-Agent/" style="font-size: 10px;">AI Agent</a> <a href="/tags/AI-Skills/" style="font-size: 10px;">AI Skills</a> <a href="/tags/AIGC/" style="font-size: 12.73px;">AIGC</a> <a href="/tags/AI%E5%88%9B%E4%B8%9A/" style="font-size: 10px;">AI创业</a> <a href="/tags/AI%E5%89%AF%E4%B8%9A/" style="font-size: 20px;">AI副业</a> <a href="/tags/AI%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 12.73px;">AI工作流</a> <a href="/tags/AI%E5%BB%BA%E7%AB%99/" style="font-size: 10px;">AI建站</a> <a href="/tags/AI%E6%8A%95%E7%A0%94/" style="font-size: 10px;">AI投研</a> <a href="/tags/AI%E6%B3%A1%E6%B2%AB/" style="font-size: 10px;">AI泡沫</a> <a href="/tags/AI%E7%AC%AC%E4%BA%8C%E5%A4%A7%E8%84%91/" style="font-size: 10px;">AI第二大脑</a> <a href="/tags/AI%E7%BC%96%E7%A8%8B/" style="font-size: 10.91px;">AI编程</a> <a href="/tags/AI%E8%A7%86%E9%A2%91/" style="font-size: 10px;">AI视频</a> <a href="/tags/Agent/" style="font-size: 10px;">Agent</a> <a href="/tags/Anthropic/" style="font-size: 10px;">Anthropic</a> <a href="/tags/Claude/" style="font-size: 12.73px;">Claude</a> <a href="/tags/Claude-Code/" style="font-size: 10.91px;">Claude Code</a> <a href="/tags/Codex/" style="font-size: 13.64px;">Codex</a> <a href="/tags/DeepSeek/" style="font-size: 10px;">DeepSeek</a> <a href="/tags/Git/" style="font-size: 10.91px;">Git</a> <a href="/tags/GitHub/" style="font-size: 11.82px;">GitHub</a> <a href="/tags/Google-AdSense/" style="font-size: 10px;">Google AdSense</a> <a href="/tags/Hostinger/" style="font-size: 10px;">Hostinger</a> <a href="/tags/MCP/" style="font-size: 11.82px;">MCP</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Next-js/" style="font-size: 10px;">Next.js</a> <a href="/tags/Obsidian/" style="font-size: 11.82px;">Obsidian</a> <a href="/tags/PARA/" style="font-size: 10px;">PARA</a> <a href="/tags/Prompt/" style="font-size: 10px;">Prompt</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/Skills/" style="font-size: 11.82px;">Skills</a> <a href="/tags/Workflow/" style="font-size: 10px;">Workflow</a> <a href="/tags/YouTube/" style="font-size: 10px;">YouTube</a> <a href="/tags/eSIM/" style="font-size: 10px;">eSIM</a> <a href="/tags/yt-dlp/" style="font-size: 10px;">yt-dlp</a> <a href="/tags/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8/" style="font-size: 10px;">一人公司</a> <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/" style="font-size: 10px;">中国经济</a> <a href="/tags/%E4%B8%AD%E6%96%87%E5%86%99%E4%BD%9C/" style="font-size: 10px;">中文写作</a> <a href="/tags/%E4%B9%A6%E8%AF%84/" style="font-size: 10px;">书评</a> <a href="/tags/%E5%85%8D%E8%B4%B9%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">免费工具</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 10px;">公众号</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C/" style="font-size: 11.82px;">内容创作</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%8F%98%E7%8E%B0/" style="font-size: 10px;">内容变现</a> <a href="/tags/%E5%87%BA%E5%9B%BD/" style="font-size: 10px;">出国</a> <a href="/tags/%E5%87%BA%E5%B7%AE/" style="font-size: 10px;">出差</a> <a href="/tags/%E5%87%BA%E6%B5%B7%E8%B5%9A%E9%92%B1/" style="font-size: 10px;">出海赚钱</a> <a href="/tags/%E5%88%9B%E4%B8%9A/" style="font-size: 17.27px;">创业</a> <a href="/tags/%E5%89%AF%E4%B8%9A/" style="font-size: 12.73px;">副业</a> <a href="/tags/%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">动态工作流</a> <a href="/tags/%E5%8E%86%E5%8F%B2%E5%AF%B9%E6%AF%94/" style="font-size: 10px;">历史对比</a> <a href="/tags/%E5%8F%AF%E7%81%B5/" style="font-size: 10px;">可灵</a> <a href="/tags/%E5%9C%B0%E7%BC%98%E6%94%BF%E6%B2%BB/" style="font-size: 10px;">地缘政治</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 14.55px;">大模型</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">学习方法</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" style="font-size: 10px;">学习路线</a> <a href="/tags/%E5%AE%9E%E6%B5%8B/" style="font-size: 10px;">实测</a> <a href="/tags/%E5%B0%8F%E7%BA%A2%E4%B9%A6/" style="font-size: 10px;">小红书</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">工作流</a> <a href="/tags/%E5%B9%B3%E5%8F%B0%E7%AE%97%E6%B3%95/" style="font-size: 10px;">平台算法</a> <a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 11.82px;">开源</a> <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 16.36px;">开源项目</a> <a href="/tags/%E6%89%93%E5%B7%A5%E5%BA%A6%E5%81%87/" style="font-size: 10px;">打工度假</a> <a href="/tags/%E6%8A%95%E8%B5%84/" style="font-size: 10px;">投资</a> <a href="/tags/%E6%8D%A1%E6%BC%8F/" style="font-size: 10px;">捡漏</a> <a href="/tags/%E6%90%9E%E9%92%B1/" style="font-size: 19.09px;">搞钱</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">效率工具</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 15.45px;">教程</a> <a href="/tags/%E6%96%87%E6%A1%88/" style="font-size: 10px;">文案</a> <a href="/tags/%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8/" style="font-size: 10px;">新手入门</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 10px;">旅行</a> <a href="/tags/%E6%9A%97%E9%99%90%E6%B5%81/" style="font-size: 10px;">暗限流</a> <a href="/tags/%E6%A0%91%E6%B4%9E/" style="font-size: 17.27px;">树洞</a> <a href="/tags/%E6%A6%9C%E5%8D%95/" style="font-size: 10px;">榜单</a> <a href="/tags/%E6%B0%91%E7%B2%B9%E4%B8%BB%E4%B9%89/" style="font-size: 10px;">民粹主义</a> <a href="/tags/%E6%B6%A6%E8%89%B2/" style="font-size: 10px;">润色</a> <a href="/tags/%E6%BB%9A%E7%9F%B3/" style="font-size: 10px;">滚石</a> <a href="/tags/%E6%BE%B3%E6%B4%B2WHV/" style="font-size: 10px;">澳洲WHV</a> <a href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" style="font-size: 18.18px;">独立开发</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%8C%87%E5%8D%97/" style="font-size: 10px;">生活指南</a> <a href="/tags/%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5/" style="font-size: 10.91px;">电商运营</a> <a href="/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/" style="font-size: 10px;">电子书</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 10.91px;">知识管理</a> <a href="/tags/%E7%A0%8D%E4%BB%B7/" style="font-size: 10px;">砍价</a> <a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 10px;">科幻</a> <a href="/tags/%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">笔记方法</a> <a href="/tags/%E7%AD%BE%E8%AF%81%E6%94%BB%E7%95%A5/" style="font-size: 10px;">签证攻略</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">翻译</a> <a href="/tags/%E8%82%A1%E7%A5%A8/" style="font-size: 10px;">股票</a> <a href="/tags/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90/" style="font-size: 10px;">股票分析</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 11.82px;">自动化</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93/" style="font-size: 12.73px;">自媒体</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">自媒体工具</a> <a href="/tags/%E8%87%AA%E9%83%A8%E7%BD%B2/" style="font-size: 10px;">自部署</a> <a href="/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/" style="font-size: 10px;">被动收入</a> <a href="/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" style="font-size: 10px;">视频下载</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/" style="font-size: 10.91px;">视频剪辑</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 10px;">语音合成</a> <a href="/tags/%E8%B4%B8%E6%98%93%E6%88%98/" style="font-size: 10px;">贸易战</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E9%80%89%E6%8B%A9/" style="font-size: 10px;">软件选择</a> <a href="/tags/%E9%80%89%E9%A2%98/" style="font-size: 10px;">选题</a> <a href="/tags/%E9%97%B2%E9%B1%BC/" style="font-size: 12.73px;">闲鱼</a> <a href="/tags/%E9%98%BF%E8%A5%BF%E8%8E%AB%E5%A4%AB/" style="font-size: 10px;">阿西莫夫</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 10px;">音乐</a>
     </div>
   </div>
 
@@ -1196,23 +1187,23 @@
       <ul>
         
           <li>
-            <a href="/2026/10/23/%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E4%B8%8A%E6%B5%B7%E4%BA%A4%E5%A4%A711%E7%AB%A0%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5%E6%95%99%E7%A8%8B/">动手学大模型：上海交大开源的 11 章大模型编程实践教程</a>
+            <a href="/2026/10/23/dive-llms-ch11-RLHF%E5%AE%89%E5%85%A8%E5%AF%B9%E9%BD%90/">动手学大模型 ch11｜RLHF安全对齐</a>
           </li>
         
           <li>
-            <a href="/2026/10/21/OpenStock-%E5%BC%80%E6%BA%90%E5%85%8D%E8%B4%B9%E5%85%A8%E7%90%83%E8%A1%8C%E6%83%85%E9%9D%A2%E6%9D%BF-%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BD%BF%E7%94%A8/">OpenStock：开源免费的全球行情面板，自己搭一个&#34;平价彭博终端&#34;</a>
+            <a href="/2026/10/23/dive-llms-ch10-%E6%99%BA%E8%83%BD%E4%BD%93%E5%AE%89%E5%85%A8/">动手学大模型 ch10｜智能体安全</a>
           </li>
         
           <li>
-            <a href="/2026/10/21/AI%E5%89%AF%E4%B8%9A%E8%B5%9A%E9%92%B1%E6%96%B9%E6%A1%88%E5%8D%9A%E7%89%A9%E9%A6%86-514%E7%AF%87%E5%B7%B2%E9%95%9C%E5%83%8F/">AI 副业赚钱方案博物馆：514 篇章节已镜像到本站</a>
+            <a href="/2026/10/23/dive-llms-ch09-GUI%E6%99%BA%E8%83%BD%E4%BD%93/">动手学大模型 ch09｜GUI智能体</a>
           </li>
         
           <li>
-            <a href="/2026/10/21/GitHub%E5%B0%8F%E7%99%BD%E9%9B%B6%E5%9F%BA%E7%A1%80%E4%BB%8E0%E5%88%B01%E6%95%99%E7%A8%8B/">GitHub 小白零基础从 0 到 1 教程（转载整理）</a>
+            <a href="/2026/10/23/dive-llms-ch08-%E5%A4%9A%E6%A8%A1%E6%80%81%E6%A8%A1%E5%9E%8B/">动手学大模型 ch08｜多模态模型</a>
           </li>
         
           <li>
-            <a href="/2026/10/20/%E5%8F%AF%E7%81%B54-0%E5%AE%9E%E6%B5%8B%E4%B8%8EAI%E7%9F%AD%E5%89%A7%E5%85%A8%E6%B5%81%E7%A8%8B/">动动嘴就能做 AI 短剧，还能自动剪辑：可灵 4.0 实测与全流程教程</a>
+            <a href="/2026/10/23/dive-llms-ch07-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%9A%90%E5%86%99/">动手学大模型 ch07｜大模型隐写</a>
           </li>
         
       </ul>

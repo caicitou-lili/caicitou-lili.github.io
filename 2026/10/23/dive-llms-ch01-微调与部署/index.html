@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>动手学大模型 ch01｜微调与部署 | 菜菜读书笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="本文镜像自上海交通大学开源教程 dive-into-llms 第 1 章「微调与部署」，配套课件 PDF与实验 Notebook见原仓库。内容版权属于原开发团队。   导读: 该部分介绍预训练模型微调想提升预训练模型在指定任务上的性能？让我们选择合适的预训练模型，在特定任务上进行微调，并将微调后的模型部署成方便使用的Demo！  本教程目标： 熟悉使用Transformers工具包 掌握预训练模">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动手学大模型 ch01｜微调与部署">
+<meta property="og:url" content="https://caicitou-lili.github.io/2026/10/23/dive-llms-ch01-%E5%BE%AE%E8%B0%83%E4%B8%8E%E9%83%A8%E7%BD%B2/index.html">
+<meta property="og:site_name" content="菜菜读书笔记">
+<meta property="og:description" content="本文镜像自上海交通大学开源教程 dive-into-llms 第 1 章「微调与部署」，配套课件 PDF与实验 Notebook见原仓库。内容版权属于原开发团队。   导读: 该部分介绍预训练模型微调想提升预训练模型在指定任务上的性能？让我们选择合适的预训练模型，在特定任务上进行微调，并将微调后的模型部署成方便使用的Demo！  本教程目标： 熟悉使用Transformers工具包 掌握预训练模">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/dive-into-llms/ch1/huggingface.PNG">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/dive-into-llms/ch1/0.png">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/dive-into-llms/ch1/1.png">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/dive-into-llms/ch1/2.png">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/dive-into-llms/ch1/3.png">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/dive-into-llms/ch1/4.png">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/dive-into-llms/ch1/5.png">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/dive-into-llms/ch1/6.png">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/dive-into-llms/ch1/7.png">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/dive-into-llms/ch1/8.png">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/dive-into-llms/ch1/9.png">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/dive-into-llms/ch1/10.png">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/dive-into-llms/ch1/gradio.png">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/dive-into-llms/ch1/11.png">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/dive-into-llms/ch1/12.png">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/dive-into-llms/ch1/13.png">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/dive-into-llms/ch1/14.png">
+<meta property="article:published_time" content="2026-10-22T19:00:00.000Z">
+<meta property="article:modified_time" content="2026-10-22T18:10:34.536Z">
+<meta property="article:author" content="caicitou-lili">
+<meta property="article:tag" content="开源项目">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="大模型">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://caicitou-lili.github.io/images/dive-into-llms/ch1/huggingface.PNG">
+  
+    <link rel="alternate" href="/atom.xml" title="菜菜读书笔记" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0">  <link rel="stylesheet" href="/css/local-search.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">菜菜读书笔记</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">读一本好书，遇见更好的自己</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/tags">标签</a>
+        
+          <a class="main-nav-link" href="/categories">分类</a>
+        
+          <a class="main-nav-link" href="/rollingstone-500/">音乐</a>
+        
+          <a class="main-nav-link" href="/poetry/">诗歌</a>
+        
+          <a class="main-nav-link" href="/ziwei/">紫微</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          
+            <a class="nav-icon" target="_blank" rel="noopener" href="https://github.com/caicitou-lili"><span class="fa fa-github"></span></a>
+          
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="/search.json" method="get" class="search-form" id="local-search-form" role="search" autocomplete="off">
+  <input type="search" name="q" id="local-search-input" class="search-form-input" placeholder="搜索文章…" aria-label="站内搜索">
+  <button type="submit" class="search-form-submit" aria-label="搜索">&#xF002;</button>
+</form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-dive-llms-ch01-微调与部署" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/10/23/dive-llms-ch01-%E5%BE%AE%E8%B0%83%E4%B8%8E%E9%83%A8%E7%BD%B2/" class="article-date">
+  <time class="dt-published" datetime="2026-10-22T19:00:00.000Z" itemprop="datePublished">2026-10-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%A4%A7%E6%A8%A1%E5%9E%8B/">动手学大模型</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      动手学大模型 ch01｜微调与部署
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>本文镜像自上海交通大学开源教程 <a target="_blank" rel="noopener" href="https://github.com/Lordog/dive-into-llms">dive-into-llms</a> 第 1 章「微调与部署」，配套<a target="_blank" rel="noopener" href="https://github.com/Lordog/dive-into-llms/blob/main/documents/chapter1">课件 PDF</a>与<a target="_blank" rel="noopener" href="https://github.com/Lordog/dive-into-llms/blob/main/documents/chapter1">实验 Notebook</a>见原仓库。内容版权属于原开发团队。</p>
+</blockquote>
+<blockquote>
+<p>导读: 该部分介绍预训练模型微调<br>想提升预训练模型在指定任务上的性能？让我们选择合适的预训练模型，在特定任务上进行微调，并将微调后的模型部署成方便使用的Demo！</p>
+</blockquote>
+<h1 id="本教程目标："><a href="#本教程目标：" class="headerlink" title="本教程目标："></a>本教程目标：</h1><ol>
+<li>熟悉使用Transformers工具包</li>
+<li>掌握预训练模型的微调、推理（解耦可定制版本 &amp; 默认集成版本）</li>
+<li>掌握利用Gradio Spaces进行Demo部署</li>
+<li>了解不同类型的预训练模型的选型和应用场景</li>
+</ol>
+<h1 id="本教程内容："><a href="#本教程内容：" class="headerlink" title="本教程内容："></a>本教程内容：</h1><h1 id="1-工作准备："><a href="#1-工作准备：" class="headerlink" title="1. 工作准备："></a>1. 工作准备：</h1><h1 id="1-1-了解工具包：Transformers"><a href="#1-1-了解工具包：Transformers" class="headerlink" title="1.1 了解工具包：Transformers"></a>1.1 了解工具包：Transformers</h1><p><a target="_blank" rel="noopener" href="https://github.com/huggingface/transformers">https://github.com/huggingface/transformers</a></p>
+<blockquote>
+<p>🤗 Transformers 提供了可以轻松地下载并且训练先进的预训练模型的 API 和工具。使用预训练模型可以减少计算消耗和碳排放，并且节省从头训练所需要的时间和资源。这些模型支持不同模态中的常见任务，比如：<br>📝 自然语言处理：文本分类、命名实体识别、问答、语言建模、摘要、翻译、多项选择和文本生成。<br>🖼️ 机器视觉：图像分类、目标检测和语义分割。<br>🗣️ 音频：自动语音识别和音频分类。<br>🐙 多模态：表格问答、光学字符识别、从扫描文档提取信息、视频分类和视觉问答。</p>
+</blockquote>
+<p>详细中文文档：<a target="_blank" rel="noopener" href="https://huggingface.co/docs/transformers/main/zh/index">https://huggingface.co/docs/transformers/main/zh/index</a></p>
+<p><img src="/images/dive-into-llms/ch1/huggingface.PNG" alt="huggingface"></p>
+<h1 id="1-2-安装环境：以文本分类（e-g-虚假新闻检测）为例"><a href="#1-2-安装环境：以文本分类（e-g-虚假新闻检测）为例" class="headerlink" title="1.2 安装环境：以文本分类（e.g., 虚假新闻检测）为例"></a>1.2 安装环境：以文本分类（e.g., 虚假新闻检测）为例</h1><ol>
+<li>我们进入到文本分类的案例库，参考readme了解关键参数，下载requirements.txt和run_classification.py</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://github.com/huggingface/transformers/tree/main/examples/pytorch/text-classification">https://github.com/huggingface/transformers/tree/main/examples/pytorch/text-classification</a></p>
+<ol start="2">
+<li>安装环境：</li>
+</ol>
+<ul>
+<li><ol>
+<li>通过conda创建新的环境：conda create -n llm python&#x3D;3.9</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>进入虚拟环境：conda activate llm</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>pip install transformers</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>删除requirements.txt中自动安装的torch，pip install -r requirements.txt</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>若下载速度慢，可使用国内源：pip [Packages] -i <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a></p>
+</blockquote>
+<blockquote>
+<p>若使用国内源安装pytorch，将自动选择pytorch的cpu版本，无法运行gpu，因此——</p>
+</blockquote>
+<ul>
+<li><ol start="5">
+<li>conda install pytorch</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>若下载速度慢，可按照该博客配置conda镜像：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42797483/article/details/132048218">https://blog.csdn.net/weixin_42797483/article/details/132048218</a></p>
+</blockquote>
+<ol start="3">
+<li>准备数据：我们以Kaggle上的虚假推文数据集为例：<a target="_blank" rel="noopener" href="https://www.kaggle.com/c/nlp-getting-started/data">https://www.kaggle.com/c/nlp-getting-started/data</a></li>
+</ol>
+<h1 id="1-3-处理好的工程包（演示代码和数据）"><a href="#1-3-处理好的工程包（演示代码和数据）" class="headerlink" title="1.3 处理好的工程包（演示代码和数据）"></a>1.3 处理好的工程包（演示代码和数据）</h1><p>（1）解耦可定制版本（关键模块解耦，方便理解，可自定义数据加载、模型结构、评价指标等）</p>
+<p><a target="_blank" rel="noopener" href="https://pan.quark.cn/s/00dae5c2b128">TextClassificationCustom下载链接</a></p>
+<p>（2）默认集成版本（代码较<br>为丰富、复杂，一般直接超参数调用，略有开发门槛）</p>
+<p><a target="_blank" rel="noopener" href="https://pan.quark.cn/s/9d0510f1c98d">TextClassification下载链接</a></p>
+<h1 id="2-基于解耦版本进行定制开发（最小可行性产品MVP）"><a href="#2-基于解耦版本进行定制开发（最小可行性产品MVP）" class="headerlink" title="2. 基于解耦版本进行定制开发（最小可行性产品MVP）"></a>2. 基于解耦版本进行定制开发（最小可行性产品MVP）</h1><p>共三个主要文件：main.py主程序，utils_data.py数据加载和处理文件，modeling_bert.py模型结构文件</p>
+<p><img src="/images/dive-into-llms/ch1/0.png" alt="project structure"></p>
+<h1 id="2-1-理解关键模块"><a href="#2-1-理解关键模块" class="headerlink" title="2.1 理解关键模块"></a>2.1 理解关键模块</h1><ol>
+<li><p>加载和处理数据（utils_data.py）<br><img src="/images/dive-into-llms/ch1/1.png" alt="utils_data.py"></p>
+</li>
+<li><p>加载模型（modeling_bert.py）</p>
+</li>
+</ol>
+<p><img src="/images/dive-into-llms/ch1/2.png" alt="modeling_bert_1.py"></p>
+<p><img src="/images/dive-into-llms/ch1/3.png" alt="modeling_bert_2.py"></p>
+<ol start="3">
+<li>训练&#x2F;验证&#x2F;预测（main.py）</li>
+</ol>
+<p><img src="/images/dive-into-llms/ch1/4.png" alt="main.py"></p>
+<h1 id="2-2-运行训练-验证-预测一条龙"><a href="#2-2-运行训练-验证-预测一条龙" class="headerlink" title="2.2 运行训练&#x2F;验证&#x2F;预测一条龙"></a>2.2 运行训练&#x2F;验证&#x2F;预测一条龙</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python main.py</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-基于集成版本进行微调（Optional，基于run-classification-py）"><a href="#3-基于集成版本进行微调（Optional，基于run-classification-py）" class="headerlink" title="3. 基于集成版本进行微调（Optional，基于run_classification.py）"></a>3. 基于集成版本进行微调（Optional，基于run_classification.py）</h1><h1 id="3-1-理解关键模块："><a href="#3-1-理解关键模块：" class="headerlink" title="3.1 理解关键模块："></a>3.1 理解关键模块：</h1><ol>
+<li><p>加载数据（csv或json格式）<br><img src="/images/dive-into-llms/ch1/5.png" alt="load data"></p>
+</li>
+<li><p>处理数据<br><img src="/images/dive-into-llms/ch1/6.png" alt="process data"></p>
+</li>
+<li><p>加载模型<br><img src="/images/dive-into-llms/ch1/7.png" alt="load model"></p>
+</li>
+<li><p>训练&#x2F;验证&#x2F;预测<br><img src="/images/dive-into-llms/ch1/8.png" alt="train dev predict"></p>
+</li>
+</ol>
+<h1 id="3-2-训练模型"><a href="#3-2-训练模型" class="headerlink" title="3.2 训练模型"></a>3.2 训练模型</h1><p>同时在开发集上验证，在测试集上预测，执行下述脚本：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">python run_classification.py \</span><br><span class="line">    --model_name_or_path  bert-base-uncased \</span><br><span class="line">    --train_file data/train.csv \</span><br><span class="line">    --validation_file data/val.csv \</span><br><span class="line">    --test_file data/test.csv \</span><br><span class="line">    --shuffle_train_dataset \</span><br><span class="line">    --metric_name accuracy \</span><br><span class="line">    --text_column_name &quot;text&quot; \</span><br><span class="line">    --text_column_delimiter &quot;\n&quot; \</span><br><span class="line">    --label_column_name &quot;target&quot; \</span><br><span class="line">    --do_train \</span><br><span class="line">    --do_eval \</span><br><span class="line">    --do_predict \</span><br><span class="line">    --max_seq_length 512 \</span><br><span class="line">    --per_device_train_batch_size 32 \</span><br><span class="line">    --learning_rate 2e-5 \</span><br><span class="line">    --num_train_epochs 1 \</span><br><span class="line">    --output_dir experiments/</span><br></pre></td></tr></table></figure>
+
+<p>若出现报错或卡住，通常是网络问题：</p>
+<ol>
+<li><u>下载模型时显示“Network is unreachable”，手动下载模型到本地：<a target="_blank" rel="noopener" href="https://huggingface.co/google-bert/bert-base-uncased">https://huggingface.co/google-bert/bert-base-uncased</a></u></li>
+<li><u>若加完数据后卡住不动，CTRL+C终止后显示卡在“connection”，则是evaluate包加载评价指标时网络连接失败所致。</u></li>
+</ol>
+<p><img src="/images/dive-into-llms/ch1/9.png" alt="bug"></p>
+<p>此时，可去evaluate的GitHub下载整个包：<a target="_blank" rel="noopener" href="https://github.com/huggingface/evaluate/tree/main%EF%BC%8C%E5%B9%B6%E5%9C%A8%E8%B6%85%E5%8F%82%E6%95%B0%E4%B8%AD%E5%B0%86--metric_name%E8%B7%AF%E5%BE%84%E6%94%B9%E6%88%90%E6%9C%AC%E5%9C%B0%E7%9A%84%E6%8C%87%E6%A0%87%E8%B7%AF%E5%BE%84%EF%BC%8C%E5%8D%B3%EF%BC%9A">https://github.com/huggingface/evaluate/tree/main，并在超参数中将--metric_name路径改成本地的指标路径，即：</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">python run_classification.py \</span><br><span class="line">    --model_name_or_path  bert-base-uncased \</span><br><span class="line">    --train_file data/train.csv \</span><br><span class="line">    --validation_file data/val.csv \</span><br><span class="line">    --test_file data/test.csv \</span><br><span class="line">    --shuffle_train_dataset \</span><br><span class="line">    --metric_name evaluate/metrics/accuracy/accuracy.py \</span><br><span class="line">    --text_column_name &quot;text&quot; \</span><br><span class="line">    --text_column_delimiter &quot;\n&quot; \</span><br><span class="line">    --label_column_name &quot;target&quot; \</span><br><span class="line">    --do_train \</span><br><span class="line">    --do_eval \</span><br><span class="line">    --do_predict \</span><br><span class="line">    --max_seq_length 512 \</span><br><span class="line">    --per_device_train_batch_size 32 \</span><br><span class="line">    --learning_rate 2e-5 \</span><br><span class="line">    --num_train_epochs 1 \</span><br><span class="line">    --output_dir experiments/</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/dive-into-llms/ch1/10.png" alt="reference result"></p>
+<h1 id="4-部署模型：模型训练完毕后，我们可以在Gradio-Spaces上搭建在线demos"><a href="#4-部署模型：模型训练完毕后，我们可以在Gradio-Spaces上搭建在线demos" class="headerlink" title="4. 部署模型：模型训练完毕后，我们可以在Gradio Spaces上搭建在线demos"></a>4. 部署模型：模型训练完毕后，我们可以在Gradio Spaces上搭建在线demos</h1><h1 id="4-1-Gradio-Spaces教程"><a href="#4-1-Gradio-Spaces教程" class="headerlink" title="4.1 Gradio Spaces教程"></a>4.1 Gradio Spaces教程</h1><p><a target="_blank" rel="noopener" href="https://huggingface.co/docs/hub/en/spaces-sdks-gradio">https://huggingface.co/docs/hub/en/spaces-sdks-gradio</a></p>
+<h1 id="4-2-创建spaces"><a href="#4-2-创建spaces" class="headerlink" title="4.2 创建spaces"></a>4.2 创建spaces</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/new-space?sdk=gradio">https://huggingface.co/new-space?sdk=gradio</a></li>
+<li>Note：打不开的话请尝试科学上网</li>
+</ol>
+<p><img src="/images/dive-into-llms/ch1/gradio.png" alt="Gradio Spaces"></p>
+<h1 id="4-3-关键推理代码"><a href="#4-3-关键推理代码" class="headerlink" title="4.3 关键推理代码"></a>4.3 关键推理代码</h1><p>具体见工程包中的app.py</p>
+<p><img src="/images/dive-into-llms/ch1/11.png" alt="app.py"></p>
+<h1 id="4-4-将app-py、环境配置文件和模型上传到Gradio-Spaces"><a href="#4-4-将app-py、环境配置文件和模型上传到Gradio-Spaces" class="headerlink" title="4.4 将app.py、环境配置文件和模型上传到Gradio Spaces"></a>4.4 将app.py、环境配置文件和模型上传到Gradio Spaces</h1><ol>
+<li><p>配置文件（requirements.txt）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">transformers==4.30.2</span><br><span class="line">torch==2.0.0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>文件概览</p>
+</li>
+</ol>
+<p><img src="/images/dive-into-llms/ch1/12.png" alt="file overview"></p>
+<ol start="3">
+<li>Demo效果<br>成功部署的案例供参考：<a target="_blank" rel="noopener" href="https://huggingface.co/spaces/cooelf/text-classification">https://huggingface.co/spaces/cooelf/text-classification</a><br>其中在右上角“Files”栏目可以看到源码。</li>
+</ol>
+<p><img src="/images/dive-into-llms/ch1/13.png" alt="Files"></p>
+<ol start="4">
+<li>彩蛋：在Spaces平台可以看到每周的热点Demo，且可以搜索感兴趣的大模型、Demo进行尝试<br><img src="/images/dive-into-llms/ch1/14.png" alt="Spaces"></li>
+</ol>
+<h1 id="5-进阶练习"><a href="#5-进阶练习" class="headerlink" title="5. 进阶练习"></a>5. 进阶练习</h1><ol>
+<li>试试其他分类&#x2F;回归任务，例如情感分类、新闻分类、漏洞分类等</li>
+<li>试试其他类型的模型，例如T5、ELECTRA等</li>
+</ol>
+<h1 id="6-其他常用的模型"><a href="#6-其他常用的模型" class="headerlink" title="6. 其他常用的模型"></a>6. 其他常用的模型</h1><ol>
+<li>问答模型：<a target="_blank" rel="noopener" href="https://github.com/huggingface/transformers/tree/main/examples/pytorch/question-answering">https://github.com/huggingface/transformers/tree/main/examples/pytorch/question-answering</a></li>
+<li>文本摘要：<a target="_blank" rel="noopener" href="https://github.com/huggingface/transformers/tree/main/examples/pytorch/summarization">https://github.com/huggingface/transformers/tree/main/examples/pytorch/summarization</a></li>
+<li>调用Llama2进行推理：<a target="_blank" rel="noopener" href="https://huggingface.co/docs/transformers/en/model_doc/llama2">https://huggingface.co/docs/transformers/en/model_doc/llama2</a></li>
+<li>对Llama2进行轻量化微调（LoRA）：  <a target="_blank" rel="noopener" href="https://github.com/peremartra/Large-Language-Model-Notebooks-Course/blob/main/5-Fine%20Tuning/LoRA_Tuning_PEFT.ipynb">https://github.com/peremartra/Large-Language-Model-Notebooks-Course/blob/main/5-Fine%20Tuning/LoRA_Tuning_PEFT.ipynb</a></li>
+</ol>
+<h1 id="7-延伸阅读"><a href="#7-延伸阅读" class="headerlink" title="7. 延伸阅读"></a>7. 延伸阅读</h1><ol>
+<li><p>一篇对大语言模型（LLMs）进行全面、深入分析的43页<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzk0MTYzMzMxMA==&mid=2247484539&idx=1&sn=6ee42baab4ad792e74ac6a89d7dd87d9&chksm=c2ce3e0af5b9b71c578cb6836e09cce5f60b4a1cfffadc1c4c98211fc0af621bfaaaa8fe0aff&mpshare=1&scene=24&srcid=0331FO6iqVqs5Vx3iHrtqouQ&sharer_shareinfo=45c3fb78d9cfb9627908da44dd7f5559&sharer_shareinfo_first=45c3fb78d9cfb9627908da44dd7f5559&key=a2847c972f830c4143e00e0430f657d8ab5acae4ad24ca628213273021453a3a9e17984627e2ab8506d1dcf6e1fabd9ec3123a5f71d2a65295ad6f6f56da2224d4a6e3228237c237447bbf48a6eff1f53e1971503f26c3fb5b9d99d27eca7266529a5f86d75bada7ec10bf314687bfcbf9fa3b09b8e36e73f6d6a154a5ce5ff0&ascene=14&uin=NzE3NzkyOTQx&devicetype=iMac20,1+OSX+OSX+14.2.1+build(23C71)&version=13080610&nettype=WIFI&lang=zh_CN&countrycode=CN&fontScale=100&exportkey=n_ChQIAhIQM7tgcovlhXp1y5J+RMnhfhL3AQIE97dBBAEAAAAAAFsTBwTm4FMAAAAOpnltbLcz9gKNyK89dVj0MxFZswDc/k646vJPW2S3JFh8H2JhyZXiPbIl+h23CsewrmIoZ4j0D2zMNylC3pLbhu9FIARUKYn/0r0OIdHnxesVFpw1qLo6uBJ3zmbsKBVXM05+0MiOBIfShfpiIfraK7THzak94U0RdS1flC+IDjTb5SmZs9Z4XTyTsN0QXR6NWjAXFeuxnMB4SENMJ8dUR8n08b3DGKtz9rfefn0JRlsX4mGcLvOFsFwg4nk35nl4C3Wgcs4OYociKm5UHabdhWT7/WbNNToZLD39eD/L4Xo=&acctmode=0&pass_ticket=8xG4QKOnJeEFUtXkScVmMqb3omdWJbPuc+hN5+A7/OXj7ex757M2ABNO4GVVnv2T3VtqrC9gZH/rU09rrUxJcA==&wx_header=0">综述</a>（Word2Vec作者出品）</p>
+<p> 论文题目：Large Language Models: A Survey</p>
+<p> 论文链接：<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2402.06196.pdf">https://arxiv.org/pdf/2402.06196.pdf</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1AF411b7xQ?t=0.0">GPT，GPT-2，GPT-3 论文精读【论文精读】</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1hd4y187CR?t=0.4">InstructGPT 论文精读【论文精读·48】</a></p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://caicitou-lili.github.io/2026/10/23/dive-llms-ch01-%E5%BE%AE%E8%B0%83%E4%B8%8E%E9%83%A8%E7%BD%B2/" data-id="cmvjux3o50001w0h3783k6jbc" data-title="动手学大模型 ch01｜微调与部署" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag">大模型</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" rel="tag">开源项目</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2026/10/23/dive-llms-ch02-%E6%8F%90%E7%A4%BA%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%80%9D%E7%BB%B4%E9%93%BE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          动手学大模型 ch02｜提示学习与思维链
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2026/10/23/%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E4%B8%8A%E6%B5%B7%E4%BA%A4%E5%A4%A711%E7%AB%A0%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5%E6%95%99%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">动手学大模型：上海交大开源的 11 章大模型编程实践教程</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%A6%E8%AF%84/">书评</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%A4%A7%E6%A8%A1%E5%9E%8B/">动手学大模型</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/">效率工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9F%B3%E4%B9%90/">音乐</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AGENTS-md/" rel="tag">AGENTS.md</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI-Agent/" rel="tag">AI Agent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI-Skills/" rel="tag">AI Skills</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%88%9B%E4%B8%9A/" rel="tag">AI创业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">AI工作流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%BB%BA%E7%AB%99/" rel="tag">AI建站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E6%8A%95%E7%A0%94/" rel="tag">AI投研</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E6%B3%A1%E6%B2%AB/" rel="tag">AI泡沫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E7%AC%AC%E4%BA%8C%E5%A4%A7%E8%84%91/" rel="tag">AI第二大脑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E7%BC%96%E7%A8%8B/" rel="tag">AI编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E8%A7%86%E9%A2%91/" rel="tag">AI视频</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Agent/" rel="tag">Agent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Anthropic/" rel="tag">Anthropic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Claude/" rel="tag">Claude</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Claude-Code/" rel="tag">Claude Code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Codex/" rel="tag">Codex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DeepSeek/" rel="tag">DeepSeek</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-AdSense/" rel="tag">Google AdSense</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hostinger/" rel="tag">Hostinger</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MCP/" rel="tag">MCP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Next-js/" rel="tag">Next.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Obsidian/" rel="tag">Obsidian</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PARA/" rel="tag">PARA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prompt/" rel="tag">Prompt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Skills/" rel="tag">Skills</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Workflow/" rel="tag">Workflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/YouTube/" rel="tag">YouTube</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eSIM/" rel="tag">eSIM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yt-dlp/" rel="tag">yt-dlp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8/" rel="tag">一人公司</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/" rel="tag">中国经济</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E6%96%87%E5%86%99%E4%BD%9C/" rel="tag">中文写作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E8%AF%84/" rel="tag">书评</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%8D%E8%B4%B9%E5%B7%A5%E5%85%B7/" rel="tag">免费工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" rel="tag">公众号</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C/" rel="tag">内容创作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AE%B9%E5%8F%98%E7%8E%B0/" rel="tag">内容变现</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BA%E5%9B%BD/" rel="tag">出国</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BA%E5%B7%AE/" rel="tag">出差</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BA%E6%B5%B7%E8%B5%9A%E9%92%B1/" rel="tag">出海赚钱</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%9B%E4%B8%9A/" rel="tag">创业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%AF%E4%B8%9A/" rel="tag">副业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">动态工作流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%86%E5%8F%B2%E5%AF%B9%E6%AF%94/" rel="tag">历史对比</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E7%81%B5/" rel="tag">可灵</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9C%B0%E7%BC%98%E6%94%BF%E6%B2%BB/" rel="tag">地缘政治</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag">大模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" rel="tag">学习方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" rel="tag">学习路线</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E6%B5%8B/" rel="tag">实测</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%BA%A2%E4%B9%A6/" rel="tag">小红书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">工作流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%B3%E5%8F%B0%E7%AE%97%E6%B3%95/" rel="tag">平台算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%BA%90/" rel="tag">开源</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" rel="tag">开源项目</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%93%E5%B7%A5%E5%BA%A6%E5%81%87/" rel="tag">打工度假</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%95%E8%B5%84/" rel="tag">投资</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8D%A1%E6%BC%8F/" rel="tag">捡漏</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" rel="tag">效率工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E6%A1%88/" rel="tag">文案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8/" rel="tag">新手入门</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%85%E8%A1%8C/" rel="tag">旅行</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9A%97%E9%99%90%E6%B5%81/" rel="tag">暗限流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E6%B4%9E/" rel="tag">树洞</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A6%9C%E5%8D%95/" rel="tag">榜单</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B0%91%E7%B2%B9%E4%B8%BB%E4%B9%89/" rel="tag">民粹主义</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%A6%E8%89%B2/" rel="tag">润色</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BB%9A%E7%9F%B3/" rel="tag">滚石</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BE%B3%E6%B4%B2WHV/" rel="tag">澳洲WHV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB%E6%8C%87%E5%8D%97/" rel="tag">生活指南</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5/" rel="tag">电商运营</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/" rel="tag">电子书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" rel="tag">知识管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A0%8D%E4%BB%B7/" rel="tag">砍价</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%B9%BB/" rel="tag">科幻</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/" rel="tag">笔记方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AD%BE%E8%AF%81%E6%94%BB%E7%95%A5/" rel="tag">签证攻略</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%82%A1%E7%A5%A8/" rel="tag">股票</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90/" rel="tag">股票分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" rel="tag">自动化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93/" rel="tag">自媒体</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" rel="tag">自媒体工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E9%83%A8%E7%BD%B2/" rel="tag">自部署</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/" rel="tag">被动收入</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" rel="tag">视频下载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/" rel="tag">视频剪辑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" rel="tag">语音合成</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%B8%E6%98%93%E6%88%98/" rel="tag">贸易战</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E9%80%89%E6%8B%A9/" rel="tag">软件选择</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%89%E9%A2%98/" rel="tag">选题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%B2%E9%B1%BC/" rel="tag">闲鱼</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%BF%E8%A5%BF%E8%8E%AB%E5%A4%AB/" rel="tag">阿西莫夫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9F%B3%E4%B9%90/" rel="tag">音乐</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AGENTS-md/" style="font-size: 10px;">AGENTS.md</a> <a href="/tags/AI/" style="font-size: 11.82px;">AI</a> <a href="/tags/AI-Agent/" style="font-size: 10px;">AI Agent</a> <a href="/tags/AI-Skills/" style="font-size: 10px;">AI Skills</a> <a href="/tags/AIGC/" style="font-size: 12.73px;">AIGC</a> <a href="/tags/AI%E5%88%9B%E4%B8%9A/" style="font-size: 10px;">AI创业</a> <a href="/tags/AI%E5%89%AF%E4%B8%9A/" style="font-size: 20px;">AI副业</a> <a href="/tags/AI%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 12.73px;">AI工作流</a> <a href="/tags/AI%E5%BB%BA%E7%AB%99/" style="font-size: 10px;">AI建站</a> <a href="/tags/AI%E6%8A%95%E7%A0%94/" style="font-size: 10px;">AI投研</a> <a href="/tags/AI%E6%B3%A1%E6%B2%AB/" style="font-size: 10px;">AI泡沫</a> <a href="/tags/AI%E7%AC%AC%E4%BA%8C%E5%A4%A7%E8%84%91/" style="font-size: 10px;">AI第二大脑</a> <a href="/tags/AI%E7%BC%96%E7%A8%8B/" style="font-size: 10.91px;">AI编程</a> <a href="/tags/AI%E8%A7%86%E9%A2%91/" style="font-size: 10px;">AI视频</a> <a href="/tags/Agent/" style="font-size: 10px;">Agent</a> <a href="/tags/Anthropic/" style="font-size: 10px;">Anthropic</a> <a href="/tags/Claude/" style="font-size: 12.73px;">Claude</a> <a href="/tags/Claude-Code/" style="font-size: 10.91px;">Claude Code</a> <a href="/tags/Codex/" style="font-size: 13.64px;">Codex</a> <a href="/tags/DeepSeek/" style="font-size: 10px;">DeepSeek</a> <a href="/tags/Git/" style="font-size: 10.91px;">Git</a> <a href="/tags/GitHub/" style="font-size: 11.82px;">GitHub</a> <a href="/tags/Google-AdSense/" style="font-size: 10px;">Google AdSense</a> <a href="/tags/Hostinger/" style="font-size: 10px;">Hostinger</a> <a href="/tags/MCP/" style="font-size: 11.82px;">MCP</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Next-js/" style="font-size: 10px;">Next.js</a> <a href="/tags/Obsidian/" style="font-size: 11.82px;">Obsidian</a> <a href="/tags/PARA/" style="font-size: 10px;">PARA</a> <a href="/tags/Prompt/" style="font-size: 10px;">Prompt</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/Skills/" style="font-size: 11.82px;">Skills</a> <a href="/tags/Workflow/" style="font-size: 10px;">Workflow</a> <a href="/tags/YouTube/" style="font-size: 10px;">YouTube</a> <a href="/tags/eSIM/" style="font-size: 10px;">eSIM</a> <a href="/tags/yt-dlp/" style="font-size: 10px;">yt-dlp</a> <a href="/tags/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8/" style="font-size: 10px;">一人公司</a> <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/" style="font-size: 10px;">中国经济</a> <a href="/tags/%E4%B8%AD%E6%96%87%E5%86%99%E4%BD%9C/" style="font-size: 10px;">中文写作</a> <a href="/tags/%E4%B9%A6%E8%AF%84/" style="font-size: 10px;">书评</a> <a href="/tags/%E5%85%8D%E8%B4%B9%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">免费工具</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 10px;">公众号</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C/" style="font-size: 11.82px;">内容创作</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%8F%98%E7%8E%B0/" style="font-size: 10px;">内容变现</a> <a href="/tags/%E5%87%BA%E5%9B%BD/" style="font-size: 10px;">出国</a> <a href="/tags/%E5%87%BA%E5%B7%AE/" style="font-size: 10px;">出差</a> <a href="/tags/%E5%87%BA%E6%B5%B7%E8%B5%9A%E9%92%B1/" style="font-size: 10px;">出海赚钱</a> <a href="/tags/%E5%88%9B%E4%B8%9A/" style="font-size: 17.27px;">创业</a> <a href="/tags/%E5%89%AF%E4%B8%9A/" style="font-size: 12.73px;">副业</a> <a href="/tags/%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">动态工作流</a> <a href="/tags/%E5%8E%86%E5%8F%B2%E5%AF%B9%E6%AF%94/" style="font-size: 10px;">历史对比</a> <a href="/tags/%E5%8F%AF%E7%81%B5/" style="font-size: 10px;">可灵</a> <a href="/tags/%E5%9C%B0%E7%BC%98%E6%94%BF%E6%B2%BB/" style="font-size: 10px;">地缘政治</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 14.55px;">大模型</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">学习方法</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" style="font-size: 10px;">学习路线</a> <a href="/tags/%E5%AE%9E%E6%B5%8B/" style="font-size: 10px;">实测</a> <a href="/tags/%E5%B0%8F%E7%BA%A2%E4%B9%A6/" style="font-size: 10px;">小红书</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">工作流</a> <a href="/tags/%E5%B9%B3%E5%8F%B0%E7%AE%97%E6%B3%95/" style="font-size: 10px;">平台算法</a> <a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 11.82px;">开源</a> <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 16.36px;">开源项目</a> <a href="/tags/%E6%89%93%E5%B7%A5%E5%BA%A6%E5%81%87/" style="font-size: 10px;">打工度假</a> <a href="/tags/%E6%8A%95%E8%B5%84/" style="font-size: 10px;">投资</a> <a href="/tags/%E6%8D%A1%E6%BC%8F/" style="font-size: 10px;">捡漏</a> <a href="/tags/%E6%90%9E%E9%92%B1/" style="font-size: 19.09px;">搞钱</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">效率工具</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 15.45px;">教程</a> <a href="/tags/%E6%96%87%E6%A1%88/" style="font-size: 10px;">文案</a> <a href="/tags/%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8/" style="font-size: 10px;">新手入门</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 10px;">旅行</a> <a href="/tags/%E6%9A%97%E9%99%90%E6%B5%81/" style="font-size: 10px;">暗限流</a> <a href="/tags/%E6%A0%91%E6%B4%9E/" style="font-size: 17.27px;">树洞</a> <a href="/tags/%E6%A6%9C%E5%8D%95/" style="font-size: 10px;">榜单</a> <a href="/tags/%E6%B0%91%E7%B2%B9%E4%B8%BB%E4%B9%89/" style="font-size: 10px;">民粹主义</a> <a href="/tags/%E6%B6%A6%E8%89%B2/" style="font-size: 10px;">润色</a> <a href="/tags/%E6%BB%9A%E7%9F%B3/" style="font-size: 10px;">滚石</a> <a href="/tags/%E6%BE%B3%E6%B4%B2WHV/" style="font-size: 10px;">澳洲WHV</a> <a href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" style="font-size: 18.18px;">独立开发</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%8C%87%E5%8D%97/" style="font-size: 10px;">生活指南</a> <a href="/tags/%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5/" style="font-size: 10.91px;">电商运营</a> <a href="/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/" style="font-size: 10px;">电子书</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 10.91px;">知识管理</a> <a href="/tags/%E7%A0%8D%E4%BB%B7/" style="font-size: 10px;">砍价</a> <a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 10px;">科幻</a> <a href="/tags/%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">笔记方法</a> <a href="/tags/%E7%AD%BE%E8%AF%81%E6%94%BB%E7%95%A5/" style="font-size: 10px;">签证攻略</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">翻译</a> <a href="/tags/%E8%82%A1%E7%A5%A8/" style="font-size: 10px;">股票</a> <a href="/tags/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90/" style="font-size: 10px;">股票分析</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 11.82px;">自动化</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93/" style="font-size: 12.73px;">自媒体</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">自媒体工具</a> <a href="/tags/%E8%87%AA%E9%83%A8%E7%BD%B2/" style="font-size: 10px;">自部署</a> <a href="/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/" style="font-size: 10px;">被动收入</a> <a href="/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" style="font-size: 10px;">视频下载</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/" style="font-size: 10.91px;">视频剪辑</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 10px;">语音合成</a> <a href="/tags/%E8%B4%B8%E6%98%93%E6%88%98/" style="font-size: 10px;">贸易战</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E9%80%89%E6%8B%A9/" style="font-size: 10px;">软件选择</a> <a href="/tags/%E9%80%89%E9%A2%98/" style="font-size: 10px;">选题</a> <a href="/tags/%E9%97%B2%E9%B1%BC/" style="font-size: 12.73px;">闲鱼</a> <a href="/tags/%E9%98%BF%E8%A5%BF%E8%8E%AB%E5%A4%AB/" style="font-size: 10px;">阿西莫夫</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 10px;">音乐</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/10/">十月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/09/">九月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/08/">八月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/07/">七月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">六月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/05/">五月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/04/">四月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">三月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">二月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">一月 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/10/23/dive-llms-ch11-RLHF%E5%AE%89%E5%85%A8%E5%AF%B9%E9%BD%90/">动手学大模型 ch11｜RLHF安全对齐</a>
+          </li>
+        
+          <li>
+            <a href="/2026/10/23/dive-llms-ch10-%E6%99%BA%E8%83%BD%E4%BD%93%E5%AE%89%E5%85%A8/">动手学大模型 ch10｜智能体安全</a>
+          </li>
+        
+          <li>
+            <a href="/2026/10/23/dive-llms-ch09-GUI%E6%99%BA%E8%83%BD%E4%BD%93/">动手学大模型 ch09｜GUI智能体</a>
+          </li>
+        
+          <li>
+            <a href="/2026/10/23/dive-llms-ch08-%E5%A4%9A%E6%A8%A1%E6%80%81%E6%A8%A1%E5%9E%8B/">动手学大模型 ch08｜多模态模型</a>
+          </li>
+        
+          <li>
+            <a href="/2026/10/23/dive-llms-ch07-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%9A%90%E5%86%99/">动手学大模型 ch07｜大模型隐写</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        内容采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 授权，转载请注明出处。
+      
+      &copy; 2026 caicitou-lili<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/tags" class="mobile-nav-link">标签</a>
+  
+    <a href="/categories" class="mobile-nav-link">分类</a>
+  
+    <a href="/rollingstone-500/" class="mobile-nav-link">音乐</a>
+  
+    <a href="/poetry/" class="mobile-nav-link">诗歌</a>
+  
+    <a href="/ziwei/" class="mobile-nav-link">紫微</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+<div id="local-search-panel" class="ls-panel" role="listbox" aria-label="搜索结果" hidden>
+  <div class="ls-panel-inner">
+    <div class="ls-hint">输入关键词开始搜索</div>
+    <div class="ls-results"></div>
+  </div>
+</div>
+<script src="/js/local-search.js" defer></script>
+</body>
+</html>

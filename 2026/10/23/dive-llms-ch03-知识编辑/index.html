@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>动手学大模型 ch03｜知识编辑 | 菜菜读书笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="本文镜像自上海交通大学开源教程 dive-into-llms 第 3 章「知识编辑」，配套课件 PDF与实验 Notebook见原仓库。内容版权属于原开发团队。  导读: 语言模型的编辑方法和工具  想操控语言模型在对指定知识的记忆？让我们选择合适的编辑方法，对特定知识进行编辑，并将对编辑后的模型进行验证！  1. 本教程目标： 熟悉使用EasyEdit工具包 掌握语言模型的编辑方法（最简） 了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动手学大模型 ch03｜知识编辑">
+<meta property="og:url" content="https://caicitou-lili.github.io/2026/10/23/dive-llms-ch03-%E7%9F%A5%E8%AF%86%E7%BC%96%E8%BE%91/index.html">
+<meta property="og:site_name" content="菜菜读书笔记">
+<meta property="og:description" content="本文镜像自上海交通大学开源教程 dive-into-llms 第 3 章「知识编辑」，配套课件 PDF与实验 Notebook见原仓库。内容版权属于原开发团队。  导读: 语言模型的编辑方法和工具  想操控语言模型在对指定知识的记忆？让我们选择合适的编辑方法，对特定知识进行编辑，并将对编辑后的模型进行验证！  1. 本教程目标： 熟悉使用EasyEdit工具包 掌握语言模型的编辑方法（最简） 了">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/dive-into-llms/ch3/1.png">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/dive-into-llms/ch3/2.png">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/dive-into-llms/ch3/3.png">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/dive-into-llms/ch3/4.png">
+<meta property="og:image" content="https://caicitou-lili.github.io/images/dive-into-llms/ch3/5.png">
+<meta property="article:published_time" content="2026-10-22T20:00:00.000Z">
+<meta property="article:modified_time" content="2026-10-22T18:10:34.570Z">
+<meta property="article:author" content="caicitou-lili">
+<meta property="article:tag" content="开源项目">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="大模型">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://caicitou-lili.github.io/images/dive-into-llms/ch3/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="菜菜读书笔记" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0">  <link rel="stylesheet" href="/css/local-search.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">菜菜读书笔记</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">读一本好书，遇见更好的自己</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/tags">标签</a>
+        
+          <a class="main-nav-link" href="/categories">分类</a>
+        
+          <a class="main-nav-link" href="/rollingstone-500/">音乐</a>
+        
+          <a class="main-nav-link" href="/poetry/">诗歌</a>
+        
+          <a class="main-nav-link" href="/ziwei/">紫微</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          
+            <a class="nav-icon" target="_blank" rel="noopener" href="https://github.com/caicitou-lili"><span class="fa fa-github"></span></a>
+          
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="/search.json" method="get" class="search-form" id="local-search-form" role="search" autocomplete="off">
+  <input type="search" name="q" id="local-search-input" class="search-form-input" placeholder="搜索文章…" aria-label="站内搜索">
+  <button type="submit" class="search-form-submit" aria-label="搜索">&#xF002;</button>
+</form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-dive-llms-ch03-知识编辑" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/10/23/dive-llms-ch03-%E7%9F%A5%E8%AF%86%E7%BC%96%E8%BE%91/" class="article-date">
+  <time class="dt-published" datetime="2026-10-22T20:00:00.000Z" itemprop="datePublished">2026-10-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%A4%A7%E6%A8%A1%E5%9E%8B/">动手学大模型</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      动手学大模型 ch03｜知识编辑
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>本文镜像自上海交通大学开源教程 <a target="_blank" rel="noopener" href="https://github.com/Lordog/dive-into-llms">dive-into-llms</a> 第 3 章「知识编辑」，配套<a target="_blank" rel="noopener" href="https://github.com/Lordog/dive-into-llms/blob/main/documents/chapter3">课件 PDF</a>与<a target="_blank" rel="noopener" href="https://github.com/Lordog/dive-into-llms/blob/main/documents/chapter3">实验 Notebook</a>见原仓库。内容版权属于原开发团队。</p>
+</blockquote>
+<p>导读: 语言模型的编辑方法和工具</p>
+<blockquote>
+<p>想操控语言模型在对指定知识的记忆？让我们选择合适的编辑方法，对特定知识进行编辑，并将对编辑后的模型进行验证！</p>
+</blockquote>
+<h1 id="1-本教程目标："><a href="#1-本教程目标：" class="headerlink" title="1. 本教程目标："></a>1. 本教程目标：</h1><ul>
+<li>熟悉使用EasyEdit工具包</li>
+<li>掌握语言模型的编辑方法（最简）</li>
+<li>了解不同类型的编辑方法的选型和应用场景</li>
+</ul>
+<h1 id="2-工作准备："><a href="#2-工作准备：" class="headerlink" title="2. 工作准备："></a>2. 工作准备：</h1><h1 id="2-1-了解EasyEdit"><a href="#2-1-了解EasyEdit" class="headerlink" title="2.1 了解EasyEdit"></a>2.1 了解EasyEdit</h1><p><a target="_blank" rel="noopener" href="https://github.com/zjunlp/EasyEdit">https://github.com/zjunlp/EasyEdit</a></p>
+<p>EasyEdit 是一个用于编辑语言模型的 Python 包，如 GPT-J、Llama、GPT-NEO、GPT2、T5等，其目标是针对一个特定的知识有效地改变语言模型的行为，而不会对其他输入的性能产生负面影响，同时易于使用且易于扩展。</p>
+<p>EasyEdit 集成了现有的流行的编辑方法：<br><img src="/images/dive-into-llms/ch3/1.png"></p>
+<h1 id="2-2-主要框架"><a href="#2-2-主要框架" class="headerlink" title="2.2 主要框架"></a>2.2 主要框架</h1><p><img src="/images/dive-into-llms/ch3/2.png"><br>EasyEdit包含一个统一的Editor、Method和Evaluate框架，分别代表编辑场景、编辑技术和评估方法。</p>
+<ul>
+<li>Editor：描述工作场景，包含待编辑的模型，待编辑的知识，以及其他必要的超参数。</li>
+<li>Method：所使用的具体知识编辑方法（例如ROME、MEND等）。</li>
+<li>Evaluate：评估知识编辑性能的指标，包含了可靠性、通用性、局部性、可移植性。</li>
+<li>Trainer：有些编辑方法需要一定的训练过程，由Trainer模块实现。</li>
+</ul>
+<h1 id="3-安装环境："><a href="#3-安装环境：" class="headerlink" title="3. 安装环境："></a>3. 安装环境：</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/zjunlp/EasyEdit.git</span><br><span class="line">（可选）conda create -n EasyEdit python=3.9.7</span><br><span class="line">cd EasyEdit</span><br><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+<h1 id="4-编辑案例"><a href="#4-编辑案例" class="headerlink" title="4. 编辑案例"></a>4. 编辑案例</h1><blockquote>
+<p>目标：改变GPT-2-XL的知识记忆，将梅西(Lionel Messi)的职业从足球改成篮球(football-&gt;basketball).<br>步骤：</p>
+</blockquote>
+<ul>
+<li>选择编辑方法，准备参数</li>
+<li>准备知识编辑的数据</li>
+<li>实例化Editor</li>
+<li>Run！<br>下面以ROME方法为例具体介绍：</li>
+</ul>
+<h1 id="4-1-ROME"><a href="#4-1-ROME" class="headerlink" title="4.1 ROME"></a>4.1 ROME</h1><p>Jupiter Notebook: [<a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/1KkyWqyV3BjXCWfdrrgbR-QS3AAokVZbr?usp=sharing#scrollTo=zWfGkNb9FBJQ]">https://colab.research.google.com/drive/1KkyWqyV3BjXCWfdrrgbR-QS3AAokVZbr?usp=sharing#scrollTo=zWfGkNb9FBJQ]</a> </p>
+<ul>
+<li>选择编辑方法，准备参数<ul>
+<li>编辑方法选择为ROME，准备ROME和GPT2-XL所需要的参数。</li>
+<li>例如：alg_name: “ROME”，model_name: “.&#x2F;hugging_cache&#x2F;gpt2-xl”或为本地该模型的路径，”device”: 使用的GPU序号</li>
+<li>其余参数可保持默认<br><img src="/images/dive-into-llms/ch3/3.png"></li>
+</ul>
+</li>
+<li>准备知识编辑的数据  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">prompts = [&#x27;Question:What sport does Lionel Messi play? Answer:&#x27;] # x_e</span><br><span class="line">ground_truth = [&#x27;football&#x27;] # y</span><br><span class="line">target_new = [&#x27;basketball&#x27;] # y_e</span><br><span class="line">subject = [&#x27;Lionel Messi&#x27;] </span><br></pre></td></tr></table></figure></li>
+<li>实例化Editor，将准备好的参数传入BaseEditor类进行实例化，得到定制的Editor实例。  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hparams = ROMEHyperParams.from_hparams(&#x27;./hparams/ROME/gpt2-xl.yaml&#x27;)</span><br><span class="line">editor=BaseEditor.from_hparams(hparams)</span><br></pre></td></tr></table></figure></li>
+<li>Run! 调用editor的edit方法：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">metrics, edited_model, _ = editor.edit(</span><br><span class="line">    prompts=prompts,</span><br><span class="line">    ground_truth=ground_truth,</span><br><span class="line">    target_new=target_new,</span><br><span class="line">    subject=subject,</span><br><span class="line">    keep_original_weight=False</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<img src="/images/dive-into-llms/ch3/4.png"><blockquote>
+<p>备注：首次编辑某个模型时会下载Wiki语料，并为该模型计算各层的状态（stats_dir: “.&#x2F;data&#x2F;stats”）并存下，在后续的每次编辑中复用。因此，首次编辑有所耗时，确保网络通畅的情况下可耐心等待。</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="4-2-验证与评估"><a href="#4-2-验证与评估" class="headerlink" title="4.2 验证与评估"></a>4.2 验证与评估</h1><p>editor.edit会返回metrics（由EasyEdit的Evaluate模块计算）。形式为：<br><img src="/images/dive-into-llms/ch3/5.png"><br>要得到通用性、局部性、可移植性的数值，需要在edit方法中传入用于评估的数据。</p>
+<p>以局部性为例，会导致edit方法计算局部性的指标，即在locality_inputs上模型回答的正确率。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">locality_inputs = &#123;</span><br><span class="line">    &#x27;neighborhood&#x27;:&#123;</span><br><span class="line">        &#x27;prompt&#x27;: [&#x27;Joseph Fischhof, the&#x27;, &#x27;Larry Bird is a professional&#x27;, &#x27;In Forssa, they understand&#x27;],</span><br><span class="line">        &#x27;ground_truth&#x27;: [&#x27;piano&#x27;, &#x27;basketball&#x27;, &#x27;Finnish&#x27;]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">metrics, edited_model, _ = editor.edit(</span><br><span class="line">    prompts=prompts,</span><br><span class="line">    ground_truth=ground_truth,</span><br><span class="line">    target_new=target_new,</span><br><span class="line">    locality_inputs=locality_inputs,</span><br><span class="line">    keep_original_weight=False</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>或者直接比较前后模型的generte行为。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">generation_prompts = [</span><br><span class="line">    &quot;Lionel Messi, the&quot;,</span><br><span class="line">    &quot;The law in Ikaalinen declares the language&quot;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">model = GPT2LMHeadModel.from_pretrained(&#x27;./hugging_cache/gpt2&#x27;).to(&#x27;cuda&#x27;)</span><br><span class="line">batch = tokenizer(generation_prompts, return_tensors=&#x27;pt&#x27;, padding=True, max_length=30)</span><br><span class="line"></span><br><span class="line">pre_edit_outputs = model.generate(</span><br><span class="line">    input_ids=batch[&#x27;input_ids&#x27;].to(&#x27;cuda&#x27;),</span><br><span class="line">    attention_mask=batch[&#x27;attention_mask&#x27;].to(&#x27;cuda&#x27;),</span><br><span class="line">    max_new_tokens=3</span><br><span class="line">)</span><br><span class="line">post_edit_outputs = edited_model.generate(</span><br><span class="line">    input_ids=batch[&#x27;input_ids&#x27;].to(&#x27;cuda&#x27;),</span><br><span class="line">    attention_mask=batch[&#x27;attention_mask&#x27;].to(&#x27;cuda&#x27;),</span><br><span class="line">    max_new_tokens=3)</span><br></pre></td></tr></table></figure>
+<h1 id="5-规模化的编辑（可选）"><a href="#5-规模化的编辑（可选）" class="headerlink" title="5. 规模化的编辑（可选）"></a>5. 规模化的编辑（可选）</h1><h1 id="5-1-Batch-edit"><a href="#5-1-Batch-edit" class="headerlink" title="5.1 Batch edit"></a>5.1 Batch edit</h1><p>多条数据可以形成并列的列表同时传入edit方法进行batch edit，此时MEMIT为最佳方法。（<a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/1P1lVklP8bTyh8uxxSuHnHwB91i-1LW6Z%EF%BC%89">https://colab.research.google.com/drive/1P1lVklP8bTyh8uxxSuHnHwB91i-1LW6Z）</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">prompts = [&#x27;Question:What sport does Lionel Messi play? Answer:&#x27;,</span><br><span class="line">            &#x27;The law in Ikaalinen declares the language&#x27;]</span><br><span class="line">ground_truth = [&#x27;football&#x27;, &#x27;Finnish&#x27;]</span><br><span class="line">target_new = [&#x27;basketball&#x27;, &#x27;Swedish&#x27;]</span><br><span class="line">subject = [&#x27;Lionel Messi&#x27;, &#x27;Ikaalinen&#x27;]</span><br></pre></td></tr></table></figure>
+<h1 id="5-2-Benchmark上测试"><a href="#5-2-Benchmark上测试" class="headerlink" title="5.2 Benchmark上测试"></a>5.2 Benchmark上测试</h1><ul>
+<li>Counterfact</li>
+<li>ZsRE<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;case_id&quot;: 4402,</span><br><span class="line">    &quot;pararel_idx&quot;: 11185,</span><br><span class="line">    &quot;requested_rewrite&quot;: &#123;</span><br><span class="line">      &quot;prompt&quot;: &quot;&#123;&#125; debuted on&quot;,</span><br><span class="line">      &quot;relation_id&quot;: &quot;P449&quot;,</span><br><span class="line">      &quot;target_new&quot;: &#123;</span><br><span class="line">        &quot;str&quot;: &quot;CBS&quot;,</span><br><span class="line">        &quot;id&quot;: &quot;Q43380&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;target_true&quot;: &#123;</span><br><span class="line">        &quot;str&quot;: &quot;MTV&quot;,</span><br><span class="line">        &quot;id&quot;: &quot;Q43359&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;subject&quot;: &quot;Singled Out&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;paraphrase_prompts&quot;: [</span><br><span class="line">      &quot;No one on the ground was injured.  v&quot;,</span><br><span class="line">      &quot;The sex ratio was 1063. Singled Out is to debut on&quot;</span><br><span class="line">    ],</span><br><span class="line">    &quot;neighborhood_prompts&quot;: [</span><br><span class="line">      &quot;Daria premieres on&quot;,</span><br><span class="line">      &quot;Teen Wolf was originally aired on&quot;,</span><br><span class="line">      &quot;Spider-Man: The New Animated Series was originally aired on&quot;,</span><br><span class="line">      &quot;Celebrity Deathmatch premiered on&quot;,</span><br><span class="line">      &quot;\u00c6on Flux premiered on&quot;,</span><br><span class="line">      &quot;My Super Psycho Sweet 16 premieres on&quot;,</span><br><span class="line">      &quot;Daria was released on&quot;,</span><br><span class="line">      &quot;Jersey Shore premiered on&quot;,</span><br><span class="line">      &quot;Skins was originally aired on&quot;,</span><br><span class="line">      &quot;All You&#x27;ve Got premiered on&quot;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<a target="_blank" rel="noopener" href="https://github.com/zjunlp/EasyEdit/blob/main/examples/run_zsre_llama2.py">https://github.com/zjunlp/EasyEdit/blob/main/examples/run_zsre_llama2.py</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://caicitou-lili.github.io/2026/10/23/dive-llms-ch03-%E7%9F%A5%E8%AF%86%E7%BC%96%E8%BE%91/" data-id="cmvjux3q3000qw0h35lo75ra4" data-title="动手学大模型 ch03｜知识编辑" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag">大模型</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" rel="tag">开源项目</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2026/10/23/dive-llms-ch04-%E6%95%B0%E5%AD%A6%E6%8E%A8%E7%90%86/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          动手学大模型 ch04｜数学推理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2026/10/23/dive-llms-ch02-%E6%8F%90%E7%A4%BA%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%80%9D%E7%BB%B4%E9%93%BE/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">动手学大模型 ch02｜提示学习与思维链</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%A6%E8%AF%84/">书评</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%A4%A7%E6%A8%A1%E5%9E%8B/">动手学大模型</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/">效率工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9F%B3%E4%B9%90/">音乐</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AGENTS-md/" rel="tag">AGENTS.md</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI-Agent/" rel="tag">AI Agent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI-Skills/" rel="tag">AI Skills</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%88%9B%E4%B8%9A/" rel="tag">AI创业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">AI工作流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E5%BB%BA%E7%AB%99/" rel="tag">AI建站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E6%8A%95%E7%A0%94/" rel="tag">AI投研</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E6%B3%A1%E6%B2%AB/" rel="tag">AI泡沫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E7%AC%AC%E4%BA%8C%E5%A4%A7%E8%84%91/" rel="tag">AI第二大脑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E7%BC%96%E7%A8%8B/" rel="tag">AI编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E8%A7%86%E9%A2%91/" rel="tag">AI视频</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Agent/" rel="tag">Agent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Anthropic/" rel="tag">Anthropic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Claude/" rel="tag">Claude</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Claude-Code/" rel="tag">Claude Code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Codex/" rel="tag">Codex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DeepSeek/" rel="tag">DeepSeek</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-AdSense/" rel="tag">Google AdSense</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hostinger/" rel="tag">Hostinger</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MCP/" rel="tag">MCP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Next-js/" rel="tag">Next.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Obsidian/" rel="tag">Obsidian</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PARA/" rel="tag">PARA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prompt/" rel="tag">Prompt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Skills/" rel="tag">Skills</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Workflow/" rel="tag">Workflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/YouTube/" rel="tag">YouTube</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eSIM/" rel="tag">eSIM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yt-dlp/" rel="tag">yt-dlp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8/" rel="tag">一人公司</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/" rel="tag">中国经济</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E6%96%87%E5%86%99%E4%BD%9C/" rel="tag">中文写作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E8%AF%84/" rel="tag">书评</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%8D%E8%B4%B9%E5%B7%A5%E5%85%B7/" rel="tag">免费工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" rel="tag">公众号</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C/" rel="tag">内容创作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AE%B9%E5%8F%98%E7%8E%B0/" rel="tag">内容变现</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BA%E5%9B%BD/" rel="tag">出国</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BA%E5%B7%AE/" rel="tag">出差</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BA%E6%B5%B7%E8%B5%9A%E9%92%B1/" rel="tag">出海赚钱</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%9B%E4%B8%9A/" rel="tag">创业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%AF%E4%B8%9A/" rel="tag">副业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">动态工作流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%86%E5%8F%B2%E5%AF%B9%E6%AF%94/" rel="tag">历史对比</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E7%81%B5/" rel="tag">可灵</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9C%B0%E7%BC%98%E6%94%BF%E6%B2%BB/" rel="tag">地缘政治</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag">大模型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" rel="tag">学习方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" rel="tag">学习路线</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E6%B5%8B/" rel="tag">实测</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E7%BA%A2%E4%B9%A6/" rel="tag">小红书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">工作流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%B3%E5%8F%B0%E7%AE%97%E6%B3%95/" rel="tag">平台算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%BA%90/" rel="tag">开源</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" rel="tag">开源项目</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%93%E5%B7%A5%E5%BA%A6%E5%81%87/" rel="tag">打工度假</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%95%E8%B5%84/" rel="tag">投资</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8D%A1%E6%BC%8F/" rel="tag">捡漏</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" rel="tag">效率工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E6%A1%88/" rel="tag">文案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8/" rel="tag">新手入门</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%85%E8%A1%8C/" rel="tag">旅行</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9A%97%E9%99%90%E6%B5%81/" rel="tag">暗限流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E6%B4%9E/" rel="tag">树洞</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A6%9C%E5%8D%95/" rel="tag">榜单</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B0%91%E7%B2%B9%E4%B8%BB%E4%B9%89/" rel="tag">民粹主义</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%A6%E8%89%B2/" rel="tag">润色</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BB%9A%E7%9F%B3/" rel="tag">滚石</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BE%B3%E6%B4%B2WHV/" rel="tag">澳洲WHV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB%E6%8C%87%E5%8D%97/" rel="tag">生活指南</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5/" rel="tag">电商运营</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/" rel="tag">电子书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" rel="tag">知识管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A0%8D%E4%BB%B7/" rel="tag">砍价</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E5%B9%BB/" rel="tag">科幻</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/" rel="tag">笔记方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AD%BE%E8%AF%81%E6%94%BB%E7%95%A5/" rel="tag">签证攻略</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%82%A1%E7%A5%A8/" rel="tag">股票</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90/" rel="tag">股票分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" rel="tag">自动化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93/" rel="tag">自媒体</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" rel="tag">自媒体工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E9%83%A8%E7%BD%B2/" rel="tag">自部署</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/" rel="tag">被动收入</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" rel="tag">视频下载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/" rel="tag">视频剪辑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" rel="tag">语音合成</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%B8%E6%98%93%E6%88%98/" rel="tag">贸易战</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E9%80%89%E6%8B%A9/" rel="tag">软件选择</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%89%E9%A2%98/" rel="tag">选题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%B2%E9%B1%BC/" rel="tag">闲鱼</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%BF%E8%A5%BF%E8%8E%AB%E5%A4%AB/" rel="tag">阿西莫夫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9F%B3%E4%B9%90/" rel="tag">音乐</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AGENTS-md/" style="font-size: 10px;">AGENTS.md</a> <a href="/tags/AI/" style="font-size: 11.82px;">AI</a> <a href="/tags/AI-Agent/" style="font-size: 10px;">AI Agent</a> <a href="/tags/AI-Skills/" style="font-size: 10px;">AI Skills</a> <a href="/tags/AIGC/" style="font-size: 12.73px;">AIGC</a> <a href="/tags/AI%E5%88%9B%E4%B8%9A/" style="font-size: 10px;">AI创业</a> <a href="/tags/AI%E5%89%AF%E4%B8%9A/" style="font-size: 20px;">AI副业</a> <a href="/tags/AI%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 12.73px;">AI工作流</a> <a href="/tags/AI%E5%BB%BA%E7%AB%99/" style="font-size: 10px;">AI建站</a> <a href="/tags/AI%E6%8A%95%E7%A0%94/" style="font-size: 10px;">AI投研</a> <a href="/tags/AI%E6%B3%A1%E6%B2%AB/" style="font-size: 10px;">AI泡沫</a> <a href="/tags/AI%E7%AC%AC%E4%BA%8C%E5%A4%A7%E8%84%91/" style="font-size: 10px;">AI第二大脑</a> <a href="/tags/AI%E7%BC%96%E7%A8%8B/" style="font-size: 10.91px;">AI编程</a> <a href="/tags/AI%E8%A7%86%E9%A2%91/" style="font-size: 10px;">AI视频</a> <a href="/tags/Agent/" style="font-size: 10px;">Agent</a> <a href="/tags/Anthropic/" style="font-size: 10px;">Anthropic</a> <a href="/tags/Claude/" style="font-size: 12.73px;">Claude</a> <a href="/tags/Claude-Code/" style="font-size: 10.91px;">Claude Code</a> <a href="/tags/Codex/" style="font-size: 13.64px;">Codex</a> <a href="/tags/DeepSeek/" style="font-size: 10px;">DeepSeek</a> <a href="/tags/Git/" style="font-size: 10.91px;">Git</a> <a href="/tags/GitHub/" style="font-size: 11.82px;">GitHub</a> <a href="/tags/Google-AdSense/" style="font-size: 10px;">Google AdSense</a> <a href="/tags/Hostinger/" style="font-size: 10px;">Hostinger</a> <a href="/tags/MCP/" style="font-size: 11.82px;">MCP</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Next-js/" style="font-size: 10px;">Next.js</a> <a href="/tags/Obsidian/" style="font-size: 11.82px;">Obsidian</a> <a href="/tags/PARA/" style="font-size: 10px;">PARA</a> <a href="/tags/Prompt/" style="font-size: 10px;">Prompt</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/Skills/" style="font-size: 11.82px;">Skills</a> <a href="/tags/Workflow/" style="font-size: 10px;">Workflow</a> <a href="/tags/YouTube/" style="font-size: 10px;">YouTube</a> <a href="/tags/eSIM/" style="font-size: 10px;">eSIM</a> <a href="/tags/yt-dlp/" style="font-size: 10px;">yt-dlp</a> <a href="/tags/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8/" style="font-size: 10px;">一人公司</a> <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/" style="font-size: 10px;">中国经济</a> <a href="/tags/%E4%B8%AD%E6%96%87%E5%86%99%E4%BD%9C/" style="font-size: 10px;">中文写作</a> <a href="/tags/%E4%B9%A6%E8%AF%84/" style="font-size: 10px;">书评</a> <a href="/tags/%E5%85%8D%E8%B4%B9%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">免费工具</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 10px;">公众号</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C/" style="font-size: 11.82px;">内容创作</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%8F%98%E7%8E%B0/" style="font-size: 10px;">内容变现</a> <a href="/tags/%E5%87%BA%E5%9B%BD/" style="font-size: 10px;">出国</a> <a href="/tags/%E5%87%BA%E5%B7%AE/" style="font-size: 10px;">出差</a> <a href="/tags/%E5%87%BA%E6%B5%B7%E8%B5%9A%E9%92%B1/" style="font-size: 10px;">出海赚钱</a> <a href="/tags/%E5%88%9B%E4%B8%9A/" style="font-size: 17.27px;">创业</a> <a href="/tags/%E5%89%AF%E4%B8%9A/" style="font-size: 12.73px;">副业</a> <a href="/tags/%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">动态工作流</a> <a href="/tags/%E5%8E%86%E5%8F%B2%E5%AF%B9%E6%AF%94/" style="font-size: 10px;">历史对比</a> <a href="/tags/%E5%8F%AF%E7%81%B5/" style="font-size: 10px;">可灵</a> <a href="/tags/%E5%9C%B0%E7%BC%98%E6%94%BF%E6%B2%BB/" style="font-size: 10px;">地缘政治</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 14.55px;">大模型</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">学习方法</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" style="font-size: 10px;">学习路线</a> <a href="/tags/%E5%AE%9E%E6%B5%8B/" style="font-size: 10px;">实测</a> <a href="/tags/%E5%B0%8F%E7%BA%A2%E4%B9%A6/" style="font-size: 10px;">小红书</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">工作流</a> <a href="/tags/%E5%B9%B3%E5%8F%B0%E7%AE%97%E6%B3%95/" style="font-size: 10px;">平台算法</a> <a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 11.82px;">开源</a> <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 16.36px;">开源项目</a> <a href="/tags/%E6%89%93%E5%B7%A5%E5%BA%A6%E5%81%87/" style="font-size: 10px;">打工度假</a> <a href="/tags/%E6%8A%95%E8%B5%84/" style="font-size: 10px;">投资</a> <a href="/tags/%E6%8D%A1%E6%BC%8F/" style="font-size: 10px;">捡漏</a> <a href="/tags/%E6%90%9E%E9%92%B1/" style="font-size: 19.09px;">搞钱</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">效率工具</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 15.45px;">教程</a> <a href="/tags/%E6%96%87%E6%A1%88/" style="font-size: 10px;">文案</a> <a href="/tags/%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8/" style="font-size: 10px;">新手入门</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 10px;">旅行</a> <a href="/tags/%E6%9A%97%E9%99%90%E6%B5%81/" style="font-size: 10px;">暗限流</a> <a href="/tags/%E6%A0%91%E6%B4%9E/" style="font-size: 17.27px;">树洞</a> <a href="/tags/%E6%A6%9C%E5%8D%95/" style="font-size: 10px;">榜单</a> <a href="/tags/%E6%B0%91%E7%B2%B9%E4%B8%BB%E4%B9%89/" style="font-size: 10px;">民粹主义</a> <a href="/tags/%E6%B6%A6%E8%89%B2/" style="font-size: 10px;">润色</a> <a href="/tags/%E6%BB%9A%E7%9F%B3/" style="font-size: 10px;">滚石</a> <a href="/tags/%E6%BE%B3%E6%B4%B2WHV/" style="font-size: 10px;">澳洲WHV</a> <a href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" style="font-size: 18.18px;">独立开发</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%8C%87%E5%8D%97/" style="font-size: 10px;">生活指南</a> <a href="/tags/%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5/" style="font-size: 10.91px;">电商运营</a> <a href="/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/" style="font-size: 10px;">电子书</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 10.91px;">知识管理</a> <a href="/tags/%E7%A0%8D%E4%BB%B7/" style="font-size: 10px;">砍价</a> <a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 10px;">科幻</a> <a href="/tags/%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">笔记方法</a> <a href="/tags/%E7%AD%BE%E8%AF%81%E6%94%BB%E7%95%A5/" style="font-size: 10px;">签证攻略</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">翻译</a> <a href="/tags/%E8%82%A1%E7%A5%A8/" style="font-size: 10px;">股票</a> <a href="/tags/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90/" style="font-size: 10px;">股票分析</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 11.82px;">自动化</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93/" style="font-size: 12.73px;">自媒体</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">自媒体工具</a> <a href="/tags/%E8%87%AA%E9%83%A8%E7%BD%B2/" style="font-size: 10px;">自部署</a> <a href="/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/" style="font-size: 10px;">被动收入</a> <a href="/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" style="font-size: 10px;">视频下载</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/" style="font-size: 10.91px;">视频剪辑</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 10px;">语音合成</a> <a href="/tags/%E8%B4%B8%E6%98%93%E6%88%98/" style="font-size: 10px;">贸易战</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E9%80%89%E6%8B%A9/" style="font-size: 10px;">软件选择</a> <a href="/tags/%E9%80%89%E9%A2%98/" style="font-size: 10px;">选题</a> <a href="/tags/%E9%97%B2%E9%B1%BC/" style="font-size: 12.73px;">闲鱼</a> <a href="/tags/%E9%98%BF%E8%A5%BF%E8%8E%AB%E5%A4%AB/" style="font-size: 10px;">阿西莫夫</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 10px;">音乐</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/10/">十月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/09/">九月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/08/">八月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/07/">七月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">六月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/05/">五月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/04/">四月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">三月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">二月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">一月 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/10/23/dive-llms-ch11-RLHF%E5%AE%89%E5%85%A8%E5%AF%B9%E9%BD%90/">动手学大模型 ch11｜RLHF安全对齐</a>
+          </li>
+        
+          <li>
+            <a href="/2026/10/23/dive-llms-ch10-%E6%99%BA%E8%83%BD%E4%BD%93%E5%AE%89%E5%85%A8/">动手学大模型 ch10｜智能体安全</a>
+          </li>
+        
+          <li>
+            <a href="/2026/10/23/dive-llms-ch09-GUI%E6%99%BA%E8%83%BD%E4%BD%93/">动手学大模型 ch09｜GUI智能体</a>
+          </li>
+        
+          <li>
+            <a href="/2026/10/23/dive-llms-ch08-%E5%A4%9A%E6%A8%A1%E6%80%81%E6%A8%A1%E5%9E%8B/">动手学大模型 ch08｜多模态模型</a>
+          </li>
+        
+          <li>
+            <a href="/2026/10/23/dive-llms-ch07-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%9A%90%E5%86%99/">动手学大模型 ch07｜大模型隐写</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        内容采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 授权，转载请注明出处。
+      
+      &copy; 2026 caicitou-lili<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/tags" class="mobile-nav-link">标签</a>
+  
+    <a href="/categories" class="mobile-nav-link">分类</a>
+  
+    <a href="/rollingstone-500/" class="mobile-nav-link">音乐</a>
+  
+    <a href="/poetry/" class="mobile-nav-link">诗歌</a>
+  
+    <a href="/ziwei/" class="mobile-nav-link">紫微</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+<div id="local-search-panel" class="ls-panel" role="listbox" aria-label="搜索结果" hidden>
+  <div class="ls-panel-inner">
+    <div class="ls-hint">输入关键词开始搜索</div>
+    <div class="ls-results"></div>
+  </div>
+</div>
+<script src="/js/local-search.js" defer></script>
+</body>
+</html>

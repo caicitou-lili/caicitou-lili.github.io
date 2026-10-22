@@ -96,14 +96,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-shudong-ch0069" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-dive-llms-ch01-微调与部署" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/09/14/shudong-ch0069/" class="article-date">
-  <time class="dt-published" datetime="2026-09-14T00:00:00.000Z" itemprop="datePublished">2026-09-14</time>
+    <a href="/2026/10/23/dive-llms-ch01-%E5%BE%AE%E8%B0%83%E4%B8%8E%E9%83%A8%E7%BD%B2/" class="article-date">
+  <time class="dt-published" datetime="2026-10-22T19:00:00.000Z" itemprop="datePublished">2026-10-23</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a>
+    <a class="article-category-link" href="/categories/%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%A4%A7%E6%A8%A1%E5%9E%8B/">动手学大模型</a>
   </div>
 
   </div>
@@ -114,7 +114,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/09/14/shudong-ch0069/">“爱上你的解决方案，而不是问题本身”——一个致命的创业幻觉</a>
+      <a class="p-name article-title" href="/2026/10/23/dive-llms-ch01-%E5%BE%AE%E8%B0%83%E4%B8%8E%E9%83%A8%E7%BD%B2/">动手学大模型 ch01｜微调与部署</a>
     </h1>
   
 
@@ -122,25 +122,162 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>网友投稿：<br>我们团队打磨了一项非常牛的技术，通过极复杂的算法解决了一件我们觉得“非常有价值”的事情。但在市场推广中，用户直言：这东西确实牛，但我没这个需求，我有更简单的替代方案。</p>
-<p>团队现在非常有挫败感，大家觉得自己一年的心血白费了。我们该如何从这种“自嗨式创业”中走出来？</p>
-<p>回复：<br>这是“锤子找钉子”的典型案例。你手里拿的是一把极其精美的锤子，却发现满世界都是螺丝。</p>
-<p>创业的成功不是因为你的解决方案多炫，而是因为你准确切中了用户的病灶。</p>
-<p>这里有3个立刻能试的方法：<br>一是“市场毒打法”，把你们引以为傲的方案脱去华丽的外衣，用一句话总结价值，去问不认识的陌生人是否愿意为此掏10块钱；<br>二是“需求溯源”，回到起点，看看那个问题到底是不是一个高频、刚需、且让用户感到极大痛苦（Pain Point）的深坑；<br>三是“技术降维”，利用你们现有的技术积累，去适配市场上真正爆发的、但目前解决得很差的新场景。</p>
-<p>自嗨是创业者的精神毒品。清醒过来，去找那个“着火的房子”。若在硬核技术商业化场景探索、需求真伪识别上有瓶颈，可登录jobleap.cn解决。</p>
-<hr>
-<blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：“爱上你的解决方案，而不是问题本身”——一个致命的创业幻觉。</p>
+        <blockquote>
+<p>本文镜像自上海交通大学开源教程 <a target="_blank" rel="noopener" href="https://github.com/Lordog/dive-into-llms">dive-into-llms</a> 第 1 章「微调与部署」，配套<a target="_blank" rel="noopener" href="https://github.com/Lordog/dive-into-llms/blob/main/documents/chapter1">课件 PDF</a>与<a target="_blank" rel="noopener" href="https://github.com/Lordog/dive-into-llms/blob/main/documents/chapter1">实验 Notebook</a>见原仓库。内容版权属于原开发团队。</p>
 </blockquote>
+<blockquote>
+<p>导读: 该部分介绍预训练模型微调<br>想提升预训练模型在指定任务上的性能？让我们选择合适的预训练模型，在特定任务上进行微调，并将微调后的模型部署成方便使用的Demo！</p>
+</blockquote>
+<h1 id="本教程目标："><a href="#本教程目标：" class="headerlink" title="本教程目标："></a>本教程目标：</h1><ol>
+<li>熟悉使用Transformers工具包</li>
+<li>掌握预训练模型的微调、推理（解耦可定制版本 &amp; 默认集成版本）</li>
+<li>掌握利用Gradio Spaces进行Demo部署</li>
+<li>了解不同类型的预训练模型的选型和应用场景</li>
+</ol>
+<h1 id="本教程内容："><a href="#本教程内容：" class="headerlink" title="本教程内容："></a>本教程内容：</h1><h1 id="1-工作准备："><a href="#1-工作准备：" class="headerlink" title="1. 工作准备："></a>1. 工作准备：</h1><h1 id="1-1-了解工具包：Transformers"><a href="#1-1-了解工具包：Transformers" class="headerlink" title="1.1 了解工具包：Transformers"></a>1.1 了解工具包：Transformers</h1><p><a target="_blank" rel="noopener" href="https://github.com/huggingface/transformers">https://github.com/huggingface/transformers</a></p>
+<blockquote>
+<p>🤗 Transformers 提供了可以轻松地下载并且训练先进的预训练模型的 API 和工具。使用预训练模型可以减少计算消耗和碳排放，并且节省从头训练所需要的时间和资源。这些模型支持不同模态中的常见任务，比如：<br>📝 自然语言处理：文本分类、命名实体识别、问答、语言建模、摘要、翻译、多项选择和文本生成。<br>🖼️ 机器视觉：图像分类、目标检测和语义分割。<br>🗣️ 音频：自动语音识别和音频分类。<br>🐙 多模态：表格问答、光学字符识别、从扫描文档提取信息、视频分类和视觉问答。</p>
+</blockquote>
+<p>详细中文文档：<a target="_blank" rel="noopener" href="https://huggingface.co/docs/transformers/main/zh/index">https://huggingface.co/docs/transformers/main/zh/index</a></p>
+<p><img src="/images/dive-into-llms/ch1/huggingface.PNG" alt="huggingface"></p>
+<h1 id="1-2-安装环境：以文本分类（e-g-虚假新闻检测）为例"><a href="#1-2-安装环境：以文本分类（e-g-虚假新闻检测）为例" class="headerlink" title="1.2 安装环境：以文本分类（e.g., 虚假新闻检测）为例"></a>1.2 安装环境：以文本分类（e.g., 虚假新闻检测）为例</h1><ol>
+<li>我们进入到文本分类的案例库，参考readme了解关键参数，下载requirements.txt和run_classification.py</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://github.com/huggingface/transformers/tree/main/examples/pytorch/text-classification">https://github.com/huggingface/transformers/tree/main/examples/pytorch/text-classification</a></p>
+<ol start="2">
+<li>安装环境：</li>
+</ol>
+<ul>
+<li><ol>
+<li>通过conda创建新的环境：conda create -n llm python&#x3D;3.9</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>进入虚拟环境：conda activate llm</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>pip install transformers</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>删除requirements.txt中自动安装的torch，pip install -r requirements.txt</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>若下载速度慢，可使用国内源：pip [Packages] -i <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a></p>
+</blockquote>
+<blockquote>
+<p>若使用国内源安装pytorch，将自动选择pytorch的cpu版本，无法运行gpu，因此——</p>
+</blockquote>
+<ul>
+<li><ol start="5">
+<li>conda install pytorch</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>若下载速度慢，可按照该博客配置conda镜像：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42797483/article/details/132048218">https://blog.csdn.net/weixin_42797483/article/details/132048218</a></p>
+</blockquote>
+<ol start="3">
+<li>准备数据：我们以Kaggle上的虚假推文数据集为例：<a target="_blank" rel="noopener" href="https://www.kaggle.com/c/nlp-getting-started/data">https://www.kaggle.com/c/nlp-getting-started/data</a></li>
+</ol>
+<h1 id="1-3-处理好的工程包（演示代码和数据）"><a href="#1-3-处理好的工程包（演示代码和数据）" class="headerlink" title="1.3 处理好的工程包（演示代码和数据）"></a>1.3 处理好的工程包（演示代码和数据）</h1><p>（1）解耦可定制版本（关键模块解耦，方便理解，可自定义数据加载、模型结构、评价指标等）</p>
+<p><a target="_blank" rel="noopener" href="https://pan.quark.cn/s/00dae5c2b128">TextClassificationCustom下载链接</a></p>
+<p>（2）默认集成版本（代码较<br>为丰富、复杂，一般直接超参数调用，略有开发门槛）</p>
+<p><a target="_blank" rel="noopener" href="https://pan.quark.cn/s/9d0510f1c98d">TextClassification下载链接</a></p>
+<h1 id="2-基于解耦版本进行定制开发（最小可行性产品MVP）"><a href="#2-基于解耦版本进行定制开发（最小可行性产品MVP）" class="headerlink" title="2. 基于解耦版本进行定制开发（最小可行性产品MVP）"></a>2. 基于解耦版本进行定制开发（最小可行性产品MVP）</h1><p>共三个主要文件：main.py主程序，utils_data.py数据加载和处理文件，modeling_bert.py模型结构文件</p>
+<p><img src="/images/dive-into-llms/ch1/0.png" alt="project structure"></p>
+<h1 id="2-1-理解关键模块"><a href="#2-1-理解关键模块" class="headerlink" title="2.1 理解关键模块"></a>2.1 理解关键模块</h1><ol>
+<li><p>加载和处理数据（utils_data.py）<br><img src="/images/dive-into-llms/ch1/1.png" alt="utils_data.py"></p>
+</li>
+<li><p>加载模型（modeling_bert.py）</p>
+</li>
+</ol>
+<p><img src="/images/dive-into-llms/ch1/2.png" alt="modeling_bert_1.py"></p>
+<p><img src="/images/dive-into-llms/ch1/3.png" alt="modeling_bert_2.py"></p>
+<ol start="3">
+<li>训练&#x2F;验证&#x2F;预测（main.py）</li>
+</ol>
+<p><img src="/images/dive-into-llms/ch1/4.png" alt="main.py"></p>
+<h1 id="2-2-运行训练-验证-预测一条龙"><a href="#2-2-运行训练-验证-预测一条龙" class="headerlink" title="2.2 运行训练&#x2F;验证&#x2F;预测一条龙"></a>2.2 运行训练&#x2F;验证&#x2F;预测一条龙</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python main.py</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-基于集成版本进行微调（Optional，基于run-classification-py）"><a href="#3-基于集成版本进行微调（Optional，基于run-classification-py）" class="headerlink" title="3. 基于集成版本进行微调（Optional，基于run_classification.py）"></a>3. 基于集成版本进行微调（Optional，基于run_classification.py）</h1><h1 id="3-1-理解关键模块："><a href="#3-1-理解关键模块：" class="headerlink" title="3.1 理解关键模块："></a>3.1 理解关键模块：</h1><ol>
+<li><p>加载数据（csv或json格式）<br><img src="/images/dive-into-llms/ch1/5.png" alt="load data"></p>
+</li>
+<li><p>处理数据<br><img src="/images/dive-into-llms/ch1/6.png" alt="process data"></p>
+</li>
+<li><p>加载模型<br><img src="/images/dive-into-llms/ch1/7.png" alt="load model"></p>
+</li>
+<li><p>训练&#x2F;验证&#x2F;预测<br><img src="/images/dive-into-llms/ch1/8.png" alt="train dev predict"></p>
+</li>
+</ol>
+<h1 id="3-2-训练模型"><a href="#3-2-训练模型" class="headerlink" title="3.2 训练模型"></a>3.2 训练模型</h1><p>同时在开发集上验证，在测试集上预测，执行下述脚本：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">python run_classification.py \</span><br><span class="line">    --model_name_or_path  bert-base-uncased \</span><br><span class="line">    --train_file data/train.csv \</span><br><span class="line">    --validation_file data/val.csv \</span><br><span class="line">    --test_file data/test.csv \</span><br><span class="line">    --shuffle_train_dataset \</span><br><span class="line">    --metric_name accuracy \</span><br><span class="line">    --text_column_name &quot;text&quot; \</span><br><span class="line">    --text_column_delimiter &quot;\n&quot; \</span><br><span class="line">    --label_column_name &quot;target&quot; \</span><br><span class="line">    --do_train \</span><br><span class="line">    --do_eval \</span><br><span class="line">    --do_predict \</span><br><span class="line">    --max_seq_length 512 \</span><br><span class="line">    --per_device_train_batch_size 32 \</span><br><span class="line">    --learning_rate 2e-5 \</span><br><span class="line">    --num_train_epochs 1 \</span><br><span class="line">    --output_dir experiments/</span><br></pre></td></tr></table></figure>
+
+<p>若出现报错或卡住，通常是网络问题：</p>
+<ol>
+<li><u>下载模型时显示“Network is unreachable”，手动下载模型到本地：<a target="_blank" rel="noopener" href="https://huggingface.co/google-bert/bert-base-uncased">https://huggingface.co/google-bert/bert-base-uncased</a></u></li>
+<li><u>若加完数据后卡住不动，CTRL+C终止后显示卡在“connection”，则是evaluate包加载评价指标时网络连接失败所致。</u></li>
+</ol>
+<p><img src="/images/dive-into-llms/ch1/9.png" alt="bug"></p>
+<p>此时，可去evaluate的GitHub下载整个包：<a target="_blank" rel="noopener" href="https://github.com/huggingface/evaluate/tree/main%EF%BC%8C%E5%B9%B6%E5%9C%A8%E8%B6%85%E5%8F%82%E6%95%B0%E4%B8%AD%E5%B0%86--metric_name%E8%B7%AF%E5%BE%84%E6%94%B9%E6%88%90%E6%9C%AC%E5%9C%B0%E7%9A%84%E6%8C%87%E6%A0%87%E8%B7%AF%E5%BE%84%EF%BC%8C%E5%8D%B3%EF%BC%9A">https://github.com/huggingface/evaluate/tree/main，并在超参数中将--metric_name路径改成本地的指标路径，即：</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">python run_classification.py \</span><br><span class="line">    --model_name_or_path  bert-base-uncased \</span><br><span class="line">    --train_file data/train.csv \</span><br><span class="line">    --validation_file data/val.csv \</span><br><span class="line">    --test_file data/test.csv \</span><br><span class="line">    --shuffle_train_dataset \</span><br><span class="line">    --metric_name evaluate/metrics/accuracy/accuracy.py \</span><br><span class="line">    --text_column_name &quot;text&quot; \</span><br><span class="line">    --text_column_delimiter &quot;\n&quot; \</span><br><span class="line">    --label_column_name &quot;target&quot; \</span><br><span class="line">    --do_train \</span><br><span class="line">    --do_eval \</span><br><span class="line">    --do_predict \</span><br><span class="line">    --max_seq_length 512 \</span><br><span class="line">    --per_device_train_batch_size 32 \</span><br><span class="line">    --learning_rate 2e-5 \</span><br><span class="line">    --num_train_epochs 1 \</span><br><span class="line">    --output_dir experiments/</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/dive-into-llms/ch1/10.png" alt="reference result"></p>
+<h1 id="4-部署模型：模型训练完毕后，我们可以在Gradio-Spaces上搭建在线demos"><a href="#4-部署模型：模型训练完毕后，我们可以在Gradio-Spaces上搭建在线demos" class="headerlink" title="4. 部署模型：模型训练完毕后，我们可以在Gradio Spaces上搭建在线demos"></a>4. 部署模型：模型训练完毕后，我们可以在Gradio Spaces上搭建在线demos</h1><h1 id="4-1-Gradio-Spaces教程"><a href="#4-1-Gradio-Spaces教程" class="headerlink" title="4.1 Gradio Spaces教程"></a>4.1 Gradio Spaces教程</h1><p><a target="_blank" rel="noopener" href="https://huggingface.co/docs/hub/en/spaces-sdks-gradio">https://huggingface.co/docs/hub/en/spaces-sdks-gradio</a></p>
+<h1 id="4-2-创建spaces"><a href="#4-2-创建spaces" class="headerlink" title="4.2 创建spaces"></a>4.2 创建spaces</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/new-space?sdk=gradio">https://huggingface.co/new-space?sdk=gradio</a></li>
+<li>Note：打不开的话请尝试科学上网</li>
+</ol>
+<p><img src="/images/dive-into-llms/ch1/gradio.png" alt="Gradio Spaces"></p>
+<h1 id="4-3-关键推理代码"><a href="#4-3-关键推理代码" class="headerlink" title="4.3 关键推理代码"></a>4.3 关键推理代码</h1><p>具体见工程包中的app.py</p>
+<p><img src="/images/dive-into-llms/ch1/11.png" alt="app.py"></p>
+<h1 id="4-4-将app-py、环境配置文件和模型上传到Gradio-Spaces"><a href="#4-4-将app-py、环境配置文件和模型上传到Gradio-Spaces" class="headerlink" title="4.4 将app.py、环境配置文件和模型上传到Gradio Spaces"></a>4.4 将app.py、环境配置文件和模型上传到Gradio Spaces</h1><ol>
+<li><p>配置文件（requirements.txt）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">transformers==4.30.2</span><br><span class="line">torch==2.0.0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>文件概览</p>
+</li>
+</ol>
+<p><img src="/images/dive-into-llms/ch1/12.png" alt="file overview"></p>
+<ol start="3">
+<li>Demo效果<br>成功部署的案例供参考：<a target="_blank" rel="noopener" href="https://huggingface.co/spaces/cooelf/text-classification">https://huggingface.co/spaces/cooelf/text-classification</a><br>其中在右上角“Files”栏目可以看到源码。</li>
+</ol>
+<p><img src="/images/dive-into-llms/ch1/13.png" alt="Files"></p>
+<ol start="4">
+<li>彩蛋：在Spaces平台可以看到每周的热点Demo，且可以搜索感兴趣的大模型、Demo进行尝试<br><img src="/images/dive-into-llms/ch1/14.png" alt="Spaces"></li>
+</ol>
+<h1 id="5-进阶练习"><a href="#5-进阶练习" class="headerlink" title="5. 进阶练习"></a>5. 进阶练习</h1><ol>
+<li>试试其他分类&#x2F;回归任务，例如情感分类、新闻分类、漏洞分类等</li>
+<li>试试其他类型的模型，例如T5、ELECTRA等</li>
+</ol>
+<h1 id="6-其他常用的模型"><a href="#6-其他常用的模型" class="headerlink" title="6. 其他常用的模型"></a>6. 其他常用的模型</h1><ol>
+<li>问答模型：<a target="_blank" rel="noopener" href="https://github.com/huggingface/transformers/tree/main/examples/pytorch/question-answering">https://github.com/huggingface/transformers/tree/main/examples/pytorch/question-answering</a></li>
+<li>文本摘要：<a target="_blank" rel="noopener" href="https://github.com/huggingface/transformers/tree/main/examples/pytorch/summarization">https://github.com/huggingface/transformers/tree/main/examples/pytorch/summarization</a></li>
+<li>调用Llama2进行推理：<a target="_blank" rel="noopener" href="https://huggingface.co/docs/transformers/en/model_doc/llama2">https://huggingface.co/docs/transformers/en/model_doc/llama2</a></li>
+<li>对Llama2进行轻量化微调（LoRA）：  <a target="_blank" rel="noopener" href="https://github.com/peremartra/Large-Language-Model-Notebooks-Course/blob/main/5-Fine%20Tuning/LoRA_Tuning_PEFT.ipynb">https://github.com/peremartra/Large-Language-Model-Notebooks-Course/blob/main/5-Fine%20Tuning/LoRA_Tuning_PEFT.ipynb</a></li>
+</ol>
+<h1 id="7-延伸阅读"><a href="#7-延伸阅读" class="headerlink" title="7. 延伸阅读"></a>7. 延伸阅读</h1><ol>
+<li><p>一篇对大语言模型（LLMs）进行全面、深入分析的43页<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzk0MTYzMzMxMA==&mid=2247484539&idx=1&sn=6ee42baab4ad792e74ac6a89d7dd87d9&chksm=c2ce3e0af5b9b71c578cb6836e09cce5f60b4a1cfffadc1c4c98211fc0af621bfaaaa8fe0aff&mpshare=1&scene=24&srcid=0331FO6iqVqs5Vx3iHrtqouQ&sharer_shareinfo=45c3fb78d9cfb9627908da44dd7f5559&sharer_shareinfo_first=45c3fb78d9cfb9627908da44dd7f5559&key=a2847c972f830c4143e00e0430f657d8ab5acae4ad24ca628213273021453a3a9e17984627e2ab8506d1dcf6e1fabd9ec3123a5f71d2a65295ad6f6f56da2224d4a6e3228237c237447bbf48a6eff1f53e1971503f26c3fb5b9d99d27eca7266529a5f86d75bada7ec10bf314687bfcbf9fa3b09b8e36e73f6d6a154a5ce5ff0&ascene=14&uin=NzE3NzkyOTQx&devicetype=iMac20,1+OSX+OSX+14.2.1+build(23C71)&version=13080610&nettype=WIFI&lang=zh_CN&countrycode=CN&fontScale=100&exportkey=n_ChQIAhIQM7tgcovlhXp1y5J+RMnhfhL3AQIE97dBBAEAAAAAAFsTBwTm4FMAAAAOpnltbLcz9gKNyK89dVj0MxFZswDc/k646vJPW2S3JFh8H2JhyZXiPbIl+h23CsewrmIoZ4j0D2zMNylC3pLbhu9FIARUKYn/0r0OIdHnxesVFpw1qLo6uBJ3zmbsKBVXM05+0MiOBIfShfpiIfraK7THzak94U0RdS1flC+IDjTb5SmZs9Z4XTyTsN0QXR6NWjAXFeuxnMB4SENMJ8dUR8n08b3DGKtz9rfefn0JRlsX4mGcLvOFsFwg4nk35nl4C3Wgcs4OYociKm5UHabdhWT7/WbNNToZLD39eD/L4Xo=&acctmode=0&pass_ticket=8xG4QKOnJeEFUtXkScVmMqb3omdWJbPuc+hN5+A7/OXj7ex757M2ABNO4GVVnv2T3VtqrC9gZH/rU09rrUxJcA==&wx_header=0">综述</a>（Word2Vec作者出品）</p>
+<p> 论文题目：Large Language Models: A Survey</p>
+<p> 论文链接：<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2402.06196.pdf">https://arxiv.org/pdf/2402.06196.pdf</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1AF411b7xQ?t=0.0">GPT，GPT-2，GPT-3 论文精读【论文精读】</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1hd4y187CR?t=0.4">InstructGPT 论文精读【论文精读·48】</a></p>
+</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/09/14/shudong-ch0069/" data-id="cmvi6pmpr01gevch3cjfg8j6h" data-title="“爱上你的解决方案，而不是问题本身”——一个致命的创业幻觉" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/10/23/dive-llms-ch01-%E5%BE%AE%E8%B0%83%E4%B8%8E%E9%83%A8%E7%BD%B2/" data-id="cmvjux3o50001w0h3783k6jbc" data-title="动手学大模型 ch01｜微调与部署" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%9B%E4%B8%9A/" rel="tag">创业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91%E6%B4%9E/" rel="tag">树洞</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag">大模型</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" rel="tag">开源项目</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li></ul>
 
     </footer>
   </div>
@@ -150,14 +287,14 @@
 
 
   
-    <article id="post-shudong-ch0068" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-动手学大模型-上海交大11章大模型编程实践教程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/09/13/shudong-ch0068/" class="article-date">
-  <time class="dt-published" datetime="2026-09-13T12:00:00.000Z" itemprop="datePublished">2026-09-13</time>
+    <a href="/2026/10/23/%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E4%B8%8A%E6%B5%B7%E4%BA%A4%E5%A4%A711%E7%AB%A0%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5%E6%95%99%E7%A8%8B/" class="article-date">
+  <time class="dt-published" datetime="2026-10-22T18:00:00.000Z" itemprop="datePublished">2026-10-23</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a>
+    <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
   </div>
 
   </div>
@@ -168,7 +305,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/09/13/shudong-ch0068/">决策中的“民主陷阱”：为什么开了一下午会，什么事都没定下来？</a>
+      <a class="p-name article-title" href="/2026/10/23/%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E4%B8%8A%E6%B5%B7%E4%BA%A4%E5%A4%A711%E7%AB%A0%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5%E6%95%99%E7%A8%8B/">动手学大模型：上海交大开源的 11 章大模型编程实践教程</a>
     </h1>
   
 
@@ -176,25 +313,106 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>网友投稿：<br>我一直想做一家扁平化、民主的公司，遇到重大决策（比如新产品的UI风格、或是团建地点）我都想听听大家的意见。</p>
-<p>结果就是，每次开会都是七嘴八舌，谁也说服不了谁。我作为创始人，不想显得霸道，但看着时间流逝没有结论，我非常烦躁。创业初期，我们真的需要这种“集体决策”吗？</p>
-<p>回复：<br>创业公司最不需要的就是“绝对民主”。初创公司是一艘在风暴中航行的快艇，需要的是船长，而不是委员会。</p>
-<p>解决决策低效的关键是“听取多数人意见，参考少数人建议，一个人拍板”。</p>
-<p>这里有3个立刻能试的方法：<br>一是“会前准备制”，所有讨论必须在开会前发文档。如果大家没看，会议直接取消。开会只谈分歧点，不谈普及；<br>二是“决策人制度”，每件事明确一个终极负责人（DRI），他可以听大家的想法，但最终决定权和责任都在他一个人身上；<br>三是“快速试错法”，如果两个方案看起来差不多，不要再争了。随便选一个先上线，让市场反馈替你们投票。</p>
-<p>在初创期，一个中等的决策执行下去，也好过一个完美的决策迟迟不发。若在办公流程优化、高效会议标准建立上有困惑，可登录jobleap.cn解决。</p>
-<hr>
-<blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：决策中的“民主陷阱”：为什么开了一下午会，什么事都没定下来？。</p>
+        <blockquote>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/Lordog/dive-into-llms">https://github.com/Lordog/dive-into-llms</a> （上海交通大学，公益免费）</p>
 </blockquote>
+<p>想入门大模型，光看博客和视频不够，得亲手跑代码。《动手学大模型》（dive-into-llms）是上海交通大学《自然语言处理前沿技术》《人工智能安全技术》两门课程讲义拓展而来的编程实践教程，<strong>完全免费、每章配可运行 Notebook</strong>，是目前我见过的覆盖面最全的中文大模型入门实践合集之一。</p>
+<h2 id="一句话定位"><a href="#一句话定位" class="headerlink" title="一句话定位"></a>一句话定位</h2><p><strong>课件 PDF + 图文教程 + 可运行 Notebook 三件套</strong>，从微调部署一路讲到智能体安全，共 11 章。</p>
+<h2 id="11-章内容速览"><a href="#11-章内容速览" class="headerlink" title="11 章内容速览"></a>11 章内容速览</h2><table>
+<thead>
+<tr>
+<th>章</th>
+<th>主题</th>
+<th>亮点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>微调与部署</td>
+<td>Transformers 微调 + Gradio Demo 上线</td>
+</tr>
+<tr>
+<td>2</td>
+<td>提示学习与思维链</td>
+<td>API 调用与 CoT 技巧，入门第一课</td>
+</tr>
+<tr>
+<td>3</td>
+<td>知识编辑</td>
+<td>改掉模型”记错的”知识（ROME&#x2F;MEMIT 类方法）</td>
+</tr>
+<tr>
+<td>4</td>
+<td>数学推理</td>
+<td>亲手蒸馏一个迷你 R1</td>
+</tr>
+<tr>
+<td>5</td>
+<td>模型水印</td>
+<td>在生成文本里嵌入人眼不可见的水印</td>
+</tr>
+<tr>
+<td>6</td>
+<td>越狱攻击</td>
+<td>学会攻击才能做好防守</td>
+</tr>
+<tr>
+<td>7</td>
+<td>大模型隐写</td>
+<td>“看不见的墨水”，回答里暗藏密信</td>
+</tr>
+<tr>
+<td>8</td>
+<td>多模态模型</td>
+<td>多模态理解与生成实践</td>
+</tr>
+<tr>
+<td>9</td>
+<td>GUI 智能体</td>
+<td>让 Agent 替你点外卖、回消息、比价</td>
+</tr>
+<tr>
+<td>10</td>
+<td>智能体安全</td>
+<td>开放场景下 Agent 的风险与防御</td>
+</tr>
+<tr>
+<td>11</td>
+<td>RLHF 安全对齐</td>
+<td>基于 PPO 的 RLHF 完整实验</td>
+</tr>
+</tbody></table>
+<p>前两章是基础（微调 + API），后面按兴趣挑：想做应用看 8&#x2F;9，关心安全看 5&#x2F;6&#x2F;7&#x2F;10，想懂训练看 4&#x2F;11。</p>
+<h2 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h2><ol>
+<li>克隆仓库：<code>git clone https://github.com/Lordog/dive-into-llms.git</code></li>
+<li>建环境（Python 3.9+，建议虚拟环境隔离）：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install transformers torch gradio jupyter</span><br><span class="line">jupyter lab</span><br></pre></td></tr></table></figure></li>
+<li>打开 <code>documents/chapter2/dive-prompting.ipynb</code> 逐步运行，边跑边对照同目录 <code>README.md</code> 和 PDF 课件。</li>
+</ol>
+<p><strong>几点实用提示（本机实测&#x2F;经验）：</strong></p>
+<ul>
+<li><strong>没有 GPU 也能学大部分内容</strong>：章 2 的 API 调用、章 3 的知识编辑基本 CPU 可跑；章 4 微调和章 11 RLHF 建议用 Colab &#x2F; Kaggle 的免费 GPU。</li>
+<li><strong>境内下载 HuggingFace 模型</strong>：设置 <code>HF_ENDPOINT=https://hf-mirror.com</code> 镜像，pip 换国内源。</li>
+<li><strong>部分示例数据</strong>来自 Kaggle（需注册）或作者提供的网盘链接，在各章 README 里有说明。</li>
+<li><strong>代码版本可能滞后</strong>：教程依赖的 transformers&#x2F;torch 迭代很快，报错先查版本兼容。</li>
+<li>仓库仍在持续更新（2025-06 新增了数学推理、GUI Agent、对齐等主题），建议 <code>git pull</code> 保持最新。</li>
+</ul>
+<h2 id="适合谁"><a href="#适合谁" class="headerlink" title="适合谁"></a>适合谁</h2><ul>
+<li>想从”会调 API”进阶到”懂微调&#x2F;懂原理”的开发者</li>
+<li>研究生做课程设计或科研入门</li>
+<li>安全方向的从业者（第 5~7、10 章是一条完整的大模型安全实践线）</li>
+</ul>
+<p>另外作者团队还联合华为昇腾上线了《大模型开发全流程》公益课（PPT + 实验手册 + 视频），在昇腾社区”大模型开发学习专区”可以找到。</p>
+<hr>
+<p>本文介绍项目源自 GitHub：<a target="_blank" rel="noopener" href="https://github.com/Lordog/dive-into-llms">Lordog&#x2F;dive-into-llms</a>，教程内容版权属于原开发团队，学习使用请遵循其仓库说明。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/09/13/shudong-ch0068/" data-id="cmvi6pmpq01gbvch3guepaqpw" data-title="决策中的“民主陷阱”：为什么开了一下午会，什么事都没定下来？" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/10/23/%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E4%B8%8A%E6%B5%B7%E4%BA%A4%E5%A4%A711%E7%AB%A0%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5%E6%95%99%E7%A8%8B/" data-id="cmvjuh53j0000bwh3gu2e8vc8" data-title="动手学大模型：上海交大开源的 11 章大模型编程实践教程" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%9B%E4%B8%9A/" rel="tag">创业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91%E6%B4%9E/" rel="tag">树洞</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag">大模型</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" rel="tag">学习路线</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" rel="tag">开源项目</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li></ul>
 
     </footer>
   </div>
@@ -204,14 +422,14 @@
 
 
   
-    <article id="post-shudong-ch0067" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-OpenStock-开源免费全球行情面板-部署与使用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/09/13/shudong-ch0067/" class="article-date">
-  <time class="dt-published" datetime="2026-09-13T00:00:00.000Z" itemprop="datePublished">2026-09-13</time>
+    <a href="/2026/10/21/OpenStock-%E5%BC%80%E6%BA%90%E5%85%8D%E8%B4%B9%E5%85%A8%E7%90%83%E8%A1%8C%E6%83%85%E9%9D%A2%E6%9D%BF-%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time class="dt-published" datetime="2026-10-21T14:30:00.000Z" itemprop="datePublished">2026-10-21</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a>
+    <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
   </div>
 
   </div>
@@ -222,7 +440,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/09/13/shudong-ch0067/">只顾着“拉新”却忘了“留旧”：老客户流失率突然飙升怎么办？</a>
+      <a class="p-name article-title" href="/2026/10/21/OpenStock-%E5%BC%80%E6%BA%90%E5%85%8D%E8%B4%B9%E5%85%A8%E7%90%83%E8%A1%8C%E6%83%85%E9%9D%A2%E6%9D%BF-%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BD%BF%E7%94%A8/">OpenStock：开源免费的全球行情面板，自己搭一个&#34;平价彭博终端&#34;</a>
     </h1>
   
 
@@ -230,25 +448,152 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>网友投稿：<br>我们最近把所有的营销资源都投到了拉新上，确实也带来了很多新流量。但上周复盘发现，我们的老客户续费率掉了一半，而且投诉率激增。</p>
-<p>老用户觉得我们“喜新厌旧”，现在的服务响应速度远不如以前。我现在意识到，拉一个新客的成本是留一个老客的5倍。这种“漏水的水桶”该如何修补？</p>
-<p>回复：<br>恭喜你意识到了这一点。初创公司的根基在那群陪你走过最艰难时期的老客户身上。</p>
-<p>修补水桶的核心是“服务回补”和“荣誉激励”。</p>
-<p>这里有3个立刻能试的方法：<br>一是“老客户道歉信+补偿”，创始人亲自发声，承认最近在管理上的疏忽，并给所有老客户发放高价值的代金券或特权；<br>二是“设置CSO（首席客户服务官）”，哪怕只有一个人的团队，也要有人专门负责老客户的满意度，直接向你汇报；<br>三是“老客户共创会”，邀请高价值的老客户参与下一阶段的产品测试，给他们“原始股用户”的荣誉感。</p>
-<p>新客决定你能走多快，老客决定你能走多远。若在客户关系管理（CRM）体系搭建、用户留存策略设计上有困惑，可登录jobleap.cn解决。</p>
+        <p>看美股行情这件事，Pro 终端一年几百美金，免费网站又塞满广告。最近 GitHub 上有个项目火起来了：<strong>OpenStock</strong>，Open Dev Society 出品的开源行情平台——看价格、盯自选、查公司资料、画 K 线，全都不要钱，官方站已经有 13000+ 人在用。我把它拉到本地装了一遍，这篇是部署 + 使用说明。</p>
+<p>先给两个定位性提醒：它<strong>不是券商</strong>，不能交易；数据有延迟（取决于数据源），也不构成投资建议。</p>
+<h2 id="一、它能干什么"><a href="#一、它能干什么" class="headerlink" title="一、它能干什么"></a>一、它能干什么</h2><ul>
+<li><strong>7 个市场的仪表盘</strong>：美股、印度、德国、加拿大、澳大利亚、加密货币、外汇，带指数脉搏、板块热力图、领涨领跌、要闻</li>
+<li><strong>⌘K 全局搜索</strong>：覆盖 Finnhub 收录的全球交易所，股票可以像浏览器标签页一样同时开着</li>
+<li><strong>TradingView K 线</strong>：画趋势线、斐波那契、图形，支持全屏；指标（SMA&#x2F;EMA&#x2F;布林带&#x2F;VWAP&#x2F;RSI&#x2F;MACD&#x2F;Stochastic&#x2F;ATR）配一次就一直在</li>
+<li><strong>公司页</strong>：财务数据、技术指标、公司简介</li>
+<li><strong>情绪面</strong>：Reddit、X、新闻、Polymarket 舆情汇总（要配 Adanos key）</li>
+<li><strong>自选 + 提醒</strong>：最多 50 只；价格上&#x2F;下限提醒每 5 分钟查一次、邮件通知（仅 realtime 模式）</li>
+<li><strong>AI 周报</strong>：每周一早上邮件推送 AI 写的市场新闻摘要</li>
+<li><strong>账号体系</strong>：邮箱密码，可配 Google&#x2F;GitHub 登录</li>
+</ul>
+<p>技术栈是 Next.js 15 + React 19 + TypeScript + Tailwind v4 + shadcn&#x2F;ui，数据库 MongoDB（Mongoose + Better Auth），后台任务跑在 Inngest 上，行情来自 Finnhub，图表来自 TradingView 嵌入。</p>
+<h2 id="二、数据有多新——部署前先想清楚"><a href="#二、数据有多新——部署前先想清楚" class="headerlink" title="二、数据有多新——部署前先想清楚"></a>二、数据有多新——部署前先想清楚</h2><p>这是选部署方式前最该看的一张表：</p>
+<table>
+<thead>
+<tr>
+<th>部署方式</th>
+<th>报价刷新</th>
+<th>价格提醒</th>
+<th>成本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>官方社区站</td>
+<td>每小时</td>
+<td>无</td>
+<td>免费</td>
+</tr>
+<tr>
+<td>自部署（cached，默认）</td>
+<td>每小时</td>
+<td>无</td>
+<td>免费</td>
+</tr>
+<tr>
+<td><strong>自部署（realtime 模式）</strong></td>
+<td><strong>每 15 秒</strong></td>
+<td><strong>有，发邮件</strong></td>
+<td>免费（要自己的 Finnhub key）</td>
+</tr>
+</tbody></table>
+<p>划重点：realtime 模式的开关 <code>NEXT_PUBLIC_OPENSTOCK_DATA_MODE</code> 是<strong>构建时写死的</strong>，改完必须重新 build，热改不生效。</p>
+<h2 id="三、动手前准备三样东西"><a href="#三、动手前准备三样东西" class="headerlink" title="三、动手前准备三样东西"></a>三、动手前准备三样东西</h2><table>
+<thead>
+<tr>
+<th>东西</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>MongoDB</strong></td>
+<td>本地 Docker 自带一个（最省事），或 Atlas 免费集群</td>
+</tr>
+<tr>
+<td><strong>Finnhub 免费 Key</strong></td>
+<td>finnhub.io 注册即得；可以放多个 Key 逗号分隔自动轮换，每个多 60 次&#x2F;分钟</td>
+</tr>
+<tr>
+<td><strong>Better Auth 密钥</strong></td>
+<td><code>openssl rand -hex 32</code> 生成（Git Bash 里就有 openssl）</td>
+</tr>
+</tbody></table>
+<p>可选：Inngest（后台任务）、Gmail 应用密码（发邮件）、Gemini&#x2F;MiniMax Key（AI 邮件）、Adanos（情绪卡）、Kit（周报）、Google&#x2F;GitHub OAuth。</p>
+<h2 id="四、本地部署实录（Windows）"><a href="#四、本地部署实录（Windows）" class="headerlink" title="四、本地部署实录（Windows）"></a>四、本地部署实录（Windows）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/Open-Dev-Society/OpenStock.git</span><br><span class="line"><span class="built_in">cd</span> OpenStock</span><br><span class="line">npm ci</span><br><span class="line"><span class="built_in">cp</span> .env.example .<span class="built_in">env</span>          <span class="comment"># 填 MONGODB_URI、BETTER_AUTH_SECRET、FINNHUB_API_KEY</span></span><br><span class="line">node scripts/check-env.mjs    <span class="comment"># 自检 .env 缺什么</span></span><br><span class="line">npm run <span class="built_in">test</span>:db               <span class="comment"># 验证 Mongo 连接</span></span><br><span class="line">npm run dev                   <span class="comment"># http://localhost:3000</span></span><br></pre></td></tr></table></figure>
+
+<p>几个实测细节：</p>
+<ul>
+<li>Node 要 <strong>22 LTS</strong>，我用 22.22.2 没问题</li>
+<li><code>npm ci</code> 在国内走 npmmirror 镜像，427 个包两分多钟装完</li>
+<li><code>check-env.mjs</code> 很贴心，缺哪个变量直接报出来——我装完跑了一下，准确列出必填项缺失</li>
+<li>欢迎邮件、价格提醒、AI 周报都是 Inngest 任务，本地调试另开一个终端跑 <code>npx inngest-cli@latest dev</code></li>
+<li>生产模式 <code>npm run build &amp;&amp; npm start</code></li>
+</ul>
+<h2 id="五、Docker-Compose（推荐长期挂）"><a href="#五、Docker-Compose（推荐长期挂）" class="headerlink" title="五、Docker Compose（推荐长期挂）"></a>五、Docker Compose（推荐长期挂）</h2><p>官方 compose 会把应用和 MongoDB（mongo:7）一起拉起来：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> .env.example .<span class="built_in">env</span>   <span class="comment"># 填好配置</span></span><br><span class="line">docker compose up -d</span><br><span class="line"><span class="comment"># 访问 http://localhost:3000</span></span><br></pre></td></tr></table></figure>
+
+<p>三个细节值得注意：</p>
+<ol>
+<li>自带数据库的密码要在<strong>两处保持一致</strong>：<code>MONGO_ROOT_PASSWORD</code> 和 <code>MONGODB_URI</code> 里的密码；URI 里的 <code>@ : / ? #</code> 记得百分号编码</li>
+<li>MongoDB <strong>不对外暴露端口</strong>，只在 Docker 网络内可达——想用 Compass 连，自己往 compose 里加 <code>ports: [&quot;127.0.0.1:27017:27017&quot;]</code>，千万别写裸的 <code>27017:27017</code></li>
+<li>开 realtime 要设 <code>NEXT_PUBLIC_OPENSTOCK_DATA_MODE=realtime</code>，它是构建参数，改完 rebuild</li>
+</ol>
+<p>不想折腾本机，还有 Railway（README 有现成模板）和 Vercel（导入仓库 + 配环境变量）两条路，一样免费起步。</p>
+<h2 id="六、先看清楚市场覆盖，别抱错期待"><a href="#六、先看清楚市场覆盖，别抱错期待" class="headerlink" title="六、先看清楚市场覆盖，别抱错期待"></a>六、先看清楚市场覆盖，别抱错期待</h2><p>官方的 <code>MARKET_SUPPORT.md</code> 写得很诚实（2026-09 对着两个免费数据源实测过）：</p>
+<table>
+<thead>
+<tr>
+<th>市场</th>
+<th>图表</th>
+<th>报价&#x2F;提醒</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>美股（NYSE&#x2F;Nasdaq&#x2F;AMEX）</td>
+<td>实时</td>
+<td>✅ 实时报价 + 提醒</td>
+</tr>
+<tr>
+<td>加密货币（Binance 对）</td>
+<td>实时</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>外汇</td>
+<td>实时</td>
+<td>❌ 只有图表</td>
+</tr>
+<tr>
+<td>加拿大&#x2F;澳大利亚</td>
+<td>延迟</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>印度&#x2F;德国</td>
+<td>收盘数据</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>伦敦、东京、中国香港、韩国、中国台湾等</td>
+<td>K 线嵌入被屏蔽（财务&#x2F;技术指标&#x2F;简介仍可用）</td>
+<td>❌</td>
+</tr>
+</tbody></table>
+<p>两个要点：<strong>价格提醒只支持美股和加密货币</strong>（realtime 模式下每 5 分钟查一次，因为提醒检查器需要一个能高频调用的报价源）；<strong>A 股不在支持列表里</strong>，想看 A 股这个工具帮不上忙。</p>
+<p>想加市场的话改 <code>lib/markets.ts</code>，前提是该交易所的代码能在 TradingView 嵌入里渲染出来。</p>
+<h2 id="七、常见问题速查"><a href="#七、常见问题速查" class="headerlink" title="七、常见问题速查"></a>七、常见问题速查</h2><ul>
+<li><strong>改了数据模式没生效</strong> → 重新 <code>npm run build</code>（Docker 则 rebuild），构建时写死的东西热改无效</li>
+<li><strong>提醒不发邮件</strong> → 确认是 realtime 模式 + Inngest 在跑 + Gmail 应用密码已配；没配邮件的话系统会直接跳过发送</li>
+<li><strong>行情转圈</strong> → Finnhub 免费档限速，多配几个 Key 轮换，或等缓存（cached 模式每小时一批）</li>
+<li><strong>某市场 K 线打不开</strong> → TradingView 嵌入屏蔽，页面会自动改成跳转 TradingView，不是 bug</li>
+<li><strong>登录被限流</strong> → Mongo 支持的防刷速率限制，稍等再试</li>
+</ul>
+<h2 id="八、写在最后"><a href="#八、写在最后" class="headerlink" title="八、写在最后"></a>八、写在最后</h2><p>OpenStock 值得装的理由很简单：它把”看盘”这个高频动作从付费墙和广告里解放出来，K 线、指标、自选、提醒这些核心体验全部开源免费，realtime 模式只要一个免费 Finnhub key。局限也清楚：A股不支持、非美股市场数据等级低、没有交易功能。</p>
+<p>适合的人群：主要看美股和加密货币、想要一个干净无广告的自用面板、或者想拿它当 Next.js 全栈项目学习（auth、后台任务、外部 API 缓存轮换都做得很规范）。</p>
 <hr>
-<blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：只顾着“拉新”却忘了“留旧”：老客户流失率突然飙升怎么办？。</p>
-</blockquote>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/Open-Dev-Society/OpenStock">https://github.com/Open-Dev-Society/OpenStock</a>（Open Dev Society），详细配置见仓库 README 与 <code>MARKET_SUPPORT.md</code>。本文不构成投资建议。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/09/13/shudong-ch0067/" data-id="cmvi6pmpo01g8vch3cp5i96ti" data-title="只顾着“拉新”却忘了“留旧”：老客户流失率突然飙升怎么办？" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/10/21/OpenStock-%E5%BC%80%E6%BA%90%E5%85%8D%E8%B4%B9%E5%85%A8%E7%90%83%E8%A1%8C%E6%83%85%E9%9D%A2%E6%9D%BF-%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BD%BF%E7%94%A8/" data-id="cmvi7d0of0000gsh36f7sfhtp" data-title="OpenStock：开源免费的全球行情面板，自己搭一个&#34;平价彭博终端&#34;" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%9B%E4%B8%9A/" rel="tag">创业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91%E6%B4%9E/" rel="tag">树洞</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Next-js/" rel="tag">Next.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" rel="tag">开源项目</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%82%A1%E7%A5%A8/" rel="tag">股票</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%87%AA%E9%83%A8%E7%BD%B2/" rel="tag">自部署</a></li></ul>
 
     </footer>
   </div>
@@ -258,10 +603,10 @@
 
 
   
-    <article id="post-shudong-ch0066" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-AI副业赚钱方案博物馆-514篇已镜像" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/09/12/shudong-ch0066/" class="article-date">
-  <time class="dt-published" datetime="2026-09-12T12:00:00.000Z" itemprop="datePublished">2026-09-12</time>
+    <a href="/2026/10/21/AI%E5%89%AF%E4%B8%9A%E8%B5%9A%E9%92%B1%E6%96%B9%E6%A1%88%E5%8D%9A%E7%89%A9%E9%A6%86-514%E7%AF%87%E5%B7%B2%E9%95%9C%E5%83%8F/" class="article-date">
+  <time class="dt-published" datetime="2026-10-21T13:50:00.000Z" itemprop="datePublished">2026-10-21</time>
 </a>
     
   <div class="article-category">
@@ -276,7 +621,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/09/12/shudong-ch0066/">救命钱还是夺命索？面对带额外严苛条件的投资该不该签？</a>
+      <a class="p-name article-title" href="/2026/10/21/AI%E5%89%AF%E4%B8%9A%E8%B5%9A%E9%92%B1%E6%96%B9%E6%A1%88%E5%8D%9A%E7%89%A9%E9%A6%86-514%E7%AF%87%E5%B7%B2%E9%95%9C%E5%83%8F/">AI 副业赚钱方案博物馆：514 篇章节已镜像到本站</a>
     </h1>
   
 
@@ -284,25 +629,55 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>网友投稿：<br>我们公司账上钱只能撑三个月了，最近有一个投资人愿意投我们，但他在合同里加了极其严苛的条款：比如一票否决权、过高的业绩承诺，甚至要求创始人个人资产担保。</p>
-<p>我感觉他在趁火打劫。签了，我可能倾家荡产且失去公司控制权；不签，公司可能立刻就倒闭。我该如何在这种博弈中寻找一线生机？</p>
-<p>回复：<br>这在资本市场寒冬是常见现象。这种钱叫“Dirty Money”，吃下去可能会噎死，不吃会饿死。</p>
-<p>寻找生机的关键是“争取退出权”和“设置博弈天花板”。</p>
-<p>这里有3个立刻能试的方法：<br>一是“底线条款死守”，绝对不签创始人个人无限责任担保。你可以失去股权，但不能背上这辈子换不清的债；<br>二是“对赌目标合理化”，通过详尽的数据报告，向投资人说明原定目标的不科学性，争取更稳健的、阶梯式的对赌条件；<br>三是“小额众筹或过桥贷款”，与其签卖身契，不如尝试让老股东给一笔小的过桥贷，撑到你能谈下一家比较人性化的机构。</p>
-<p>活下去固然重要，但千万别把灵魂卖给魔鬼。若在投资协议深度解析、紧急融资策略咨询上有需求，可登录jobleap.cn解决。</p>
+        <p>把开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（AI 副业赚钱方案博物馆）完整镜像到了本站，方便随时翻阅。原仓库 Apache License 2.0，持续日更，本站会跟随更新。</p>
+<h2 id="这个仓库里有什么"><a href="#这个仓库里有什么" class="headerlink" title="这个仓库里有什么"></a>这个仓库里有什么</h2><p>两个系列，共 <strong>514 章</strong>，已全部分类归档：</p>
+<table>
+<thead>
+<tr>
+<th>系列</th>
+<th>篇数</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="/categories/AI%E5%89%AF%E4%B8%9A/">程序员的副业赚钱宝典</a></td>
+<td>444 章</td>
+<td>每章一个可落地的副业方案：需求验证 → MVP → 财务测算 → 关键指标 → 避坑指南</td>
+</tr>
+<tr>
+<td><a href="/categories/AI%E5%89%AF%E4%B8%9A/">创业者早期的烦恼树洞</a></td>
+<td>70 章</td>
+<td>真实创业问题解答：PMF、融资、估值、股权、现金流</td>
+</tr>
+</tbody></table>
+<p>在「分类 → AI副业」下可以看到两个子分类，或者直接用站内搜索搜关键词（比如”订阅费”、”出海”、”Prompt”）。</p>
+<h2 id="先看这几篇"><a href="#先看这几篇" class="headerlink" title="先看这几篇"></a>先看这几篇</h2><p>不想从头翻的话，推荐从这几篇入手：</p>
+<ul>
+<li>第 443 章：搭建 AI 辅助图文创作工具赚订阅费——最典型的”一个痛点一个工具一个月订阅”路线</li>
+<li>序言：打碎”技术思维”，建立”生意思维”——程序员做副业最重要的一课</li>
+<li>第 444 章：代客安装 OpenClaw 与 Claude Code 赚取服务费——信息差赚钱的样本</li>
+</ul>
+<h2 id="仓库的核心认知（浓缩版）"><a href="#仓库的核心认知（浓缩版）" class="headerlink" title="仓库的核心认知（浓缩版）"></a>仓库的核心认知（浓缩版）</h2><p>原仓库 README 里有一套完整的方法论，提炼成几条：</p>
+<ul>
+<li><strong>做内容搞流量</strong>：自媒体流量是当下用 AI 做副业最亲民的路径</li>
+<li><strong>卖铲子而非挖金子</strong>：做工具比做项目风险小得多</li>
+<li><strong>做垂类而非平台</strong>：聚焦一个领域，比做通用平台容易脱颖而出</li>
+<li><strong>从小切入</strong>：先做 Midjourney 的 API 服务，而不是一上来做”AI 平台”</li>
+<li><strong>做国外市场</strong>：付费能力更强，限制更少</li>
+<li><strong>做资产而不是卖时间</strong>：积累能持续产生收益的东西</li>
+</ul>
+<p>已验证的方向包括：套壳站、API 聚合、发卡站、垂直 AI 工具（AI 写论文等）、行业 SaaS、AI 自媒体（绘本故事、虚拟人口播、小说漫画推文、电影解说）、视频翻译搬运等。</p>
 <hr>
-<blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：救命钱还是夺命索？面对带额外严苛条件的投资该不该签？。</p>
-</blockquote>
+<p>原文仓库：<a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">https://github.com/XiaomingX/ai-money-maker-handbook</a>（Apache License 2.0），本站镜像仅作学习交流，版权归原作者所有。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/09/12/shudong-ch0066/" data-id="cmvi6pmpl01g2vch3c79b4yba" data-title="救命钱还是夺命索？面对带额外严苛条件的投资该不该签？" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/10/21/AI%E5%89%AF%E4%B8%9A%E8%B5%9A%E9%92%B1%E6%96%B9%E6%A1%88%E5%8D%9A%E7%89%A9%E9%A6%86-514%E7%AF%87%E5%B7%B2%E9%95%9C%E5%83%8F/" data-id="cmvi6pm8d0006vch301gre67x" data-title="AI 副业赚钱方案博物馆：514 篇章节已镜像到本站" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%9B%E4%B8%9A/" rel="tag">创业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91%E6%B4%9E/" rel="tag">树洞</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" rel="tag">开源项目</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li></ul>
 
     </footer>
   </div>
@@ -312,14 +687,14 @@
 
 
   
-    <article id="post-shudong-ch0065" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-GitHub小白零基础从0到1教程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/09/12/shudong-ch0065/" class="article-date">
-  <time class="dt-published" datetime="2026-09-12T00:00:00.000Z" itemprop="datePublished">2026-09-12</time>
+    <a href="/2026/10/21/GitHub%E5%B0%8F%E7%99%BD%E9%9B%B6%E5%9F%BA%E7%A1%80%E4%BB%8E0%E5%88%B01%E6%95%99%E7%A8%8B/" class="article-date">
+  <time class="dt-published" datetime="2026-10-21T13:20:00.000Z" itemprop="datePublished">2026-10-21</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a>
+    <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
   </div>
 
   </div>
@@ -330,7 +705,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/09/12/shudong-ch0065/">招来了“大厂高管”却水土不服：名气很大，干活很虚怎么办？</a>
+      <a class="p-name article-title" href="/2026/10/21/GitHub%E5%B0%8F%E7%99%BD%E9%9B%B6%E5%9F%BA%E7%A1%80%E4%BB%8E0%E5%88%B01%E6%95%99%E7%A8%8B/">GitHub 小白零基础从 0 到 1 教程（转载整理）</a>
     </h1>
   
 
@@ -338,25 +713,270 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>网友投稿：<br>我们为了提升品牌形象，花重金请了一个曾在知名大厂做总监的大咖过来当VP。结果入职后，他每天都在谈战略、画大饼，还带了一堆繁琐的流程过来，却从不肯下场亲手写哪怕一份方案。</p>
-<p>甚至他提出的很多想法，完全不符合我们这个阶段的实际。团队其他老核心也对他有意见。这种“庙小容不下大佛”的错配，我该如何处理？</p>
-<p>回复：<br>大厂高管是“重武器”，但初创公司现在需要的是“尖刀班”。大厂擅长在成熟体系内资源调度，而你需要的是在荒野里活下去。</p>
-<p>这种错配在初创期非常高发，核心在于“降维打击”还是“降维瘫痪”。</p>
-<p>这里有3个立刻能试的方法：<br>一是“下场测试期”，入职第一个月，不谈管理，只让他负责一个具体的项目执行。如果连细节都抓不住，说明他不适合你的阶段；<br>二是“文化反向对齐”，明确告知他：这儿没有秘书，没有现成的资源，只有解决问题的创始人和战友，请收起大厂优越感；<br>三是“果断纠偏”，如果磨合两个月还没产出实际价值，且导致团队内耗，哪怕赔偿也要请他走，不要让组织氛围坏掉。</p>
-<p>最贵的不一定是最好的，最合适的才是最好的。若在初创高管团队搭建、面试高级人才的底层逻辑上有需要，可登录jobleap.cn解决。</p>
-<hr>
-<blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：招来了“大厂高管”却水土不服：名气很大，干活很虚怎么办？。</p>
+        <blockquote>
+<p><strong>转载说明</strong>：本文整理自 X（Twitter）作者 <a target="_blank" rel="noopener" href="https://x.com/AdrianPunk115">@AdrianPunk115</a> 的长文<a target="_blank" rel="noopener" href="https://x.com/AdrianPunk115/status/2074744543170469894">《GitHub 小白零基础从 0 到 1 教程》</a>，版权归原作者所有。全文与配图已完整转存，仅作学习交流。</p>
 </blockquote>
+<p>从零开始，一步一步学会用 GitHub 管理你的代码。不需要任何基础，跟着做就行。</p>
+<h1 id="📑-目录"><a href="#📑-目录" class="headerlink" title="📑 目录"></a>📑 目录</h1><ol>
+<li><p>什么是 GitHub？和 Git 有什么区别？</p>
+</li>
+<li><p>注册 GitHub 账号</p>
+</li>
+<li><p>安装 Git</p>
+</li>
+<li><p>初次配置 Git</p>
+</li>
+<li><p>创建你的第一个仓库</p>
+</li>
+<li><p>核心操作：clone、add、commit、push</p>
+</li>
+<li><p>分支（Branch）入门</p>
+</li>
+<li><p>Pull Request：协作的第一步</p>
+</li>
+<li><p>如何使用别人的仓库（重点）</p>
+</li>
+<li><p>常用命令速查表</p>
+</li>
+</ol>
+<hr>
+<h1 id="一、-什么是-GitHub？和-Git-有什么区别？"><a href="#一、-什么是-GitHub？和-Git-有什么区别？" class="headerlink" title="一、 什么是 GitHub？和 Git 有什么区别？"></a>一、 什么是 GitHub？和 Git 有什么区别？</h1><p>很多新手会把 Git 和 GitHub 搞混，先花一分钟把它们分清楚：</p>
+<p><img src="/images/github101/01.jpg" alt="图 1"></p>
+<p>💡 一句话理解： Git 是你电脑上的「存档工具」，GitHub 是把存档「同步到云端 + 和别人协作」的平台。你可以只用 Git 不用 GitHub，但用 GitHub 一定会用到 Git。</p>
+<p><img src="/images/github101/02.jpg" alt="图 2"></p>
+<hr>
+<h1 id="二、注册-GitHub-账号"><a href="#二、注册-GitHub-账号" class="headerlink" title="二、注册 GitHub 账号"></a>二、注册 GitHub 账号</h1><p>第 1 步： 打开 github.com，点击右上角 Sign up。</p>
+<p>第 2 步： 输入你的邮箱、设置密码、取一个用户名（Username）。</p>
+<p>⚠️ 用户名很重要！ 用户名会出现在你的仓库地址里（github.com&#x2F;你的用户名&#x2F;项目名），一旦定下来不太方便改，建议认真取一个。全小写英文 + 连字符是比较稳妥的风格。</p>
+<p>第 3 步： 完成邮箱验证（GitHub 会发一封验证邮件，点里面的链接即可）。</p>
+<p>第 4 步： 选择免费方案（Free），这就够用了。后面会问你一些问卷（可跳过）。</p>
+<p>✅ 完成后你会进入 GitHub 主页，右上角能看到你的头像，说明注册成功了。</p>
+<hr>
+<h1 id="三、-安装-Git"><a href="#三、-安装-Git" class="headerlink" title="三、 安装 Git"></a>三、 安装 Git</h1><p>GitHub 网站只是「云端仓库」，你还需要在电脑上装 Git 这个工具来操作代码。</p>
+<h2 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法一：用 Homebrew 安装（推荐）</span></span><br><span class="line">brew install git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法二：直接输入 git，系统会弹窗提示安装 Xcode 命令行工具</span></span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><p>去官网下载安装包：git-scm.com&#x2F;download&#x2F;win</p>
+<p>下载后一路「Next」即可，默认设置对新手完全够用。安装完成后你会得到一个 Git Bash 终端，后面用它来敲命令。</p>
+<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Ubuntu / Debian</span></span><br><span class="line"><span class="built_in">sudo</span> apt install git</span><br><span class="line"></span><br><span class="line"><span class="comment"># CentOS / Fedora</span></span><br><span class="line"><span class="built_in">sudo</span> yum install git</span><br></pre></td></tr></table></figure>
+
+<h2 id="验证安装"><a href="#验证安装" class="headerlink" title="验证安装"></a>验证安装</h2><p>在终端输入，看到版本号就说明装好了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br><span class="line"><span class="comment"># 输出类似：git version 2.43.0</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="四、初次配置-Git"><a href="#四、初次配置-Git" class="headerlink" title="四、初次配置 Git"></a>四、初次配置 Git</h1><p>安装好后，先告诉 Git「你是谁」。每次提交代码时，Git 会把你的名字和邮箱记录上去。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置你的名字（替换成你自己的）</span></span><br><span class="line">git config --global user.name <span class="string">&quot;你的名字&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置你的邮箱（用注册 GitHub 的邮箱）</span></span><br><span class="line">git config --global user.email <span class="string">&quot;你的邮箱@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>💡 –global 表示「全局设置」，只需要配置一次，以后所有项目都会用这个身份。如果某个项目想用不同身份，去掉 –global 在项目目录里单独设置即可。</p>
+<p>验证配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --list</span><br><span class="line"><span class="comment"># 会输出你刚才设置的 user.name 和 user.email</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="五、创建你的第一个仓库"><a href="#五、创建你的第一个仓库" class="headerlink" title="五、创建你的第一个仓库"></a>五、创建你的第一个仓库</h1><p>仓库（Repository，简称 repo）就是一个项目的文件夹，GitHub 上所有的代码都放在仓库里。</p>
+<h2 id="在-GitHub-网站上创建"><a href="#在-GitHub-网站上创建" class="headerlink" title="在 GitHub 网站上创建"></a>在 GitHub 网站上创建</h2><p>第 1 步： 登录 GitHub，点击右上角 + → New repository。</p>
+<p>第 2 步： 填写信息：</p>
+<ul>
+<li><p>Repository name：仓库名，比如 my-first-project</p>
+</li>
+<li><p>Description：项目描述（可选）</p>
+</li>
+<li><p>Public &#x2F; Private：公开还是私有，新手选 Public 练手</p>
+</li>
+<li><p>勾选 “Add a README file”：会自动生成一个说明文件</p>
+</li>
+</ul>
+<p>第 3 步： 点击 Create repository，搞定！🎉</p>
+<p>✅ 什么是 README？</p>
+<blockquote>
+<p> README 是项目的「说明书」，用 Markdown 语法写。别人打开你的仓库第一眼看到的就是它。写清楚项目是做什么的、怎么用，是一个好习惯。</p>
+</blockquote>
+<hr>
+<h1 id="六、核心操作：clone、add、commit、push"><a href="#六、核心操作：clone、add、commit、push" class="headerlink" title="六、核心操作：clone、add、commit、push"></a>六、核心操作：clone、add、commit、push</h1><p>这是 Git 最核心的四个操作，记住这四个就能完成 80% 的工作。</p>
+<p><img src="/images/github101/03.jpg" alt="图 3"></p>
+<h2 id="①-clone-—-把远程仓库下载到本地"><a href="#①-clone-—-把远程仓库下载到本地" class="headerlink" title="① clone — 把远程仓库下载到本地"></a>① clone — 把远程仓库下载到本地</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在 GitHub 仓库页面点绿色的 &quot;Code&quot; 按钮复制地址</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/用户名/仓库名.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 会下载一个同名文件夹，进入它</span></span><br><span class="line"><span class="built_in">cd</span> 仓库名</span><br></pre></td></tr></table></figure>
+
+<h2 id="②-add-—-把修改的文件加入「暂存区」"><a href="#②-add-—-把修改的文件加入「暂存区」" class="headerlink" title="② add — 把修改的文件加入「暂存区」"></a>② add — 把修改的文件加入「暂存区」</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加单个文件</span></span><br><span class="line">git add 文件名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加所有修改（最常用）</span></span><br><span class="line">git add .</span><br></pre></td></tr></table></figure>
+
+<p>⚠️ 注意那个点！ git add . 后面有一个英文句号，表示「当前目录下所有改动的文件」。新手经常漏掉这个点。</p>
+<h2 id="③-commit-—-把暂存区的修改「存档」"><a href="#③-commit-—-把暂存区的修改「存档」" class="headerlink" title="③ commit — 把暂存区的修改「存档」"></a>③ commit — 把暂存区的修改「存档」</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;本次修改的说明&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>✅ commit message 怎么写？</p>
+<blockquote>
+<p>简洁说清楚这次改了什么，比如 “修复登录按钮无法点击的 bug”、”添加用户注册页面”。以后翻历史记录时，这些说明就是你的「存档标签」。</p>
+</blockquote>
+<h2 id="④-push-—-把本地存档推送到-GitHub-云端"><a href="#④-push-—-把本地存档推送到-GitHub-云端" class="headerlink" title="④ push — 把本地存档推送到 GitHub 云端"></a>④ push — 把本地存档推送到 GitHub 云端</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<h2 id="🔄-完整流程演示"><a href="#🔄-完整流程演示" class="headerlink" title="🔄 完整流程演示"></a>🔄 完整流程演示</h2><p>假设你 clone 了一个项目，修改了 README，想同步到 GitHub：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 看看改了什么</span></span><br><span class="line">git status</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 把修改加入暂存区</span></span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 存档</span></span><br><span class="line">git commit -m <span class="string">&quot;更新 README 说明&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 推送到 GitHub</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<p>去 GitHub 网页刷新一下，就能看到你的修改了！</p>
+<hr>
+<h1 id="七、分支（Branch）入门"><a href="#七、分支（Branch）入门" class="headerlink" title="七、分支（Branch）入门"></a>七、分支（Branch）入门</h1><p>分支是 Git 最强大的功能之一。简单说，分支就是一条平行的开发线，你可以在上面随便改，不影响主干。</p>
+<p><img src="/images/github101/04.jpg" alt="图 4"></p>
+<h2 id="常用分支命令"><a href="#常用分支命令" class="headerlink" title="常用分支命令"></a>常用分支命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看当前有哪些分支（带 * 号的是当前所在分支）</span></span><br><span class="line">git branch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建并切换到新分支</span></span><br><span class="line">git checkout -b feature-login</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换回主干</span></span><br><span class="line">git checkout main</span><br><span class="line"></span><br><span class="line"><span class="comment"># 把 feature-login 分支合并到当前分支</span></span><br><span class="line">git merge feature-login</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除已合并的分支</span></span><br><span class="line">git branch -d feature-login</span><br></pre></td></tr></table></figure>
+
+<p>💡 什么时候用分支？</p>
+<blockquote>
+<p>想加新功能、修 bug，但又怕搞坏现有代码？开一个分支在上面改，改好了再合并回主干。万一改崩了，主干不受影响。这是团队协作的标准做法。</p>
+</blockquote>
+<hr>
+<h1 id="八、Pull-Request：协作的第一步"><a href="#八、Pull-Request：协作的第一步" class="headerlink" title="八、Pull Request：协作的第一步"></a>八、Pull Request：协作的第一步</h1><p>Pull Request（简称 PR） 是 GitHub 上的协作机制。简单说就是：「我改了一些代码，请大家审查一下，没问题就合并进去。」</p>
+<h2 id="典型场景"><a href="#典型场景" class="headerlink" title="典型场景"></a>典型场景</h2><ol>
+<li><p>你 fork（复制）了别人的项目到自己账号下</p>
+</li>
+<li><p>clone 到本地，开一个分支做修改</p>
+</li>
+<li><p>push 回你自己的 GitHub 仓库</p>
+</li>
+<li><p>在 GitHub 上发起 Pull Request，请求原项目作者审查</p>
+</li>
+<li><p>作者审查通过后，点击 Merge 合并</p>
+</li>
+</ol>
+<h2 id="怎么发起-PR"><a href="#怎么发起-PR" class="headerlink" title="怎么发起 PR"></a>怎么发起 PR</h2><p>第 1 步： 在你 fork 的仓库页面，切换到你修改过的分支。</p>
+<p>第 2 步： 点击 Contribute → Open pull request。</p>
+<p>第 3 步： 写清楚标题和说明：「我做了什么修改、为什么」，点击 Create pull request。</p>
+<p>✅ 开源贡献： 很多开源项目（Vue、React、Linux 内核等）都欢迎 PR。即使只是修一个文档错别字，也是对开源社区的贡献！</p>
+<p>💡 绿色的 Code 按钮是你最常用的入口 — clone 仓库时就从这里复制地址。</p>
+<h2 id="⑤-文件列表"><a href="#⑤-文件列表" class="headerlink" title="⑤ 文件列表"></a>⑤ 文件列表</h2><p>每一行是一个文件或文件夹，从左到右：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">文件名          最后修改者      提交说明              提交hash + 时间</span><br><span class="line">📁 skills/      jinchenma94    添加新skill          08d4226 · 2 weeks ago</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>点文件夹 → 进入看里面的文件</p>
+</li>
+<li><p>点文件名 → 查看文件内容</p>
+</li>
+<li><p>点提交说明 → 看这次提交具体改了什么（diff）</p>
+</li>
+<li><p>点提交 hash（如 08d4226）→ 跳到这次提交的详情页</p>
+</li>
+<li><p>最右侧 X Commits → 查看完整的提交历史</p>
+</li>
+</ul>
+<h2 id="⑥-README-预览区"><a href="#⑥-README-预览区" class="headerlink" title="⑥ README 预览区"></a>⑥ README 预览区</h2><p>打开仓库默认滚动到的区域，是 README.md 的渲染效果。新手第一件事就是认真读这里，项目是干啥的、怎么装、怎么用，都写在里面。</p>
+<h2 id="⑩-右侧信息栏"><a href="#⑩-右侧信息栏" class="headerlink" title="⑩ 右侧信息栏"></a>⑩ 右侧信息栏</h2><p><img src="/images/github101/05.jpg" alt="图 5"></p>
+<hr>
+<h1 id="九、如何使用别人的仓库（重点）"><a href="#九、如何使用别人的仓库（重点）" class="headerlink" title="九、如何使用别人的仓库（重点）"></a>九、如何使用别人的仓库（重点）</h1><blockquote>
+<p>这可能是新手最常遇到的场景：你在 GitHub 上看到一个不错的项目，想用到自己电脑上，但不知道怎么操作。这节手把手教你。</p>
+</blockquote>
+<h2 id="🔍-第一步：找到并打开一个仓库"><a href="#🔍-第一步：找到并打开一个仓库" class="headerlink" title="🔍 第一步：找到并打开一个仓库"></a>🔍 第一步：找到并打开一个仓库</h2><p>方式一：直接点链接</p>
+<p>别人分享的 GitHub 链接，比如<a target="_blank" rel="noopener" href="https://github.com/adrianpunk/Punk-Skill%EF%BC%8C%E7%82%B9%E5%BC%80%E5%B0%B1%E6%98%AF%E3%80%82">https://github.com/adrianpunk/Punk-Skill，点开就是。</a></p>
+<p>方式二：搜索</p>
+<ul>
+<li>在 GitHub 首页顶部搜索框输入关键词（比如 adrianpunk），按回车</li>
+</ul>
+<h2 id="👀-第二步：看懂仓库页面"><a href="#👀-第二步：看懂仓库页面" class="headerlink" title="👀 第二步：看懂仓库页面"></a>👀 第二步：看懂仓库页面</h2><p>打开一个仓库后，页面信息量很大，新手重点看这几块：</p>
+<p><img src="/images/github101/06.jpg" alt="图 6"></p>
+<p>重点关注的指标：</p>
+<p><img src="/images/github101/07.jpg" alt="图 7"></p>
+<p>💡 新手建议： 打开仓库第一件事就是滚到下面认真读 README。好的 README 会写清楚安装步骤和使用方法，照着做就行。</p>
+<h2 id="🎯-打开一个仓库后的正确阅读顺序"><a href="#🎯-打开一个仓库后的正确阅读顺序" class="headerlink" title="🎯 打开一个仓库后的正确阅读顺序"></a>🎯 打开一个仓库后的正确阅读顺序</h2><ol>
+<li><p>看右上角数据：Stars 多不多 → 判断项目靠不靠谱</p>
+</li>
+<li><p>读 README：项目是干啥的、怎么装、怎么用</p>
+</li>
+<li><p>看 LICENSE：能不能商用、有没有限制</p>
+</li>
+<li><p>看最近提交时间：还在维护吗？太久的可能有问题</p>
+</li>
+<li><p>看 Issues：有没有未解决的严重 bug</p>
+</li>
+<li><p>点 Code 绿色按钮：复制地址，clone 到本地</p>
+</li>
+</ol>
+<p><img src="/images/github101/08.jpg" alt="图 8"></p>
+<h2 id="📥-第三步：把代码弄到你电脑上"><a href="#📥-第三步：把代码弄到你电脑上" class="headerlink" title="📥 第三步：把代码弄到你电脑上"></a>📥 第三步：把代码弄到你电脑上</h2><p>有三种方式，从简单到进阶：</p>
+<hr>
+<p>方式 A：Download ZIP（最简单，不需要 Git）</p>
+<p>适合：只想看看代码、跑一下，不需要后续更新</p>
+<ol>
+<li><p>点仓库页面绿色的 Code 按钮</p>
+</li>
+<li><p>点 Download ZIP</p>
+</li>
+<li><p>解压到你想放的文件夹</p>
+</li>
+</ol>
+<p>⚠️ 缺点：下载的是某个时间点的快照，以后原作者更新了，你拿不到，得重新下载。</p>
+<hr>
+<p>方式 B：git clone（推荐！能随时更新）</p>
+<p>适合：想在本地用、想跟随后续更新、想学习代码</p>
+<p>什么是 clone？</p>
+<p>clone &#x3D; 把整个远程仓库完整复制到你的电脑上，包括所有文件、提交历史、分支信息。</p>
+<p>它和「Download ZIP」的区别是：clone 保留了完整的 Git 历史，以后可以 git pull 拉取最新更新。</p>
+<p>操作步骤：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ① 在仓库页面点绿色 &quot;Code&quot; 按钮，复制 HTTPS 地址</span></span><br><span class="line"><span class="comment">#    地址长这样：https://github.com/adrianpunk/Punk-Skill.git</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ② 打开终端，cd 到你想存放代码的文件夹</span></span><br><span class="line"><span class="built_in">cd</span> ~/Desktop       <span class="comment"># 比如放桌面</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ③ 执行 clone 命令</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/adrianpunk/Punk-Skill.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># ④ 会自动创建一个同名文件夹，进入它</span></span><br><span class="line"><span class="built_in">cd</span> Punk-Skill</span><br><span class="line"></span><br><span class="line"><span class="comment"># ⑤ 看看里面有什么</span></span><br><span class="line"><span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
+
+<p>clone 之后怎么更新？</p>
+<p>以后原作者更新了代码，你只需要在项目文件夹里执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br><span class="line"><span class="comment"># 就会把远程的最新代码拉下来，合并到你本地</span></span><br></pre></td></tr></table></figure>
+
+<p>💡 clone 只需要执行一次。之后更新用 pull 就行。这就像你「订阅」了一个项目，随时可以同步最新内容。</p>
+<hr>
+<p>方式 C：Fork + Clone（想修改并贡献代码）</p>
+<p>适合：你想改别人的代码，甚至想提交 PR 贡献回去</p>
+<p>Fork 和 Clone 有什么区别？</p>
+<p><img src="/images/github101/09.jpg" alt="图 9"></p>
+<p>操作步骤：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ① 在仓库页面点右上角 &quot;Fork&quot; 按钮</span></span><br><span class="line"><span class="comment">#    会复制一份到你自己的 GitHub：github.com/你的用户名/项目名</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ② clone 你 fork 的那份（不是原仓库！）</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/你的用户名/项目名.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># ③ 进入项目</span></span><br><span class="line"><span class="built_in">cd</span> 项目名</span><br><span class="line"></span><br><span class="line"><span class="comment"># ④ 关联原仓库（方便以后同步原作者的更新）</span></span><br><span class="line">git remote add upstream https://github.com/原作者/项目名.git</span><br></pre></td></tr></table></figure>
+
+<p>以后想同步原作者的更新：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拉取原仓库的最新代码</span></span><br><span class="line">git fetch upstream</span><br><span class="line"></span><br><span class="line"><span class="comment"># 把更新合并到你的主干</span></span><br><span class="line">git checkout main</span><br><span class="line">git merge upstream/main</span><br><span class="line"></span><br><span class="line"><span class="comment"># 推送到你自己的 GitHub fork</span></span><br><span class="line">git push origin main</span><br></pre></td></tr></table></figure>
+
+<p>这个流程画成图就是这样：</p>
+<p><img src="/images/github101/10.jpg" alt="图 10"></p>
+<h2 id="🚀-第四步：clone-下来之后干什么？"><a href="#🚀-第四步：clone-下来之后干什么？" class="headerlink" title="🚀 第四步：clone 下来之后干什么？"></a>🚀 第四步：clone 下来之后干什么？</h2><p>代码下载到本地后，别急着改，先做这几件事：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ① 认真读 README！找安装和使用说明</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ② 看看有没有依赖需要安装</span></span><br><span class="line"><span class="comment">#    Node.js 项目：</span></span><br><span class="line">npm install        <span class="comment"># 或 yarn install / pnpm install</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#    Python 项目：</span></span><br><span class="line">pip install -r requirements.txt</span><br><span class="line"></span><br><span class="line"><span class="comment">#    Go 项目：</span></span><br><span class="line">go mod download</span><br><span class="line"></span><br><span class="line"><span class="comment"># ③ 启动项目（具体命令看 README）</span></span><br><span class="line">npm run dev        <span class="comment"># 前端项目常见</span></span><br><span class="line">python main.py     <span class="comment"># Python 项目常见</span></span><br><span class="line">go run main.go     <span class="comment"># Go 项目常见</span></span><br></pre></td></tr></table></figure>
+
+<p>💡 判断项目类型的方法：</p>
+<ul>
+<li><p>看到 package.json → Node.js &#x2F; 前端项目 → 用 npm install</p>
+</li>
+<li><p>看到 requirements.txt 或 setup.py → Python 项目 → 用 pip install</p>
+</li>
+<li><p>看到 go.mod → Go 项目 → 用 go mod download</p>
+</li>
+<li><p>看到 pom.xml → Java Maven 项目 → 用 mvn install</p>
+</li>
+<li><p>看到 Cargo.toml → Rust 项目 → 用 cargo build</p>
+</li>
+</ul>
+<h2 id="📋-完整实战：从发现到使用"><a href="#📋-完整实战：从发现到使用" class="headerlink" title="📋 完整实战：从发现到使用"></a>📋 完整实战：从发现到使用</h2><p>假设你在 GitHub 上看到一个不错的待办事项项目，完整流程：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 打开仓库页面，读 README，了解项目</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 复制 clone 地址，下载到本地</span></span><br><span class="line"><span class="built_in">cd</span> ~/Projects</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/someone/todo-app.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 进入项目</span></span><br><span class="line"><span class="built_in">cd</span> todo-app</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 安装依赖</span></span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5. 启动项目</span></span><br><span class="line">npm run dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 6. 用了一段时间后，想看看有没有更新</span></span><br><span class="line">git pull</span><br><span class="line"></span><br><span class="line"><span class="comment"># 7. 如果想自己改代码，先建个分支</span></span><br><span class="line">git checkout -b my-feature</span><br><span class="line"></span><br><span class="line"><span class="comment"># 8. 改完代码后提交</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;添加暗色主题&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 9. 如果想贡献回原项目 → fork + push + 发 PR</span></span><br><span class="line"><span class="comment">#    如果只是自己用 → 到这就行了</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="十、常用命令速查表"><a href="#十、常用命令速查表" class="headerlink" title="十、常用命令速查表"></a>十、常用命令速查表</h1><p><img src="/images/github101/11.jpg" alt="图 11"></p>
+<p>⚠️ git reset –hard 会永久丢弃所有未提交的修改，不可恢复！用之前确认你真的不需要那些改动了。</p>
+<hr>
+<h1 id="🎯-新手心法"><a href="#🎯-新手心法" class="headerlink" title="🎯 新手心法"></a>🎯 新手心法</h1><ul>
+<li><p>勤 commit：每完成一小步就提交一次，存档点越密越安全</p>
+</li>
+<li><p>commit message 写清楚：未来的你会感谢现在写说明的你</p>
+</li>
+<li><p>改之前先 pull：避免和别人的修改冲突</p>
+</li>
+<li><p>不确定就先 <code>git status</code>：随时了解当前状态</p>
+</li>
+<li><p>重要操作前先备份：git reset –hard 之前三思</p>
+</li>
+</ul>
+<h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>Punk｜中科大 MBA｜HerName 首席设计师｜Stanley 商学院执行院长｜</p>
+<p>｜AI提示词｜分享小白能看懂、复制能上手的 AI &#x2F; 搞钱方法｜</p>
+<p>@AdrianPunk115</p>
+<hr>
+<p><strong>原文</strong></p>
+<ul>
+<li>原帖：<a target="_blank" rel="noopener" href="https://x.com/AdrianPunk115/status/2074744543170469894">https://x.com/AdrianPunk115/status/2074744543170469894</a></li>
+<li>本文仅作存档与学习交流，文字、图片版权归原作者所有；如需引用请注明出处。</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/09/12/shudong-ch0065/" data-id="cmvi6pmpm01g5vch37jg3dxwv" data-title="招来了“大厂高管”却水土不服：名气很大，干活很虚怎么办？" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/10/21/GitHub%E5%B0%8F%E7%99%BD%E9%9B%B6%E5%9F%BA%E7%A1%80%E4%BB%8E0%E5%88%B01%E6%95%99%E7%A8%8B/" data-id="cmvi4xyva0000tgh38nyb7v6x" data-title="GitHub 小白零基础从 0 到 1 教程（转载整理）" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%9B%E4%B8%9A/" rel="tag">创业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91%E6%B4%9E/" rel="tag">树洞</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8/" rel="tag">新手入门</a></li></ul>
 
     </footer>
   </div>
@@ -366,14 +986,14 @@
 
 
   
-    <article id="post-shudong-ch0064" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-可灵4-0实测与AI短剧全流程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/09/11/shudong-ch0064/" class="article-date">
-  <time class="dt-published" datetime="2026-09-11T12:00:00.000Z" itemprop="datePublished">2026-09-11</time>
+    <a href="/2026/10/20/%E5%8F%AF%E7%81%B54-0%E5%AE%9E%E6%B5%8B%E4%B8%8EAI%E7%9F%AD%E5%89%A7%E5%85%A8%E6%B5%81%E7%A8%8B/" class="article-date">
+  <time class="dt-published" datetime="2026-10-20T14:30:00.000Z" itemprop="datePublished">2026-10-20</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a>
+    <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
   </div>
 
   </div>
@@ -384,7 +1004,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/09/11/shudong-ch0064/">被“虚荣指标”蒙蔽了双眼：DAU很高，为什么就是不挣钱？</a>
+      <a class="p-name article-title" href="/2026/10/20/%E5%8F%AF%E7%81%B54-0%E5%AE%9E%E6%B5%8B%E4%B8%8EAI%E7%9F%AD%E5%89%A7%E5%85%A8%E6%B5%81%E7%A8%8B/">动动嘴就能做 AI 短剧，还能自动剪辑：可灵 4.0 实测与全流程教程</a>
     </h1>
   
 
@@ -392,25 +1012,185 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>网友投稿：<br>我们的产品最近数据涨势极好，日活（DAU）翻了三倍。我们在朋友圈疯狂庆祝，投资人也夸我们势头猛。</p>
-<p>但冷静下来看财报，我发现我们的ARPU（人均贡献收入）在下降，营销获客成本（CAC）在上涨。现在的繁荣全是靠烧钱换来的，一旦停了推广，数据就开始腰斩。我这种“虚假繁荣”的情况，是该继续烧钱拿份额，还是该刹车保命？</p>
-<p>回复：<br>这叫“虚荣指标（Vanity Metrics）陷阱”。高增长掩盖了极其脆弱的商业模式，这是一剂毒药。</p>
-<p>创业回归本质只有一件事：你提供的价值是否大于你获取该价值的成本。</p>
-<p>这里有3个立刻能试的方法：<br>一是“核心北极星指标调优”，把精力从DAU转向“次日留存”和“LTV（用户终身价值）”，只有爱你的用户才是有意义的；<br>二是“ROI硬脱钩”，强迫自己做一个测试：在零投放的情况下，看看自然留存的用户能产生多少订单，这是你的基本盘；<br>三是“精细化运营，而非砸钱”，把买流量的钱省下来，去做产品细节优化，让存量用户产生复购。</p>
-<p>不要为了给投资人看数据而烧掉你的未来。若在商业模式验证、精细化增长流量模型上有瓶颈，可登录jobleap.cn解决。</p>
-<hr>
-<blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：被“虚荣指标”蒙蔽了双眼：DAU很高，为什么就是不挣钱？。</p>
+        <blockquote>
+<p><strong>转载说明</strong>：本文整理自 X（Twitter）作者 <a target="_blank" rel="noopener" href="https://x.com/xitang_ai">@西堂AI创业笔记</a> 的长文<a target="_blank" rel="noopener" href="https://x.com/xitang_ai/status/2112514646196244880">《动动嘴就能做AI短剧，还能自动剪辑！可灵4.0全流程教程（附提示词）》</a>，版权归原作者所有。文中视频演示请到原帖观看，图片与文字已完整转存。</p>
 </blockquote>
+<p>今天聊聊最近更新的可灵 4.0。</p>
+<p>你是不是很好奇，同一段女团舞、同一场武士对决，之前我用Seedance2.5生成过，现在换成可灵4.0，会拍出什么？</p>
+<p>可灵最长单次能生成30s、带对白、还能自己切镜头，听着很适合拿来做短剧。但到底实际效果怎么样，还得实际应用才知道。</p>
+<p>我拿此前用Seedance 2.5做过的案例重新测试，再用一部都市短剧，把剧本、人物图、视频生成到剪辑的流程走一遍。</p>
+<p>先看五组视频，后面直接讲怎么做。完整提示词和对应素材都放在文末。</p>
+<h2 id="一、五组实测"><a href="#一、五组实测" class="headerlink" title="一、五组实测"></a>一、五组实测</h2><p>我拿了五个以前用Seedance 2.5做过的案例，换可灵4.0再跑一遍。</p>
+<h2 id="01-女团舞"><a href="#01-女团舞" class="headerlink" title="01 女团舞"></a>01 女团舞</h2><p>提示词只规定三位成年成员、粉色长发／银色短发／黑色长发，以及全景、转身和表情特写，让模型自由发挥。</p>
+<p>先看可灵4.0，再看Seedance 2.5。原片分别为1080P、720P，合成视频统一1080P；保留原声、原速。</p>
+<p><img src="/images/kling4/01.jpg" alt="视频画面 1"></p>
+<p><em>▶ 约 30 秒视频演示，原帖内可播放</em></p>
+<p>女团这条，我确实没想到可灵会做成这样。说实话，有点像我之前用MiniMax H3时的感觉。</p>
+<p>至少在这个场景里，我觉得可灵跟Seedance 2.0差不多，有些地方还不如。</p>
+<p>当然，审美这个东西有点主观。</p>
+<p>大家可以自己看人物皮肤的细腻程度、面部处理，还有三个人齐舞的效果，心里有一杆秤。</p>
+<p>反正我看下来，这一条是没有Seedance 2.5好的。</p>
+<h2 id="02-武士打斗"><a href="#02-武士打斗" class="headerlink" title="02 武士打斗"></a>02 武士打斗</h2><p>这一组沿用原案例的人物和月下神社场景，把交锋拆成进攻、格挡、换位和终结。</p>
+<p><img src="/images/kling4/02.jpg" alt="视频画面 2"></p>
+<p><em>▶ 约 34 秒视频演示，原帖内可播放</em></p>
+<p>打斗这条，我觉得可灵4.0还是差点意思。</p>
+<p>那个极速交锋、打得特别快的感觉，没有出来。前后也有一些割裂，动作逻辑接不上，甚至打着打着，人的物理位置就变了。我觉得这种问题挺伤的。</p>
+<p>而且，这还是用了我们专门的打斗Skill之后的结果。可灵这条基本还得靠剪辑，把不同片段重新拼一遍，才能把动作逻辑弄好。</p>
+<p>Seedance 2.5之前那条，我基本能直接拿来用。</p>
+<h2 id="03-镇妖斗法"><a href="#03-镇妖斗法" class="headerlink" title="03 镇妖斗法"></a>03 镇妖斗法</h2><p>这场戏的看点，是先让镇妖师落入红丝陷阱，再用金符反过来困住蜘蛛精。大家可以重点看特效颜色、攻守关系和反转。</p>
+<p><img src="/images/kling4/03.jpg" alt="视频画面 3"></p>
+<p><em>▶ 约 56 秒视频演示，原帖内可播放</em></p>
+<p>蜘蛛精这条，整体我反而觉得还不错。</p>
+<p>动作是连着的，法术也基本对，人物嘴型能对上，镜头切换也还可以。</p>
+<p>比较明显的问题在14秒左右，蜘蛛精把自己捆住了。又是这种逻辑错误，有点可惜。但把这个点排除掉，整条还是有不少能用的地方。</p>
+<h2 id="04-森林逃亡"><a href="#04-森林逃亡" class="headerlink" title="04 森林逃亡"></a>04 森林逃亡</h2><p>两名互不认识的逃亡者迎面撞上，从“你跟着我？”聊到“带路”，嘴上互相提防，行动却越来越靠近。30秒里几乎全靠人物关系推进。</p>
+<p><img src="/images/kling4/04.jpg" alt="视频画面 4"></p>
+<p><em>▶ 约 60 秒视频演示，原帖内可播放</em></p>
+<p>森林这条，我基本挑不出什么大毛病。</p>
+<p>清晰度、人物的写实程度，包括细节，我觉得跟Seedance 2.5是能不相上下的。</p>
+<p>可能就是一些很微妙的语气，差那么一点感觉；烘托暧昧氛围的小细节，也稍微少了一些。但整体我能接受，这一条是可以用的。</p>
+<h2 id="05-耳机广告"><a href="#05-耳机广告" class="headerlink" title="05 耳机广告"></a>05 耳机广告</h2><p>我上传了产品的整体、侧面、网布细节各一张，沿用原案例提示词，要求简洁的商业展示和结尾产品名。</p>
+<p><img src="/images/kling4/05.jpg" alt="视频画面 5"></p>
+<p><em>▶ 约 30 秒视频演示，原帖内可播放</em></p>
+<p>广告片这条，整体清晰度OK，产品一致性我觉得也还可以。就是加上旁白之后，反而变得更low了，音乐也没有那么高级。</p>
+<p>不过这些问题，后期换掉声音还能处理，整体是能用的。如果是我来交片，会先去掉这段旁白，再重新找合适的音乐。</p>
+<h2 id="成本怎么算"><a href="#成本怎么算" class="headerlink" title="成本怎么算"></a>成本怎么算</h2><p>效果看完，再算算钱。我查了两边的官方价格，也翻了这次的扣积分记录。</p>
+<p>这里先按10秒、16:9、只用文字或图片参考来比，不带输入视频。</p>
+<p>以下保留本次测试时的价格与扣积分口径：</p>
+<p>• 可灵4.0，钻石会员积分，1080P：本次实扣135灵感值；按测试时首月套餐折算约7.86元，续费月约9.89元。</p>
+<p>• Seedance 2.5，火山方舟官方API，1080P：约37.42元。</p>
+<p>• Seedance 2.5，火山方舟官方API，720P：约15.12元。</p>
+<p>按这两种购买方式，可灵这次的1080P单条预算更低。</p>
+<h2 id="二、短剧全流程"><a href="#二、短剧全流程" class="headerlink" title="二、短剧全流程"></a>二、短剧全流程</h2><p>前面看的是模型对比。接下来，我拿可灵做了一条完整的AI短剧。</p>
+<p><img src="/images/kling4/06.jpg" alt="视频画面 6"></p>
+<p><em>▶ 约 65 秒视频演示，原帖内可播放</em></p>
+<p>女继承人被栽赃，董事逼她交权，父亲也不相信她。保安上来拉人，西装保镖出手解围，拿出监控。最后查到的钱，却进了父亲的账户。</p>
+<p>这条片子，从写剧本、做人物，到生成视频、剪辑、加字幕和配乐，我都是跟AI聊着做完的，中间没有打开过剪映等任何剪辑软件。</p>
+<p>当然，也不是一句话就全部做对了。</p>
+<p>男主不够帅、女主像贴上去的、打戏突然开打、证据文字乱码，这些问题我们都遇到了。我看完觉得哪里不对，就接着说，让它继续改。下面是我的整体流程。</p>
+<p><img src="/images/kling4/07.jpg" alt="图 7"></p>
+<h2 id="1-连接可灵"><a href="#1-连接可灵" class="headerlink" title="1. 连接可灵"></a>1. 连接可灵</h2><p>第一步，我们把可灵的MCP和CLI都接到Codex里。连好之后，上传参考图、提交视频、查看进度、下载原片，这些就可以让它去做了。</p>
+<p><img src="/images/kling4/08.jpg" alt="视频画面 8"></p>
+<p><em>▶ 约 0 秒视频演示，原帖内可播放</em></p>
+<p>不用先研究一堆配置，直接把下面这句话发给Codex：</p>
+<p>请运行以下命令安装可灵 Skill，并完成授权流程：npx skills add klingai-tech&#x2F;skills</p>
+<p>安装和授权照它的引导走，浏览器弹出登录页时，用你自己的可灵账号授权好即可。</p>
+<p><img src="/images/kling4/09.jpg" alt="图 9"></p>
+<p>我们也不用管什么mcp和cli的原理是什么，总之就是我们给Codex接上了操作可灵的工具。</p>
+<p>也不一定非要用Codex。WorkBuddy和豆包工作都是同样的提示词都能连接上。</p>
+<h2 id="2-编写剧本"><a href="#2-编写剧本" class="headerlink" title="2. 编写剧本"></a>2. 编写剧本</h2><p>剧本我用的是西羊石短剧剧本创作GPTS。它主要按短剧的节奏来写。</p>
+<p><img src="/images/kling4/10.jpg" alt="图 10"></p>
+<p>我的输入其实很口语化，就是把脑子里的画面说给它听：家族企业只有一个女继承人，她被董事会的人搞了，最无助的时候，保镖出来救场。要有冲突、有反转，角色别太多，一分钟到80秒左右，背景放在中国。</p>
+<p>你看下面这段，就是当时一点点聊出这个故事的过程。前面还在想西游、聊斋和教父式的改编故事或者氛围，后来才确定做现代家族企业。</p>
+<p><img src="/images/kling4/11.jpg" alt="图 11"></p>
+<p>GPTS会根据这些想法输出完整剧本，我看完再改。比如女主不能一直等人救，她自己得有反驳；监控也不能只拍赵董事进了财务室，最好能看到他拿印章、盖章、刷卡，证据才接得上。</p>
+<p>剧本确认没问题，再把它交给Codex继续做。你也可以这样说：</p>
+<p>这是我确认过的短剧剧本。接下来按这个版本制作，先给我角色设定和需要准备的人物、场景、道具清单，再逐项生成资产图。先别急着生成视频。</p>
+<h2 id="3-准备资产"><a href="#3-准备资产" class="headerlink" title="3. 准备资产"></a>3. 准备资产</h2><p>这一步我觉得很关键。我们拍的是现代家族企业，人物穿着就偏职业风，主要场景用现代会议室。总不能故事讲董事会，人物和房间却各有各的风格。</p>
+<p>女主是继承人，我希望她看起来是被富养长大的女孩：自然、有气质，有一点贵气，不需要浓妆或者把所有昂贵的东西都穿在身上。</p>
+<p>最后用了白短外套、深色长裤和暗红胸针，放在一群深色西装里也比较显眼。</p>
+<p><img src="/images/kling4/12.jpg" alt="图 12"></p>
+<p>男主虽然是保镖，但他也是男主，所以一定得帅，给人安全感。</p>
+<p>我们最早那版还戴眼镜，看着像大学生或者程序员，我当时就说，这哪里像能打得过反派打手？后来选中一张脸，继续换西装、调身材比例，才有现在这个样子。</p>
+<p><img src="/images/kling4/13.jpg" alt="图 13"></p>
+<p>反派打手的造型就可以粗粝一点、凶狠一点，别所有人都长得像精修男模。</p>
+<p><img src="/images/kling4/14.jpg" alt="图 14"></p>
+<p>女主父亲，我想要的是四五十岁、已经成功的商业掌权者，有一点教父式的威严；</p>
+<p><img src="/images/kling4/15.jpg" alt="图 15"></p>
+<p>其他高管也要有年龄感，可以稍微发福。大家站在一起，观众才分得清谁是什么人。</p>
+<p>人物参考图用的就是上面这种白底三栏：正面脸部大特写、遮住脸的正面全身、背面全身。</p>
+<p>这个做法是我最近看Higgsfield公开创作流程学来的。正面全身里的脸涂掉，只用大特写提供脸部信息；全身图负责身材和衣服，背面负责背后的结构。这样可以减少两张脸不完全一样、模型不知道该参考哪一张的干扰。参考资产准备教程</p>
+<p>保持已选定的人物身份和脸型，做一张纯白背景角色参考板：左边是清晰的正面脸部大特写，中间是头顶到鞋底完整的正面全身，仅遮住脸部，右边是背面全身。人物比例修长自然，服装、鞋子前后一致，不要加文字。</p>
+<p>但要跟视频模型说清楚，黑块只是参考图的处理方式，成片人物的脸必须完整。我们前面真的生成过遮脸画面，所以这个说明不能省。一致性也要继续看原片，不能做完三视图就完全不管了。</p>
+<p>场景同样先固定下来。我们这间会议室的门、窗、长桌和主位，后面换镜头还得是同一间房。</p>
+<p><img src="/images/kling4/16.jpg" alt="图 16"></p>
+<p>再让人物进到场景里试一张构图。人的比例、窗光的方向、手和桌子的接触都要看。前面女主像贴上去的，就是不能只顾脸好看，还得让她真的站在这个空间里。</p>
+<p><img src="/images/kling4/17.jpg" alt="图 17"></p>
+<h2 id="4-编排视频提示词"><a href="#4-编排视频提示词" class="headerlink" title="4. 编排视频提示词"></a>4. 编排视频提示词</h2><p>到了视频提示词这一步，我用了一份具有视听语言专业知识的提示词模板。它会结合短剧节奏，把景别、运镜、人物表演和段落衔接编排进去。</p>
+<p><img src="/images/kling4/18.jpg" alt="图 18"></p>
+<p>我觉得资产图和提示词，是生成视频特别关键的两个东西。前面把它们弄好，后面才能少一点盲目抽卡。</p>
+<p>把剧本、资产图和模板一起发给Codex，就可以接着说：</p>
+<p>按我提供的提示词模板，把这集拆成可以连续生成的几批素材。<br>每批写清参考图用途、开场站位、人物表演、对白、景别和运镜，结尾停在哪里也要说明。台词用已经确认的版本。打戏单独调用我们的打斗Skill细化。</p>
+<p>一批素材里面可以有几个镜头，不用一句台词生成一条。也别为了凑满时长，让人物站着发呆。</p>
+<p>尤其是表演，你得写。</p>
+<p>我这次用可灵的感觉是，不把反应说清楚，它真的会很尴尬。一个画面里好几张脸，大家都不怎么动，也没表情，看久了甚至有点毛骨悚然。</p>
+<p><img src="/images/kling4/19.jpg" alt="图 19"></p>
+<p>所以女主听到父亲让她停职，不要只写她很伤心。</p>
+<p>可以写她撑桌的手指收紧，短吸一口气，抬眼看父亲；父亲听完，避开她的目光。旁边的赵董事看向门口，等着保安过来。每个人在这个时候做什么，都得有原因。</p>
+<p>比如我们停职这一段，提示词就是这么组织的：</p>
+<p>父亲近景，放下笔，看向女儿：交印章。停职调查。镜头轻推。<br>切女主侧面肩胸近景，画面下缘看得到她撑桌的手。她手指收紧，压着委屈说：爸，你连我一句话都不肯信？<br>切父亲近景，他看她一眼，又低下眼：我只看证据。<br>切赵董事中近景，他马上向门口抬手：带走！</p>
+<p>景别也要换。先让观众知道大家在哪，再切近一点看表情或动作，别整段都用一个全景。一直远远看着，既枯燥，也容易把那些不自然的小动作全露出来。</p>
+<p>打戏我们另外用了专门的打斗Skill。没装过的，可以让Codex安装GitHub上的 ZzzAloong&#x2F;fight-scene-director。</p>
+<p>我自己对比下来，确实更喜欢用了Skill的那一版。下面这两条就是早期实测，同一组5张参考图，同一个可灵4.0，都是10秒、1080P。一条用原提示词，一条用Skill细化提示词。</p>
+<p><img src="/images/kling4/20.jpg" alt="视频画面 20"></p>
+<p><em>▶ 约 20 秒视频演示，原帖内可播放</em></p>
+<p>这一组我更偏向后者，但两条仍有不自然的地方，后面也继续返修了。</p>
+<p>打斗肯定要有快有慢。</p>
+<p>靠近、对峙可以稍缓，出招和反击要利落，失衡落地又得给观众看清楚。Skill帮我们把来招、应对、接触、结果写出来，比只写激烈打斗要具体得多。</p>
+<p>运镜也要跟动作匹配。</p>
+<p>人都打到画面边上了，镜头还稳稳待在原地，就容易像旁边摆了一台监控。</p>
+<p>当然不是越晃越好，走位时跟过去，接触时看清楚，冲突结束再稳下来。我们后面还加过6秒动作视频参考，主要借它的速度和摄影节奏。</p>
+<h2 id="5-生成与返修"><a href="#5-生成与返修" class="headerlink" title="5. 生成与返修"></a>5. 生成与返修</h2><p>参考图和提示词准备好，就让Codex提交。这次用的是可灵4.0，16:9、1080P，有音画同步，保留对白和现场音效。背景音乐、字幕和屏幕文字留到后期统一做。</p>
+<p>按这批提示词和参考素材生成视频，先核对图片顺序和每张图的用途。角色的脸只参考对应大特写，遮脸全身只参考服装和身材。用可灵4.0、1080P、16:9，保留对白和现场音效，不生成字幕和背景音乐。保存任务编号，完成后下载原片给我看。</p>
+<p>上传、查询和下载都可以交给它。我们中间遇到上传请求过多，就改成逐张上传；电脑不小心关机了，回来按已有任务编号接着查，不用从头再来。</p>
+<p>按我自己的使用经验，资产和提示词准备充分后，不少镜头生成1—3次就能接近想要的效果。但难的打戏、前后衔接，还是得多花心思。这次也没有一次全过。</p>
+<p>比如我后来发现29秒保镖动手很突然，就直接跟它说：我没看懂他怎么过来的，前后接不上。让它补上保安靠近女主、男主进门制止、对方继续攻击、男主反击这一段。</p>
+<p><img src="/images/kling4/21.jpg" alt="图 21"></p>
+<p>补拍时，我们用了这张状态还正确的入场画面，再配人物、会议室和动作参考。下面先看旧版，再看调整后的同一时间段。</p>
+<p><img src="/images/kling4/22.jpg" alt="视频画面 22"></p>
+<p><em>▶ 约 16 秒视频演示，原帖内可播放</em></p>
+<p>文字也是一个问题。我这次在可灵里生成的证据界面，有些字还是不像正常中文，直接放在片子里很出戏，这一块我觉得还需要加强。</p>
+<p>如果某个画面特别依赖清晰的文字和构图，我会更倾向先用GPT Image 2.5把关键帧做清楚、检查好，再拿关键帧生成视频。</p>
+<p>这是一种可以尝试的办法，字在运动里仍然可能变形；需要观众准确读到的信息，后期加字更好控制。</p>
+<h2 id="6-剪辑与复盘"><a href="#6-剪辑与复盘" class="headerlink" title="6. 剪辑与复盘"></a>6. 剪辑与复盘</h2><p>原片出来以后，我们就在同一段对话里继续拼接和修改。</p>
+<p>我没有打开剪映去拖时间线，而是直接告诉Codex：哪段删掉，哪段加快，哪里补声音。</p>
+<p>比如有一段打完之后，人物站在那里停了一下，45秒附近看起来像卡住了。与其硬留着，最后就把上一版44.25—46.25秒那两秒剪掉。灰衣壮汉进场稍微加快到约1.3倍，交手处加一点推近和跟随裁切，节奏才收紧。</p>
+<p><img src="/images/kling4/23.jpg" alt="视频画面 23"></p>
+<p><em>▶ 约 0 秒视频演示，原帖内可播放</em></p>
+<p>监控画面也做了后期包装。</p>
+<p>我们加上中文机位名、录像状态和时间码，让它看起来更像监控。那些奇怪的证据文字则拿掉，换成赵董事取章、盖章、刷卡的画面，保留保镖指认他的对白，观众更容易看懂。</p>
+<p><img src="/images/kling4/24.jpg" alt="视频画面 24"></p>
+<p><em>▶ 约 0 秒视频演示，原帖内可播放</em></p>
+<p>音乐不用一直铺满。</p>
+<p>我让它在停职、解围和结尾点缀几下，最后等女主问完父亲，再落一个反转重音，接父亲的反应。话还没说完就急着放音乐，情绪反而容易跑掉。</p>
+<p>这些修改，直接这么说就行：</p>
+<p>45秒附近有一点卡，把打完后多余的停顿剪掉。壮汉进场稍微加速，运镜跟着动作走，但别把对白也加快。监控补上中文机位名和时间码，删掉乱码。结尾等女主问完，再加短促的反转音乐，其他地方少量点缀就好。</p>
+<p>我简单总结在这个作品主要改了什么，大家可能在实际创作中遇到不同的问题，我这里分享我优化迭代的思路。</p>
+<p><img src="/images/kling4/25.jpg" alt="图 25"></p>
+<p>所以你看，第一版不好，不代表这条片子就做不了了。</p>
+<p>先把问题说具体一点，是人物没表情，还是动作软绵绵？是镜头不跟人，还是观众没看懂为什么突然开打？有些要重新生成，有些剪掉就好了。</p>
+<p>我觉得，做短剧也好、做电影也好，先得让画面有基本的美感，故事说得通，镜头和声音能带着观众看下去。再往后，才是更好的创意、更高的审美，以及你自己的表达。</p>
+<p>这篇文章，其实也是这样做出来的。</p>
+<p>我用语音输入法，把测试感受和关键步骤说给AI听，再让它整理成文章。中间的聊天截图、角色板、提示词、对比视频和返修过程，也一起留下来放到对应位置。</p>
+<p>不然一篇文章全是文字，大家看着累，也很难知道我究竟怎么做的。把素材和过程摆出来，才看得懂，也方便跟着试。</p>
+<p>之前大家说vibe coding，现在叫vibe cutting也好，vibe videoing也好，我觉得意思都差不多，我们可以动动嘴，把脑子里的想法变成视频，继续对话把它剪好，甚至再整理成一篇完整的复盘。</p>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>整体对比下来，我觉得可灵4.0还是有自己的优势。</p>
+<p>3D场景和写实质感这两块，我个人是比较认可的。当然，动作衔接和人物表演也还有需要打磨的地方，具体做什么片子，还是得看案例来选。</p>
+<p>另一个让我觉得挺好的变化，是有了CLI和MCP以后，我们用Agent做视频方便了很多。</p>
+<p>这次直接用可灵账号里的积分，就能让Codex去生成、下载，再接着剪辑；对于已经开放API的模型，也可以按接口接进自己的流程。选择越来越多，不用每一步都自己切软件操作。</p>
+<p>作为用户，我当然很开心看到更多视频模型出来。我也不希望最后变成字节跳动一家独大，大家只能用同一个平台。</p>
+<p>我们有更多选择，平台之间有竞争，技术才更有动力往前走，价格也不至于太离谱。</p>
+<p>谁在什么场景下做得好、用起来顺手、价格合适，我们就选谁。</p>
+<p>我觉得这样挺好的。</p>
+<h2 id="三、素材"><a href="#三、素材" class="headerlink" title="三、素材"></a>三、素材</h2><p>完整剧本、人物资产、具有视听语言专业知识的提示词模板、打斗提示词、对比视频和剪辑记录，都放在下面的资料包里。先拿一小段试试，哪里不对，就接着聊。</p>
+<p>资料包《谁敢动她_完整教程与素材_精修版.zip》见飞书原文末尾：</p>
+<p><a target="_blank" rel="noopener" href="https://xiyangshiai.feishu.cn/docx/JvzLdaUjAoAPVDxSCeUcAXNZnWe">https://xiyangshiai.feishu.cn/docx/JvzLdaUjAoAPVDxSCeUcAXNZnWe</a></p>
+<hr>
+<p><strong>原文</strong></p>
+<ul>
+<li>原帖：<a target="_blank" rel="noopener" href="https://x.com/xitang_ai/status/2112514646196244880">https://x.com/xitang_ai/status/2112514646196244880</a></li>
+<li>作者：西堂AI创业笔记（前腾讯工程师，《AI漫剧创作一本通》《AI视频一本通》作者）</li>
+<li>本文仅作存档与学习交流，文字、图片版权归原作者所有；如需引用请注明出处。</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/09/11/shudong-ch0064/" data-id="cmvi6pmph01fzvch38ybr9k2d" data-title="被“虚荣指标”蒙蔽了双眼：DAU很高，为什么就是不挣钱？" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/10/20/%E5%8F%AF%E7%81%B54-0%E5%AE%9E%E6%B5%8B%E4%B8%8EAI%E7%9F%AD%E5%89%A7%E5%85%A8%E6%B5%81%E7%A8%8B/" data-id="cmvgrye6q000094h3bb4v7q0i" data-title="动动嘴就能做 AI 短剧，还能自动剪辑：可灵 4.0 实测与全流程教程" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%9B%E4%B8%9A/" rel="tag">创业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91%E6%B4%9E/" rel="tag">树洞</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E8%A7%86%E9%A2%91/" rel="tag">AI视频</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8F%AF%E7%81%B5/" rel="tag">可灵</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E6%B5%8B/" rel="tag">实测</a></li></ul>
 
     </footer>
   </div>
@@ -420,14 +1200,14 @@
 
 
   
-    <article id="post-shudong-ch0063" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-闲鱼智能监控-ai-goofish-monitor-部署与使用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/09/11/shudong-ch0063/" class="article-date">
-  <time class="dt-published" datetime="2026-09-11T00:00:00.000Z" itemprop="datePublished">2026-09-11</time>
+    <a href="/2026/10/18/%E9%97%B2%E9%B1%BC%E6%99%BA%E8%83%BD%E7%9B%91%E6%8E%A7-ai-goofish-monitor-%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time class="dt-published" datetime="2026-10-18T02:30:00.000Z" itemprop="datePublished">2026-10-18</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a>
+    <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
   </div>
 
   </div>
@@ -438,7 +1218,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/09/11/shudong-ch0063/">团队超过20人后的“信息烟囱”：为什么大家越来越不通气了？</a>
+      <a class="p-name article-title" href="/2026/10/18/%E9%97%B2%E9%B1%BC%E6%99%BA%E8%83%BD%E7%9B%91%E6%8E%A7-ai-goofish-monitor-%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BD%BF%E7%94%A8/">闲鱼捡漏自动化：ai-goofish-monitor 部署与使用全记录</a>
     </h1>
   
 
@@ -446,25 +1226,173 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>网友投稿：<br>以前我们五六个人的时候，大家坐一圈，任何事吼一嗓子全公司都知道。现在核心团队加上外协有20多个人了，我发现研发部不知道产品部改了逻辑，销售部承诺的交期，运营部完全不清楚。</p>
-<p>大家各干各的，出现了严重的内耗和推诿。这种“部门墙”在这么小的公司也会出现吗？我该如何打破这种信息孤岛？</p>
-<p>回复：<br>当一个组织超过12人（一个餐桌坐不下）时，自发的沟通就会失效。你需要刻意制造“信息流动”。</p>
-<p>打破信息孤岛的关键是“透明化”和“跨部门同步”。</p>
-<p>这里有3个立刻能试的方法：<br>一是“周中全员同步会”，每周三抽出20分钟，每个部门负责人同步本周最重要的3件事，杜绝冗长汇报，只说关联信息；<br>二是“全员公开看板”，利用在线协作工具，让所有人都能看到各个项目的实时状态，权限尽量开放，减少打听成本；<br>三是“跨部门吐槽大会”，定期举办非正式茶话会，让大家说出在配合中遇到的不爽，把矛盾放在台面上解决。</p>
-<p>沟通也是生产力，不要让沉默杀死了协作。若在企业数字化协同方案、信息透明化机制建设上有需求，可登录jobleap.cn解决。</p>
+        <p>闲鱼捡漏这件事，难点从来不是”买”，而是”看见”。</p>
+<p>好东西挂出来的窗口期可能只有几十分钟，你不可能 24 小时盯着搜索页刷新。所以我一直在找能替我盯着的工具，最近把 GitHub 上的 <strong>ai-goofish-monitor</strong> 完整装了一遍——Playwright 抓页面、多模态模型看图判断、命中就推手机。这篇是部署过程 + 使用说明，包含我踩的两个坑。</p>
 <hr>
-<blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：团队超过20人后的“信息烟囱”：为什么大家越来越不通气了？。</p>
-</blockquote>
+<h2 id="一、它到底做了什么"><a href="#一、它到底做了什么" class="headerlink" title="一、它到底做了什么"></a>一、它到底做了什么</h2><p>一句话：<strong>你写一句人话需求，它定时去闲鱼搜，把商品图发给视觉模型判断值不值得买，值得就推送给你。</strong></p>
+<p>拆开看是四层：</p>
+<table>
+<thead>
+<tr>
+<th>层</th>
+<th>干的事</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>采集</td>
+<td>Playwright 驱动 Chromium 打开闲鱼搜索页，翻页、抓详情、抓卖家信息、下图</td>
+</tr>
+<tr>
+<td>判断</td>
+<td>把图片 + 文案丢给多模态模型，对照你的”标准”输出推荐&#x2F;不推荐</td>
+</tr>
+<tr>
+<td>提醒</td>
+<td>ntfy、企业微信、Bark、Telegram、PushPlus、Webhook 任选</td>
+</tr>
+<tr>
+<td>管理</td>
+<td>Web 界面：任务、账号、AI 标准、日志、结果、设置</td>
+</tr>
+</tbody></table>
+<p>任务、结果、价格历史都存在一个 SQLite 文件里（<code>data/app.sqlite3</code>），登录态、日志、图片还是文件形式。比起早期版本扫一堆 jsonl，这版查询和导出让日常使用顺手很多。</p>
+<hr>
+<h2 id="二、两条部署路线，先选一条"><a href="#二、两条部署路线，先选一条" class="headerlink" title="二、两条部署路线，先选一条"></a>二、两条部署路线，先选一条</h2><table>
+<thead>
+<tr>
+<th>路线</th>
+<th>适合</th>
+<th>代价</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Docker</strong>（官方推荐）</td>
+<td>想长期挂着跑、不想碰 Python 环境</td>
+<td>要装 Docker，镜像得走国内加速</td>
+</tr>
+<tr>
+<td><strong>Windows 本地 Python</strong></td>
+<td>想改代码、想看得见浏览器在干嘛</td>
+<td>要装 Python + Node，前端要自己构建</td>
+</tr>
+</tbody></table>
+<p>我选的是本地部署，因为想确认它到底抓到了什么。下面按这条路线写，Docker 放最后。</p>
+<p>环境要求不高：<strong>Python 3.10+、Node 18+、一个支持图片输入的模型 API Key</strong>。</p>
+<hr>
+<h2 id="三、本地部署实录"><a href="#三、本地部署实录" class="headerlink" title="三、本地部署实录"></a>三、本地部署实录</h2><h3 id="1-拉代码"><a href="#1-拉代码" class="headerlink" title="1. 拉代码"></a>1. 拉代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/Usagi-org/ai-goofish-monitor.git</span><br><span class="line"><span class="built_in">cd</span> ai-goofish-monitor</span><br></pre></td></tr></table></figure>
+
+<p>仓库不大，深度克隆只有 7 MB 左右。国内直连卡住的话加个代理：<code>git -c http.proxy=http://127.0.0.1:7897 clone ...</code>。</p>
+<h3 id="2-Python-依赖"><a href="#2-Python-依赖" class="headerlink" title="2. Python 依赖"></a>2. Python 依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python -m venv .venv</span><br><span class="line">.venv\Scripts\python.exe -m pip install -r requirements-runtime.txt</span><br></pre></td></tr></table></figure>
+
+<p>用 <code>requirements-runtime.txt</code>，不是 <code>requirements.txt</code>——后者多带了 pytest 和 coverage，跑服务用不上。</p>
+<p><strong>坑一：injected 镜像源 403。</strong> 我一开始习惯性挂了清华源，pip 直接报 <code>403 Client Error</code> 然后 <code>Could not find a version that satisfies the requirement python-dotenv (from versions: none)</code>。这个报错极具误导性，看着像包名写错，实际是源被拦。去掉 <code>-i</code> 用官方源就正常了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements-runtime.txt -i https://pypi.org/simple</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-浏览器内核"><a href="#3-浏览器内核" class="headerlink" title="3. 浏览器内核"></a>3. 浏览器内核</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.venv\Scripts\playwright.exe install chromium</span><br></pre></td></tr></table></figure>
+
+<p>它靠 Playwright 自带的 Chromium 跑无头模式，跟系统里装的 Chrome 是两回事，这一步别省。</p>
+<h3 id="4-前端构建"><a href="#4-前端构建" class="headerlink" title="4. 前端构建"></a>4. 前端构建</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> web-ui</span><br><span class="line">npm install --registry=https://registry.npmmirror.com</span><br><span class="line">npm run build</span><br></pre></td></tr></table></figure>
+
+<p>157 个包，一分钟左右。<strong>坑二在这里</strong>：构建产物不是落在 <code>web-ui/dist</code>，Vite 配置里 <code>outDir</code> 指向了 <code>../dist</code>，也就是仓库根目录的 <code>dist/</code>。你如果在 <code>web-ui</code> 里找 <code>dist</code> 找不到，别以为构建失败了——后端只认根目录那个。</p>
+<p>构建完确认 <code>ai-goofish-monitor\dist\index.html</code> 存在，否则打开页面会收到一句”前端构建产物不存在，请先运行 cd web-ui &amp;&amp; npm run build”。</p>
+<h3 id="5-配置文件"><a href="#5-配置文件" class="headerlink" title="5. 配置文件"></a>5. 配置文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line">copy .env.example .<span class="built_in">env</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="四、-env-只需要认真填三行"><a href="#四、-env-只需要认真填三行" class="headerlink" title="四、.env 只需要认真填三行"></a>四、<code>.env</code> 只需要认真填三行</h2><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">OPENAI_API_KEY</span>=sk-xxxx</span><br><span class="line"><span class="attr">OPENAI_BASE_URL</span>=https://你的服务商/v1/    <span class="comment"># 必须 OpenAI 兼容</span></span><br><span class="line"><span class="attr">OPENAI_MODEL_NAME</span>=你的模型名              <span class="comment"># 必须支持图片输入</span></span><br></pre></td></tr></table></figure>
+
+<p>模型必须能看图，否则”判断成色”这件事根本无从谈起。<code>PROXY_URL</code> 可以只给 AI 请求单独挂代理，不影响爬虫。</p>
+<p>Web 界面账号在同一文件：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">SERVER_PORT</span>=<span class="number">8000</span></span><br><span class="line"><span class="attr">WEB_USERNAME</span>=admin</span><br><span class="line"><span class="attr">WEB_PASSWORD</span>=admin123</span><br></pre></td></tr></table></figure>
+
+<p>注意 README 里说默认密码是 <code>admin123</code>，而 <code>.env.example</code> 里写的是 <code>admin123</code>。<strong>以 <code>.env</code> 为准</strong>，这是官方文档没对齐的地方。</p>
+<p>几个容易忽略的开关：</p>
+<ul>
+<li><code>RUN_HEADLESS=true</code>：无头跑。想盯着浏览器看它在点什么，临时改 <code>false</code></li>
+<li><code>PCURL_TO_MOBILE=true</code>：商品链接转移动端，抓取成功率更高</li>
+<li><code>AI_DEBUG_MODE=true</code>：调 Prompt 时打开，能看到模型收到了什么、回了什么</li>
+<li><code>TASK_FAILURE_THRESHOLD=3</code>：连续失败 3 次自动暂停任务 24 小时——这是防 cookie 失效后被反复风控的保险丝，别关</li>
+</ul>
+<p>通知配一个就够，我用的 ntfy：手机装个 App，订阅一个自建 topic，<code>.env</code> 里填 <code>NTFY_TOPIC_URL</code>，命中就弹。</p>
+<hr>
+<h2 id="五、启动与第一次使用"><a href="#五、启动与第一次使用" class="headerlink" title="五、启动与第一次使用"></a>五、启动与第一次使用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.venv\Scripts\python.exe -m src.app</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Web UI：<a target="_blank" rel="noopener" href="http://127.0.0.1:8000/">http://127.0.0.1:8000</a></li>
+<li>API 文档：<a target="_blank" rel="noopener" href="http://127.0.0.1:8000/docs">http://127.0.0.1:8000/docs</a></li>
+</ul>
+<p>首次启动会自动建库建表。</p>
+<h3 id="导入闲鱼登录态（关键一步）"><a href="#导入闲鱼登录态（关键一步）" class="headerlink" title="导入闲鱼登录态（关键一步）"></a>导入闲鱼登录态（关键一步）</h3><p>没有登录态，爬虫抓到的永远是空列表。仓库自带一个 Chrome 扩展，比手工抠 cookie 靠谱：</p>
+<ol>
+<li><code>chrome://extensions</code> → 开”开发者模式” → “加载已解压的扩展程序” → 选仓库里的 <code>chrome-extension</code> 目录</li>
+<li>打开 goofish.com 并登录</li>
+<li>点扩展图标 → Extract Login State → Copy to Clipboard</li>
+<li>回到 Web UI 的「闲鱼账号管理」粘贴保存</li>
+</ol>
+<p>它导出的不只是 cookie（含 HttpOnly），还有 UA、时区、屏幕尺寸这些环境指纹，模仿真实会话用。</p>
+<p>登录态通常几天到几周失效一次，失效的表现是结果一直是空、日志里刷 cookie 报错，重新导一遍覆盖就行。</p>
+<h3 id="建第一个任务"><a href="#建第一个任务" class="headerlink" title="建第一个任务"></a>建第一个任务</h3><p>任务管理 → 新建，两种判断模式：</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>什么时候用</th>
+<th>行为</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>AI 判断</strong></td>
+<td>需求能用一句话讲清</td>
+<td>填”详细需求”，后台异步生成分析标准（有独立进度弹窗）</td>
+</tr>
+<tr>
+<td><strong>关键词判断</strong></td>
+<td>价格合适就想看</td>
+<td>填关键词规则，直接建任务，不调模型，不花钱</td>
+</tr>
+</tbody></table>
+<p>我第一个任务是这么配的：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">关键词：MacBook Air M2 16G</span><br><span class="line">需求：2022 款之后，16G 内存，电池循环 100 次以内，外观无磕碰，</span><br><span class="line">     卖家信用极好，接受验机，价格 5000 以内</span><br><span class="line">定时：*/30 * * * *      # 半小时一轮</span><br><span class="line">新发布范围：3 天内</span><br><span class="line">区域：先留空</span><br></pre></td></tr></table></figure>
+
+<p>关于参数，有几个经验：</p>
+<ul>
+<li><strong>区域筛选会砍掉大部分结果</strong>，不确定市场行情时先留空</li>
+<li><strong>新发布范围</strong>是捡漏的核心，超过 7 天的帖子基本没好价</li>
+<li><strong>价格区间</strong>两个值别填反（官方示例配置里就填反了，<code>min_price: 8000</code> 配 <code>max_price: 2000</code>，照抄会一个都搜不到）</li>
+<li><strong>多账号</strong>时把任务绑定到具体账号，同一个账号高频轮询就是给风控递刀</li>
+</ul>
+<hr>
+<h2 id="六、跑起来之后看哪里"><a href="#六、跑起来之后看哪里" class="headerlink" title="六、跑起来之后看哪里"></a>六、跑起来之后看哪里</h2><ul>
+<li><strong>结果页</strong>：从 SQLite 查，可筛选可导出。价格历史也在库里，所以同一件商品降了多少钱是能看出来的</li>
+<li><strong>日志页</strong>：按任务看每一轮执行细节。排查”为什么今天一条都没推”，答案八成在这里</li>
+<li><strong>设置页</strong>：改 Prompt、看系统状态、调代理轮换</li>
+</ul>
+<p>跑一周之后你会有一个很现实的体会：<strong>AI 判断的准确率，八成取决于你写的标准，两成取决于模型。</strong> 标准里写”九成新”这种模糊词，模型只能瞎猜；写”边框无划痕、电池健康 90% 以上、含原装充电器”，它就靠谱得多。</p>
+<hr>
+<h2 id="七、常见问题速查"><a href="#七、常见问题速查" class="headerlink" title="七、常见问题速查"></a>七、常见问题速查</h2><p><strong>页面提示前端产物不存在</strong> → 根目录缺 <code>dist/</code>，回 <code>web-ui</code> 跑 <code>npm run build</code>，重启。</p>
+<p><strong>任务一直空结果</strong> → ① 登录态过期 ② 关键词太窄 ③ 区域卡太死 ④ 价格填反 ⑤ 日志里看风控提示，降频率换账号。</p>
+<p><strong>AI 判断离谱</strong> → 开 <code>AI_DEBUG_MODE</code> 看输入输出，再改 <code>prompts/</code> 下的标准文件，别急着换模型。</p>
+<p><strong>想 24 小时挂着</strong> → 本地黑窗口不靠谱，换 Docker + <code>restart: unless-stopped</code>。</p>
+<p><strong>Docker 镜像拉不动</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker pull ghcr.nju.edu.cn/usagi-org/ai-goofish:latest</span><br><span class="line">docker tag ghcr.nju.edu.cn/usagi-org/ai-goofish:latest ghcr.io/usagi-org/ai-goofish:latest</span><br><span class="line">docker compose up -d</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="八、几句必要的提醒"><a href="#八、几句必要的提醒" class="headerlink" title="八、几句必要的提醒"></a>八、几句必要的提醒</h2><ul>
+<li>遵守闲鱼用户协议和 robots.txt，<strong>轮询间隔别低于 15 分钟</strong>，多账号分摊压力。这不是道德洁癖，高频请求的直接后果是你自己的号被封。</li>
+<li><code>state/</code> 里的登录态等于账号钥匙，<code>.env</code> 里有 API Key，两个都别进公开仓库（<code>.gitignore</code> 已经排除了）。</li>
+<li><strong>默认密码一定要改</strong>，也别把 8000 端口直接暴露到公网——这玩意儿能改你的任务、能读你的通知配置。</li>
+<li>项目是 MIT 许可、按”现状”提供，账号风险和后果自己承担。它是个效率工具，不是外挂。</li>
+</ul>
+<hr>
+<p>装完之后我的实际感受：这类工具真正省的不是钱，是<strong>注意力的持续占用</strong>。以前刷闲鱼是每隔两小时想起来一次，现在是有值得看的才响一下。工具负责盯，人只负责决策——这才是我想要的自动化。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/09/11/shudong-ch0063/" data-id="cmvi6pmp801fkvch3dgp366w1" data-title="团队超过20人后的“信息烟囱”：为什么大家越来越不通气了？" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/10/18/%E9%97%B2%E9%B1%BC%E6%99%BA%E8%83%BD%E7%9B%91%E6%8E%A7-ai-goofish-monitor-%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BD%BF%E7%94%A8/" data-id="cmvd7es7z0000nwh34rujb04u" data-title="闲鱼捡漏自动化：ai-goofish-monitor 部署与使用全记录" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%9B%E4%B8%9A/" rel="tag">创业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91%E6%B4%9E/" rel="tag">树洞</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" rel="tag">开源项目</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" rel="tag">自动化</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%97%B2%E9%B1%BC/" rel="tag">闲鱼</a></li></ul>
 
     </footer>
   </div>
@@ -474,14 +1402,14 @@
 
 
   
-    <article id="post-shudong-ch0062" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-VoiceStudio上手-本地AI配音工作室" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/09/10/shudong-ch0062/" class="article-date">
-  <time class="dt-published" datetime="2026-09-10T12:00:00.000Z" itemprop="datePublished">2026-09-10</time>
+    <a href="/2026/10/17/VoiceStudio%E4%B8%8A%E6%89%8B-%E6%9C%AC%E5%9C%B0AI%E9%85%8D%E9%9F%B3%E5%B7%A5%E4%BD%9C%E5%AE%A4/" class="article-date">
+  <time class="dt-published" datetime="2026-10-17T02:20:00.000Z" itemprop="datePublished">2026-10-17</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a>
+    <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
   </div>
 
   </div>
@@ -492,7 +1420,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/09/10/shudong-ch0062/">当心“创始人销售天花板”：你是公司最大的销售，却也是最大的瓶颈？</a>
+      <a class="p-name article-title" href="/2026/10/17/VoiceStudio%E4%B8%8A%E6%89%8B-%E6%9C%AC%E5%9C%B0AI%E9%85%8D%E9%9F%B3%E5%B7%A5%E4%BD%9C%E5%AE%A4/">VoiceStudio 上手：把 ElevenLabs 搬进自己电脑，3 秒音频克隆一个声音</a>
     </h1>
   
 
@@ -500,25 +1428,310 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>网友投稿：<br>我们公司现在的客户，90%都是靠我（创始人）一个人的脸面和关系谈下来的。这种模式在初期很高效，但现在问题出现了：我一人分身乏术，一旦我不出门，订单就停滞。</p>
-<p>我试着招了两个销售经理，但他们总是谈不成，客户总要求见我。我感觉我被困在销售一线上，没法去管研发和融资了。如何把创始人的销售能力复制给团队？</p>
-<p>回复：<br>你正在经历“从个人英雄主义到组织作战”的脱壳期。如果你不退下来，公司永远做不大。</p>
-<p>复制销售能力的内核不是复制你的“脸面”，而是复制你的“话术和逻辑”。</p>
-<p>这里有3个立刻能试的方法：<br>一是“销售全案SOP化”，把你每次谈单的逻辑、Q&amp;A、以及那些打动客户的瞬间，写成可以背诵的标准教材；<br>二是“陪跑式转交”，带着新销售谈前三次，第四次让他主谈，你旁听，结束后进行深度复盘，而不是直接甩手不管；<br>三是“品牌背书替代个人背书”，把你的个人IP逐渐转化为产品功能背书，让客户买的是“产品能解决问题”，而不是“创始人够义气”。</p>
-<p>一个好的CEO应该逐渐变得“在销售环节无足轻重”。若在销售漏斗管理、B2B销售体系搭建上有困惑，可登录jobleap.cn解决。</p>
+        <p>先给结论：</p>
+<blockquote>
+<p><strong>如果你只是想给视频配个音、做条有声书、或者把一段英文视频换成中文口播，又不想按月给云端 TTS 交钱——这个工具值得花半小时装一次。</strong></p>
+</blockquote>
+<p>VoiceStudio（原名 OmniVoice Studio）是一个开源的本地优先语音工作室，把<strong>声音克隆、声音设计、视频配音、有声书制作、听写转录</strong>塞进了一个桌面应用里。核心流程全部跑在你自己的机器上：没有订阅、没有按字符计费、音频不出本机。</p>
+<p>我把它翻了一遍文档和仓库（本文数据均来自项目官方 README 与 <code>docs/</code> 目录，非编造实测），把真正需要知道的挑出来写成这篇上手攻略。</p>
+<hr>
+<h2 id="一、它到底能干什么"><a href="#一、它到底能干什么" class="headerlink" title="一、它到底能干什么"></a>一、它到底能干什么</h2><p>官方主打 8 项功能，我觉得真正有用的就四个：</p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>一句话</th>
+<th>我的判断</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>🎙️ 语音克隆</strong></td>
+<td>拖进一段 <strong>3 秒</strong>音频，零样本复刻任意声音，支持 646 种语言</td>
+<td>核心功能，也是它最值钱的地方</td>
+</tr>
+<tr>
+<td><strong>🎬 视频配音</strong></td>
+<td>丢 YouTube 链接或本地文件 → 转录 → 翻译 → 重新配音 → 导出 MP4</td>
+<td>自媒体换语种的神器</td>
+</tr>
+<tr>
+<td><strong>📖 有声书编辑器</strong></td>
+<td>导入 txt &#x2F; EPUB &#x2F; PDF，自动分章、响度归一，导出 <code>.m4b</code></td>
+<td>做播客、有声书的人会爱死</td>
+</tr>
+<tr>
+<td><strong>⌨️ 听写工具</strong></td>
+<td>任意应用里按 <kbd>⌘</kbd>+<kbd>⇧</kbd>+<kbd>Space</kbd>，转写完自动粘贴、窗口消失</td>
+<td>比开个网页转录顺手太多</td>
+</tr>
+</tbody></table>
+<p>另外还有：声音设计（调性别、年龄、口音、音高、情感、方言）、故事模式（多角色配音）、人声分离（Demucs）、说话人分离（谁说了什么）、AI 水印（AudioSeal）、批量队列。</p>
+<p>还有一个隐藏彩蛋：<strong>它自带 MCP 服务器</strong>，Claude Code &#x2F; Cursor 这类 agent 可以直接调它合成语音、克隆声音。这个下面单独讲。</p>
+<hr>
+<h2 id="二、和-ElevenLabs-比，差在哪"><a href="#二、和-ElevenLabs-比，差在哪" class="headerlink" title="二、和 ElevenLabs 比，差在哪"></a>二、和 ElevenLabs 比，差在哪</h2><p>官方 README 里自己列了对比表，比较诚实：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>ElevenLabs</strong></th>
+<th><strong>VoiceStudio</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>价格</strong></td>
+<td>订阅 + 用量限制</td>
+<td>免费开源（AGPL-3.0）</td>
+</tr>
+<tr>
+<td><strong>语音克隆</strong></td>
+<td>✅ 3 秒</td>
+<td>✅ 3 秒，零样本</td>
+</tr>
+<tr>
+<td><strong>语言</strong></td>
+<td>约 32 种</td>
+<td><strong>646</strong> 种</td>
+</tr>
+<tr>
+<td><strong>有声书 &#x2F; 多角色</strong></td>
+<td>❌</td>
+<td>✅ 完整编辑器 + <code>m4b</code> 导出</td>
+</tr>
+<tr>
+<td><strong>数据隐私</strong></td>
+<td>音频在云端处理</td>
+<td>核心流程本地运行</td>
+</tr>
+<tr>
+<td><strong>API Key</strong></td>
+<td>必须</td>
+<td>本地流程不需要</td>
+</tr>
+<tr>
+<td><strong>TTS 引擎</strong></td>
+<td>1 个</td>
+<td><strong>16 个</strong>可选</td>
+</tr>
+<tr>
+<td><strong>ASR 引擎</strong></td>
+<td>1 个</td>
+<td><strong>11 个</strong>可选</td>
+</tr>
+<tr>
+<td><strong>MCP 服务器</strong></td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+</tbody></table>
+<p>但<strong>它没吹的地方也得说</strong>：作者在 FAQ 里自己承认，ElevenLabs 在<strong>开箱即用的稳定性和打磨度上仍然领先</strong>，尤其是英语。VoiceStudio 的最终效果取决于你选的引擎、你的硬件、以及参考音频的质量——干燥的近麦录音克隆出来，和一段嘈杂带回声的手机录音，差距是天上地下。</p>
+<p>所以定位应该是：**不是”全面碾压”，而是”够用 + 免费 + 数据在自己手上”**。</p>
+<hr>
+<h2 id="三、装之前先看硬件，这一步最容易翻车"><a href="#三、装之前先看硬件，这一步最容易翻车" class="headerlink" title="三、装之前先看硬件，这一步最容易翻车"></a>三、装之前先看硬件，这一步最容易翻车</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>最低</th>
+<th>推荐</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>系统</td>
+<td>Windows 10 21H2+ &#x2F; macOS 12+（Apple Silicon）&#x2F; Ubuntu 24.04+</td>
+<td>任意现代 64 位系统</td>
+</tr>
+<tr>
+<td>内存</td>
+<td>8 GB</td>
+<td>16 GB+</td>
+</tr>
+<tr>
+<td>显存</td>
+<td>4 GB（不够会自动把 TTS 卸载到 CPU）</td>
+<td>8 GB+（RTX 3060 以上）</td>
+</tr>
+<tr>
+<td>硬盘</td>
+<td>10 GB 可用</td>
+<td>20 GB+ SSD</td>
+</tr>
+</tbody></table>
+<p><strong>三条硬性限制，装之前务必对照：</strong></p>
+<ul>
+<li><strong>Windows 上只有 NVIDIA 能吃到 GPU 加速。</strong> AMD 显卡（包括 Ryzen AI 核显）在 Windows 下只能跑 CPU，因为 PyTorch 没发 Windows 版 ROCm 轮子。想用 AMD 加速得去 Linux。</li>
+<li><strong>Intel Mac 不支持本地后端。</strong> UI 能装，Python 后端跑不起来（PyTorch 不再发 Intel Mac 轮子）。只能连远程后端用。</li>
+<li><strong>首次启动会下载模型权重</strong>，几个 GB，启动画面有进度条。这一步慢是正常的，之后就秒开。</li>
+</ul>
+<blockquote>
+<p>实测数据在项目 <code>docs/benchmarks.md</code>，各种引擎的耗时和显存占用都有——建议装之前先看你自己显卡对应哪一档。</p>
+</blockquote>
+<hr>
+<h2 id="四、Windows-安装：首选-MSI"><a href="#四、Windows-安装：首选-MSI" class="headerlink" title="四、Windows 安装：首选 MSI"></a>四、Windows 安装：首选 MSI</h2><h3 id="路线-A：MSI-安装包（推荐，最省事）"><a href="#路线-A：MSI-安装包（推荐，最省事）" class="headerlink" title="路线 A：MSI 安装包（推荐，最省事）"></a>路线 A：MSI 安装包（推荐，最省事）</h3><p>去 <a target="_blank" rel="noopener" href="https://github.com/debpalash/VoiceStudio/releases/latest">Releases</a> 下 <code>VoiceStudio_*_x64_en-US.msi</code>，双击，下一步下一步。开始菜单里会出现 <strong>VoiceStudio</strong>。</p>
+<p><strong>Python、FFmpeg、模型权重全都不用自己装</strong>——应用首次启动时会自己 bootstrap 出来。这是它比大部分开源项目友好的地方。</p>
+<p>⚠️ <strong>想把程序装到 D 盘的话</strong>：向导里可以选任意<strong>本地</strong>盘符，但<strong>映射的网络驱动器（Z: → 共享盘）不支持</strong>，这是 Windows Installer 的限制（自定义动作跑在服务账号下，看不见用户的盘符映射），装了会回滚。</p>
+<p>另外要注意：安装位置只挪走了那 200MB 的程序本体，真正占地方的是<strong>数据目录</strong>（模型 + 声音 + 项目，几十 GB），默认在 <code>%LOCALAPPDATA%</code>。在 <strong>设置 → 存储 → 模型目录</strong> 里可以单独改到 D 盘。</p>
+<h3 id="路线-B：源码运行（想跟进最新修复）"><a href="#路线-B：源码运行（想跟进最新修复）" class="headerlink" title="路线 B：源码运行（想跟进最新修复）"></a>路线 B：源码运行（想跟进最新修复）</h3><p>项目处于 active beta，作者明说”如需最新修复请从源码运行”。需要先备齐工具链：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">winget install <span class="literal">--id</span> Git.Git <span class="literal">-e</span></span><br><span class="line">winget install Python.Python.<span class="number">3.11</span></span><br><span class="line">winget install Gyan.FFmpeg</span><br><span class="line">winget install Rust.Rustup</span><br><span class="line">powershell <span class="literal">-c</span> <span class="string">&quot;irm bun.sh/install.ps1 | iex&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>还要装 <strong>Visual Studio 2022 生成工具</strong>并勾选”使用 C++ 的桌面开发”（<code>pyannote.audio</code> 这类包要编译）。</p>
+<p>然后：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/debpalash/VoiceStudio.git</span><br><span class="line"><span class="built_in">cd</span> VoiceStudio</span><br><span class="line">bun install</span><br><span class="line">bun run desktop-prod</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>desktop-prod</code> 内部是个 bash 脚本，会自动找 Git Bash（装 Git for Windows 时自带）。装完 Rust 记得<strong>关掉 PowerShell 再重开</strong>，否则找不到 cargo。</p>
+</blockquote>
+<h3 id="路线-C：便携模式（我要重点推荐）"><a href="#路线-C：便携模式（我要重点推荐）" class="headerlink" title="路线 C：便携模式（我要重点推荐）"></a>路线 C：便携模式（我要重点推荐）</h3><p>如果你和我一样<strong>不喜欢软件往 C 盘 <code>%APPDATA%</code> 里到处拉屎</strong>，首次启动的设置界面里有 <strong>Portable（便携）</strong> 模式：整个安装——Python 环境、模型权重、声音、项目、设置——全塞进<strong>一个文件夹</strong>。</p>
+<p>把这个文件夹和 exe 放一起，整个搬走（换机器、换盘符、甚至放 U 盘）都能继续用。设置界面里 Portable 那一行按 <strong>Change…</strong> 可以自己选位置。</p>
+<p>这里有个细节做得挺讲究：如果数据目录选在<strong>程序自己的文件夹内</strong>（比如 exe 在 <code>D:\Apps\VoiceStudio</code>，数据在 <code>D:\Apps\VoiceStudio\MyData</code>），记录的是<strong>相对路径</strong>，整个文件夹搬走也不迷路；选在外部（exe 在 <code>D:\Apps</code>，数据在 <code>E:\VoiceStudio</code>）就只能记绝对路径，换盘符就得重新指一下。</p>
+<hr>
+<h2 id="五、第一次用：三步克隆一个声音"><a href="#五、第一次用：三步克隆一个声音" class="headerlink" title="五、第一次用：三步克隆一个声音"></a>五、第一次用：三步克隆一个声音</h2><ol>
+<li><strong>装完启动。</strong> 首次运行自动建 Python 环境、拉模型权重，启动画面显示进度。</li>
+<li><strong>打开「语音克隆」</strong>，把一段任意声音的 <strong>3 秒音频</strong>拖进去。</li>
+<li><strong>输入一句话，点生成。</strong></li>
+</ol>
+<p>就这样。音频在你自己的设备上生成和保存，不进任何服务器。</p>
+<p>想调得更像，进<strong>声音设计</strong>面板改这些参数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">性别 · 年龄 · 口音 · 音高 · 语速 · 情感 · 方言</span><br></pre></td></tr></table></figure>
+
+<h3 id="一个让”越用越慢”的坑，先记住"><a href="#一个让”越用越慢”的坑，先记住" class="headerlink" title="一个让”越用越慢”的坑，先记住"></a>一个让”越用越慢”的坑，先记住</h3><p>官方 <code>docs/performance.md</code> 里点名了一个经典问题：</p>
+<blockquote>
+<p><strong>声音档案的 Transcript（转录文本）字段为空，会让每次生成都多跑一遍完整 Whisper 转录。</strong></p>
+</blockquote>
+<p>旧版本（v0.3.15 之前）是<strong>每次生成都跑</strong>，表现为”更新后 TTS 突然变得巨慢、CPU 100%”。新版本会自动转录一次并写回档案，但如果你是<strong>导入的或手改过</strong>的声音档案，那个框可能还是空的，就继续每生成一次付一次 ASR 的代价。</p>
+<p><strong>处理办法</strong>：打开那个声音的编辑器，看 Transcript 框——空的就手动填上参考音频说了什么，或者在新版本上随便生成一次让它自己填。</p>
+<p>另外两条通用经验：</p>
+<ul>
+<li><strong>重启后的第一次生成永远最慢</strong>（模型权重懒加载约 8 秒 + 各种 kernel 编译）。判断速度要看<strong>第二次</strong>以后。</li>
+<li>16GB 内存的机器上，一边开着 40 个标签页的浏览器一边配音，系统会在内存里反复换页，甚至直接把后端杀掉（报 “Can’t reach the local backend”）。</li>
+</ul>
+<hr>
+<h2 id="六、MCP：让你的-AI-用你的声音说话"><a href="#六、MCP：让你的-AI-用你的声音说话" class="headerlink" title="六、MCP：让你的 AI 用你的声音说话"></a>六、MCP：让你的 AI 用你的声音说话</h2><p>这是我觉得最有意思的部分。VoiceStudio 自带一个 MCP 服务器，<strong>挂在已经跑起来的后端上</strong>（<code>/mcp</code>），不用额外起进程。</p>
+<p>它暴露这些工具：</p>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>generate_speech</code></td>
+<td>文本 → WAV（base64），默认用 agent 绑定的声音</td>
+</tr>
+<tr>
+<td><code>clone_voice</code></td>
+<td>base64 音频 → 新声音档案，返回 <code>profile_id</code></td>
+</tr>
+<tr>
+<td><code>transcribe</code></td>
+<td>base64 音频 → 文本（646 种语言）</td>
+</tr>
+<tr>
+<td><code>list_voices</code> &#x2F; <code>list_personalities</code> &#x2F; <code>list_languages</code></td>
+<td>列举可用资源</td>
+</tr>
+<tr>
+<td><code>check_health</code></td>
+<td>后端状态 + 当前 GPU 设备</td>
+</tr>
+</tbody></table>
+<p><strong>Streamable HTTP 接法</strong>（Claude Code、Cursor 等现代客户端），指向：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:3900/mcp</span><br></pre></td></tr></table></figure>
+
+<p>想给某个 agent 绑定固定音色，加个头 <code>X-VoiceStudio-Client-Id: claude-code</code>。</p>
+<p><strong>只支持 stdio 的客户端</strong>用自带的 shim：（<code>docs/mcp.json</code> 是现成模板）</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;mcpServers&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;omnivoice&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;python&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;-m&quot;</span><span class="punctuation">,</span> <span class="string">&quot;backend.mcp_shim&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;cwd&quot;</span><span class="punctuation">:</span> <span class="string">&quot;/path/to/VoiceStudio&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;env&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> <span class="attr">&quot;OMNIVOICE_PORT&quot;</span><span class="punctuation">:</span> <span class="string">&quot;3900&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;OMNIVOICE_CLIENT_ID&quot;</span><span class="punctuation">:</span> <span class="string">&quot;claude-code&quot;</span> <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>⚠️ <strong>安全提醒</strong>：MCP 传输层<strong>没有鉴权</strong>。别把它暴露在公网，只在可信内网或者加一层 TLS（Tailscale Serve &#x2F; 反向代理）后用。如果 agent 跑在 Docker 或另一台机器上，还需要设置 <code>OMNIVOICE_MCP_ALLOWED_HOSTS</code>，否则 SDK 的 DNS-rebinding 保护会拒掉非 localhost 的 Host 头。</p>
+<hr>
+<h2 id="七、16-个-TTS-引擎，什么时候该换"><a href="#七、16-个-TTS-引擎，什么时候该换" class="headerlink" title="七、16 个 TTS 引擎，什么时候该换"></a>七、16 个 TTS 引擎，什么时候该换</h2><p>默认引擎是 VoiceStudio 自带的（基于 k2-fsa&#x2F;OmniVoice，600+ 语言，支持克隆和指令控制），装完就能用。其他按需装，切换在 <strong>设置 → TTS 引擎</strong>，快捷键 <kbd>Ctrl</kbd>&#x2F;<kbd>Cmd</kbd>+<kbd>E</kbd>。</p>
+<p>挑几个中文场景值得试的：</p>
+<table>
+<thead>
+<tr>
+<th>引擎</th>
+<th>语言</th>
+<th>亮点</th>
+<th>装法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>IndexTTS 2.5</strong></td>
+<td>中&#x2F;英&#x2F;日&#x2F;西&#x2F;阿</td>
+<td>中文效果好，可带情绪</td>
+<td>一键 sidecar 安装</td>
+</tr>
+<tr>
+<td><strong>CosyVoice 3</strong></td>
+<td>9 种 + 18 种方言</td>
+<td>阿里的，方言是强项</td>
+<td>clone + requirements</td>
+</tr>
+<tr>
+<td><strong>GPT-SoVITS</strong></td>
+<td>5</td>
+<td>老牌，社区模型多</td>
+<td>自带 API server</td>
+</tr>
+<tr>
+<td><strong>VoxCPM2</strong></td>
+<td>30</td>
+<td>支持声音设计</td>
+<td><code>pip install &quot;voxcpm&gt;=2.0.3&quot;</code></td>
+</tr>
+<tr>
+<td><strong>KittenTTS</strong></td>
+<td>英语</td>
+<td>CPU 上能实时</td>
+<td><code>pip install kittentts</code></td>
+</tr>
+</tbody></table>
+<p><strong>一个必须知道的规则</strong>：<code>KittenTTS</code>、<code>Sherpa-ONNX</code>、<code>Supertonic 3</code> 这几个<strong>不支持克隆</strong>。如果你把它们设成当前引擎，视频配音这种需要保持说话人身份的任务会<strong>在开始前直接报错提示</strong>，而不是偷偷回退——这个设计比静默降级好得多。</p>
+<blockquote>
+<p>完整矩阵（16 个 TTS × 平台 × 是否支持克隆&#x2F;指令 × 许可证）在 <code>docs/engines/README.md</code>。注意 <strong>IndexTTS 2.5 有额外许可</strong>：月活超 1 亿或年收入超 10 亿人民币需要另找 B 站拿书面授权。</p>
+</blockquote>
+<hr>
+<h2 id="八、踩坑清单"><a href="#八、踩坑清单" class="headerlink" title="八、踩坑清单"></a>八、踩坑清单</h2><ul>
+<li><strong>D 盘装不上</strong>：先确认是本地盘，不是映射的网络驱动器。</li>
+<li><strong><code>bun run desktop-prod</code> 报找不到 bash</strong>：装 Git for Windows，它带 Git Bash。</li>
+<li><strong>装完 Rust 后 cargo 找不到</strong>：关掉 PowerShell 重新开。</li>
+<li><strong>AMD 显卡在 Windows 上慢</strong>：正常，只能 CPU 跑。要么换 NVIDIA，要么上 Linux 开 ROCm。</li>
+<li><strong>磁盘爆了</strong>：程序本体 200MB，模型几十 GB。去 <strong>设置 → 存储</strong> 把模型目录挪到大盘。</li>
+<li><strong>卡在某处不知道怎么查</strong>：<strong>设置 → 关于 → 运行自检</strong>；源码环境下可以 <code>uv run python backend/main.py --diagnose</code>，加 <code>--deep</code> 会真的加载引擎测试。要提单给作者，用 <strong>设置 → 关于 → 保存诊断包</strong> 生成脱敏日志包。</li>
+<li><strong>Hugging Face 拉不动模型</strong>：见 <code>docs/setup/huggingface-token.md</code> 和 <code>docs/downloading-models.md</code>（有镜像和 Xet 快速下载的说明）。</li>
+</ul>
+<hr>
+<h2 id="九、适合谁-不适合谁"><a href="#九、适合谁-不适合谁" class="headerlink" title="九、适合谁 &#x2F; 不适合谁"></a>九、适合谁 &#x2F; 不适合谁</h2><p><strong>适合：</strong></p>
+<ul>
+<li>做自媒体，需要<strong>多语种配音</strong>又不想按分钟付费的</li>
+<li>想做<strong>有声书</strong>、播客，需要长文本 + 分章 + <code>.m4b</code> 的</li>
+<li>对数据敏感，<strong>音频不能上传云端</strong>的</li>
+<li>想让 AI agent <strong>用自己的声音说话</strong>，折腾 MCP 的</li>
+</ul>
+<p><strong>不适合：</strong></p>
+<ul>
+<li>追求<strong>开箱即用零折腾</strong>——它是 active beta，版本之间确实会出毛病</li>
+<li>只有 <strong>Intel Mac</strong> 或 <strong>AMD 显卡 + Windows</strong> 还要 GPU 加速的</li>
+<li>想要<strong>英语广播级</strong>音质、不想调参数的——暂时还是 ElevenLabs 更稳</li>
+<li>打算<strong>嵌入闭源产品</strong>商业分发——AGPL-3.0 会传染，得单独买商业许可</li>
+</ul>
+<hr>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>VoiceStudio 这类项目的价值不在于”比商业产品更好”，而在于<strong>把一条原本按字符收费的流水线，变成了可以自己拥有、自己改的东西</strong>。</p>
+<p>它的许可证是 AGPL-3.0，<strong>商业使用免费</strong>：跑它、卖它生成的音频、给客户视频配音、团队内部部署都行。唯一的义务是——如果你<strong>改了它</strong>并通过网络对外提供服务，改动要按同样条款开源。</p>
+<p>装它之前，我的建议是<strong>先用便携模式 + 默认引擎跑通一条 30 秒的测试音频</strong>，确认硬件扛得住、音质能接受，再决定要不要深入折腾那些可选引擎。这类工具最费时间的永远是环境和模型，不是使用本身。</p>
+<p>和之前写过的 <a href="/2026/10/11/MoneyPrinterTurbo-%E5%AE%9E%E6%B5%8B/">MoneyPrinterTurbo</a> 放在一起看其实挺有意思：一个管画面，一个管声音，两个都是”自备算力、零订阅费”的路子。真要做批量内容，这两条线能拼成一条完整的流水线。</p>
 <hr>
 <blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：当心“创始人销售天花板”：你是公司最大的销售，却也是最大的瓶颈？。</p>
+<p><strong>参考来源</strong>：项目 README（中英双语）、<code>docs/install/windows.md</code>、<code>docs/engines/README.md</code>、<code>docs/performance.md</code>、<code>docs/mcp.md</code>、<code>docs/benchmarks.md</code>。本文为文档梳理与上手路径整理，具体性能数据请以你自己硬件的实测为准。</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/09/10/shudong-ch0062/" data-id="cmvi6pmpe01ftvch33sfafgf9" data-title="当心“创始人销售天花板”：你是公司最大的销售，却也是最大的瓶颈？" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/10/17/VoiceStudio%E4%B8%8A%E6%89%8B-%E6%9C%AC%E5%9C%B0AI%E9%85%8D%E9%9F%B3%E5%B7%A5%E4%BD%9C%E5%AE%A4/" data-id="cmvd6jtyr000mlsh31zw11v7f" data-title="VoiceStudio 上手：把 ElevenLabs 搬进自己电脑，3 秒音频克隆一个声音" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%9B%E4%B8%9A/" rel="tag">创业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91%E6%B4%9E/" rel="tag">树洞</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" rel="tag">开源项目</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" rel="tag">语音合成</a></li></ul>
 
     </footer>
   </div>
@@ -528,14 +1741,14 @@
 
 
   
-    <article id="post-shudong-ch0061" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-MoneyPrinterTurbo-实测" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/09/10/shudong-ch0061/" class="article-date">
-  <time class="dt-published" datetime="2026-09-10T00:00:00.000Z" itemprop="datePublished">2026-09-10</time>
+    <a href="/2026/10/11/MoneyPrinterTurbo-%E5%AE%9E%E6%B5%8B/" class="article-date">
+  <time class="dt-published" datetime="2026-10-11T12:30:00.000Z" itemprop="datePublished">2026-10-11</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a>
+    <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
   </div>
 
   </div>
@@ -546,7 +1759,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/09/10/shudong-ch0061/">初次创业者的“财务盲区”：别让税务和合规成了绊脚石</a>
+      <a class="p-name article-title" href="/2026/10/11/MoneyPrinterTurbo-%E5%AE%9E%E6%B5%8B/">MoneyPrinterTurbo 实测：给它一个主题，自动生成一条短视频</a>
     </h1>
   
 
@@ -554,25 +1767,153 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>网友投稿：<br>我是做技术外包起家的，最近刚正式注册了公司。我一直觉得只要业务好、账上有钱就行，对报税、社保基数、甚至发票管理都很随意。</p>
-<p>结果最近税务局找上门，说我们存在虚增成本和不规范操作，面临巨额罚款。我整个人都懵了，原本想用来发年终奖的钱全搭进去了。创业者早期真的需要雇一个专业的财务吗？</p>
-<p>回复：<br>很多技术背景的创始人在这里都会栽跟头。税务合规不是锦上添花，而是你的安全底线。</p>
-<p>在早期，你不需要专职CFO，但需要对财务有敬畏之心。</p>
-<p>这里有3个立刻能试的方法：<br>一是“外包财务深度合作”，不要只选最便宜的代理记账公司，要选能提供基本财税咨询服务的合作伙伴，定期审阅账目；<br>二是“专款专用制度”，严禁创始人的个人开支和公司账目混用，这是违法且极其危险的行为；<br>三是“合规知识快充”，花半天时间学一下增值税、企业所得税和个税的基本逻辑，至少要能看懂纳税申报表。</p>
-<p>业务冲锋很重要，但后勤出了事，前线也会崩。若在初创企业财税合规方案、融资后的税务规划上有需求，可登录jobleap.cn解决。</p>
-<hr>
+        <p>一句话说明它是干什么的：</p>
 <blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：初次创业者的“财务盲区”：别让税务和合规成了绊脚石。</p>
+<p>你给它一个主题或关键词，它自动<strong>写脚本 → 找素材 → 配音 → 加字幕和背景音乐 → 合成一条竖屏&#x2F;横屏短视频</strong>。</p>
 </blockquote>
+<p>这就是 MoneyPrinterTurbo。名字起得很直白（”印钞机涡轮增压”），是 GitHub 上很火的一个开源短视频生成项目，支持 WebUI、API、命令行三种用法。我把它完整装了一遍，下面是从零到出片的全过程和踩过的坑。</p>
+<hr>
+<h2 id="一、先说结论：适合谁，不适合谁"><a href="#一、先说结论：适合谁，不适合谁" class="headerlink" title="一、先说结论：适合谁，不适合谁"></a>一、先说结论：适合谁，不适合谁</h2><p><strong>适合：</strong></p>
+<ul>
+<li>想批量做<strong>口播类&#x2F;图文类短视频</strong>，但不想一条条剪的人</li>
+<li>想给自己的内容配一条”能发出去”的视频，又不打算学剪辑软件</li>
+<li>想折腾一下 AIGC 工作流，看看”自动化”到底能做到哪一步</li>
+</ul>
+<p><strong>不适合：</strong></p>
+<ul>
+<li>想要<strong>电影级、原创度极高</strong>的成片。它的素材来自公共图库，配的是 AI 合成音，本质是”高质量模板化拼装”</li>
+<li>想<strong>完全免费、零配置</strong>。写脚本这一步必须接一个大模型 API，这一步要花钱（很便宜，但不是零）</li>
+</ul>
+<p><strong>唯一必填的是一个 LLM 的 API Key</strong>，用来生成视频脚本。语音合成默认走 Edge TTS，<strong>免费、不用 Key</strong>，开箱即用。</p>
+<hr>
+<h2 id="二、动手前，先准备三件事"><a href="#二、动手前，先准备三件事" class="headerlink" title="二、动手前，先准备三件事"></a>二、动手前，先准备三件事</h2><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>是否必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>LLM API Key</strong></td>
+<td><strong>必填</strong></td>
+<td>写视频脚本用。支持 DeepSeek、Kimi、OpenAI、通义千问、Gemini 等，推荐 DeepSeek 或 Kimi，便宜</td>
+</tr>
+<tr>
+<td><strong>语音合成</strong></td>
+<td>免配置</td>
+<td>默认 Edge TTS，免费无需 Key。想更好听可以换 Azure &#x2F; MiniMax &#x2F; ElevenLabs（要各自的 Key）</td>
+</tr>
+<tr>
+<td><strong>视频素材</strong></td>
+<td>建议配</td>
+<td>默认从 Pexels 拉免费素材，需去官网注册一个免费 API Key；不想注册就切「本地素材」</td>
+</tr>
+</tbody></table>
+<p>环境上只有一个硬要求：<strong>Python 3.11 或更高版本</strong>（项目里写死了 <code>requires-python &gt;= 3.11</code>）。</p>
+<hr>
+<h2 id="三、Windows-本地部署：我的实际过程"><a href="#三、Windows-本地部署：我的实际过程" class="headerlink" title="三、Windows 本地部署：我的实际过程"></a>三、Windows 本地部署：我的实际过程</h2><h3 id="坑一：git-clone-直接卡死"><a href="#坑一：git-clone-直接卡死" class="headerlink" title="坑一：git clone 直接卡死"></a>坑一：<code>git clone</code> 直接卡死</h3><p>按常规做法，第一步应该是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/harry0703/MoneyPrinterTurbo.git</span><br></pre></td></tr></table></figure>
+
+<p>但在国内网络下，这个仓库的 clone 会<strong>卡在传输阶段一动不动</strong>，反复重试还会在该目录留下锁文件，让后续操作全部失败。</p>
+<p><strong>解决思路</strong>：绕开 git 协议，直接抓打包快照。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L -o mpt.zip <span class="string">&quot;https://codeload.github.com/harry0703/MoneyPrinterTurbo/zip/refs/heads/main&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后解压、去掉目录名里的 <code>-main</code> 后缀即可。没有 <code>unzip</code> 的话，用 Python 自带的 zipfile 解压也行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -c <span class="string">&quot;import zipfile; zipfile.ZipFile(&#x27;mpt.zip&#x27;).extractall(&#x27;.&#x27;)&quot;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>小提醒：codeload <strong>不支持断点续传</strong>，中途断了只能整包重下。这个仓库打包后约 130MB+（含示例素材），慢的话丢后台跑。</p>
+</blockquote>
+<h3 id="坑二：依赖安装有点久"><a href="#坑二：依赖安装有点久" class="headerlink" title="坑二：依赖安装有点久"></a>坑二：依赖安装有点久</h3><p>进到目录后，建虚拟环境再装依赖：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python -m venv .venv</span><br><span class="line">.venv\Scripts\activate</span><br><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+<p>依赖里比较重的是 <code>moviepy</code>（视频合成）、<code>faster-whisper</code>（字幕识别）、<code>litellm</code>（多模型适配）这几块，第一次装耐心等一会儿。</p>
+<blockquote>
+<p>项目同时提供了 <code>pyproject.toml</code> + <code>uv.lock</code>，装了 uv 的话用 <code>uv sync --frozen</code> 会更快、版本更稳定。</p>
+</blockquote>
+<h3 id="启动：双击-webui-bat-就行"><a href="#启动：双击-webui-bat-就行" class="headerlink" title="启动：双击 webui.bat 就行"></a>启动：双击 <code>webui.bat</code> 就行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webui.bat</span><br></pre></td></tr></table></figure>
+
+<p>它会自动在 <strong><a target="_blank" rel="noopener" href="http://127.0.0.1:8501/">http://127.0.0.1:8501</a></strong> 起一个 Web 界面（如果 8501 被占用，它会自动往后找一个空闲端口，控制台里会打印实际地址）。</p>
+<p>只想在命令行里跑，不想开浏览器也行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python cli.py --video-subject <span class="string">&quot;人工智能如何改变日常生活&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>想当服务用、给别的程序调，就跑 <code>python main.py</code>，接口文档在 <a target="_blank" rel="noopener" href="http://127.0.0.1:8080/docs%E3%80%82">http://127.0.0.1:8080/docs。</a></p>
+<h3 id="另外两条路"><a href="#另外两条路" class="headerlink" title="另外两条路"></a>另外两条路</h3><ul>
+<li><strong>想最省心</strong>：去项目的 GitHub Releases 下 <strong>Windows 一键启动包</strong>，解压后先双击 <code>update.bat</code>、再双击 <code>start.bat</code>，完事，不用自己装 Python 环境。</li>
+<li><strong>想最干净</strong>：Docker 一条命令 <code>docker compose -f docker-compose.release.yml up</code>，环境完全隔离（国内记得配镜像源）。</li>
+</ul>
+<hr>
+<h2 id="四、第一次打开，只要填三项"><a href="#四、第一次打开，只要填三项" class="headerlink" title="四、第一次打开，只要填三项"></a>四、第一次打开，只要填三项</h2><p>首次启动时，程序会从 <code>config.example.toml</code> 自动生成一份 <code>config.toml</code>。<strong>绝大多数设置都能在 WebUI 的「基础设置」面板里填，会自动保存</strong>，不用手改文件。</p>
+<p>要填的其实就三项：</p>
+<ol>
+<li><strong>LLM 供应商 + API Key</strong> —— 选一个（默认是 Kimi&#x2F;Moonshot），把 Key 填上。<strong>这一步不填，后面什么都生成不了。</strong></li>
+<li><strong>语音</strong> —— 保持默认的 Edge TTS 就好，免费。</li>
+<li><strong>素材来源</strong> —— 填 Pexels 的 API Key（去 pexels.com&#x2F;api 免费注册），或者把 <code>video_source</code> 改成 <code>local</code>，用自己放进去的素材。</li>
+</ol>
+<p>顺手值得调的还有两个：</p>
+<ul>
+<li><code>edge_tts_timeout</code>：Edge TTS 单次请求超时。网络慢的话调大一点。</li>
+<li><code>subtitle_provider</code>：字幕默认 <code>edge</code>（免费、快）；想更准可以切 <code>whisper</code>，但首次要下载模型，CPU 上会慢。</li>
+</ul>
+<hr>
+<h2 id="五、生成一条视频是什么体验"><a href="#五、生成一条视频是什么体验" class="headerlink" title="五、生成一条视频是什么体验"></a>五、生成一条视频是什么体验</h2><p>回到主页，在主题框里输入你想做的内容，比如：</p>
+<blockquote>
+<p>AI 如何改变普通人的日常生活</p>
+</blockquote>
+<p>点生成，接下来它会自己走完这一串：</p>
+<ol>
+<li>调大模型写一段视频文案</li>
+<li>把文案拆成关键搜索词，去素材库拉对应的视频片段</li>
+<li>用 Edge TTS 合成配音</li>
+<li>生成字幕、配上背景音乐</li>
+<li>渲染合成，输出成片</li>
+</ol>
+<p>几分钟后你会在任务目录里拿到结果（<code>config.toml</code> 里可以设成生成完自动打开目录）。成片不满意，可以在界面上试听语音、换字体、换背景音乐，再重新导出。</p>
+<hr>
+<h2 id="六、到底花多少钱"><a href="#六、到底花多少钱" class="headerlink" title="六、到底花多少钱"></a>六、到底花多少钱</h2><table>
+<thead>
+<tr>
+<th>环节</th>
+<th>成本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>语音合成（Edge TTS）</td>
+<td><strong>免费</strong></td>
+</tr>
+<tr>
+<td>视频素材（Pexels）</td>
+<td><strong>免费</strong>（注册拿 Key）</td>
+</tr>
+<tr>
+<td>大模型写脚本</td>
+<td>按平台计费，DeepSeek &#x2F; Kimi 都很便宜，一次生成通常几分钱级别</td>
+</tr>
+</tbody></table>
+<p>**所以它不是一个”收费软件”，而是一个”自备 API 的自建工具”**。唯一的持续成本就是调用大模型的那点钱。</p>
+<hr>
+<h2 id="七、踩坑与建议"><a href="#七、踩坑与建议" class="headerlink" title="七、踩坑与建议"></a>七、踩坑与建议</h2><ul>
+<li><strong>项目路径不要带中文和空格</strong>。这类 Python + 多媒体工具链对路径编码很敏感，直接放个 <code>D:\MoneyPrinterTurbo</code> 最稳。</li>
+<li><strong>别在 C 盘临时目录里跑</strong>。渲染中间产物会占不少空间。</li>
+<li><strong>首次跑建议用「本地素材」试</strong>。先排除素材源的问题，确认整条链路通了，再去接 Pexels。</li>
+<li><strong>网络问题要有心理准备</strong>。素材下载、依赖安装、模型调用都可能受网络影响，把代理配好能省很多事（<code>config.toml</code> 里有 <code>[proxy]</code> 段可以直接填）。</li>
+<li><strong>音频编码相关的坑</strong>：Python 3.13 环境下项目会额外装 <code>audioop-lts</code>，如果看到 <code>audioop</code> 相关报错，检查这个包有没有装上。</li>
+<li><strong>别指望零修改出爆款</strong>。它的定位是”把你从剪辑里解放出来”，选题、脚本打磨、成片审核，还是得你来。</li>
+</ul>
+<hr>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>MoneyPrinterTurbo 是目前这类工具里<strong>完成度相当高</strong>的一个：WebUI 够用、配置项清晰、语音和素材都有免费方案，一条命令就能跑起来。</p>
+<p>我的建议是先用一键包或 Docker 花十分钟跑通一遍，确认工作流符合你的预期，再决定要不要本地部署长期用。<strong>先跑通，再优化</strong>——这类工具最容易死在”装环境”这一步，而不是”用起来”。</p>
+<p>装好之后你会发现，真正花时间的不是生成，而是<strong>想清楚要做什么内容</strong>。工具把执行的成本压到很低了，剩下的就看你自己的选题了。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/09/10/shudong-ch0061/" data-id="cmvi6pmpb01fqvch3a8nj9ak5" data-title="初次创业者的“财务盲区”：别让税务和合规成了绊脚石" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/10/11/MoneyPrinterTurbo-%E5%AE%9E%E6%B5%8B/" data-id="cmvd6jtyo000flsh3f672fnyv" data-title="MoneyPrinterTurbo 实测：给它一个主题，自动生成一条短视频" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%9B%E4%B8%9A/" rel="tag">创业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91%E6%B4%9E/" rel="tag">树洞</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AIGC/" rel="tag">AIGC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" rel="tag">开源项目</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/" rel="tag">视频剪辑</a></li></ul>
 
     </footer>
   </div>
@@ -582,14 +1923,14 @@
 
 
   
-    <article id="post-shudong-ch0060" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-滚石500大专辑完整榜单" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/09/09/shudong-ch0060/" class="article-date">
-  <time class="dt-published" datetime="2026-09-09T12:00:00.000Z" itemprop="datePublished">2026-09-09</time>
+    <a href="/2026/10/10/%E6%BB%9A%E7%9F%B3500%E5%A4%A7%E4%B8%93%E8%BE%91%E5%AE%8C%E6%95%B4%E6%A6%9C%E5%8D%95/" class="article-date">
+  <time class="dt-published" datetime="2026-10-10T14:05:00.000Z" itemprop="datePublished">2026-10-10</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a>
+    <a class="article-category-link" href="/categories/%E9%9F%B3%E4%B9%90/">音乐</a>
   </div>
 
   </div>
@@ -600,7 +1941,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/09/09/shudong-ch0060/">入职六个月内的“员工高流失潮”，是制度问题还是文化问题？</a>
+      <a class="p-name article-title" href="/2026/10/10/%E6%BB%9A%E7%9F%B3500%E5%A4%A7%E4%B8%93%E8%BE%91%E5%AE%8C%E6%95%B4%E6%A6%9C%E5%8D%95/">滚石杂志《史上最伟大的500张专辑》完整榜单（含封面、中文乐评、曲目表）</a>
     </h1>
   
 
@@ -608,25 +1949,55 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>网友投稿：<br>最近我发现一个恐怖的规律：我们招的人，往往在入职三到五个月之间就离职，甚至连试用期都没过。</p>
-<p>我问他们原因，有的说太累，有的说氛围紧张，有的甚至说没搞懂我们到底是干嘛的。我有给期权，环境也不差，为什么留不住人？这种“试用期离职率”该如何降下来？</p>
-<p>回复：<br>入职半年的离职，90%是因为“预期不符”和“入职体验（Onboarding）”太差。</p>
-<p>这不是因为累，是因为他们觉得“累得不值”或者“找不到方向”。</p>
-<p>这里有3个立刻能试的方法：<br>一是“入职30-60-90天计划”，给每个新入职的人明确的阶段性成就感，让他们知道每天在为什么而奋斗；<br>二是“导师带教制（Mentor）”，给新人指定一个老员工，不只带业务，更带他在混乱的初创环境里“活下去”，缓解孤独感；<br>三是“面试去滤镜”，在面试阶段就说明白：我们这儿节奏快、压力大、可能要做职责外的事，先过滤掉想找安稳的人。</p>
-<p>招人是相亲，留人是过日子。前三天的感觉，决定了前三年的留存。若在初创团队新人养成手册、雇主品牌建设上有难题，可登录jobleap.cn解决。</p>
-<hr>
-<blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：入职六个月内的“员工高流失潮”，是制度问题还是文化问题？。</p>
-</blockquote>
+        <p>《滚石》（Rolling Stone）杂志的「史上最伟大的500张专辑」（The 500 Greatest Albums of All Time）是流行音乐史上最有影响力的榜单之一，由 300 多位艺人、制作人、乐评人及音乐产业人士投票产生，2023 年 12 月最近一次更新。</p>
+<p>我把它整理成了一个<strong>完整的中文化表格页面</strong>，包含：</p>
+<ul>
+<li><strong>排名 1–500 完整榜单</strong>（无一缺漏）</li>
+<li>每张专辑的<strong>封面</strong>（内嵌离线可用，点击可看原图）</li>
+<li>滚石乐评<strong>英文原文 + 中文翻译</strong>逐条对照</li>
+<li>每张专辑的<strong>完整曲目列表</strong>，共 6828 首歌，6555 个歌名附中文译名</li>
+<li>支持<strong>关键词搜索</strong>（中英文均可）、点击表头排序、按排名区间筛选</li>
+</ul>
+<p>👉 <strong><a href="/rollingstone-500/">点此查看完整榜单</a></strong></p>
+<p>前三名先睹为快：</p>
+<table>
+<thead>
+<tr>
+<th>排名</th>
+<th>艺人</th>
+<th>专辑</th>
+<th>年份</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Marvin Gaye（马文·盖伊）</td>
+<td>What’s Going On</td>
+<td>1971</td>
+</tr>
+<tr>
+<td>2</td>
+<td>The Beach Boys（海滩男孩）</td>
+<td>Pet Sounds</td>
+<td>1966</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Joni Mitchell（琼尼·米切尔）</td>
+<td>Blue</td>
+<td>1971</td>
+</tr>
+</tbody></table>
+<p>数据来源：rollingstone.com 官方榜单页面（2023 年 12 月版）；曲目数据来自 MusicBrainz 开放数据库。数据完整 CSV 可在<a href="/rollingstone-500/rollingstone-500-albums.csv">榜单页面目录</a>下载。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/09/09/shudong-ch0060/" data-id="cmvi6pmpg01fwvch3863phso9" data-title="入职六个月内的“员工高流失潮”，是制度问题还是文化问题？" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/10/10/%E6%BB%9A%E7%9F%B3500%E5%A4%A7%E4%B8%93%E8%BE%91%E5%AE%8C%E6%95%B4%E6%A6%9C%E5%8D%95/" data-id="cmvd6jtyz001dlsh37htq02wk" data-title="滚石杂志《史上最伟大的500张专辑》完整榜单（含封面、中文乐评、曲目表）" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%9B%E4%B8%9A/" rel="tag">创业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91%E6%B4%9E/" rel="tag">树洞</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A6%9C%E5%8D%95/" rel="tag">榜单</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%BB%9A%E7%9F%B3/" rel="tag">滚石</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag">翻译</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9F%B3%E4%B9%90/" rel="tag">音乐</a></li></ul>
 
     </footer>
   </div>
@@ -640,7 +2011,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/55/">55</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/56/">56</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
   </nav>
 
 </section>
@@ -651,7 +2022,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%A6%E8%AF%84/">书评</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/">效率工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9F%B3%E4%B9%90/">音乐</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%A6%E8%AF%84/">书评</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%A4%A7%E6%A8%A1%E5%9E%8B/">动手学大模型</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/">效率工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9F%B3%E4%B9%90/">音乐</a></li></ul>
     </div>
   </div>
 
@@ -671,7 +2042,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/AGENTS-md/" style="font-size: 10px;">AGENTS.md</a> <a href="/tags/AI/" style="font-size: 12px;">AI</a> <a href="/tags/AI-Agent/" style="font-size: 10px;">AI Agent</a> <a href="/tags/AI-Skills/" style="font-size: 10px;">AI Skills</a> <a href="/tags/AIGC/" style="font-size: 13px;">AIGC</a> <a href="/tags/AI%E5%88%9B%E4%B8%9A/" style="font-size: 10px;">AI创业</a> <a href="/tags/AI%E5%89%AF%E4%B8%9A/" style="font-size: 20px;">AI副业</a> <a href="/tags/AI%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 13px;">AI工作流</a> <a href="/tags/AI%E5%BB%BA%E7%AB%99/" style="font-size: 10px;">AI建站</a> <a href="/tags/AI%E6%8A%95%E7%A0%94/" style="font-size: 10px;">AI投研</a> <a href="/tags/AI%E6%B3%A1%E6%B2%AB/" style="font-size: 10px;">AI泡沫</a> <a href="/tags/AI%E7%AC%AC%E4%BA%8C%E5%A4%A7%E8%84%91/" style="font-size: 10px;">AI第二大脑</a> <a href="/tags/AI%E7%BC%96%E7%A8%8B/" style="font-size: 11px;">AI编程</a> <a href="/tags/AI%E8%A7%86%E9%A2%91/" style="font-size: 10px;">AI视频</a> <a href="/tags/Agent/" style="font-size: 10px;">Agent</a> <a href="/tags/Anthropic/" style="font-size: 10px;">Anthropic</a> <a href="/tags/Claude/" style="font-size: 13px;">Claude</a> <a href="/tags/Claude-Code/" style="font-size: 11px;">Claude Code</a> <a href="/tags/Codex/" style="font-size: 14px;">Codex</a> <a href="/tags/DeepSeek/" style="font-size: 10px;">DeepSeek</a> <a href="/tags/Git/" style="font-size: 11px;">Git</a> <a href="/tags/GitHub/" style="font-size: 12px;">GitHub</a> <a href="/tags/Google-AdSense/" style="font-size: 10px;">Google AdSense</a> <a href="/tags/Hostinger/" style="font-size: 10px;">Hostinger</a> <a href="/tags/MCP/" style="font-size: 12px;">MCP</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Next-js/" style="font-size: 10px;">Next.js</a> <a href="/tags/Obsidian/" style="font-size: 12px;">Obsidian</a> <a href="/tags/PARA/" style="font-size: 10px;">PARA</a> <a href="/tags/Prompt/" style="font-size: 10px;">Prompt</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/Skills/" style="font-size: 12px;">Skills</a> <a href="/tags/Workflow/" style="font-size: 10px;">Workflow</a> <a href="/tags/YouTube/" style="font-size: 10px;">YouTube</a> <a href="/tags/eSIM/" style="font-size: 10px;">eSIM</a> <a href="/tags/yt-dlp/" style="font-size: 10px;">yt-dlp</a> <a href="/tags/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8/" style="font-size: 10px;">一人公司</a> <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/" style="font-size: 10px;">中国经济</a> <a href="/tags/%E4%B8%AD%E6%96%87%E5%86%99%E4%BD%9C/" style="font-size: 10px;">中文写作</a> <a href="/tags/%E4%B9%A6%E8%AF%84/" style="font-size: 10px;">书评</a> <a href="/tags/%E5%85%8D%E8%B4%B9%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">免费工具</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 10px;">公众号</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C/" style="font-size: 12px;">内容创作</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%8F%98%E7%8E%B0/" style="font-size: 10px;">内容变现</a> <a href="/tags/%E5%87%BA%E5%9B%BD/" style="font-size: 10px;">出国</a> <a href="/tags/%E5%87%BA%E5%B7%AE/" style="font-size: 10px;">出差</a> <a href="/tags/%E5%87%BA%E6%B5%B7%E8%B5%9A%E9%92%B1/" style="font-size: 10px;">出海赚钱</a> <a href="/tags/%E5%88%9B%E4%B8%9A/" style="font-size: 17px;">创业</a> <a href="/tags/%E5%89%AF%E4%B8%9A/" style="font-size: 13px;">副业</a> <a href="/tags/%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">动态工作流</a> <a href="/tags/%E5%8E%86%E5%8F%B2%E5%AF%B9%E6%AF%94/" style="font-size: 10px;">历史对比</a> <a href="/tags/%E5%8F%AF%E7%81%B5/" style="font-size: 10px;">可灵</a> <a href="/tags/%E5%9C%B0%E7%BC%98%E6%94%BF%E6%B2%BB/" style="font-size: 10px;">地缘政治</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">大模型</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">学习方法</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" style="font-size: 10px;">学习路线</a> <a href="/tags/%E5%AE%9E%E6%B5%8B/" style="font-size: 10px;">实测</a> <a href="/tags/%E5%B0%8F%E7%BA%A2%E4%B9%A6/" style="font-size: 10px;">小红书</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">工作流</a> <a href="/tags/%E5%B9%B3%E5%8F%B0%E7%AE%97%E6%B3%95/" style="font-size: 10px;">平台算法</a> <a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 12px;">开源</a> <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 16px;">开源项目</a> <a href="/tags/%E6%89%93%E5%B7%A5%E5%BA%A6%E5%81%87/" style="font-size: 10px;">打工度假</a> <a href="/tags/%E6%8A%95%E8%B5%84/" style="font-size: 10px;">投资</a> <a href="/tags/%E6%8D%A1%E6%BC%8F/" style="font-size: 10px;">捡漏</a> <a href="/tags/%E6%90%9E%E9%92%B1/" style="font-size: 19px;">搞钱</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">效率工具</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 15px;">教程</a> <a href="/tags/%E6%96%87%E6%A1%88/" style="font-size: 10px;">文案</a> <a href="/tags/%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8/" style="font-size: 10px;">新手入门</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 10px;">旅行</a> <a href="/tags/%E6%9A%97%E9%99%90%E6%B5%81/" style="font-size: 10px;">暗限流</a> <a href="/tags/%E6%A0%91%E6%B4%9E/" style="font-size: 17px;">树洞</a> <a href="/tags/%E6%A6%9C%E5%8D%95/" style="font-size: 10px;">榜单</a> <a href="/tags/%E6%B0%91%E7%B2%B9%E4%B8%BB%E4%B9%89/" style="font-size: 10px;">民粹主义</a> <a href="/tags/%E6%B6%A6%E8%89%B2/" style="font-size: 10px;">润色</a> <a href="/tags/%E6%BB%9A%E7%9F%B3/" style="font-size: 10px;">滚石</a> <a href="/tags/%E6%BE%B3%E6%B4%B2WHV/" style="font-size: 10px;">澳洲WHV</a> <a href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" style="font-size: 18px;">独立开发</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%8C%87%E5%8D%97/" style="font-size: 10px;">生活指南</a> <a href="/tags/%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5/" style="font-size: 11px;">电商运营</a> <a href="/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/" style="font-size: 10px;">电子书</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 11px;">知识管理</a> <a href="/tags/%E7%A0%8D%E4%BB%B7/" style="font-size: 10px;">砍价</a> <a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 10px;">科幻</a> <a href="/tags/%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">笔记方法</a> <a href="/tags/%E7%AD%BE%E8%AF%81%E6%94%BB%E7%95%A5/" style="font-size: 10px;">签证攻略</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">翻译</a> <a href="/tags/%E8%82%A1%E7%A5%A8/" style="font-size: 10px;">股票</a> <a href="/tags/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90/" style="font-size: 10px;">股票分析</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 12px;">自动化</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93/" style="font-size: 13px;">自媒体</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">自媒体工具</a> <a href="/tags/%E8%87%AA%E9%83%A8%E7%BD%B2/" style="font-size: 10px;">自部署</a> <a href="/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/" style="font-size: 10px;">被动收入</a> <a href="/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" style="font-size: 10px;">视频下载</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/" style="font-size: 11px;">视频剪辑</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 10px;">语音合成</a> <a href="/tags/%E8%B4%B8%E6%98%93%E6%88%98/" style="font-size: 10px;">贸易战</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E9%80%89%E6%8B%A9/" style="font-size: 10px;">软件选择</a> <a href="/tags/%E9%80%89%E9%A2%98/" style="font-size: 10px;">选题</a> <a href="/tags/%E9%97%B2%E9%B1%BC/" style="font-size: 13px;">闲鱼</a> <a href="/tags/%E9%98%BF%E8%A5%BF%E8%8E%AB%E5%A4%AB/" style="font-size: 10px;">阿西莫夫</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 10px;">音乐</a>
+      <a href="/tags/AGENTS-md/" style="font-size: 10px;">AGENTS.md</a> <a href="/tags/AI/" style="font-size: 11.82px;">AI</a> <a href="/tags/AI-Agent/" style="font-size: 10px;">AI Agent</a> <a href="/tags/AI-Skills/" style="font-size: 10px;">AI Skills</a> <a href="/tags/AIGC/" style="font-size: 12.73px;">AIGC</a> <a href="/tags/AI%E5%88%9B%E4%B8%9A/" style="font-size: 10px;">AI创业</a> <a href="/tags/AI%E5%89%AF%E4%B8%9A/" style="font-size: 20px;">AI副业</a> <a href="/tags/AI%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 12.73px;">AI工作流</a> <a href="/tags/AI%E5%BB%BA%E7%AB%99/" style="font-size: 10px;">AI建站</a> <a href="/tags/AI%E6%8A%95%E7%A0%94/" style="font-size: 10px;">AI投研</a> <a href="/tags/AI%E6%B3%A1%E6%B2%AB/" style="font-size: 10px;">AI泡沫</a> <a href="/tags/AI%E7%AC%AC%E4%BA%8C%E5%A4%A7%E8%84%91/" style="font-size: 10px;">AI第二大脑</a> <a href="/tags/AI%E7%BC%96%E7%A8%8B/" style="font-size: 10.91px;">AI编程</a> <a href="/tags/AI%E8%A7%86%E9%A2%91/" style="font-size: 10px;">AI视频</a> <a href="/tags/Agent/" style="font-size: 10px;">Agent</a> <a href="/tags/Anthropic/" style="font-size: 10px;">Anthropic</a> <a href="/tags/Claude/" style="font-size: 12.73px;">Claude</a> <a href="/tags/Claude-Code/" style="font-size: 10.91px;">Claude Code</a> <a href="/tags/Codex/" style="font-size: 13.64px;">Codex</a> <a href="/tags/DeepSeek/" style="font-size: 10px;">DeepSeek</a> <a href="/tags/Git/" style="font-size: 10.91px;">Git</a> <a href="/tags/GitHub/" style="font-size: 11.82px;">GitHub</a> <a href="/tags/Google-AdSense/" style="font-size: 10px;">Google AdSense</a> <a href="/tags/Hostinger/" style="font-size: 10px;">Hostinger</a> <a href="/tags/MCP/" style="font-size: 11.82px;">MCP</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Next-js/" style="font-size: 10px;">Next.js</a> <a href="/tags/Obsidian/" style="font-size: 11.82px;">Obsidian</a> <a href="/tags/PARA/" style="font-size: 10px;">PARA</a> <a href="/tags/Prompt/" style="font-size: 10px;">Prompt</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/Skills/" style="font-size: 11.82px;">Skills</a> <a href="/tags/Workflow/" style="font-size: 10px;">Workflow</a> <a href="/tags/YouTube/" style="font-size: 10px;">YouTube</a> <a href="/tags/eSIM/" style="font-size: 10px;">eSIM</a> <a href="/tags/yt-dlp/" style="font-size: 10px;">yt-dlp</a> <a href="/tags/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8/" style="font-size: 10px;">一人公司</a> <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/" style="font-size: 10px;">中国经济</a> <a href="/tags/%E4%B8%AD%E6%96%87%E5%86%99%E4%BD%9C/" style="font-size: 10px;">中文写作</a> <a href="/tags/%E4%B9%A6%E8%AF%84/" style="font-size: 10px;">书评</a> <a href="/tags/%E5%85%8D%E8%B4%B9%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">免费工具</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 10px;">公众号</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C/" style="font-size: 11.82px;">内容创作</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%8F%98%E7%8E%B0/" style="font-size: 10px;">内容变现</a> <a href="/tags/%E5%87%BA%E5%9B%BD/" style="font-size: 10px;">出国</a> <a href="/tags/%E5%87%BA%E5%B7%AE/" style="font-size: 10px;">出差</a> <a href="/tags/%E5%87%BA%E6%B5%B7%E8%B5%9A%E9%92%B1/" style="font-size: 10px;">出海赚钱</a> <a href="/tags/%E5%88%9B%E4%B8%9A/" style="font-size: 17.27px;">创业</a> <a href="/tags/%E5%89%AF%E4%B8%9A/" style="font-size: 12.73px;">副业</a> <a href="/tags/%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">动态工作流</a> <a href="/tags/%E5%8E%86%E5%8F%B2%E5%AF%B9%E6%AF%94/" style="font-size: 10px;">历史对比</a> <a href="/tags/%E5%8F%AF%E7%81%B5/" style="font-size: 10px;">可灵</a> <a href="/tags/%E5%9C%B0%E7%BC%98%E6%94%BF%E6%B2%BB/" style="font-size: 10px;">地缘政治</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 14.55px;">大模型</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">学习方法</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" style="font-size: 10px;">学习路线</a> <a href="/tags/%E5%AE%9E%E6%B5%8B/" style="font-size: 10px;">实测</a> <a href="/tags/%E5%B0%8F%E7%BA%A2%E4%B9%A6/" style="font-size: 10px;">小红书</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">工作流</a> <a href="/tags/%E5%B9%B3%E5%8F%B0%E7%AE%97%E6%B3%95/" style="font-size: 10px;">平台算法</a> <a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 11.82px;">开源</a> <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 16.36px;">开源项目</a> <a href="/tags/%E6%89%93%E5%B7%A5%E5%BA%A6%E5%81%87/" style="font-size: 10px;">打工度假</a> <a href="/tags/%E6%8A%95%E8%B5%84/" style="font-size: 10px;">投资</a> <a href="/tags/%E6%8D%A1%E6%BC%8F/" style="font-size: 10px;">捡漏</a> <a href="/tags/%E6%90%9E%E9%92%B1/" style="font-size: 19.09px;">搞钱</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">效率工具</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 15.45px;">教程</a> <a href="/tags/%E6%96%87%E6%A1%88/" style="font-size: 10px;">文案</a> <a href="/tags/%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8/" style="font-size: 10px;">新手入门</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 10px;">旅行</a> <a href="/tags/%E6%9A%97%E9%99%90%E6%B5%81/" style="font-size: 10px;">暗限流</a> <a href="/tags/%E6%A0%91%E6%B4%9E/" style="font-size: 17.27px;">树洞</a> <a href="/tags/%E6%A6%9C%E5%8D%95/" style="font-size: 10px;">榜单</a> <a href="/tags/%E6%B0%91%E7%B2%B9%E4%B8%BB%E4%B9%89/" style="font-size: 10px;">民粹主义</a> <a href="/tags/%E6%B6%A6%E8%89%B2/" style="font-size: 10px;">润色</a> <a href="/tags/%E6%BB%9A%E7%9F%B3/" style="font-size: 10px;">滚石</a> <a href="/tags/%E6%BE%B3%E6%B4%B2WHV/" style="font-size: 10px;">澳洲WHV</a> <a href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" style="font-size: 18.18px;">独立开发</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%8C%87%E5%8D%97/" style="font-size: 10px;">生活指南</a> <a href="/tags/%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5/" style="font-size: 10.91px;">电商运营</a> <a href="/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/" style="font-size: 10px;">电子书</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 10.91px;">知识管理</a> <a href="/tags/%E7%A0%8D%E4%BB%B7/" style="font-size: 10px;">砍价</a> <a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 10px;">科幻</a> <a href="/tags/%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">笔记方法</a> <a href="/tags/%E7%AD%BE%E8%AF%81%E6%94%BB%E7%95%A5/" style="font-size: 10px;">签证攻略</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">翻译</a> <a href="/tags/%E8%82%A1%E7%A5%A8/" style="font-size: 10px;">股票</a> <a href="/tags/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90/" style="font-size: 10px;">股票分析</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 11.82px;">自动化</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93/" style="font-size: 12.73px;">自媒体</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">自媒体工具</a> <a href="/tags/%E8%87%AA%E9%83%A8%E7%BD%B2/" style="font-size: 10px;">自部署</a> <a href="/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/" style="font-size: 10px;">被动收入</a> <a href="/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" style="font-size: 10px;">视频下载</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/" style="font-size: 10.91px;">视频剪辑</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 10px;">语音合成</a> <a href="/tags/%E8%B4%B8%E6%98%93%E6%88%98/" style="font-size: 10px;">贸易战</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E9%80%89%E6%8B%A9/" style="font-size: 10px;">软件选择</a> <a href="/tags/%E9%80%89%E9%A2%98/" style="font-size: 10px;">选题</a> <a href="/tags/%E9%97%B2%E9%B1%BC/" style="font-size: 12.73px;">闲鱼</a> <a href="/tags/%E9%98%BF%E8%A5%BF%E8%8E%AB%E5%A4%AB/" style="font-size: 10px;">阿西莫夫</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 10px;">音乐</a>
     </div>
   </div>
 
@@ -693,23 +2064,23 @@
       <ul>
         
           <li>
-            <a href="/2026/10/23/%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E4%B8%8A%E6%B5%B7%E4%BA%A4%E5%A4%A711%E7%AB%A0%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5%E6%95%99%E7%A8%8B/">动手学大模型：上海交大开源的 11 章大模型编程实践教程</a>
+            <a href="/2026/10/23/dive-llms-ch11-RLHF%E5%AE%89%E5%85%A8%E5%AF%B9%E9%BD%90/">动手学大模型 ch11｜RLHF安全对齐</a>
           </li>
         
           <li>
-            <a href="/2026/10/21/OpenStock-%E5%BC%80%E6%BA%90%E5%85%8D%E8%B4%B9%E5%85%A8%E7%90%83%E8%A1%8C%E6%83%85%E9%9D%A2%E6%9D%BF-%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BD%BF%E7%94%A8/">OpenStock：开源免费的全球行情面板，自己搭一个&#34;平价彭博终端&#34;</a>
+            <a href="/2026/10/23/dive-llms-ch10-%E6%99%BA%E8%83%BD%E4%BD%93%E5%AE%89%E5%85%A8/">动手学大模型 ch10｜智能体安全</a>
           </li>
         
           <li>
-            <a href="/2026/10/21/AI%E5%89%AF%E4%B8%9A%E8%B5%9A%E9%92%B1%E6%96%B9%E6%A1%88%E5%8D%9A%E7%89%A9%E9%A6%86-514%E7%AF%87%E5%B7%B2%E9%95%9C%E5%83%8F/">AI 副业赚钱方案博物馆：514 篇章节已镜像到本站</a>
+            <a href="/2026/10/23/dive-llms-ch09-GUI%E6%99%BA%E8%83%BD%E4%BD%93/">动手学大模型 ch09｜GUI智能体</a>
           </li>
         
           <li>
-            <a href="/2026/10/21/GitHub%E5%B0%8F%E7%99%BD%E9%9B%B6%E5%9F%BA%E7%A1%80%E4%BB%8E0%E5%88%B01%E6%95%99%E7%A8%8B/">GitHub 小白零基础从 0 到 1 教程（转载整理）</a>
+            <a href="/2026/10/23/dive-llms-ch08-%E5%A4%9A%E6%A8%A1%E6%80%81%E6%A8%A1%E5%9E%8B/">动手学大模型 ch08｜多模态模型</a>
           </li>
         
           <li>
-            <a href="/2026/10/20/%E5%8F%AF%E7%81%B54-0%E5%AE%9E%E6%B5%8B%E4%B8%8EAI%E7%9F%AD%E5%89%A7%E5%85%A8%E6%B5%81%E7%A8%8B/">动动嘴就能做 AI 短剧，还能自动剪辑：可灵 4.0 实测与全流程教程</a>
+            <a href="/2026/10/23/dive-llms-ch07-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%9A%90%E5%86%99/">动手学大模型 ch07｜大模型隐写</a>
           </li>
         
       </ul>

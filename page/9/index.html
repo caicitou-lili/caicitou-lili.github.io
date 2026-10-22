@@ -96,10 +96,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-fuye-ch0448" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-shudong-ch0010" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/08/10/fuye-ch0448/" class="article-date">
-  <time class="dt-published" datetime="2026-08-10T12:00:00.000Z" itemprop="datePublished">2026-08-10</time>
+    <a href="/2026/08/15/shudong-ch0010/" class="article-date">
+  <time class="dt-published" datetime="2026-08-15T12:00:00.000Z" itemprop="datePublished">2026-08-15</time>
 </a>
     
   <div class="article-category">
@@ -114,7 +114,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/08/10/fuye-ch0448/">第448章：编程 Agent 命令行助手——开发本地 AI 自动编程 CLI 赚取订阅与流量费</a>
+      <a class="p-name article-title" href="/2026/08/15/shudong-ch0010/">经营一个SaaS软件创业公司，应该主要看哪些KPI指标（和北极星指标）？</a>
     </h1>
   
 
@@ -122,309 +122,29 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>随着 Aider、OpenCode 等 AI 自动编程工具在海外程序员圈子爆火，基于终端命令行（CLI）的智能编程 Agent 已成为开发者提升效率的利器。这类工具能直接读取本地代码库上下文、自主生成 Diff 修改方案、执行测试并根据报错迭代修复。</p>
-<p>然而，国内开发者在使用海外同类产品时，面临着支付困难（如 Cursor 订阅费每月 20 美元）、网络不稳定以及企业代码隐私安全等痛点。程序员可以通过构建一个轻量级、对国内模型及本地模型极度友好、支持企业私有化部署的 AI 编程 CLI 助手，通过“工具免费 + 服务订阅&#x2F;API 充值”的方式赚取丰厚的收益。</p>
-<h3 id="1-需求验证-Validation"><a href="#1-需求验证-Validation" class="headerlink" title="1. 需求验证 (Validation)"></a>1. 需求验证 (Validation)</h3><ul>
-<li><strong>痛点</strong>：<ul>
-<li><strong>海外订阅昂贵且支付不便</strong>：Cursor 等主流 AI 编程工具每月 140+ 元人民币的订阅费对国内学生和初级程序员偏贵，且不支持微信&#x2F;支付宝。</li>
-<li><strong>代码隐私与数据合规</strong>：国内大厂及金融、政企行业程序员受限于数据安全条例，严禁将代码上传至海外大模型，急需支持本地离线模型（如 Ollama 运行的 Qwen-Coder、DeepSeek-Coder）或国内合规大模型的 CLI 工具。</li>
-<li><strong>上下文理解不精准</strong>：现有开源 CLI 工具对中文 Prompt 优化不足，且在解析国内复杂的前后端框架时容易产生幻觉。</li>
-</ul>
-</li>
-<li><strong>目标人群</strong>：国内中高级开发者、独立开发者、高校计算机专业学生、有代码隐私保护诉求的软件外包团队。</li>
-<li><strong>验证手段</strong>：在 GitHub 上观察 Aider、Mentat 的 Star 趋势；在掘金、V2EX 搜索“本地代码 AI 助手”、“DeepSeek 编程”等讨论；在开发者社群了解大家对 Cursor 替代品的呼声。</li>
-</ul>
-<h3 id="2-程序员的-MVP-模式"><a href="#2-程序员的-MVP-模式" class="headerlink" title="2. 程序员的 MVP 模式"></a>2. 程序员的 MVP 模式</h3><ul>
-<li><strong>“编程 CLI Agent”技术方案</strong>：<ul>
-<li>**轻量级客户端 (CLI)**：使用 Node.js (TypeScript) 或 Python 编写终端交互程序。用户在项目根目录下运行 <code>harness-agent</code>，CLI 自动读取当前 Git 仓库的目录结构并生成 AST 关系图谱。</li>
-<li>**智能上下文构建 (Context Mapping)**：模仿 Aider 的机制，利用 Tree-sitter 提取项目的文件依赖关系和核心类&#x2F;函数定义，生成高精度的“代码地图（Repo Map）”，避免将整个项目文件全量喂给 LLM，大幅节省 Token 消耗。</li>
-<li><strong>双通道模型支持</strong>：<ul>
-<li><strong>本地离线通道</strong>：一键适配本地 Ollama 运行的开源模型（如 Qwen2.5-Coder、DeepSeek-Coder），实现代码修改零泄露。</li>
-<li><strong>云端中转通道</strong>：默认接入国内性价比极高的 API（如 DeepSeek-Coder 官方 API 或自建中转站），通过流式输出（Streaming）在终端直接展示修改差异（Diff Output）。</li>
-</ul>
-</li>
-<li><strong>Agent 自动修 Bug 闭环</strong>：允许用户授权 CLI 执行测试命令（如 <code>npm test</code> 或 <code>pytest</code>）。若测试失败，CLI 自动捕获终端报错信息，重新将上下文发送给大模型进行多轮迭代修复，直到测试通过。</li>
-</ul>
-</li>
-<li><strong>技术栈</strong>：Node.js (Commander.js &#x2F; Inquirer.js) 或 Python (Typer &#x2F; Rich) + Tree-sitter (语法分析) + Git API + DeepSeek &#x2F; Qwen API + Ollama SDK。</li>
-</ul>
-<h3 id="💰-财务测算（预估模型）"><a href="#💰-财务测算（预估模型）" class="headerlink" title="💰 财务测算（预估模型）"></a>💰 财务测算（预估模型）</h3><ul>
-<li><strong>启动成本</strong>：接近 ¥0<ul>
-<li>开发阶段仅需个人电脑与基础的 API 测试费用（约 ¥50 - ¥100）。</li>
-<li>开源托管（GitHub）和包分发渠道（NPM&#x2F;PyPI）均为免费。</li>
-</ul>
-</li>
-<li><strong>收益模型（预期售价）</strong>：<ul>
-<li><strong>API 额度转售（内置中转）</strong>：CLI 客户端免费开源，但默认内置了云端 API 渠道。用户无需配置自己的 Key，直接在 CLI 内扫码充值即可使用。以 1元 &#x3D; 50万 Token 计费（相比 DeepSeek 官方采购价有 2-3 倍的溢价空间，主要作为网络加速与开箱即用的服务费）。</li>
-<li><strong>Pro 版高级功能订阅</strong>：基础单文件修改免费。针对“多文件联合重构”、“自动生成全套单元测试”、“全局架构审计”等高阶 Agent 任务，收取订阅费 ¥19&#x2F;月 或 ¥129&#x2F;年。</li>
-<li><strong>企业私有化定制</strong>：为企业客户定制 CLI，对接其内部私有大模型及私有代码仓（如 GitLab），收取 ¥5,000 - ¥20,000&#x2F;个项目的部署与授权费。</li>
-</ul>
-</li>
-<li><strong>成本压缩方法</strong>：<ul>
-<li><strong>极致的上下文裁剪</strong>：利用 Repo Map 机制，只在请求中携带修改相关的文件和外部依赖接口定义，将单次对话的上下文 Token 数量压缩 70% 以上，极大地降低了 API 采购成本。</li>
-<li><strong>本地优先策略</strong>：鼓励并引导用户使用本地 Ollama 运行的免费开源模型，不仅对用户完全免费，也为开发者免去了服务器中转和 API 的代付成本。</li>
-</ul>
-</li>
-<li><strong>回本周期</strong>：由于几乎没有固定硬性成本，产品发布后只要有首批 10 个付费订阅用户，或 API 充值用户累计达到 100 人，即可实现纯盈利。</li>
-</ul>
-<h3 id="📈-关键指标-Metrics"><a href="#📈-关键指标-Metrics" class="headerlink" title="📈 关键指标 (Metrics)"></a>📈 关键指标 (Metrics)</h3><ul>
-<li><strong>北极星指标</strong>：<strong>每周活跃执行修改次数（Weekly Active Runs）</strong>，直接反映了 CLI 工具是否真正融入了用户的日常开发工作流中。</li>
-<li><strong>KPI</strong>：<ul>
-<li>付费订阅转化率 (Free-to-Pro Conversion Rate，目标 &gt; 3%)。</li>
-<li>单次任务的代码采纳率 (Code Acceptance Rate，即用户接受 AI 修改方案的比例，目标 &gt; 70%)。</li>
-<li>API 充值复购率 (API Repurchase Rate)。</li>
-</ul>
-</li>
-<li><strong>OKR</strong>：<ul>
-<li><strong>O</strong>：做国内体验最好、最懂中文开发者的本地 AI 编程助手。</li>
-<li><strong>KR1</strong>：通过优化 Repo Map 算法，将单次修改的平均 Token 消耗控制在 8,000 以下。</li>
-<li><strong>KR2</strong>：实现对主流国产编程模型（DeepSeek&#x2F;通义千问）的深度适配，代码生成采纳率突破 75%。</li>
-<li><strong>KR3</strong>：在 NPM&#x2F;PyPI 上的累计下载量突破 10,000 次，获取 300+ 付费订阅&#x2F;充值用户。</li>
-</ul>
-</li>
-</ul>
-<h3 id="⚠️-避坑指南"><a href="#⚠️-避坑指南" class="headerlink" title="⚠️ 避坑指南"></a>⚠️ 避坑指南</h3><ul>
-<li><strong>防范“执行高危命令”</strong>：当 Agent 具备执行本地命令的权限时（例如自动运行测试或安装依赖），必须严格限制其执行范围。<strong>禁止执行包含 <code>rm -rf</code>、端口监听或网络上传敏感文件的指令</strong>。在执行任何 shell 命令前，必须在终端显式弹出确认提示（Y&#x2F;N），防止 Agent 误删用户本地数据。</li>
-<li><strong>Git 冲突与代码污染</strong>：AI 生成的代码可能破坏原有的格式或引入编译错误。CLI 必须强制要求用户在干净的 Git 工作区（Clean Working Directory）中运行，并在修改前自动创建临时分支或 stash，确保用户可以随时一键回滚。</li>
-<li><strong>大模型长上下文性能衰减</strong>：在面对大型项目时，大模型极易“丢失上下文”。必须做好文件的分块（Chunking）与召回（Retrieve），只提供关联度最高的代码片段，避免无脑塞入过多文件导致大模型胡言乱语。</li>
-</ul>
-<h3 id="模拟实战：老张的“代码捕快-CodeCatcher-”"><a href="#模拟实战：老张的“代码捕快-CodeCatcher-”" class="headerlink" title="模拟实战：老张的“代码捕快 (CodeCatcher)”"></a>模拟实战：老张的“代码捕快 (CodeCatcher)”</h3><p>老张是一名资深架构师，在工作中发现团队成员经常花大量时间写重复的增删改查（CRUD）测试用例。他参考 OpenCode 思想，用 Node.js 写了一个专门针对 Spring Boot 和 React 项目的 CLI 助手——“CodeCatcher”。</p>
-<ul>
-<li><strong>冷启动</strong>：他把 CLI 免费发布在 NPM 上，并在自己的技术博客和微信公众号里写了一篇《如何用本地 Qwen 结合 CLI 自动写出 100% 覆盖率的单元测试》，吸引了第一批外包团队的程序员下载。</li>
-<li><strong>商业化尝试</strong>：他在 CLI 中加入了一个“云端增强模式”，内置了经过他微调的 DeepSeek 代码模型，用户扫码支付 9.9 元即可获得 1000 次高质量重构额度。对于需要保护隐私的团队，他顺势推出了“本地企业版”，包年 1999 元，支持完全离线运行且支持企业自定义的代码规范模版。</li>
-<li><strong>成果</strong>：不到半年时间，“CodeCatcher”在 NPM 的周下载量稳定在 2000 次以上，付费订阅和云端充值每月为他带来约 8000 元的稳定被动收入，同时他还接到了两家本地传统软件公司的私有化部署外包单，一次性赚取了 3 万多元的授权费。</li>
-</ul>
-<hr>
-<blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第448章：编程 Agent 命令行助手——开发本地 AI 自动编程 CLI 赚取订阅与流量费。</p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/08/10/fuye-ch0448/" data-id="cmvi6pmmf01akvch3h9si5582" data-title="第448章：编程 Agent 命令行助手——开发本地 AI 自动编程 CLI 赚取订阅与流量费" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-fuye-ch0447" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/08/10/fuye-ch0447/" class="article-date">
-  <time class="dt-published" datetime="2026-08-10T00:00:00.000Z" itemprop="datePublished">2026-08-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/08/10/fuye-ch0447/">第447章：大模型中转站——构建 AI API 聚合与分发平台赚取差价</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>随着大语言模型在全球范围内的爆发，AI 应用开发需求呈现指数级增长。然而，由于网络壁垒、海外信用卡支付门槛以及多模型 API 零散管理等问题，国内开发者与中小企业在接入海外主流模型（如 OpenAI、Claude 等）时面临巨大障碍。</p>
-<p>程序员可以通过搭建“AI 大模型中转站”，实现海外优质 API 渠道的聚合与分发，不仅能降低使用门槛，还能通过提供网络加速、统一计费和内容合规等增值服务，赚取可观的差价与服务费。</p>
-<h3 id="1-需求验证-Validation"><a href="#1-需求验证-Validation" class="headerlink" title="1. 需求验证 (Validation)"></a>1. 需求验证 (Validation)</h3><ul>
-<li><strong>痛点</strong>：<ul>
-<li><strong>网络与支付门槛</strong>：国内用户无法直连海外模型 API，且海外信用卡绑定门槛极高，企业及个人无法便捷充值。</li>
-<li><strong>多模型管理繁琐</strong>：不同厂商（OpenAI, Anthropic, Google 等）接口规范不一，开发者需维护多套 API Key 和账单。</li>
-<li><strong>国内合规诉求</strong>：直接将未经审查的海外模型返回给终端用户，面临极高的监管合规风险，缺乏过滤机制。</li>
-</ul>
-</li>
-<li><strong>目标人群</strong>：高校科研团队、AI 独立开发者（如 Chatbox、LobeChat、Next Chat 等客户端的活跃使用者）、尝试将 AI 引入业务的中小企业主。</li>
-<li><strong>验证手段</strong>：在 GitHub 上观察 API 聚合开源项目（如 One API、New API）的 Star 增长与 Issue 活跃度；在 V2EX、掘金等社区搜索“求稳定 OpenAI 接口”、“Claude 中转”等关键词；观察同类中转站的流量变化。</li>
-</ul>
-<h3 id="2-程序员的-MVP-模式"><a href="#2-程序员的-MVP-模式" class="headerlink" title="2. 程序员的 MVP 模式"></a>2. 程序员的 MVP 模式</h3><ul>
-<li><strong>“AI 中转站”技术方案</strong>：<ul>
-<li><strong>开箱即用架构</strong>：基于开源项目 <code>One API</code> 或其衍生版 <code>New API</code> 进行快速部署，自带完善的用户管理、额度发放、渠道负载均衡及 OpenAI 格式兼容层。</li>
-<li><strong>多渠道接入与负载均衡</strong>：接入 Azure OpenAI（相比直接接入官方更稳定、更合规）、海外源站一手渠道、国内 API 服务商（如 SiliconFlow、DeepSeek 等）以及折扣分销渠道，配置热备与故障自动切换。</li>
-<li><strong>国内合规过滤中间件</strong>：在 API 中转网关层拦截请求，接入网易易盾、腾讯云或百度云的内容安全检测接口，实行“双向安全过滤”（输入Prompt和输出Completion敏感词检测），符合国内监管要求。</li>
-<li><strong>分发与分级服务</strong>：提供符合 OpenAI 标准格式的统一下游 API 接口，用户只需在第三方客户端配置该中转站地址和自定义 Key 即可开箱即用。</li>
-</ul>
-</li>
-<li><strong>技术栈</strong>：Go &#x2F; Python + React (One API 基础框架) + Redis (高速缓存与高并发限流) + MySQL + 阿里云&#x2F;腾讯云中国香港或新加坡轻量应用服务器。</li>
-</ul>
-<h3 id="💰-财务测算（预估模型）"><a href="#💰-财务测算（预估模型）" class="headerlink" title="💰 财务测算（预估模型）"></a>💰 财务测算（预估模型）</h3><ul>
-<li><strong>启动成本</strong>：¥100 - ¥500<ul>
-<li>轻量云服务器（中国香港&#x2F;新加坡，2核4G，带宽 30M+）：约 ¥80 - ¥150&#x2F;月。</li>
-<li>域名（推荐免备案的海外域名）：约 ¥50&#x2F;年。</li>
-<li>初始采购上游 API 额度（折扣代理充值或官方信用卡充值）：约 ¥200 - ¥300。</li>
-</ul>
-</li>
-<li><strong>收益模型（预期售价）</strong>：<ul>
-<li><strong>散户&#x2F;零售定价</strong>：汇率锚定 1 美元官方额度 &#x3D; 7元 至 10元 人民币。官方汇率约为 7.2，提供即时可用性、国内网速优化和便捷支付，溢价合理。</li>
-<li><strong>套餐化销售</strong>：推出充值套餐，例如：9.9元&#x2F;1.5美元额度（尝鲜）、99元&#x2F;15美元额度（常用）、299元&#x2F;50美元额度（极客），通过阶梯赠送机制吸引预存。</li>
-<li><strong>企业与高并发批发</strong>：针对每天用量极大的开发者或公司，提供专属渠道，按照官方价格的 0.8-1.0 倍人民币价格计价，通过上游折返利赚取走量差价。</li>
-</ul>
-</li>
-<li><strong>成本压缩方法</strong>：<ul>
-<li><strong>采购上游折扣</strong>：通过寻找 Azure OpenAI 官方合作伙伴或大型 API 代理商进行大批量采购（折扣通常低至 1-3 折）；积极接入如 DeepSeek 这种国内极低价大模型降低开源系列成本。</li>
-<li>**语义缓存 (Semantic Cache)**：使用 Redis 对用户请求进行 Embedding 向量化匹配，对极高频的相似提问（如“请帮我润色这段文字”）直接从本地缓存返回，不上报上游，从而使该部分请求成本归零。</li>
-<li><strong>智能限频</strong>：设置精细的 QPS 限制，防止恶意的恶意刷量脚本薅走免费额度或耗尽服务器带宽。</li>
-</ul>
-</li>
-<li><strong>回本周期</strong>：一般拥有 30-50 个稳定使用且续费的付费客户，即可在 1 个月内收回服务器与基础采购成本。</li>
-</ul>
-<h3 id="📈-关键指标-Metrics"><a href="#📈-关键指标-Metrics" class="headerlink" title="📈 关键指标 (Metrics)"></a>📈 关键指标 (Metrics)</h3><ul>
-<li><strong>北极星指标</strong>：<strong>月度付费用量流水（Monthly Paid API Spend &#x2F; Revenue）</strong>，直接反映平台的整体运转规模与盈亏状况。</li>
-<li><strong>KPI</strong>：<ul>
-<li>付费活跃用户数 (Monthly Active Paid Users)。</li>
-<li>渠道成功率与延迟 (API Request Success Rate &gt; 99.5%, Avg. Latency &lt; 1.5s)。</li>
-<li>充值用户复购率 (User Retention &amp; Repurchase Rate)。</li>
-</ul>
-</li>
-<li><strong>OKR</strong>：<ul>
-<li><strong>O</strong>：打造国内访问速度最快、服务最稳定的 AI 大模型中转平台。</li>
-<li><strong>KR1</strong>：核心上游渠道实现故障自动切换，平均 API 响应耗时缩短至 1.2 秒以内。</li>
-<li><strong>KR2</strong>：部署自动化内容合规过滤系统，确保政治敏感、低俗暴恐等词汇过滤率达到 100%。</li>
-<li><strong>KR3</strong>：通过内容营销和社区拉新，在 30 天内获取 200 个以上首期付费注册用户，充值流水破 ¥5,000。</li>
-</ul>
-</li>
-</ul>
-<h3 id="⚠️-避坑指南"><a href="#⚠️-避坑指南" class="headerlink" title="⚠️ 避坑指南"></a>⚠️ 避坑指南</h3><ul>
-<li><strong>合规红线（最关键）</strong>：中国境内运营 AI 接口严禁传播不合规的敏感言论。<strong>必须部署强效的内容过滤器</strong>。如果资金充裕，可直接接入腾讯云内容安全 API；若初期资金不足，必须维护一套动态敏感词库进行硬拦截。</li>
-<li><strong>薅羊毛与黑客防范</strong>：切忌赠送过多的初始免费额度（建议限赠送 0.5-1 元体验金）；New API 后台应开启防刷机制，防止有人通过批量注册账号套取额度。</li>
-<li><strong>渠道真实性（“掺假”API）</strong>：市场上部分廉价上游渠道会用 GPT-3.5 接口伪装成 GPT-4 接口售卖。建议编写自动化单元测试，每天定时向各个上游通道发送只有 GPT-4 能够正确回答的经典推理题（如“鲁迅为什么打周树人”、“树上有10只鸟，开枪打死1只，还剩几只”），若回答错误则自动熔断该通道并发出警报。</li>
-</ul>
-<h3 id="模拟实战：小李的“极客API”中转路"><a href="#模拟实战：小李的“极客API”中转路" class="headerlink" title="模拟实战：小李的“极客API”中转路"></a>模拟实战：小李的“极客API”中转路</h3><p>小李是一名大三的计算机系学生，平时喜欢折腾 AI 应用。因为自己和实验室同学充值 ChatGPT API 太麻烦，他决定自己建一个中转站。</p>
-<ul>
-<li><strong>起步</strong>：他使用腾讯云香港的 99 元&#x2F;年特惠服务器部署了 New API，绑定了自己在国外申请的 Azure 账号，以 1刀额度&#x3D;7.5元人民币 的价格卖给身边的同学。</li>
-<li><strong>裂变</strong>：他在少数派（Sspai）和知乎写了几篇关于《如何让 Mac 上的 Chatbox 和 LobeChat 无缝使用高速 GPT-4》的教程，并在文中附带了自己的中转站链接与邀请码。文章被推荐后，一天内涌入 500+ 用户，当天流水直接突破 2000 元。</li>
-<li><strong>加固</strong>：他迅速引入了自动体检脚本，剔除了经常掉线的便宜渠道，转为全部使用 Azure OpenAI 保证质量，并接入微信小程序支付通道方便用户充值。</li>
-<li><strong>结果</strong>：大半年过去了，小李的中转站已积累了 3000 多名注册用户，月均流水 2.8 万元，除去服务器及 Azure API 采购成本，每月净赚近 9000 元，妥妥解决了一整年的学费与生活费。</li>
-</ul>
-<hr>
-<blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第447章：大模型中转站——构建 AI API 聚合与分发平台赚取差价。</p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/08/10/fuye-ch0447/" data-id="cmvi6pmmc01aevch35udy1aen" data-title="第447章：大模型中转站——构建 AI API 聚合与分发平台赚取差价" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-fuye-ch0446" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/08/09/fuye-ch0446/" class="article-date">
-  <time class="dt-published" datetime="2026-08-09T12:00:00.000Z" itemprop="datePublished">2026-08-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/08/09/fuye-ch0446/">第446章：AI 投放专家——利用 Agent 接入海外广告 API 赚取高额佣金</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>在出海赛道中，广告投放（Media Buying）是流量获取的核心。传统的广告代投依赖大量的人力进行盯盘、调价和素材制作。程序员可以通过接入 Google Ads 和 Meta (Facebook&#x2F;Instagram) 的 Marketing API，并构建 AI Agent 实现 24&#x2F;7 自动优化，从而以极低的人力成本赚取广告费返点与效果分。</p>
-<h3 id="1-需求验证-Validation"><a href="#1-需求验证-Validation" class="headerlink" title="1. 需求验证 (Validation)"></a>1. 需求验证 (Validation)</h3><ul>
-<li><strong>痛点</strong>：中小出海企业（如工具类 APP、跨境小卖家）缺乏专业的投放经验，容易导致广告费空消耗；专业投手昂贵且精力有限，无法在凌晨（海外高峰期）实时调整出价；多语言素材制作成本高、周期长。</li>
-<li><strong>目标人群</strong>：中小型出海开发者、DTC 品牌方、以及需要大规模测试流量的网赚团队。</li>
-<li><strong>验证手段</strong>：在 Google Ads 或 Facebook 官方广告社群观察用户对“自动出价不稳定”、“ROI 忽高忽低”等抱怨；分析现有的自动化投放工具（如 Revealbot）的功能缺失。</li>
-</ul>
-<h3 id="2-程序员的-MVP-模式"><a href="#2-程序员的-MVP-模式" class="headerlink" title="2. 程序员的 MVP 模式"></a>2. 程序员的 MVP 模式</h3><ul>
-<li><strong>“AI 投手”技术方案</strong>：<ol>
-<li><strong>多平台 API 集成</strong>：利用 Google Ads API 和 Meta Marketing API 建立统一的看板，解决跨平台管理繁琐的问题。</li>
-<li><strong>机动性 Agent 优化</strong>：编写 Agent 逻辑，设定触发规则（如：当 CPA &gt; $5 时，自动降低 20% 出价；当 ROI &gt; 3 且转化数 &gt; 10 时，每小时提升 10% 预算）。</li>
-<li><strong>创意自动化生工</strong>：集成 GPT-4o 生成多语言地道文案，结合 Flux 或 Canva API 自动生成不同尺寸的配图模板，实现“素材大屠杀”测试。</li>
-<li><strong>智能报表与预警</strong>：Agent 每日自动总结投放情况，通过 Slack 或飞书推送“投放日报”，并对预算暴走进行熔断预警。</li>
+        <p>网友投稿：<br>我现在经营着一家SaaS软件创业公司。每天都在为公司的发展操心，想着怎么让业务更上一层楼。在日常运营中，我要考虑产品的研发进度，得让软件功能不断优化，满足客户需求。还要拓展市场，吸引更多的客户来使用我们的软件。同时，客户服务也不能落下，得保证老客户的留存率。</p>
+<p>在这个过程中，我特别迷茫，不知道经营SaaS软件创业公司主要该看哪些KPI指标，还有北极星指标到底该怎么确定呢？ </p>
+<p>回复：<br>经营 SaaS 创业公司如同精心照料多盆娇贵的花，需兼顾研发进度、市场拓展和客户服务等多方面。要关注 3 类核心 KPI：</p>
+<ol>
+<li><strong>客户获取</strong>：确保客户终身价值≥3 倍获客成本，提高线索转化率，保证新客户数量。</li>
+<li><strong>客户留存</strong>：月度留存率应不低于 80%，中小企业 SaaS 流失率控制在 5%以下，提高核心功能使用率。</li>
+<li><strong>营收</strong>：关注月度 recurring revenue、客户终身价值及二者比值。</li>
 </ol>
-</li>
-<li><strong>技术栈</strong>：Python (FastAPI) + OpenAI API + Google Ads API + Meta Business SDK + Redis (任务队列)。</li>
-</ul>
-<h3 id="💰-财务测算（预估模型）"><a href="#💰-财务测算（预估模型）" class="headerlink" title="💰 财务测算（预估模型）"></a>💰 财务测算（预估模型）</h3><ul>
-<li><strong>启动成本</strong>：¥2,000 - ¥5,000（主要是 API 调用费及海外企业开发者账号申请费用）。</li>
-<li><strong>收益模型</strong>：<ul>
-<li><strong>阶梯服务费</strong>：收取月度广告耗耗量的 5%-10% 作为服务费。</li>
-<li><strong>返点提成</strong>：作为代理商或通过合作伙伴渠道，获得媒体方 3%-7% 的现金返点。</li>
-<li><strong>性能奖金</strong>：当 ROI 超过约定基准线时，抽取超额利润的 20% 作为奖励（最具爆发力的收入）。</li>
-</ul>
-</li>
-<li><strong>回本周期</strong>：服务 3-5 个月预算在 $10,000 以上的稳定客户即可回本。</li>
-</ul>
-<h3 id="📈-关键指标-Metrics"><a href="#📈-关键指标-Metrics" class="headerlink" title="📈 关键指标 (Metrics)"></a>📈 关键指标 (Metrics)</h3><ul>
-<li><strong>北极星指标</strong>：总管理广告耗耗量 (Total Managed Ad Spend)。</li>
-<li><strong>KPI</strong>：<ul>
-<li>平均广告资产回报率 (Avg. ROAS)。</li>
-<li>单个转化成本 (CPA) 的降幅。</li>
-</ul>
-</li>
-<li><strong>OKR</strong>：<ul>
-<li><strong>O</strong>：通过算法让广告每一分钱都花在刀刃上。</li>
-<li><strong>KR1</strong>：Agent 实现秒级响应的异常波动自动熔断。</li>
-<li><strong>KR2</strong>：通过 A&#x2F;B Test 证明 AI 优化的 ROI 比人工手动操作高出 15% 以上。</li>
-</ul>
-</li>
-</ul>
-<h3 id="⚠️-避坑指南"><a href="#⚠️-避坑指南" class="headerlink" title="⚠️ 避坑指南"></a>⚠️ 避坑指南</h3><ul>
-<li><strong>API 权限与封号</strong>：海外广告平台极其敏感。必须严格遵守 API 使用准则，防止因为滥用接口导致开发者账号及客户广告账号被封禁。</li>
-<li><strong>预算失控（Budget Runaway）</strong>：Agent 逻辑错误可能导致在几分钟内烧光上万美元预算。必须设置“硬熔断”机制（如每日账户总消耗阈值）。</li>
-<li><strong>模型“幻觉”</strong>：GenAI 生成的文案可能包含违禁词（如医疗、博彩相关）。必须建立敏感词库进行二次过滤。</li>
-</ul>
-<h3 id="模拟实战：小陈的“投放机器人”"><a href="#模拟实战：小陈的“投放机器人”" class="headerlink" title="模拟实战：小陈的“投放机器人”"></a>模拟实战：小陈的“投放机器人”</h3><p>小陈是一名后端开发，他写了一个自动化脚本帮朋友测试小游戏的海外买量。</p>
-<ul>
-<li><strong>起步</strong>：他发现朋友每天要花 3 小时改价。他介入 API，做了一个“止损 Agent”，一旦 ROI 掉到底线就关停，第一周就帮朋友省下 2000 美金。</li>
-<li><strong>突破</strong>：他引入了“素材自动换色”功能，让 Agent 根据哪个颜色的 CTR 高就自动生成同色系素材。</li>
-<li><strong>结果</strong>：小陈现在以每个月 3000 元的基础服务费，维护了 10 个独立开发者的账号，加上绩效分成，月收入稳定在 4 万以上。</li>
-</ul>
+<p>北极星指标选择要结合公司阶段和业务模式：早期验证需求，可选核心功能使用率或新付费客户数量；成长期做规模化增长，选 MRR 增长或 LTV&#x2F;CAC 比值；成熟期要盈利，选 ARR 或净利润率。</p>
+<p>此外，还给出 3 个建议：先抓 2 个核心指标；用客户反馈校准指标；每季度复盘北极星指标。思考公司当前问题和核心价值，有助于选对指标，稳步前行。</p>
 <hr>
 <blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第446章：AI 投放专家——利用 Agent 接入海外广告 API 赚取高额佣金。</p>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：经营一个SaaS软件创业公司，应该主要看哪些KPI指标（和北极星指标）？。</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/08/09/fuye-ch0446/" data-id="cmvi6pmm901a8vch3eraoezrh" data-title="第446章：AI 投放专家——利用 Agent 接入海外广告 API 赚取高额佣金" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/08/15/shudong-ch0010/" data-id="cmvi6pmmx01bfvch383ul635z" data-title="经营一个SaaS软件创业公司，应该主要看哪些KPI指标（和北极星指标）？" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%9B%E4%B8%9A/" rel="tag">创业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91%E6%B4%9E/" rel="tag">树洞</a></li></ul>
 
     </footer>
   </div>
@@ -434,10 +154,10 @@
 
 
   
-    <article id="post-fuye-ch0445" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-shudong-ch0009" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/08/09/fuye-ch0445/" class="article-date">
-  <time class="dt-published" datetime="2026-08-09T00:00:00.000Z" itemprop="datePublished">2026-08-09</time>
+    <a href="/2026/08/15/shudong-ch0009/" class="article-date">
+  <time class="dt-published" datetime="2026-08-15T00:00:00.000Z" itemprop="datePublished">2026-08-15</time>
 </a>
     
   <div class="article-category">
@@ -452,7 +172,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/08/09/fuye-ch0445/">第445章：数字化货代——搭建出海货运代理网站赚取利差与服务费</a>
+      <a class="p-name article-title" href="/2026/08/15/shudong-ch0009/">互联网创业公司如何实现口碑营销？</a>
     </h1>
   
 
@@ -460,70 +180,26 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>在全球贸易日益数字化的今天，传统的跨境物流（货代）行业正经历从“关系驱动”到“技术驱动”的变革。对于程序员来说，搭建一个垂直领域的出海货运代理网站，通过整合物流资源、自动化询价与追踪，可以赚取透明化的运费利差及增值服务费。</p>
-<h3 id="1-需求验证-Validation"><a href="#1-需求验证-Validation" class="headerlink" title="1. 需求验证 (Validation)"></a>1. 需求验证 (Validation)</h3><ul>
-<li><strong>痛点</strong>：中小型跨境电商卖家（如独立站、亚马逊卖家）在寻找物流方案时，常面临信息不对称、询价慢、物流状态更新滞后、纸质单据繁琐等问题。他们需要一个能在线比价、快速下单并实时追踪的“物流聚合器”。</li>
-<li><strong>目标人群</strong>：刚起步的跨境电商个人卖家、转型中的传统外贸商、以及对特定线路（如中东、拉美、东南亚）有需求的专业外贸企业。</li>
-<li><strong>验证手段</strong>：在跨境物流论坛（如福步外贸论坛）、卖家社群观察“求推荐靠谱货代”、“某线路时效如何”等高频提问；或者分析现有数字化货代平台（如 Flexport, GoFreight）的成功逻辑并寻找垂直切入点。</li>
-</ul>
-<h3 id="2-程序员的-MVP-模式"><a href="#2-程序员的-MVP-模式" class="headerlink" title="2. 程序员的 MVP 模式"></a>2. 程序员的 MVP 模式</h3><ul>
-<li><strong>“垂直线路聚合”建站方案</strong>：<ol>
-<li><strong>自动化报价引擎</strong>：接入主流物流商（如 DHL, FedEx, UPS）或一级大庄家的 API，用户输入重量和目的地即可实时获取估价。</li>
-<li><strong>一站式订单管理</strong>：提供在线提交报关资料（CI&#x2F;PL）、自动生成面单、在线支付功能。</li>
-<li><strong>实时轨迹监测</strong>：通过爬虫或 API 自动化追踪包裹状态，并在关键节点推送微信&#x2F;邮件提醒。</li>
-<li><strong>专注 Niche 市场</strong>：初期不要做“全航线”，可以专注“中东专线”或“FBA（亚马逊仓）头程增程”，提供更专业的清关辅助建议。</li>
-</ol>
-</li>
-<li><strong>技术栈</strong>：Next.js + Tailwind CSS + Supabase (数据库) + 物流接口 (AfterShip&#x2F;Easypost 或直接对接庄家 API)。</li>
-</ul>
-<h3 id="💰-财务测算（预估模型）"><a href="#💰-财务测算（预估模型）" class="headerlink" title="💰 财务测算（预估模型）"></a>💰 财务测算（预估模型）</h3><ul>
-<li><strong>启动成本</strong>：¥1,000 - ¥3,000（主要是域名、服务器费用，以及部分物流接口的初期调用费）。</li>
-<li><strong>收益模型</strong>：<ul>
-<li><strong>运费利差</strong>：作为“二级分销商”或“数字代理”，从大庄家拿批发价，给终端用户零售价，每单抽取 5%-15% 的利差。</li>
-<li><strong>代操服务费</strong>：提供代贴面单、验货、换包装等线下增值服务，按件收费。</li>
-<li><strong>SAAS 订阅</strong>：如果工具足够好用，可向其他小型货代公司输出系统。</li>
-</ul>
-</li>
-<li><strong>回本周期</strong>：每月稳定出货 50-100 票以上即可覆盖日常开支并盈利。</li>
-</ul>
-<h3 id="📈-关键指标-Metrics"><a href="#📈-关键指标-Metrics" class="headerlink" title="📈 关键指标 (Metrics)"></a>📈 关键指标 (Metrics)</h3><ul>
-<li><strong>北极星指标</strong>：单月的“货量总量”（计算单位可以是重量或票数）。</li>
-<li><strong>KPI</strong>：<ul>
-<li>询价转单率（用户查价后下单的比例）。</li>
-<li>客户复购率（月均下单次数）。</li>
-</ul>
-</li>
-<li><strong>OKR</strong>：<ul>
-<li><strong>O</strong>：成为特定线路卖家的首选数字化物流入口。</li>
-<li><strong>KR1</strong>：实现从下单到生成面单的全过程 0 人工干预。</li>
-<li><strong>KR2</strong>：上线三种以上主流出海目的地的专线渠道。</li>
-</ul>
-</li>
-</ul>
-<h3 id="⚠️-避坑指南"><a href="#⚠️-避坑指南" class="headerlink" title="⚠️ 避坑指南"></a>⚠️ 避坑指南</h3><ul>
-<li><strong>清关与税务风险</strong>：不同国家的政策差异极大。必须在网站显著位置标注禁运物品清单，并提供免责声明。</li>
-<li><strong>账期压力</strong>：物流庄家往往要求现结，而终端客户可能有账期需求。程序员副业起步时务必坚持“现结”模式，保证现金流安全。</li>
-<li><strong>赔付纠纷</strong>：货物丢失或损坏是常态。必须对接第三方货运险，或者在服务条款中明确赔付标准。</li>
-</ul>
-<h3 id="模拟实战：小王的“FBA-极速达”"><a href="#模拟实战：小王的“FBA-极速达”" class="headerlink" title="模拟实战：小王的“FBA 极速达”"></a>模拟实战：小王的“FBA 极速达”</h3><p>小王发现身边很多同行做亚马逊，最怕的就是发货到美国仓时由于报关资料不对被扣。</p>
-<ul>
-<li><strong>起步</strong>：他写了一个专门验证报关资料合规性的极简前端页面，免费给卖家使用引流。</li>
-<li><strong>突破</strong>：在页面下方顺势推出“小王自营 FBA 专线”，价格比市场价略低 5%，且系统自动检查资料。</li>
-<li><strong>结果</strong>：凭借“技术流”的严谨形象，卖家非常信任他。小王通过网站后台自动化对接货代庄家下单，自己只负责线上客服，每月副业净流水超过 5 万。</li>
-</ul>
+        <p>网友投稿：<br>我经营着一家互联网创业公司，目前正为怎么做好口碑营销发愁。在日常运营里，我们专注于产品的功能开发和服务优化，努力给用户提供好的体验。但在宣传推广方面，虽然投入了不少精力和资金，可效果却不太理想。</p>
+<p>看着同行们凭借良好的口碑，业务蒸蒸日上，我心里很着急。我明白口碑营销能以较低成本带来更多客户和业务增长，可就是不知道该从哪儿入手。是在社交媒体上做推广，还是靠用户的自发传播呢？</p>
+<p>我到底该怎么做，才能让我的互联网创业公司实现有效的口碑营销呢？怎样才能让更多人主动为我们的产品和服务说好话呢？ </p>
+<p>回复：<br>先给你点赞，你专注产品功能开发和服务优化，抓住了口碑营销的“根”。很多创业公司砸钱推广却忽略用户体验。</p>
+<p>现在用户不信“广告”，只信“真实的人说真实的话”。你推广没效果，大概率是“自说自话”，而非“让用户替你说话”。</p>
+<p>口碑营销可从3个小步骤入手：一是找“种子用户”，给他们发私信，送福利，让他们觉得被重视；二是把“产品优势”变成“用户故事”，用真实经历打动他人；三是给用户“分享的便利”，如加“一键分享”功能、做互动式内容。</p>
+<p>口碑营销要慢慢来，做小事。把“用户的好体验”变成“用户愿意分享的内容”，给他们分享动力。可以先试一个月，找种子用户分享、做社交媒体内容、加分享功能，再调整策略。另外，用户的特别反馈是口碑营销素材，要好好利用。</p>
 <hr>
 <blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第445章：数字化货代——搭建出海货运代理网站赚取利差与服务费。</p>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：互联网创业公司如何实现口碑营销？。</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/08/09/fuye-ch0445/" data-id="cmvi6pmm701a5vch347usftlg" data-title="第445章：数字化货代——搭建出海货运代理网站赚取利差与服务费" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/08/15/shudong-ch0009/" data-id="cmvi6pmmv01bcvch3c3i9cxs4" data-title="互联网创业公司如何实现口碑营销？" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%9B%E4%B8%9A/" rel="tag">创业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91%E6%B4%9E/" rel="tag">树洞</a></li></ul>
 
     </footer>
   </div>
@@ -533,10 +209,130 @@
 
 
   
-    <article id="post-fuye-ch0444" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-DeepSeek-Harness-实测教程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/08/08/fuye-ch0444/" class="article-date">
-  <time class="dt-published" datetime="2026-08-08T12:00:00.000Z" itemprop="datePublished">2026-08-08</time>
+    <a href="/2026/08/15/DeepSeek-Harness-%E5%AE%9E%E6%B5%8B%E6%95%99%E7%A8%8B/" class="article-date">
+  <time class="dt-published" datetime="2026-08-14T17:00:00.000Z" itemprop="datePublished">2026-08-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/08/15/DeepSeek-Harness-%E5%AE%9E%E6%B5%8B%E6%95%99%E7%A8%8B/">DeepSeek Harness 首发实测 + 入门教程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>昨天注定是载入史册的魔幻一天，DeepSeek 同时放了两个大招！先是 DeepSeek V4 Pro 正式版上线，紧接着万众瞩目的 <strong>DeepSeek Harness</strong> 开源。炸裂！炸裂！炸裂！</p>
+<p>DeepSeek Harness 开源的 GitHub 仓库上线不到 1 天，就冲到了 8 万多 Star，AI 圈的顶流果然名不虚传。这下搞不好 Codex、Claude Code、Cursor 都要”凉了”……</p>
+<p>这篇文章我会从安装开始，手把手带你体验 DeepSeek Harness 的核心玩法。小白可懂，建议收藏 ⭐️</p>
+<blockquote>
+<p>建议观看视频版：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1VkgK6NEZS/">B站视频</a></p>
+</blockquote>
+<hr>
+<h2 id="一、DeepSeek-Harness-是什么？"><a href="#一、DeepSeek-Harness-是什么？" class="headerlink" title="一、DeepSeek Harness 是什么？"></a>一、DeepSeek Harness 是什么？</h2><p><strong>Harness</strong> 这个词翻译过来就是「驾驭」。如果把 AI 模型比作一匹马，那 Harness 就是你驾驭 AI 模型这匹马所需要的一切工程。</p>
+<p>所谓 Harness 工程，就是研究怎么让 AI 模型这匹马跑得更快、更稳，顺利完成任务。你给 AI 写的项目规则文件、配置的各种工具、安排的任务拆分和执行顺序、设计的测试检查流程，这些统统都算 Harness。</p>
+<p>有一个很精妙的公式：</p>
+<blockquote>
+<p><strong>Agent &#x3D; Model + Harness</strong></p>
+</blockquote>
+<p>模型负责思考和生成，Harness 负责把这些能力接入文件系统、终端、网页、工具链，让 AI 真正能在现实环境里干活。</p>
+<p>之前 DeepSeek 只开源了模型这一半，Harness 一直没动静，这次终于补齐了。你可以把 DeepSeek Harness 理解成一个可以高度定制的 AI 编程工具，对标 Claude Code 和 Codex。但它的野心比这些工具更大——不只是一个编程 Agent，而是一套可配置、可重组的 Agent 运行环境。官方口号是「<strong>一切皆插件</strong>」。</p>
+<hr>
+<h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><p>安装 DeepSeek Harness 真的非常简单。进入 <a target="_blank" rel="noopener" href="https://harness.deepseek.com/">DeepSeek Harness 官网</a>，你会看到一行安装命令。</p>
+<p>在执行之前，首先要确保你的电脑已经安装了 Node.js 环境，没有的话去 <a target="_blank" rel="noopener" href="https://nodejs.org/">Node 官网</a> 下载安装包，傻瓜式安装就行。</p>
+<p>有了环境后，复制这行命令，打开终端执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx @deepseek-ai/dsh web</span><br></pre></td></tr></table></figure>
+
+<p>稍等一会儿，终端会输出一个网址，打开它就能进入 DeepSeek Harness 的 Web 界面。</p>
+<p>第一次使用时，需要填入 DeepSeek 的 API Key。到 <a target="_blank" rel="noopener" href="https://platform.deepseek.com/">DeepSeek 开放平台</a> 创建一个 API Key（注意不要泄露），把得到的 Key 复制粘贴过来就行。</p>
+<p>到这里，DeepSeek Harness 就安装成功了，是不是很简单？</p>
+<hr>
+<h2 id="三、Harness-实战"><a href="#三、Harness-实战" class="headerlink" title="三、Harness 实战"></a>三、Harness 实战</h2><p>界面打开之后，别急着让它干活。第一次用，建议先把下面三件事搞清楚。</p>
+<h3 id="1-选一个”工作现场”"><a href="#1-选一个”工作现场”" class="headerlink" title="1. 选一个”工作现场”"></a>1. 选一个”工作现场”</h3><p>第一步是<strong>选择一个项目文件夹</strong>。Harness 会把这个目录当成它的工作现场——之后读文件、改代码、跑命令，全部围绕这个目录展开。</p>
+<p>这一点很关键：<strong>目录选错，它能帮你的范围也就错了</strong>。所以第一次实测，我建议不要直接对着你最重要的项目开刀，先建一个空目录玩两把，熟悉了再上真项目。</p>
+<h3 id="2-调三个开关"><a href="#2-调三个开关" class="headerlink" title="2. 调三个开关"></a>2. 调三个开关</h3><p>进入对话后，界面上有几个需要你决定的东西：</p>
+<ul>
+<li><strong>模型与推理等级</strong>：可以选 DeepSeek V4 Pro 等模型，并调节推理等级。等级越高，它越舍得”想”，但响应更慢、消耗也更大。日常改代码用中等档就够，遇到复杂重构再拉满。</li>
+<li><strong>权限范围</strong>：Harness 默认会在每一次写文件、执行终端命令前向你确认。刚开始强烈建议保持确认模式，等你摸清它的脾气再考虑放开。</li>
+<li><strong>工作模式</strong>：最实用的是「<strong>标准模式</strong>」。它已经预置了一整套 AI 编程工具该有的基础能力（读写文件、执行命令、检索资料、把长任务拆成待办清单等），开箱就能干活。想更轻量或更激进，再去看其他模式。</li>
+</ul>
+<h3 id="3-“一切皆插件”到底指什么"><a href="#3-“一切皆插件”到底指什么" class="headerlink" title="3. “一切皆插件”到底指什么"></a>3. “一切皆插件”到底指什么</h3><p>官方那句”一切皆插件”不是宣传口号。模型接入、工具能力、执行环境、上下文管理、甚至对外接口，都是可以被替换、被组合的插件。</p>
+<p>对普通用户来说，实际意义是：<strong>你不需要用它的全部，按需开关就行</strong>。用得越少，行为越可控，出问题的面也越小。</p>
+<h3 id="4-实测案例：让它做一个-Excel-周报生成器"><a href="#4-实测案例：让它做一个-Excel-周报生成器" class="headerlink" title="4. 实测案例：让它做一个 Excel 周报生成器"></a>4. 实测案例：让它做一个 Excel 周报生成器</h3><p>光看界面没感觉，我直接上了一个真实需求：<strong>把每周的几份数据汇总成一份 Excel 周报</strong>。</p>
+<p>我给它的原话大概是这样：</p>
+<blockquote>
+<p>在当前目录建一个脚本，读取 <code>data/</code> 里本周的表格文件，汇总成一份 Excel 周报，包含本周汇总、和上周的环比，输出到 <code>output/</code> 目录。</p>
+</blockquote>
+<p>接下来发生的事，是这次实测里最有意思的部分：</p>
+<ol>
+<li>它<strong>没有立刻开写</strong>，而是先把任务拆成了一份待办清单（todo），然后一条条执行、一条条勾掉——你能实时看到它”走到哪一步了”。</li>
+<li>它自己去<strong>翻了目录里的真实文件</strong>，发现列名和我描述的不完全一样，于是回来问我确认字段含义，而不是硬按自己的假设写下去。</li>
+<li>建目录、写脚本、装依赖、跑一遍验证输出，整个过程里每一次写文件和执行命令都弹了确认，我点了几次”同意”。</li>
+<li>第一版跑出来的表头不对，我只说了一句”周次那一列要按 ISO 周算”，它就定位到对应函数改掉了，并且重跑验证。</li>
+</ol>
+<p>整个过程不到二十分钟，我拿到了一份能直接用的周报脚本。</p>
+<p><strong>这次实测给我最大的感受是</strong>：它和”聊天窗口里让 AI 写代码”完全不是一回事。区别不在于模型多聪明，而在于它<strong>能看到真实文件、能执行、能验证、能被打断和纠偏</strong>——这才是 Harness 的价值。</p>
+<h3 id="5-给它写好”项目规则”"><a href="#5-给它写好”项目规则”" class="headerlink" title="5. 给它写好”项目规则”"></a>5. 给它写好”项目规则”</h3><p>这是我用完最想安利的一条经验。</p>
+<p>在项目根目录放一个规则文件（比如 <code>AGENTS.md</code>），把项目约定写清楚：</p>
+<ul>
+<li>用什么语言、什么框架，依赖怎么装</li>
+<li>目录结构长什么样，新文件该放哪</li>
+<li>改完代码要跑什么检查、什么测试</li>
+<li>哪些目录是禁区，不许动</li>
+</ul>
+<p>Harness 每次启动都会读这份规则。<strong>规则写得越清楚，它越少自作主张</strong>；规则含糊，你就得反复纠正。这一步偷懒，后面全是加班。</p>
+<h3 id="6-几个必须提醒的坑"><a href="#6-几个必须提醒的坑" class="headerlink" title="6. 几个必须提醒的坑"></a>6. 几个必须提醒的坑</h3><ul>
+<li><strong>权限别一上来就给满</strong>。它能读写文件、能执行命令，就意味着提示词写得含糊时，它可能做出你并不想看到的操作。</li>
+<li><strong>推理等级拉满很烧 token</strong>。等级越高越慢越贵，注意账户余额，别在简单任务上开满档。</li>
+<li><strong>它还在开发者预览阶段</strong>。接口会以破坏兼容的方式快速演进，今天写的插件明天可能需要改，别急着上生产环境。</li>
+<li><strong>别指望它替代你判断</strong>。它能帮你把活干完，但需求是否合理、结果是否正确，责任还是在你身上。</li>
+</ul>
+<hr>
+<h2 id="四、小结：值得现在上手吗"><a href="#四、小结：值得现在上手吗" class="headerlink" title="四、小结：值得现在上手吗"></a>四、小结：值得现在上手吗</h2><p>一句话总结：<strong>DeepSeek Harness 补上了 DeepSeek 生态里一直缺的那一半</strong>。</p>
+<p>模型能力大家都已经见识过了，真正拉开差距的是”怎么用好”。Harness 把文件系统、终端、工具链、任务编排这一整套东西开放出来，让”用一个模型”变成”组装一个能干活的 Agent”。</p>
+<p>我的建议是：</p>
+<ul>
+<li><strong>想尝鲜</strong>：<code>npx @deepseek-ai/dsh web</code> 一条命令就能跑起来，成本极低，值得试。</li>
+<li><strong>想认真用</strong>：先花半小时把项目规则文件写好，收益最大的一步就是这个。</li>
+<li><strong>想上生产</strong>：再等等。开发者预览阶段，接口变化快，现在铺开容易返工。</li>
+</ul>
+<p>工具会一直有新的，但”怎么把事情拆清楚、怎么给 AI 划好边界”这套能力，换哪个工具都用得上。</p>
+<p>就这样，去玩吧 🎉</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://caicitou-lili.github.io/2026/08/15/DeepSeek-Harness-%E5%AE%9E%E6%B5%8B%E6%95%99%E7%A8%8B/" data-id="cmvd6jtyq000klsh3ede4gtmt" data-title="DeepSeek Harness 首发实测 + 入门教程" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E7%BC%96%E7%A8%8B/" rel="tag">AI编程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DeepSeek/" rel="tag">DeepSeek</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E6%BA%90/" rel="tag">开源</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-shudong-ch0008" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/08/14/shudong-ch0008/" class="article-date">
+  <time class="dt-published" datetime="2026-08-14T12:00:00.000Z" itemprop="datePublished">2026-08-14</time>
 </a>
     
   <div class="article-category">
@@ -551,7 +347,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/08/08/fuye-ch0444/">第444章：AI 时代的“上门电工”——代客安装 OpenClaw 与 Claude Code 赚取服务费</a>
+      <a class="p-name article-title" href="/2026/08/14/shudong-ch0008/">互联网创业公司如何找到前100个愿意付费的用户？</a>
     </h1>
   
 
@@ -559,71 +355,28 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>随着 Anthropic 发布 Claude Code 以及开源社区推出 OpenClaw（原 Moltbot），AI 辅助编程和自主智能体进入了“命令行时代”。然而，配置 Node.js 环境、安装依赖、配置 API Key 对于非技术出身的创业者或中小企业主来说，依然存在极高的门槛。程序员可以通过提供“上门&#x2F;远程安装+基础培训”的一站式服务，赚取高毛利的辛苦费。</p>
-<h3 id="1-需求验证-Validation"><a href="#1-需求验证-Validation" class="headerlink" title="1. 需求验证 (Validation)"></a>1. 需求验证 (Validation)</h3><ul>
-<li><strong>痛点</strong>：由于 Claude Code 和 OpenClaw 主要是 CLI（命令行）工具，非程序员用户在安装时常遇到 <code>npm</code> 环境报错、Docker 配置失败、终端代理无法通达等问题。他们急需一套开箱即用的“最强 AI 助手”，但被安装过程阻挡。</li>
-<li><strong>目标人群</strong>：独立开发者（产品经理想转全栈）、跨境电商卖家、初创企业主、以及希望提升工作效率的重度 AI 用户。</li>
-<li><strong>验证手段</strong>：在闲鱼、小红书等平台发布“Claude Code 远程协助安装”、“OpenClaw 智能体部署”等关键词，观察询单量；或在相关技术社群回答安装问题并留存潜在客户。</li>
-</ul>
-<h3 id="2-程序员的-MVP-模式"><a href="#2-程序员的-MVP-模式" class="headerlink" title="2. 程序员的 MVP 模式"></a>2. 程序员的 MVP 模式</h3><ul>
-<li><strong>“五合一”全家桶服务方案</strong>：<ol>
-<li><strong>环境配置</strong>：负责终端代理（Clash&#x2F;V2Ray）配置、Node.js 环境安装、Git 环境搭建。</li>
-<li><strong>工具部署</strong>：手把手安装 Claude Code 和 OpenClaw，确保能够正确连接并调用 API。</li>
-<li><strong>API 托管&#x2F;代购</strong>：针对没有海外信用卡的用户，提供代购 API 额度服务（赚取手续费）。</li>
-<li><strong>工作流演示</strong>：演示如何用 Claude Code 重写代码、如何用 OpenClaw 监控网页或回复消息。</li>
-<li><strong>售后保障</strong>：提供一个月的远程调试期（如更新版本失败等服务）。</li>
-</ol>
-</li>
-<li><strong>交付方式</strong>：向日葵&#x2F;ToDesk 远程桌面安装，或在一线城市提供高客单价的“上门部署”。</li>
-</ul>
-<h3 id="💰-财务测算（预估模型）"><a href="#💰-财务测算（预估模型）" class="headerlink" title="💰 财务测算（预估模型）"></a>💰 财务测算（预估模型）</h3><ul>
-<li><strong>启动成本</strong>：¥0（只需个人技能和稳定的梯子）。</li>
-<li><strong>收益模型</strong>：<ul>
-<li><strong>远程安装包</strong>：¥199 - ¥399&#x2F;次。</li>
-<li><strong>企业内训包</strong>：¥2,000 - ¥5,000（包含办公自动化工作流搭建）。</li>
-<li><strong>资源代购</strong>：API Key 充值、VPS 租赁分销，额外获利 10%-20%。</li>
-</ul>
-</li>
-<li><strong>回本周期</strong>：即时回本。</li>
-</ul>
-<h3 id="📈-关键指标-Metrics"><a href="#📈-关键指标-Metrics" class="headerlink" title="📈 关键指标 (Metrics)"></a>📈 关键指标 (Metrics)</h3><ul>
-<li><strong>北极星指标</strong>：老客户的“转介绍率”。</li>
-<li><strong>KPI</strong>：<ul>
-<li>单次客单价 (AOV)。</li>
-<li>安装成功率及客户满意度评分。</li>
-</ul>
-</li>
-<li><strong>OKR</strong>：<ul>
-<li><strong>O</strong>：成为本地&#x2F;线上最靠谱的 AI 工具落地导师。</li>
-<li><strong>KR1</strong>：沉淀一套《Claude Code&#x2F;OpenClaw 安装与避坑白皮书》。</li>
-<li><strong>KR2</strong>：积累 50 个五星好评的真实成交案例。</li>
-</ul>
-</li>
-</ul>
-<h3 id="⚠️-避坑指南"><a href="#⚠️-避坑指南" class="headerlink" title="⚠️ 避坑指南"></a>⚠️ 避坑指南</h3><ul>
-<li><strong>安全性问题</strong>：远程操作前必须提醒客户 API Key 的安全性，不要在公共电脑部署，最好通过配置文件加密。</li>
-<li><strong>配置复杂度</strong>：部分客户的 Windows 环境（如权限问题）极其复杂。建议提前准备好一键脚本或 Docker 镜像以降低交付时长。</li>
-<li><strong>模型消耗</strong>：安装完成后的测试环节，务必提醒客户调用的是付费 API，避免因为演示消耗过多额度产生纠纷。</li>
-</ul>
-<h3 id="模拟实战：老周的“AI-落地助手”"><a href="#模拟实战：老周的“AI-落地助手”" class="headerlink" title="模拟实战：老周的“AI 落地助手”"></a>模拟实战：老周的“AI 落地助手”</h3><p>老周是一名资深运维，他发现很多外贸公司的老板想用 Claude Code 来写脚本自动化处理订单，但折腾了一天也没装上。</p>
-<ul>
-<li><strong>起步</strong>：老周在闲鱼挂了链接，首单 99 元引流，结果第一天就接了 5 单。</li>
-<li><strong>突破</strong>：他不仅帮装工具，还送了一套自己写的“外贸自动催款邮件脚本”模板。</li>
-<li><strong>结果</strong>：通过工具安装作为切入口，老周成功转型为这些老板的“长期技术顾问”，每个月靠代运维和定制脚本可以多赚一万多元。</li>
-</ul>
+        <p>网友投稿：<br>我现在经营着一家互联网创业公司。目前公司刚起步，产品也已经开发出来了，可最大的难题就是怎么找到前100个愿意付费的用户。</p>
+<p>我每天都在为这件事发愁，尝试了很多推广方法，比如在各大平台做广告、参加行业展会等，但效果都不太理想。看着前期投入的资金一点点花出去，却没有看到明显的回报，心里特别焦虑。</p>
+<p>我很清楚，这前100个付费用户对公司的发展至关重要，他们不仅能带来收入，还能为产品提供宝贵的反馈，帮助我们把产品打磨得更好。可就是不知道该从哪里入手，才能精准地找到这些愿意为我们产品付费的用户。</p>
+<p>我到底该怎么做才能找到这前100个愿意付费的用户呢？有没有什么有效的策略和方法可以推荐？ </p>
+<p>回复：<br>你已成功将产品从想法变为现实，这是巨大胜利。前期推广没成果很正常，现在要“更精准地找对人”。</p>
+<p>第一步，明确“用户画像”。思考产品解决的“最痛问题”由谁买单，如To B产品可关注中小团队项目经理，To C产品可关注特定职场人群。去竞品评论区、垂直论坛等他们聚集的地方挖掘。</p>
+<p>第二步，用“最小成本”触达。以“免费&#x2F;低价+专属服务”换用户首次尝试，让用户先感受价值，付费就会水到渠成。</p>
+<p>第三步，用“种子用户”带新用户。从精准用户开始，收集反馈做成案例，推出“老带新”福利和 referral 计划。</p>
+<p>前100个付费用户是“试出来的”。要思考产品核心价值是否用用户能懂的话表达，站在用户角度想为何选你的产品。先解决1个用户的问题，付费用户定会来。若在创业找资源、找合作等方面有难题，可登录 jobleap.cn 寻求解决方案。加油！</p>
 <hr>
 <blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第444章：AI 时代的“上门电工”——代客安装 OpenClaw 与 Claude Code 赚取服务费。</p>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：互联网创业公司如何找到前100个愿意付费的用户？。</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/08/08/fuye-ch0444/" data-id="cmvi6pmma01abvch33uzwds7r" data-title="第444章：AI 时代的“上门电工”——代客安装 OpenClaw 与 Claude Code 赚取服务费" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/08/14/shudong-ch0008/" data-id="cmvi6pmmt01b8vch357tfghgh" data-title="互联网创业公司如何找到前100个愿意付费的用户？" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%9B%E4%B8%9A/" rel="tag">创业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91%E6%B4%9E/" rel="tag">树洞</a></li></ul>
 
     </footer>
   </div>
@@ -633,10 +386,10 @@
 
 
   
-    <article id="post-fuye-ch0443" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-shudong-ch0007" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/08/08/fuye-ch0443/" class="article-date">
-  <time class="dt-published" datetime="2026-08-08T00:00:00.000Z" itemprop="datePublished">2026-08-08</time>
+    <a href="/2026/08/14/shudong-ch0007/" class="article-date">
+  <time class="dt-published" datetime="2026-08-14T00:00:00.000Z" itemprop="datePublished">2026-08-14</time>
 </a>
     
   <div class="article-category">
@@ -651,7 +404,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/08/08/fuye-ch0443/">第443章：内容工厂的“润色师”——搭建 AI 辅助图文创作工具赚订阅费</a>
+      <a class="p-name article-title" href="/2026/08/14/shudong-ch0007/">如何在有限资源下精准识别并吸引到既懂销售又与创业公司理念契合的靠谱销售合伙人？</a>
     </h1>
   
 
@@ -659,73 +412,23 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>在短视频和社交平台称霸的今天，“日更”是创作者的生存基石。然而，无论是构思爆款标题、扩写文案还是寻找配图，都极其消耗精力。程序员通过搭建轻量级的 AI 辅助图文创作工具，帮助创作者实现“一键出片”，可以赚取稳定的 SaaS 订阅费。</p>
-<h3 id="1-需求验证-Validation"><a href="#1-需求验证-Validation" class="headerlink" title="1. 需求验证 (Validation)"></a>1. 需求验证 (Validation)</h3><ul>
-<li><strong>痛点</strong>：小红书、抖音博主需要极高的发帖频率来维持热度，但灵感总会枯竭；普通人写出的文字往往缺乏吸引力，配图也缺乏网感；使用原生的 ChatGPT 需要复杂的 Prompt，操作门槛高。</li>
-<li><strong>目标人群</strong>：全职&#x2F;兼职博主、电商带货主播、企业运营人员、需要经营社交名片的个人用户。</li>
-<li><strong>验证手段</strong>：在小红书或微博观察“求代写文案”、“怎么做爆款图”等话题的求助量，或者查看现有的 AI 写作工具（如：小红书文案专家）的流量表现。</li>
-</ul>
-<h3 id="2-程序员的-MVP-模式"><a href="#2-程序员的-MVP-模式" class="headerlink" title="2. 程序员的 MVP 模式"></a>2. 程序员的 MVP 模式</h3><ul>
-<li><strong>“垂直化模板”创作方案</strong>：<ol>
-<li><strong>极简输入，多重输出</strong>：用户只需输入一个核心关键词（如：减脂餐），工具便利用特定的 Prompt 系统自动生成：<ul>
-<li>5 个自带“网感”的爆款标题（对比式、悬念式、情绪化）。</li>
-<li>一段充满 Emoji 且逻辑清晰的正文（包含互动语和标签）。</li>
-<li>基于 Flux 或 Stable Diffusion 生成的风格化配图（如：极简风、插画风）。</li>
-</ul>
-</li>
-<li><strong>垂直领域深耕</strong>：与其做一个全能助手，不如做一个“情感语录生成器”或“程序员面试面经分析仪”，内置该领域的专业术语和爆款逻辑。</li>
-<li><strong>多端适配与一键分发</strong>：提供移动端友好的页面，支持一键复制代码、一键保存无水印图片。</li>
-</ol>
-</li>
-<li><strong>技术栈</strong>：Next.js + Tailwind CSS + GPT-4o API (文案) + Flux&#x2F;Midjourney API (配图) + Prisma&#x2F;PostgreSQL。</li>
-</ul>
-<h3 id="💰-财务测算（预估模型）"><a href="#💰-财务测算（预估模型）" class="headerlink" title="💰 财务测算（预估模型）"></a>💰 财务测算（预估模型）</h3><ul>
-<li><strong>启动成本</strong>：¥500 - ¥2,000（主要用于云服务器、数据库以及基础的 API 调用额度预存）。</li>
-<li><strong>收益模型</strong>：<ul>
-<li><strong>会员订阅制</strong>：月度会员 ¥19 - ¥39，提供无限制生成、去水印、高级模板等特权。</li>
-<li><strong>按需扣点制</strong>：免费发放基础点数，深度配图（耗算力）额外购买加油包。</li>
-</ul>
-</li>
-<li><strong>回本周期</strong>：累积 200 个以上的核心付费订阅种子用户。</li>
-</ul>
-<h3 id="📈-关键指标-Metrics"><a href="#📈-关键指标-Metrics" class="headerlink" title="📈 关键指标 (Metrics)"></a>📈 关键指标 (Metrics)</h3><ul>
-<li><strong>北极星指标</strong>：单个活跃用户的“周均生成次数”。</li>
-<li><strong>KPI</strong>：<ul>
-<li>新用户获取成本 (CAC)。</li>
-<li>文案采纳率（用户是否点击了复制按钮）。</li>
-</ul>
-</li>
-<li><strong>OKR</strong>：<ul>
-<li><strong>O</strong>：成为小而美的内容创作神器。</li>
-<li><strong>KR1</strong>：沉淀 50 套以上覆盖各行各业的“爆款 Prompt 指令集”。</li>
-<li><strong>KR2</strong>：实现从输入关键词到成品生成的全过程在 30 秒内完成。</li>
-</ul>
-</li>
-</ul>
-<h3 id="⚠️-避坑指南"><a href="#⚠️-避坑指南" class="headerlink" title="⚠️ 避坑指南"></a>⚠️ 避坑指南</h3><ul>
-<li><strong>API 成本失控</strong>：配图接口极其昂贵。必须设计精细的额度管理系统，防止被羊毛党批量刷爆。</li>
-<li><strong>平台风格变化快</strong>：小红书昨天的爆款风格不代表今天也行。Prompt 必须定期通过抓取热门贴进行“微调”更新。</li>
-<li><strong>版权合规</strong>：AI 生成的图片和文字在部分国家和平台存在版权争议。必须在免责声明中注明，并鼓励用户进行二次微调。</li>
-</ul>
-<h3 id="模拟实战：小毕的“小红书标题王”"><a href="#模拟实战：小毕的“小红书标题王”" class="headerlink" title="模拟实战：小毕的“小红书标题王”"></a>模拟实战：小毕的“小红书标题王”</h3><p>小毕发现身边有很多朋友做副业博主，最愁的就是写标题。</p>
-<ul>
-<li><strong>起步</strong>：他写了一个专门优化标题的小工具，采集了近万个千万级点赞的标题模版。</li>
-<li><strong>突破</strong>：他引入了“情绪价值分析”功能，不仅给标题，还告诉用户为什么要这么写。</li>
-<li><strong>结果</strong>：这款工具在博主圈内口口相传，通过卖月卡，他现在每个月有两三万的稳定纯利润，且几乎不需要维护。</li>
-</ul>
+        <p>网友投稿：<br>我现在正在创业，可面临着资源有限的难题。我深知销售对于公司发展的重要性，特别渴望能找到一位既懂销售又与公司理念契合的靠谱销售合伙人。</p>
+<p>在这个过程中，我四处寻觅，尝试了不少办法，但效果都不太理想。我担心招来的人销售能力不足，又怕找到的人无法认同公司的理念，无法和团队一起为了目标努力。</p>
+<p>怎样才能在资源有限的情况下，精准识别并吸引到这样合适的销售合伙人呢？到底有什么好的途径和方法呢？ </p>
+<p>回复：<br>意识到“销售能力”和“理念契合”对创业的重要性，你已领先很多创业者。这两点是销售合伙人长期相伴的核心，有低成本解决办法：<br>第一步，用“具体问题”筛理念。问带场景的问题，如匠心产品可问客户催交货影响质量时的沟通办法，重视长期客户关系可问有无隐瞒产品缺陷及处理方式，关键看过去行为选择。<br>第二步，用“微型任务”测能力。给低投入、高信号小任务，如找潜在客户沟通并写总结方案、设计产品讲解稿。考察有无用户思维和执行落地能力，比看简历更真实。<br>第三步，用“精准圈子 + 价值交换”吸引。去垂直圈子找，如行业沙龙、微信群或找前辈推荐。用价值交换代替高薪资吸引，如提供行业资源、成长机会或分红机会。<br>最后问自己两个问题：是否把公司理念用具体场景说清，有无容忍小缺点的心态。很多优秀合伙人从小项目培养，可从“微型任务”开始。若遇到相关问题，可来jobleap.cn交流，我们一起分析。</p>
 <hr>
 <blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第443章：内容工厂的“润色师”——搭建 AI 辅助图文创作工具赚订阅费。</p>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：如何在有限资源下精准识别并吸引到既懂销售又与创业公司理念契合的靠谱销售合伙人？。</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/08/08/fuye-ch0443/" data-id="cmvi6pmm501a2vch3a92xav02" data-title="第443章：内容工厂的“润色师”——搭建 AI 辅助图文创作工具赚订阅费" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/08/14/shudong-ch0007/" data-id="cmvi6pmms01b5vch3chr83xqq" data-title="如何在有限资源下精准识别并吸引到既懂销售又与创业公司理念契合的靠谱销售合伙人？" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%9B%E4%B8%9A/" rel="tag">创业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91%E6%B4%9E/" rel="tag">树洞</a></li></ul>
 
     </footer>
   </div>
@@ -735,10 +438,10 @@
 
 
   
-    <article id="post-fuye-ch0442" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-shudong-ch0006" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/08/07/fuye-ch0442/" class="article-date">
-  <time class="dt-published" datetime="2026-08-07T12:00:00.000Z" itemprop="datePublished">2026-08-07</time>
+    <a href="/2026/08/13/shudong-ch0006/" class="article-date">
+  <time class="dt-published" datetime="2026-08-13T12:00:00.000Z" itemprop="datePublished">2026-08-13</time>
 </a>
     
   <div class="article-category">
@@ -753,7 +456,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/08/07/fuye-ch0442/">第442章：大模型的“质检员”——GPU 性能封测、显存改版与稳定性评估</a>
+      <a class="p-name article-title" href="/2026/08/13/shudong-ch0006/">创业公司的创始人如何寻找前三个员工（合伙人）？</a>
     </h1>
   
 
@@ -761,68 +464,27 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>在 GPU 算力供不应求的背景下，不仅服务器整机值钱，单独的“魔改显卡”和“经过验证的二手卡”同样是硬通货。程序员利用对底层驱动、压力测试脚本及固件（BIOS）的研究，通过性能封测、显存改版（改显存）和长效稳定性评估，可以切入高端硬件增值服务市场。</p>
-<h3 id="1-需求验证-Validation"><a href="#1-需求验证-Validation" class="headerlink" title="1. 需求验证 (Validation)"></a>1. 需求验证 (Validation)</h3><ul>
-<li><strong>痛点</strong>：市面上充斥着大量矿卡或翻新卡，算力由于显存老化经常在高负载下崩溃；初创团队需要大显存（如 22G&#x2F;48G）但买不起 H100，急需“改造版”消费级显卡；算力租赁商需要权威的“稳定性报告”来提高租金。</li>
-<li><strong>目标人群</strong>：二手显卡经销商、追求性价比的 AI 实验室、个人“魔改卡”发烧友。</li>
-<li><strong>验证手段</strong>：查看闲鱼、淘宝上“2080Ti 22G 改装”、“3090 显存扩容”的成交量及相关的性能纠纷评论。</li>
-</ul>
-<h3 id="2-程序员的-MVP-模式"><a href="#2-程序员的-MVP-模式" class="headerlink" title="2. 程序员的 MVP 模式"></a>2. 程序员的 MVP 模式</h3><ul>
-<li><strong>“硬科技质检”增值方案</strong>：<ol>
-<li><strong>自动化压测流水线</strong>：编写基于 PyTorch&#x2F;TensorFlow 的极端负载脚本。不仅跑 3DMark，还要模拟 24 小时满载 LLM 推理和 Lora 微调，记录显存温度和频率降级曲线，生成“AI 适配度报告”。</li>
-<li><strong>显存升级与固件定制</strong>：研究不同品牌显卡的 PCB 带宽上限，寻找匹配的高规格显存颗粒，通过热风枪和精密焊接完成物理扩容，并重写 BIOS 令系统识别。</li>
-<li><strong>封测工具链 SaaS</strong>：如果你不想亲自动手，可以开发一套易用的“显卡体检工具”，不仅检测核心性能，还能通过算法预测硬件的“剩余工作寿命”。</li>
-</ol>
-</li>
-<li><strong>技术栈</strong>：C++&#x2F;Python + NVML (Nvidia Management Library) + Linux Kernel Debugging + BIOS Flashing Tools。</li>
-</ul>
-<h3 id="💰-财务测算（预估模型）"><a href="#💰-财务测算（预估模型）" class="headerlink" title="💰 财务测算（预估模型）"></a>💰 财务测算（预估模型）</h3><ul>
-<li><strong>启动成本</strong>：¥5,000 - ¥15,000（主要用于工业级热风枪、专业测温探头、首批替换显存颗粒及备用测试板）。</li>
-<li><strong>收益模型</strong>：<ul>
-<li><strong>改显存服务费</strong>：单卡（如 2080Ti 改 22G）服务费 ¥800 - ¥1,500。</li>
-<li><strong>专业质检报告</strong>：单卡 ¥50 - ¥200（走量模式）。</li>
-</ul>
-</li>
-<li><strong>回本周期</strong>：成功完成 10-15 张高价值显卡的改造或 100 张卡的专业质检。</li>
-</ul>
-<h3 id="📈-关键指标-Metrics"><a href="#📈-关键指标-Metrics" class="headerlink" title="📈 关键指标 (Metrics)"></a>📈 关键指标 (Metrics)</h3><ul>
-<li><strong>北极星指标</strong>：交付后 3 个月内的“硬件返修率 (Return Rate)”。</li>
-<li><strong>KPI</strong>：<ul>
-<li>压测环境下的“显存纠错码 (ECC) 出现频率”。</li>
-<li>散热优化后的核心&#x2F;显存温差。</li>
-</ul>
-</li>
-<li><strong>OKR</strong>：<ul>
-<li><strong>O</strong>：成为行业认可以及信赖的 GPU 增值服务商。</li>
-<li><strong>KR1</strong>：沉淀一套能够模拟 99.9% 极端训练场景的压力测试工具包。</li>
-<li><strong>KR2</strong>：实现显存扩容后的 100% 稳定性兼容（无蓝屏&#x2F;死机）。</li>
-</ul>
-</li>
-</ul>
-<h3 id="⚠️-避坑指南"><a href="#⚠️-避坑指南" class="headerlink" title="⚠️ 避坑指南"></a>⚠️ 避坑指南</h3><ul>
-<li><strong>静电与焊接损耗</strong>：显卡极其娇贵，一次静电火花就能让几千块付诸东流。必须在标准的防静电工作间操作。</li>
-<li><strong>芯片骗局</strong>：市面上有很多打标的假显存颗粒，标称容量大但速度慢。必须建立可靠的颗粒供应商渠道。</li>
-<li><strong>法律责任</strong>：改造后的显卡失去官方保修。必须与客户签署清晰的风险告知书，并提供一定期限的个人保修。</li>
-</ul>
-<h3 id="模拟实战：阿猛的“显存魔术师”"><a href="#模拟实战：阿猛的“显存魔术师”" class="headerlink" title="模拟实战：阿猛的“显存魔术师”"></a>模拟实战：阿猛的“显存魔术师”</h3><p>阿猛曾是一名硬件驱动开发。</p>
-<ul>
-<li><strong>起步</strong>：他发现 2080Ti 虽然核心不差，但 11G 显存跑不了大模型。</li>
-<li><strong>行动</strong>：他钻研了数周的 BIOS 修改技术，成功把 2080Ti 升级成了 22G。他在 B 站发布了详细的测评视频，并提供付费代改服务。</li>
-<li><strong>结果</strong>：他现在不仅是多个“穷鬼实验室”的特约硬件专家，还通过倒腾“魔改成品卡”获得了一笔不菲的资产增值收入。</li>
-</ul>
+        <p>网友投稿：<br>我是一家创业公司的创始人，目前公司刚刚起步，我正面临着寻找前三个员工也就是合伙人的难题。</p>
+<p>现在公司什么都还没成型，没有太多资金，也没有响亮的名气。我心里很着急，因为这前三个合伙人对公司未来的发展太关键了。他们得和我志同道合，有共同的目标和愿景，还得有足够的能力和热情，能跟我一起把公司做起来。</p>
+<p>我试过在一些招聘平台发布信息，但效果不太好，要么是能力不符合，要么就是对我们这种小创业公司不感兴趣。我也找过身边的朋友，但合适的人不多。</p>
+<p>我真的不知道该从哪里入手去找到这合适的前三个合伙人了。到底怎样才能找到和我一起为公司打拼的人呢？还有什么渠道能找到靠谱的合伙人呢？ </p>
+<p>回复：<br>能走到“启动创业”这步，你已比多数人勇敢。找合伙人，是“用愿景交换信任与投入”，别轻易否定自己。</p>
+<p>第一步，想清楚需要什么样的合伙人，初期合伙人不用完美全能，但要精准补位。要找相信你“未来”的人，如以前的同事、认可你行业判断的朋友等。</p>
+<p>第二步，通过以下渠道找合伙人：旧关系深挖掘，找有过成功合作经验的人；行业圈子轻连接，去垂直领域小圈子；招聘平台换思路，发“一起做有意义的事”吸引年轻人；校友&#x2F;同行推荐，找被信任背书的人。</p>
+<p>第三步，掌握关键技巧：先试合作再定合伙；把“未来”说清楚，说具体目标；接受不完美，先做起来更重要。</p>
 <hr>
 <blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第442章：大模型的“质检员”——GPU 性能封测、显存改版与稳定性评估。</p>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：创业公司的创始人如何寻找前三个员工（合伙人）？。</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/08/07/fuye-ch0442/" data-id="cmvi6pmm1019tvch32lu6dcv6" data-title="第442章：大模型的“质检员”——GPU 性能封测、显存改版与稳定性评估" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/08/13/shudong-ch0006/" data-id="cmvi6pmmo01b1vch33bq4fzh4" data-title="创业公司的创始人如何寻找前三个员工（合伙人）？" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%9B%E4%B8%9A/" rel="tag">创业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91%E6%B4%9E/" rel="tag">树洞</a></li></ul>
 
     </footer>
   </div>
@@ -832,10 +494,10 @@
 
 
   
-    <article id="post-fuye-ch0441" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-shudong-ch0005" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/08/07/fuye-ch0441/" class="article-date">
-  <time class="dt-published" datetime="2026-08-07T00:00:00.000Z" itemprop="datePublished">2026-08-07</time>
+    <a href="/2026/08/13/shudong-ch0005/" class="article-date">
+  <time class="dt-published" datetime="2026-08-13T00:00:00.000Z" itemprop="datePublished">2026-08-13</time>
 </a>
     
   <div class="article-category">
@@ -850,7 +512,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/08/07/fuye-ch0441/">第441章：大模型的“算力军火商”——DIY 高性能 GPU 算力集群与算力租赁</a>
+      <a class="p-name article-title" href="/2026/08/13/shudong-ch0005/">在3个合伙人的创业公司中，若一人负责技术、一人负责市场、一人负责资金，怎样合理分配股权？</a>
     </h1>
   
 
@@ -858,68 +520,24 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>在大模型淘金热中，算力就是那把最硬的铲子。随着全行业对 GPU 显存的需求爆炸式增长，程序员通过组装高性能 GPU 工作站、优化单机多卡集群并提供垂直领域的算力租赁服务，可以成为稳赚不赔的“算力军火商”。</p>
-<h3 id="1-需求验证-Validation"><a href="#1-需求验证-Validation" class="headerlink" title="1. 需求验证 (Validation)"></a>1. 需求验证 (Validation)</h3><ul>
-<li><strong>痛点</strong>：一线云厂商（AWS&#x2F;Azure&#x2F;阿里云）的 GPU 实例价格昂贵且排队极长；中小型初创公司在微调 Llama-3 或 DeepSeek 时，急需高显存（80G+）的本地算力环境进行调试；很多研究者需要灵活、无审核且性价比极高的临时算力。</li>
-<li><strong>目标人群</strong>：独立 AI 开发者、网文生成的重度用户、需要本地微调的小微模型企业、追求性价比的科研生。</li>
-<li><strong>验证手段</strong>：在 Vast.ai, RunPod 等算力交易平台观察不同显卡（如 3090&#x2F;4090&#x2F;H100）的租借率和实时涨价波动。</li>
-</ul>
-<h3 id="2-程序员的-MVP-模式"><a href="#2-程序员的-MVP-模式" class="headerlink" title="2. 程序员的 MVP 模式"></a>2. 程序员的 MVP 模式</h3><ul>
-<li><strong>“硬软一体”算力供应方案</strong>：<ol>
-<li><strong>极客硬件组装</strong>：不一定要买最贵的 A100。通过选购具备高性价比的 RTX 3090 (24G) 或 4090，并利用多卡互联技术（NVLink 或高带宽 PCIe），组装成单机 4 卡或 8 卡的“算力怪兽”。</li>
-<li><strong>环境预装修</strong>：不仅租硬件，还要租“服务”。预装好 Docker, NVIDIA 驱动, vLLM, DeepSpeed 及常见的大模型权重，让客户实现“开机即微调”。</li>
-<li><strong>接入算力网络</strong>：如果不想自己找客户，可以将设备接入 <code>Vast.ai</code> 或国内的 <code>算力帮</code> 等众包平台，赚取自动化的算力租赁被动收入。</li>
-</ol>
-</li>
-<li><strong>技术栈</strong>：Ubuntu Server + Docker&#x2F;k8s + Prometheus&#x2F;Grafana (监控) + vLLM (推理优化) + 内网穿透&#x2F;DDNS。</li>
-</ul>
-<h3 id="💰-财务测算（预估模型）"><a href="#💰-财务测算（预估模型）" class="headerlink" title="💰 财务测算（预估模型）"></a>💰 财务测算（预估模型）</h3><ul>
-<li><strong>启动成本</strong>：¥20,000 - ¥50,000（主要用于购入首台 4 卡高性能服务器及散热电源配置）。</li>
-<li><strong>收益模型</strong>：<ul>
-<li><strong>算力租赁</strong>：4090 单卡租赁单价 ¥2 - ¥5 &#x2F; 小时，假设 70% 闲置率，月收入可达 ¥1,500 - ¥3,000 &#x2F; 卡。</li>
-<li><strong>代调优服务</strong>：提供“算力+调优专家”套餐，客单价可在 ¥5,000+。</li>
-</ul>
-</li>
-<li><strong>回本周期</strong>：硬件资产回本通常在 12 - 18 个月（但显卡本身具备较高的二手残值）。</li>
-</ul>
-<h3 id="📈-关键指标-Metrics"><a href="#📈-关键指标-Metrics" class="headerlink" title="📈 关键指标 (Metrics)"></a>📈 关键指标 (Metrics)</h3><ul>
-<li><strong>北极星指标</strong>：设备的“平均月度租满率（Fill Rate）”。</li>
-<li><strong>KPI</strong>：<ul>
-<li>故障平均停机时间 (Downtime)。</li>
-<li>由于显存不足导致的“任务崩溃率”。</li>
-</ul>
-</li>
-<li><strong>OKR</strong>：<ul>
-<li><strong>O</strong>：构建本地最高效的小规模 AI 训练场。</li>
-<li><strong>KR1</strong>：实现 GPU 资源利用率在 24 小时内的精细化调度。</li>
-<li><strong>KR2</strong>：积累 10 名以上长期包月的“模型微调”企业级客户。</li>
-</ul>
-</li>
-</ul>
-<h3 id="⚠️-避坑指南"><a href="#⚠️-避坑指南" class="headerlink" title="⚠️ 避坑指南"></a>⚠️ 避坑指南</h3><ul>
-<li><strong>功耗与散热风险</strong>：多卡全负载运行时功率高达 3000W+，普通的家庭电路和散热根本无法承受。必须有独立的配电和工业级风冷&#x2F;水冷方案。</li>
-<li><strong>硬件贬值快</strong>：新显卡（如 RTX 50 系列）一旦推出，旧卡租赁价格会骤降。必须在回报率和更新周期之间做好平衡。</li>
-<li><strong>网络稳定性</strong>：跨国算力协议非常吃带宽。必须有稳定的上行公网带宽，否则远程访问卡顿会直接导致客户流失。</li>
-</ul>
-<h3 id="模拟实战：老周的“算力矿场转产”"><a href="#模拟实战：老周的“算力矿场转产”" class="headerlink" title="模拟实战：老周的“算力矿场转产”"></a>模拟实战：老周的“算力矿场转产”</h3><p>老周曾经是一名“矿工”。</p>
-<ul>
-<li><strong>起步</strong>：他手头有一大堆闲置的 3090 和 4090。</li>
-<li><strong>突破</strong>：他没有直接卖掉硬件，而是把它们重新组装成了支持多机分布式预训练的“极客集群”，并针对 DeepSeek 的 V3 量化模型做了专门的内核预优和缓存加速。</li>
-<li><strong>结果</strong>：他现在成了几个 AI 画图大 V 的“私人算力后花园”，虽然规模不大，但利润率远超当年挖矿。</li>
-</ul>
+        <p>网友投稿：<br>我现在和另外两个人一起创业，我们三个人分工明确。我负责技术，一个朋友负责市场，还有一个朋友负责资金。不过我们每个人投入的精力和资源都不太一样。</p>
+<p>我在技术方面投入了大量的时间和精力，不断地钻研和改进，就怕技术上出问题影响公司发展。负责市场的朋友也很拼，到处跑业务、找客户，为公司打开市场。负责资金的朋友提供了启动资金，让公司能顺利运转起来。</p>
+<p>我知道股权分配很重要，它关系到我们每个人的利益，也影响着公司的长远发展。但现在我们都不太清楚该怎么分才合理，既能平衡我们三方的利益，又能保障公司未来能走得更远。</p>
+<p>我该怎么根据我们不同的投入，合理分配股权呢？怎样的分配方式才有利于公司的长远发展呢？ </p>
+<p>回复：<br>先给你们创业三人组点赞，你们分别负责技术、市场和资金，这是难得的团队基础。股权分配可分三步：<br>第一步，理清楚“投入的本质”。技术是长期壁垒，市场是短期现金流，资金是启动钥匙，股权分配要让投入对应合理回报，保障公司长期成长。<br>第二步，用“量化 + 动态”方案。总股权&#x3D;技术（30%-40%）+市场（25%-35%）+资金（20%-30%）+期权池（10%-15%）。先根据行业定基础权重，再给各维度量化打分，最后算每个人股权并加动态调整机制。<br>第三步，加“动态调整”，约定时间节点、触发条件和退出机制。<br>最后，问自己三个问题验证方案合理性，确保团队成员觉得“值得”。只要保持沟通，尊重彼此贡献，就能找到合适方案。如果在创业找资金、找人才等方面有困难，可登录 jobleap.cn 解决问题。</p>
 <hr>
 <blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第441章：大模型的“算力军火商”——DIY 高性能 GPU 算力集群与算力租赁。</p>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：在3个合伙人的创业公司中，若一人负责技术、一人负责市场、一人负责资金，怎样合理分配股权？。</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/08/07/fuye-ch0441/" data-id="cmvi6pmm4019zvch3dqj10log" data-title="第441章：大模型的“算力军火商”——DIY 高性能 GPU 算力集群与算力租赁" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/08/13/shudong-ch0005/" data-id="cmvi6pmmj01auvch30vu9dyva" data-title="在3个合伙人的创业公司中，若一人负责技术、一人负责市场、一人负责资金，怎样合理分配股权？" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%9B%E4%B8%9A/" rel="tag">创业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91%E6%B4%9E/" rel="tag">树洞</a></li></ul>
 
     </footer>
   </div>
@@ -929,10 +547,10 @@
 
 
   
-    <article id="post-fuye-ch0440" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-shudong-ch0004" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/08/06/fuye-ch0440/" class="article-date">
-  <time class="dt-published" datetime="2026-08-06T12:00:00.000Z" itemprop="datePublished">2026-08-06</time>
+    <a href="/2026/08/12/shudong-ch0004/" class="article-date">
+  <time class="dt-published" datetime="2026-08-12T12:00:00.000Z" itemprop="datePublished">2026-08-12</time>
 </a>
     
   <div class="article-category">
@@ -947,7 +565,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/08/06/fuye-ch0440/">第440章：边缘侧的“黄金眼”——基于 YOLO 的智能硬件与线下实业预警</a>
+      <a class="p-name article-title" href="/2026/08/12/shudong-ch0004/">创业公司的创业想法通常从哪来？</a>
     </h1>
   
 
@@ -955,68 +573,30 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>尽管大模型如火如荼，但在工厂、农场和商超等线下场景，实时性极高的视觉识别需求依然是刚需。程序员通过将 YOLO 等目标检测算法集成到低功耗硬件中，可以为实业提供安全预警、流量统计等高价值服务，赚取硬件差价和技术服务费。</p>
-<h3 id="1-需求验证-Validation"><a href="#1-需求验证-Validation" class="headerlink" title="1. 需求验证 (Validation)"></a>1. 需求验证 (Validation)</h3><ul>
-<li><strong>痛点</strong>：工厂需要实时检测工人是否佩戴安全帽或进入危险区域；农场需要监控牲畜的进食状态或防范野生动物入侵；商超需要分析客流动线并防范货损。</li>
-<li><strong>目标人群</strong>：小型工厂主、规模化农场主、社区商超老板、建筑工地项目经理。</li>
-<li><strong>验证手段</strong>：在抖音&#x2F;视频号搜索“工地安全监控”、“智慧农场”，观察评论区对“自动报警”和“无人值守”方案的咨询量。</li>
-</ul>
-<h3 id="2-程序员的-MVP-模式"><a href="#2-程序员的-MVP-模式" class="headerlink" title="2. 程序员的 MVP 模式"></a>2. 程序员的 MVP 模式</h3><ul>
-<li><strong>“硬软一体”边缘方案</strong>：<ol>
-<li><strong>硬件选型与优化</strong>：选择 Jetson Nano, Orange Pi 或 Luckfox 等具备 NPU 的单板计算机。利用 TensorRT 或 RKNN 进行模型量化（FP16&#x2F;INT8），确保在边缘侧能稳定跑在 20 FPS 以上。</li>
-<li><strong>垂直场景模型微调</strong>：针对特定需求（如：名贵药材基地的防盗、商场的手势识别支付同步），收集几千张场景图，进行针对性的迁移学习（Transfer Learning）。</li>
-<li><strong>极简闭环逻辑</strong>：识别到异常行为（如：特定区域出现人影）后，自动通过 4G 模组发送微信告警或激活现场声光报警灯。</li>
+        <p>网友投稿：<br>我一直有创业的想法，可就是不知道该从哪找创业的点子。我每天都在想，要是能有个好的创业想法，说不定我也能做出一番事业。</p>
+<p>我在生活里也挺留意的，看看身边有啥需求没被满足，可还是没啥头绪。我也知道现在市场变化快，竞争又激烈，要是想法不好，创业肯定就容易失败。</p>
+<p>我到底该从哪儿找到适合创业公司的创业想法呢？有没有一些好的方法和途径呀？ </p>
+<p>回复：<br>能留意生活未满足需求，就具备了找创业点子的核心能力，还需系统方法将“模糊感受”变成“具体点子”。以下是几种可操作的找点子方法：</p>
+<ol>
+<li>从“自己的痛点”里挖：每天花10分钟记录生活中想改善的事，问自己三个问题，判断有无他人困扰、能否用产品解决、自己有无优势。如朋友因租房找不到性价比高的二手家具，做了二手家具平台。</li>
+<li>从“行业趋势”里找“空白区”：关注健康、老龄化、消费升级等趋势，通过看行业报告、刷创业公众号、逛电商平台了解需求。如亲戚看到年轻人健身趋势，做了在家锻炼课程。</li>
+<li>把“兴趣&#x2F;技能”和“需求”结合：列出兴趣技能与别人需求，二者结合。如同学喜欢拍照，做了旅拍婚纱照。</li>
+<li>从“竞争对手的缺点”里找机会：选熟悉行业，列出产品&#x2F;服务缺点，将其变为优点。如楼下早餐店抓住上班族没时间等的缺点，做提前预订早餐。</li>
 </ol>
-</li>
-<li><strong>技术栈</strong>：YOLOv8&#x2F;v10 + TensorRT&#x2F;OpenVINO + C++&#x2F;Python (Edge SDK) + 云端管理控制台。</li>
-</ul>
-<h3 id="💰-财务测算（预估模型）"><a href="#💰-财务测算（预估模型）" class="headerlink" title="💰 财务测算（预估模型）"></a>💰 财务测算（预估模型）</h3><ul>
-<li><strong>启动成本</strong>：¥2,000 - ¥5,000（主要用于拿样机、工业级防水外壳和首批 4G 数据卡）。</li>
-<li><strong>收益模型</strong>：<ul>
-<li><strong>硬件终端加价</strong>：核心硬件 ¥500，做成成品卖 ¥1,500 - ¥3,000（包含算法和初次安装）。</li>
-<li><strong>按年运维费</strong>：¥200 - ¥500 &#x2F; 台 &#x2F; 年，负责模型升级和设备云端保活。</li>
-</ul>
-</li>
-<li><strong>回本周期</strong>：成功交付 3-5 个垂直监控点位。</li>
-</ul>
-<h3 id="📈-关键指标-Metrics"><a href="#📈-关键指标-Metrics" class="headerlink" title="📈 关键指标 (Metrics)"></a>📈 关键指标 (Metrics)</h3><ul>
-<li><strong>北极星指标</strong>：系统的“虚警率（False Alarm Rate）”和“检测召回率”。</li>
-<li><strong>KPI</strong>：<ul>
-<li>设备平均无故障运行时间 (Uptime)。</li>
-<li>单台设备从识别到播报的端到端延迟。</li>
-</ul>
-</li>
-<li><strong>OKR</strong>：<ul>
-<li><strong>O</strong>：成为线下实业的安全守护神。</li>
-<li><strong>KR1</strong>：实现复杂环境（如大雾、夜间）下的高可靠识别。</li>
-<li><strong>KR2</strong>：沉淀 3 个以上不同行业的标准硬件部署套件。</li>
-</ul>
-</li>
-</ul>
-<h3 id="⚠️-避坑指南"><a href="#⚠️-避坑指南" class="headerlink" title="⚠️ 避坑指南"></a>⚠️ 避坑指南</h3><ul>
-<li><strong>环境可靠性风险</strong>：户外环境有高温、潮湿、雷击等挑战。硬件必须进工业级外壳，并考虑散热和供电。</li>
-<li><strong>隐私保护合规</strong>：线下拍摄涉及隐私。系统应尽可能在“边缘侧处理”，只把报警后的脱敏截图传回云端。</li>
-<li><strong>售后维护重</strong>：线下生意涉及上门，尽量将系统设计为“即插即用、云端远程重启”的模式。</li>
-</ul>
-<h3 id="模拟实战：大陈的“工地哨兵”"><a href="#模拟实战：大陈的“工地哨兵”" class="headerlink" title="模拟实战：大陈的“工地哨兵”"></a>模拟实战：大陈的“工地哨兵”</h3><p>大陈是一名安防行业的嵌入式程序员。</p>
-<ul>
-<li><strong>起步</strong>：他帮朋友的建筑工地写了个小程序，通过摄像头自动数钢筋数。</li>
-<li><strong>突破</strong>：他发现工地最怕的是工人不戴头盔被查。他把系统封装在一个自带电池和 4G 的“黄色小盒子”里，只要有人不戴头盔进场，大喇叭就响。</li>
-<li><strong>结果</strong>：这款“工地哨兵”由于即插即用，深受承建方欢迎。他现在不仅卖设备，还接了几项“智慧工地”的整体集成业务，副业流水早已破百万。</li>
-</ul>
+<p>有了点子，问自己需求是否真实、能否解决、能否赚钱来筛选。创业点子是试出来的，从小点子开始，慢慢调整。你若遇到麻烦事，不妨分析，或许能找到创业点子。</p>
 <hr>
 <blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第440章：边缘侧的“黄金眼”——基于 YOLO 的智能硬件与线下实业预警。</p>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：创业公司的创业想法通常从哪来？。</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/08/06/fuye-ch0440/" data-id="cmvi6pmm3019wvch33pdi0x4s" data-title="第440章：边缘侧的“黄金眼”——基于 YOLO 的智能硬件与线下实业预警" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/08/12/shudong-ch0004/" data-id="cmvi6pmmm01ayvch348cj771e" data-title="创业公司的创业想法通常从哪来？" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%9B%E4%B8%9A/" rel="tag">创业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91%E6%B4%9E/" rel="tag">树洞</a></li></ul>
 
     </footer>
   </div>
@@ -1026,10 +606,10 @@
 
 
   
-    <article id="post-fuye-ch0439" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-shudong-ch0003" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/08/06/fuye-ch0439/" class="article-date">
-  <time class="dt-published" datetime="2026-08-06T00:00:00.000Z" itemprop="datePublished">2026-08-06</time>
+    <a href="/2026/08/12/shudong-ch0003/" class="article-date">
+  <time class="dt-published" datetime="2026-08-12T00:00:00.000Z" itemprop="datePublished">2026-08-12</time>
 </a>
     
   <div class="article-category">
@@ -1044,7 +624,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/08/06/fuye-ch0439/">第439章：重塑生产力工具——开发 AI 驱动的“下一代 IDE”赚取全球订阅费</a>
+      <a class="p-name article-title" href="/2026/08/12/shudong-ch0003/">在PMF完成之前，如何评估创业公司的财务健康程度？</a>
     </h1>
   
 
@@ -1052,69 +632,86 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>Cursor 的爆火证明了一个事实：AI 不应只是 IDE 的一个插件（Plugin），它应当成为 IDE 的核心（Core）。程序员开发一款面向特定领域或具备极致 Agent 能力的 AI IDE，是切入全球开发者市场、赚取高价值订阅费的最佳路径。</p>
-<h3 id="1-需求验证-Validation"><a href="#1-需求验证-Validation" class="headerlink" title="1. 需求验证 (Validation)"></a>1. 需求验证 (Validation)</h3><ul>
-<li><strong>痛点</strong>：通用的 Copilot 缺乏深度项目上下文（Project Context）；在处理大规模重构或复杂代码逻辑时，AI 经常“断片”；特定语言（如 Solidity, Rust）或特定框架（如 Flutter）需要更深度的编辑器级优化。</li>
-<li><strong>目标人群</strong>：追求极致生产力的专业开发者、需要快速上手的初学者、对安全性要求极高的企业研发团队。</li>
-<li><strong>验证手段</strong>：在 GitHub 或 Twitter 观察开发者对现有 AI 编程工具（Cursor, Windsurf, Trae）的吐槽点，重点关注“上下文丢失”和“Agent 行为不可控”的问题。</li>
-</ul>
-<h3 id="2-程序员的-MVP-模式"><a href="#2-程序员的-MVP-模式" class="headerlink" title="2. 程序员的 MVP 模式"></a>2. 程序员的 MVP 模式</h3><ul>
-<li><strong>“产品引领”的下一代编辑器方案</strong>：<ol>
-<li><strong>选择基座</strong>：不要从零写排版引擎。通过 Fork <code>VSCodium</code>（VS Code 的完全开源版）或基于 <code>Monaco Editor</code> 搭建。这样可以无缝继承 VS Code 的插件生态。</li>
-<li><strong>极致的 Context 索引系统</strong>：自研或整合高效的向量索引（Vector Indexing）和符号树解析（LSP Integration），让 AI 能够“读懂”整个代码库，而不仅仅是当前文件。</li>
-<li><strong>Agentic 编程能力</strong>：不仅能写代码，还能自主运行终端命令、执行测试、修复报错并自动提交 Git。这是从“助手”到“自动驾驶”的关键跨越。</li>
-<li><strong>切入 Niche（利基）市场</strong>：如果打不过 Cursor，就做“Web3 专用 AI IDE”或“低代码平台专用 IDE”，提供该领域独有的 API 文档索引和最佳实践提示。</li>
-</ol>
-</li>
-<li><strong>技术栈</strong>：TypeScript + Electron + Rust (用于本地高性能索引) + MCP (Model Context Protocol)。</li>
-</ul>
-<h3 id="💰-财务测算（预估模型）"><a href="#💰-财务测算（预估模型）" class="headerlink" title="💰 财务测算（预估模型）"></a>💰 财务测算（预估模型）</h3><ul>
-<li><strong>启动成本</strong>：¥2,000 - ¥20,000（主要用于推理算力的预付费和高性能代码库索引服务器）。</li>
-<li><strong>收益模型</strong>：<ul>
-<li>**订阅费 (Monthly Sub)**：对标 Cursor，$20&#x2F;月；针对企业提供按席位计费的 Pro 版。</li>
-<li><strong>算力溢价</strong>：通过自研轻量级模型或对公有模型进行优化（如多级缓存），赚取流量费与订阅费之间的利差。</li>
-</ul>
-</li>
-<li><strong>回本周期</strong>：累积 500 个全球范围内的付费订阅用户（MRR 达到 $10k 左右项目即可良性循环）。</li>
-</ul>
-<h3 id="📈-关键指标-Metrics"><a href="#📈-关键指标-Metrics" class="headerlink" title="📈 关键指标 (Metrics)"></a>📈 关键指标 (Metrics)</h3><ul>
-<li><strong>北极星指标</strong>：用户的“代码采纳率 (Acceptance Rate)”和“日均使用时长”。</li>
-<li><strong>KPI</strong>：<ul>
-<li>每月新增订阅用户 (MRR Growth)。</li>
-<li>用户留存率（尤其是第二个月的续订率）。</li>
-</ul>
-</li>
-<li><strong>OKR</strong>：<ul>
-<li><strong>O</strong>：打造最懂开发者的 AI 编程伴侣。</li>
-<li><strong>KR1</strong>：实现秒级的全库级代码检索与理解能力。</li>
-<li><strong>KR2</strong>：Agent 自动修复 Bug 的成功率提升至 30% 以上。</li>
-</ul>
-</li>
-</ul>
-<h3 id="⚠️-避坑指南"><a href="#⚠️-避坑指南" class="headerlink" title="⚠️ 避坑指南"></a>⚠️ 避坑指南</h3><ul>
-<li><strong>维护成本极高</strong>：VS Code 内核更新极快，如果你 Fork 的版本无法及时跟进，会面临巨大的安全和功能断层风险。</li>
-<li><strong>模型成本黑洞</strong>：如果不做额度限制（Quota），部分重度用户（Power Users）可能会让你亏钱。必须设计精细的阶梯计费策略。</li>
-<li><strong>隐私顾虑</strong>：代码是企业的核心资产。必须提供清晰的隐私政策，支持本地部署索引或使用保密计算 API。</li>
-</ul>
-<h3 id="模拟实战：小李的“低代码-AI-编辑器”"><a href="#模拟实战：小李的“低代码-AI-编辑器”" class="headerlink" title="模拟实战：小李的“低代码 AI 编辑器”"></a>模拟实战：小李的“低代码 AI 编辑器”</h3><p>小李负责公司内部的低代码平台。</p>
-<ul>
-<li><strong>起步</strong>：他发现初级开发用低代码平台也很慢，因为要写很多逻辑脚本当。</li>
-<li><strong>突破</strong>：他基于 Monaco Editor 做了一个专用的 AI 编辑器，把公司内部的所有 API 语义全都喂给了模型。</li>
-<li><strong>结果</strong>：原本需要写一天的逻辑，现在通过一段对话在 5 分钟内自动生成。他把这套编辑器剥离出来做成了一个 SaaS 工具，现在全行业有近百家企业都在订阅他的“企业逻辑生成 IDE”。</li>
-</ul>
+        <p>网友投稿：<br>我现在正考虑投资一些创业公司，不过很多创业公司还没完成PMF。我知道评估财务健康程度很重要，这能帮我判断投资是否靠谱。</p>
+<p>可我不太清楚，在创业公司还没完成PMF的这个阶段，该从哪些方面去评估它们的财务健康程度呢。现在我心里没底，担心投错了钱。</p>
+<p>所以我就想问问，在PMF完成之前，到底该怎么评估创业公司的财务健康程度呢？有哪些关键的指标或者方法吗？ </p>
+<p>回复：<br>PMF前的财务健康，本质是“活下来”的能力，不用追求盈利，但要守住“现金生命线”。</p>
+<p>评估PMF前财务健康有3个核心指标：一是现金流，最好正向，若负向要保证月末现金流能覆盖未来3 - 6个月支出；二是烧钱率，PMF前跑道期至少留6 - 12个月，过短要砍支出、找融资；三是资金储备，至少等于6个月烧钱率，别投长期资产。</p>
+<p>“财务保命”方法有：做滚动现金流预测，提前应对缺钱情况；砍无效支出，用必要性判断；用预收款缓解现金流压力，如对用户推预售套餐、对合作方谈定金尾款模式。</p>
+<p>最后反问自检：算过公司“Runway”吗，只剩3个月怎么办；近3个月烧钱率升降，上升原因是啥。先活下来才有机会发展，若有财务问题可再交流。</p>
 <hr>
 <blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：第439章：重塑生产力工具——开发 AI 驱动的“下一代 IDE”赚取全球订阅费。</p>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：在PMF完成之前，如何评估创业公司的财务健康程度？。</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/08/06/fuye-ch0439/" data-id="cmvi6pmm0019qvch38s93319c" data-title="第439章：重塑生产力工具——开发 AI 驱动的“下一代 IDE”赚取全球订阅费" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/08/12/shudong-ch0003/" data-id="cmvi6pmmi01arvch30l7r3o95" data-title="在PMF完成之前，如何评估创业公司的财务健康程度？" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%9B%E4%B8%9A/" rel="tag">创业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91%E6%B4%9E/" rel="tag">树洞</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-shudong-ch0002" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/08/11/shudong-ch0002/" class="article-date">
+  <time class="dt-published" datetime="2026-08-11T12:00:00.000Z" itemprop="datePublished">2026-08-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/08/11/shudong-ch0002/">创业公司天使轮融资时，通过哪些维度进行估值？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>网友投稿：<br>我正在创办一家创业公司，目前到了天使轮融资的阶段。我每天都在为公司的发展忙碌着，到处找资源、谈合作，就希望能让公司快速成长起来。</p>
+<p>可现在摆在我面前的一个大难题就是公司估值。我知道估值对于融资特别关键，它会影响到能融到多少钱，以及投资人会占多少股份。但我完全不清楚该从哪些维度去给公司做估值。</p>
+<p>我很担心如果估值不准确，要么融不到足够的资金支持公司发展，要么给投资人的股份太多，自己的权益受损。所以我特别想知道，创业公司在天使轮融资时，到底通过哪些维度进行估值呢？这对我接下来的融资太重要了！ </p>
+<p>回复：<br>走到天使轮融资，说明团队已将想法推进到有雏形、有验证的阶段，先放下“怕估值错”的焦虑。天使轮估值核心是赌“未来能长大”的概率，有以下 5 个关键维度：</p>
+<ol>
+<li><strong>团队实力</strong>：看专业背景、经验背书和执行力，深挖团队核心“差异化能力”可加分。</li>
+<li><strong>市场规模</strong>：用“TAM - SAM - SOM”模型量化，若 TAM 超 100 亿、SAM 超 10 亿，且能说清拿 SOM 的原因，估值更乐观。</li>
+<li><strong>产品&#x2F;服务</strong>：要解决真痛点，有创新性和市场验证，整理用户反馈案例更有说服力。</li>
+<li><strong>商业模式</strong>：要有清晰盈利路径，如订阅制、佣金模式等。</li>
+<li><strong>发展阶段</strong>：不同阶段估值差异大，列出“里程碑事件”让投资人觉得团队在稳步前进。</li>
+</ol>
+<p>建议不用追求“绝对准确”，但要“有理有据”，参考同行、不过度夸大、用数据说话。天使轮估值是协商出来的，关键是让投资人和你达成共识。想清楚团队让投资人放心、产品让用户离不开的点，再谈估值更有底气。</p>
+<hr>
+<blockquote>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：创业公司天使轮融资时，通过哪些维度进行估值？。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://caicitou-lili.github.io/2026/08/11/shudong-ch0002/" data-id="cmvi6pmmh01aovch3gygsguic" data-title="创业公司天使轮融资时，通过哪些维度进行估值？" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%9B%E4%B8%9A/" rel="tag">创业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91%E6%B4%9E/" rel="tag">树洞</a></li></ul>
 
     </footer>
   </div>
@@ -1128,7 +725,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/8/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/55/">55</a><a class="extend next" rel="next" href="/page/10/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/8/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/56/">56</a><a class="extend next" rel="next" href="/page/10/">下一页 &raquo;</a>
   </nav>
 
 </section>
@@ -1139,7 +736,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%A6%E8%AF%84/">书评</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/">效率工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9F%B3%E4%B9%90/">音乐</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%A6%E8%AF%84/">书评</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%A4%A7%E6%A8%A1%E5%9E%8B/">动手学大模型</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/">效率工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9F%B3%E4%B9%90/">音乐</a></li></ul>
     </div>
   </div>
 
@@ -1159,7 +756,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/AGENTS-md/" style="font-size: 10px;">AGENTS.md</a> <a href="/tags/AI/" style="font-size: 12px;">AI</a> <a href="/tags/AI-Agent/" style="font-size: 10px;">AI Agent</a> <a href="/tags/AI-Skills/" style="font-size: 10px;">AI Skills</a> <a href="/tags/AIGC/" style="font-size: 13px;">AIGC</a> <a href="/tags/AI%E5%88%9B%E4%B8%9A/" style="font-size: 10px;">AI创业</a> <a href="/tags/AI%E5%89%AF%E4%B8%9A/" style="font-size: 20px;">AI副业</a> <a href="/tags/AI%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 13px;">AI工作流</a> <a href="/tags/AI%E5%BB%BA%E7%AB%99/" style="font-size: 10px;">AI建站</a> <a href="/tags/AI%E6%8A%95%E7%A0%94/" style="font-size: 10px;">AI投研</a> <a href="/tags/AI%E6%B3%A1%E6%B2%AB/" style="font-size: 10px;">AI泡沫</a> <a href="/tags/AI%E7%AC%AC%E4%BA%8C%E5%A4%A7%E8%84%91/" style="font-size: 10px;">AI第二大脑</a> <a href="/tags/AI%E7%BC%96%E7%A8%8B/" style="font-size: 11px;">AI编程</a> <a href="/tags/AI%E8%A7%86%E9%A2%91/" style="font-size: 10px;">AI视频</a> <a href="/tags/Agent/" style="font-size: 10px;">Agent</a> <a href="/tags/Anthropic/" style="font-size: 10px;">Anthropic</a> <a href="/tags/Claude/" style="font-size: 13px;">Claude</a> <a href="/tags/Claude-Code/" style="font-size: 11px;">Claude Code</a> <a href="/tags/Codex/" style="font-size: 14px;">Codex</a> <a href="/tags/DeepSeek/" style="font-size: 10px;">DeepSeek</a> <a href="/tags/Git/" style="font-size: 11px;">Git</a> <a href="/tags/GitHub/" style="font-size: 12px;">GitHub</a> <a href="/tags/Google-AdSense/" style="font-size: 10px;">Google AdSense</a> <a href="/tags/Hostinger/" style="font-size: 10px;">Hostinger</a> <a href="/tags/MCP/" style="font-size: 12px;">MCP</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Next-js/" style="font-size: 10px;">Next.js</a> <a href="/tags/Obsidian/" style="font-size: 12px;">Obsidian</a> <a href="/tags/PARA/" style="font-size: 10px;">PARA</a> <a href="/tags/Prompt/" style="font-size: 10px;">Prompt</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/Skills/" style="font-size: 12px;">Skills</a> <a href="/tags/Workflow/" style="font-size: 10px;">Workflow</a> <a href="/tags/YouTube/" style="font-size: 10px;">YouTube</a> <a href="/tags/eSIM/" style="font-size: 10px;">eSIM</a> <a href="/tags/yt-dlp/" style="font-size: 10px;">yt-dlp</a> <a href="/tags/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8/" style="font-size: 10px;">一人公司</a> <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/" style="font-size: 10px;">中国经济</a> <a href="/tags/%E4%B8%AD%E6%96%87%E5%86%99%E4%BD%9C/" style="font-size: 10px;">中文写作</a> <a href="/tags/%E4%B9%A6%E8%AF%84/" style="font-size: 10px;">书评</a> <a href="/tags/%E5%85%8D%E8%B4%B9%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">免费工具</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 10px;">公众号</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C/" style="font-size: 12px;">内容创作</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%8F%98%E7%8E%B0/" style="font-size: 10px;">内容变现</a> <a href="/tags/%E5%87%BA%E5%9B%BD/" style="font-size: 10px;">出国</a> <a href="/tags/%E5%87%BA%E5%B7%AE/" style="font-size: 10px;">出差</a> <a href="/tags/%E5%87%BA%E6%B5%B7%E8%B5%9A%E9%92%B1/" style="font-size: 10px;">出海赚钱</a> <a href="/tags/%E5%88%9B%E4%B8%9A/" style="font-size: 17px;">创业</a> <a href="/tags/%E5%89%AF%E4%B8%9A/" style="font-size: 13px;">副业</a> <a href="/tags/%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">动态工作流</a> <a href="/tags/%E5%8E%86%E5%8F%B2%E5%AF%B9%E6%AF%94/" style="font-size: 10px;">历史对比</a> <a href="/tags/%E5%8F%AF%E7%81%B5/" style="font-size: 10px;">可灵</a> <a href="/tags/%E5%9C%B0%E7%BC%98%E6%94%BF%E6%B2%BB/" style="font-size: 10px;">地缘政治</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">大模型</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">学习方法</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" style="font-size: 10px;">学习路线</a> <a href="/tags/%E5%AE%9E%E6%B5%8B/" style="font-size: 10px;">实测</a> <a href="/tags/%E5%B0%8F%E7%BA%A2%E4%B9%A6/" style="font-size: 10px;">小红书</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">工作流</a> <a href="/tags/%E5%B9%B3%E5%8F%B0%E7%AE%97%E6%B3%95/" style="font-size: 10px;">平台算法</a> <a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 12px;">开源</a> <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 16px;">开源项目</a> <a href="/tags/%E6%89%93%E5%B7%A5%E5%BA%A6%E5%81%87/" style="font-size: 10px;">打工度假</a> <a href="/tags/%E6%8A%95%E8%B5%84/" style="font-size: 10px;">投资</a> <a href="/tags/%E6%8D%A1%E6%BC%8F/" style="font-size: 10px;">捡漏</a> <a href="/tags/%E6%90%9E%E9%92%B1/" style="font-size: 19px;">搞钱</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">效率工具</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 15px;">教程</a> <a href="/tags/%E6%96%87%E6%A1%88/" style="font-size: 10px;">文案</a> <a href="/tags/%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8/" style="font-size: 10px;">新手入门</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 10px;">旅行</a> <a href="/tags/%E6%9A%97%E9%99%90%E6%B5%81/" style="font-size: 10px;">暗限流</a> <a href="/tags/%E6%A0%91%E6%B4%9E/" style="font-size: 17px;">树洞</a> <a href="/tags/%E6%A6%9C%E5%8D%95/" style="font-size: 10px;">榜单</a> <a href="/tags/%E6%B0%91%E7%B2%B9%E4%B8%BB%E4%B9%89/" style="font-size: 10px;">民粹主义</a> <a href="/tags/%E6%B6%A6%E8%89%B2/" style="font-size: 10px;">润色</a> <a href="/tags/%E6%BB%9A%E7%9F%B3/" style="font-size: 10px;">滚石</a> <a href="/tags/%E6%BE%B3%E6%B4%B2WHV/" style="font-size: 10px;">澳洲WHV</a> <a href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" style="font-size: 18px;">独立开发</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%8C%87%E5%8D%97/" style="font-size: 10px;">生活指南</a> <a href="/tags/%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5/" style="font-size: 11px;">电商运营</a> <a href="/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/" style="font-size: 10px;">电子书</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 11px;">知识管理</a> <a href="/tags/%E7%A0%8D%E4%BB%B7/" style="font-size: 10px;">砍价</a> <a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 10px;">科幻</a> <a href="/tags/%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">笔记方法</a> <a href="/tags/%E7%AD%BE%E8%AF%81%E6%94%BB%E7%95%A5/" style="font-size: 10px;">签证攻略</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">翻译</a> <a href="/tags/%E8%82%A1%E7%A5%A8/" style="font-size: 10px;">股票</a> <a href="/tags/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90/" style="font-size: 10px;">股票分析</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 12px;">自动化</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93/" style="font-size: 13px;">自媒体</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">自媒体工具</a> <a href="/tags/%E8%87%AA%E9%83%A8%E7%BD%B2/" style="font-size: 10px;">自部署</a> <a href="/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/" style="font-size: 10px;">被动收入</a> <a href="/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" style="font-size: 10px;">视频下载</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/" style="font-size: 11px;">视频剪辑</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 10px;">语音合成</a> <a href="/tags/%E8%B4%B8%E6%98%93%E6%88%98/" style="font-size: 10px;">贸易战</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E9%80%89%E6%8B%A9/" style="font-size: 10px;">软件选择</a> <a href="/tags/%E9%80%89%E9%A2%98/" style="font-size: 10px;">选题</a> <a href="/tags/%E9%97%B2%E9%B1%BC/" style="font-size: 13px;">闲鱼</a> <a href="/tags/%E9%98%BF%E8%A5%BF%E8%8E%AB%E5%A4%AB/" style="font-size: 10px;">阿西莫夫</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 10px;">音乐</a>
+      <a href="/tags/AGENTS-md/" style="font-size: 10px;">AGENTS.md</a> <a href="/tags/AI/" style="font-size: 11.82px;">AI</a> <a href="/tags/AI-Agent/" style="font-size: 10px;">AI Agent</a> <a href="/tags/AI-Skills/" style="font-size: 10px;">AI Skills</a> <a href="/tags/AIGC/" style="font-size: 12.73px;">AIGC</a> <a href="/tags/AI%E5%88%9B%E4%B8%9A/" style="font-size: 10px;">AI创业</a> <a href="/tags/AI%E5%89%AF%E4%B8%9A/" style="font-size: 20px;">AI副业</a> <a href="/tags/AI%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 12.73px;">AI工作流</a> <a href="/tags/AI%E5%BB%BA%E7%AB%99/" style="font-size: 10px;">AI建站</a> <a href="/tags/AI%E6%8A%95%E7%A0%94/" style="font-size: 10px;">AI投研</a> <a href="/tags/AI%E6%B3%A1%E6%B2%AB/" style="font-size: 10px;">AI泡沫</a> <a href="/tags/AI%E7%AC%AC%E4%BA%8C%E5%A4%A7%E8%84%91/" style="font-size: 10px;">AI第二大脑</a> <a href="/tags/AI%E7%BC%96%E7%A8%8B/" style="font-size: 10.91px;">AI编程</a> <a href="/tags/AI%E8%A7%86%E9%A2%91/" style="font-size: 10px;">AI视频</a> <a href="/tags/Agent/" style="font-size: 10px;">Agent</a> <a href="/tags/Anthropic/" style="font-size: 10px;">Anthropic</a> <a href="/tags/Claude/" style="font-size: 12.73px;">Claude</a> <a href="/tags/Claude-Code/" style="font-size: 10.91px;">Claude Code</a> <a href="/tags/Codex/" style="font-size: 13.64px;">Codex</a> <a href="/tags/DeepSeek/" style="font-size: 10px;">DeepSeek</a> <a href="/tags/Git/" style="font-size: 10.91px;">Git</a> <a href="/tags/GitHub/" style="font-size: 11.82px;">GitHub</a> <a href="/tags/Google-AdSense/" style="font-size: 10px;">Google AdSense</a> <a href="/tags/Hostinger/" style="font-size: 10px;">Hostinger</a> <a href="/tags/MCP/" style="font-size: 11.82px;">MCP</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Next-js/" style="font-size: 10px;">Next.js</a> <a href="/tags/Obsidian/" style="font-size: 11.82px;">Obsidian</a> <a href="/tags/PARA/" style="font-size: 10px;">PARA</a> <a href="/tags/Prompt/" style="font-size: 10px;">Prompt</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/Skills/" style="font-size: 11.82px;">Skills</a> <a href="/tags/Workflow/" style="font-size: 10px;">Workflow</a> <a href="/tags/YouTube/" style="font-size: 10px;">YouTube</a> <a href="/tags/eSIM/" style="font-size: 10px;">eSIM</a> <a href="/tags/yt-dlp/" style="font-size: 10px;">yt-dlp</a> <a href="/tags/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8/" style="font-size: 10px;">一人公司</a> <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/" style="font-size: 10px;">中国经济</a> <a href="/tags/%E4%B8%AD%E6%96%87%E5%86%99%E4%BD%9C/" style="font-size: 10px;">中文写作</a> <a href="/tags/%E4%B9%A6%E8%AF%84/" style="font-size: 10px;">书评</a> <a href="/tags/%E5%85%8D%E8%B4%B9%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">免费工具</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 10px;">公众号</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C/" style="font-size: 11.82px;">内容创作</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%8F%98%E7%8E%B0/" style="font-size: 10px;">内容变现</a> <a href="/tags/%E5%87%BA%E5%9B%BD/" style="font-size: 10px;">出国</a> <a href="/tags/%E5%87%BA%E5%B7%AE/" style="font-size: 10px;">出差</a> <a href="/tags/%E5%87%BA%E6%B5%B7%E8%B5%9A%E9%92%B1/" style="font-size: 10px;">出海赚钱</a> <a href="/tags/%E5%88%9B%E4%B8%9A/" style="font-size: 17.27px;">创业</a> <a href="/tags/%E5%89%AF%E4%B8%9A/" style="font-size: 12.73px;">副业</a> <a href="/tags/%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">动态工作流</a> <a href="/tags/%E5%8E%86%E5%8F%B2%E5%AF%B9%E6%AF%94/" style="font-size: 10px;">历史对比</a> <a href="/tags/%E5%8F%AF%E7%81%B5/" style="font-size: 10px;">可灵</a> <a href="/tags/%E5%9C%B0%E7%BC%98%E6%94%BF%E6%B2%BB/" style="font-size: 10px;">地缘政治</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 14.55px;">大模型</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">学习方法</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" style="font-size: 10px;">学习路线</a> <a href="/tags/%E5%AE%9E%E6%B5%8B/" style="font-size: 10px;">实测</a> <a href="/tags/%E5%B0%8F%E7%BA%A2%E4%B9%A6/" style="font-size: 10px;">小红书</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">工作流</a> <a href="/tags/%E5%B9%B3%E5%8F%B0%E7%AE%97%E6%B3%95/" style="font-size: 10px;">平台算法</a> <a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 11.82px;">开源</a> <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 16.36px;">开源项目</a> <a href="/tags/%E6%89%93%E5%B7%A5%E5%BA%A6%E5%81%87/" style="font-size: 10px;">打工度假</a> <a href="/tags/%E6%8A%95%E8%B5%84/" style="font-size: 10px;">投资</a> <a href="/tags/%E6%8D%A1%E6%BC%8F/" style="font-size: 10px;">捡漏</a> <a href="/tags/%E6%90%9E%E9%92%B1/" style="font-size: 19.09px;">搞钱</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">效率工具</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 15.45px;">教程</a> <a href="/tags/%E6%96%87%E6%A1%88/" style="font-size: 10px;">文案</a> <a href="/tags/%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8/" style="font-size: 10px;">新手入门</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 10px;">旅行</a> <a href="/tags/%E6%9A%97%E9%99%90%E6%B5%81/" style="font-size: 10px;">暗限流</a> <a href="/tags/%E6%A0%91%E6%B4%9E/" style="font-size: 17.27px;">树洞</a> <a href="/tags/%E6%A6%9C%E5%8D%95/" style="font-size: 10px;">榜单</a> <a href="/tags/%E6%B0%91%E7%B2%B9%E4%B8%BB%E4%B9%89/" style="font-size: 10px;">民粹主义</a> <a href="/tags/%E6%B6%A6%E8%89%B2/" style="font-size: 10px;">润色</a> <a href="/tags/%E6%BB%9A%E7%9F%B3/" style="font-size: 10px;">滚石</a> <a href="/tags/%E6%BE%B3%E6%B4%B2WHV/" style="font-size: 10px;">澳洲WHV</a> <a href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" style="font-size: 18.18px;">独立开发</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%8C%87%E5%8D%97/" style="font-size: 10px;">生活指南</a> <a href="/tags/%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5/" style="font-size: 10.91px;">电商运营</a> <a href="/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/" style="font-size: 10px;">电子书</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 10.91px;">知识管理</a> <a href="/tags/%E7%A0%8D%E4%BB%B7/" style="font-size: 10px;">砍价</a> <a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 10px;">科幻</a> <a href="/tags/%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">笔记方法</a> <a href="/tags/%E7%AD%BE%E8%AF%81%E6%94%BB%E7%95%A5/" style="font-size: 10px;">签证攻略</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">翻译</a> <a href="/tags/%E8%82%A1%E7%A5%A8/" style="font-size: 10px;">股票</a> <a href="/tags/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90/" style="font-size: 10px;">股票分析</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 11.82px;">自动化</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93/" style="font-size: 12.73px;">自媒体</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">自媒体工具</a> <a href="/tags/%E8%87%AA%E9%83%A8%E7%BD%B2/" style="font-size: 10px;">自部署</a> <a href="/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/" style="font-size: 10px;">被动收入</a> <a href="/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" style="font-size: 10px;">视频下载</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/" style="font-size: 10.91px;">视频剪辑</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 10px;">语音合成</a> <a href="/tags/%E8%B4%B8%E6%98%93%E6%88%98/" style="font-size: 10px;">贸易战</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E9%80%89%E6%8B%A9/" style="font-size: 10px;">软件选择</a> <a href="/tags/%E9%80%89%E9%A2%98/" style="font-size: 10px;">选题</a> <a href="/tags/%E9%97%B2%E9%B1%BC/" style="font-size: 12.73px;">闲鱼</a> <a href="/tags/%E9%98%BF%E8%A5%BF%E8%8E%AB%E5%A4%AB/" style="font-size: 10px;">阿西莫夫</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 10px;">音乐</a>
     </div>
   </div>
 
@@ -1181,23 +778,23 @@
       <ul>
         
           <li>
-            <a href="/2026/10/23/%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E4%B8%8A%E6%B5%B7%E4%BA%A4%E5%A4%A711%E7%AB%A0%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5%E6%95%99%E7%A8%8B/">动手学大模型：上海交大开源的 11 章大模型编程实践教程</a>
+            <a href="/2026/10/23/dive-llms-ch11-RLHF%E5%AE%89%E5%85%A8%E5%AF%B9%E9%BD%90/">动手学大模型 ch11｜RLHF安全对齐</a>
           </li>
         
           <li>
-            <a href="/2026/10/21/OpenStock-%E5%BC%80%E6%BA%90%E5%85%8D%E8%B4%B9%E5%85%A8%E7%90%83%E8%A1%8C%E6%83%85%E9%9D%A2%E6%9D%BF-%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BD%BF%E7%94%A8/">OpenStock：开源免费的全球行情面板，自己搭一个&#34;平价彭博终端&#34;</a>
+            <a href="/2026/10/23/dive-llms-ch10-%E6%99%BA%E8%83%BD%E4%BD%93%E5%AE%89%E5%85%A8/">动手学大模型 ch10｜智能体安全</a>
           </li>
         
           <li>
-            <a href="/2026/10/21/AI%E5%89%AF%E4%B8%9A%E8%B5%9A%E9%92%B1%E6%96%B9%E6%A1%88%E5%8D%9A%E7%89%A9%E9%A6%86-514%E7%AF%87%E5%B7%B2%E9%95%9C%E5%83%8F/">AI 副业赚钱方案博物馆：514 篇章节已镜像到本站</a>
+            <a href="/2026/10/23/dive-llms-ch09-GUI%E6%99%BA%E8%83%BD%E4%BD%93/">动手学大模型 ch09｜GUI智能体</a>
           </li>
         
           <li>
-            <a href="/2026/10/21/GitHub%E5%B0%8F%E7%99%BD%E9%9B%B6%E5%9F%BA%E7%A1%80%E4%BB%8E0%E5%88%B01%E6%95%99%E7%A8%8B/">GitHub 小白零基础从 0 到 1 教程（转载整理）</a>
+            <a href="/2026/10/23/dive-llms-ch08-%E5%A4%9A%E6%A8%A1%E6%80%81%E6%A8%A1%E5%9E%8B/">动手学大模型 ch08｜多模态模型</a>
           </li>
         
           <li>
-            <a href="/2026/10/20/%E5%8F%AF%E7%81%B54-0%E5%AE%9E%E6%B5%8B%E4%B8%8EAI%E7%9F%AD%E5%89%A7%E5%85%A8%E6%B5%81%E7%A8%8B/">动动嘴就能做 AI 短剧，还能自动剪辑：可灵 4.0 实测与全流程教程</a>
+            <a href="/2026/10/23/dive-llms-ch07-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%9A%90%E5%86%99/">动手学大模型 ch07｜大模型隐写</a>
           </li>
         
       </ul>

@@ -96,10 +96,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-fuye-ch0310" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-fuye-ch0319" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/06/02/fuye-ch0310/" class="article-date">
-  <time class="dt-published" datetime="2026-06-02T12:00:00.000Z" itemprop="datePublished">2026-06-02</time>
+    <a href="/2026/06/07/fuye-ch0319/" class="article-date">
+  <time class="dt-published" datetime="2026-06-07T00:00:00.000Z" itemprop="datePublished">2026-06-07</time>
 </a>
     
   <div class="article-category">
@@ -114,7 +114,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/06/02/fuye-ch0310/">程序员的副业：基于 6DOF 点云流（Point-Cloud Stream）的沉浸式 VR 交付中台</a>
+      <a class="p-name article-title" href="/2026/06/07/fuye-ch0319/">程序员的副业：基于 Explainable AI (XAI) 的金融带单与策略社交中台</a>
     </h1>
   
 
@@ -122,49 +122,133 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>VR 的瓶颈在于内容的“低自由度”与“高传输带宽”。架构师的方案是建立一套<strong>基于体积视频（Volumetric Video）与 6DOF（六自由度）实时流媒体协议</strong>。利用神经辐射场（NeRF）与点云压缩算法，让用户不仅是“看”视频，而是能在视频中“自由行走”，实现 100% 物理真实感与交互感的跨时空投射。</p>
-<h3 id="1-核心商业策略：定义“时空复刻”的商机"><a href="#1-核心商业策略：定义“时空复刻”的商机" class="headerlink" title="1. 核心商业策略：定义“时空复刻”的商机"></a>1. 核心商业策略：定义“时空复刻”的商机</h3><p>不提供平面视频，提供“可以走进去的空间记忆”。</p>
+        <p>传统的金融社交是“跟单（Copy Trade）”，架构师的方案是建立一套<strong>可解释金融决策系统</strong>。利用 XAI（可解释人工智能）解构高手的每一笔交易逻辑，并利用中间层协议（Middleware）将其转化为“透明、可回测、可审计”的自动化策略流，实现从“信任人”到“信任算法”的跃迁。</p>
+<h3 id="1-核心商业策略：挖掘“逻辑的可复制性”"><a href="#1-核心商业策略：挖掘“逻辑的可复制性”" class="headerlink" title="1. 核心商业策略：挖掘“逻辑的可复制性”"></a>1. 核心商业策略：挖掘“逻辑的可复制性”</h3><p>大部分带单老师是靠运气，架构师的带单是靠“可解释的数学因子”。</p>
 <ul>
-<li><strong>套利逻辑</strong>：利用由于 VR 内容制作成本极高（通常需数月建模）导致的市场空白。通过由于“实时重建”带来的批量标准化交付，赚取由于“沉浸感溢价”带来的高额边际利润。</li>
-<li><strong>目标客户</strong>：追求高单价成交的豪宅地产商、希望跨越时空参与演唱会的铁粉、需要模拟极端工作环境的应急管理部门。</li>
+<li><strong>核心方案</strong>：建立一套“策略实验室”。每个大 V 分享的不再是“买入指令”，而是一段包含进场条件、情绪对冲阀值、止损逻辑的脚本（Script）。</li>
+<li><strong>目标客户</strong>：追求理性投资的进阶散户、需要为客户提供逻辑背书的理财顾问、希望将投资直觉“代码化”的职业操盘手。</li>
 </ul>
-<h3 id="2-程序员的“沉浸流”架构"><a href="#2-程序员的“沉浸流”架构" class="headerlink" title="2. 程序员的“沉浸流”架构"></a>2. 程序员的“沉浸流”架构</h3><ul>
-<li>**实时三维重建管线 (3D Reconstruction)**：<ul>
-<li><strong>NeRF-based 高速建模</strong>：利用多个环绕摄像头或深度传感器采集视频序列。在服务端利用 GPU 集群实时拟合神经辐射场模型。将光影、材质信息转化为具备物理规律的体积数据，而非死板的 3D 模型。</li>
-<li>**基于深度学习的点云压缩 (Draco+)**：为了让 VR 眼镜能流畅预览，利用 AI 对点云结构进行非线性压缩，实现在普通 5G 网络下即可传输 GB 级的体积视频流（6DOF Streaming）。</li>
-</ul>
-</li>
-<li>**动态视角预测与分块传输 (Tile-based Streaming)**：<ul>
-<li><strong>视口预测算法</strong>：根据 VR 眼镜的传感器回传（IMU）预判用户的头部偏转倾向。优先传输用户视野正前方的“高清切片”，对视野盲区进行低位模糊处理（Foveated Rendering），极大降低带宽成本。</li>
+<h3 id="2-程序员的“策略社交”架构"><a href="#2-程序员的“策略社交”架构" class="headerlink" title="2. 程序员的“策略社交”架构"></a>2. 程序员的“策略社交”架构</h3><ul>
+<li>**金融语义解析引擎 (Logic De-compiler)**：<ul>
+<li><strong>策略逆向工程</strong>：通过抓取大 V 的历史成交分布，利用深度神经网络逆向拟合其核心交易逻辑、风险偏好及对市场噪音的敏感度。为用户输出一份“交易逻辑脱水报告”。</li>
+<li><strong>XAI 逻辑可视化仪表盘</strong>：不是告诉用户“买什么”，而是通过热力图展示当前决策受哪些因子（如：美债利率、行业情绪、均线乖离）的影响最大。</li>
 </ul>
 </li>
-<li>**多端渲染适配器 (Universal VR SDK)**：<ul>
-<li><strong>跨设备重投影策略</strong>：自动适配 Quest 3、Vision Pro 及各类国产 VR 设备的底层渲染逻辑，确保色彩和帧率的绝对一致。</li>
+<li>**自动化跟单中间层协议 (Copy-Trade Middleware)**：<ul>
+<li>**跨交易平台路由器 (Universal Link)**：直连币安、同花顺、盈透等主流券商的 API。当大 V 的逻辑触发买入时，系统自动根据用户的风险等级（Risk Profile）进行异构化的倍数跟单。</li>
+<li><strong>智能熔断保险合约</strong>：在跟单过程中，如果检测到大 V 出现了异常的“赌徒行为（策略偏离）”，系统毫秒级触发强制断链与清仓保护。</li>
+</ul>
+</li>
+<li><strong>基于“逻辑证明”的社交信用</strong>：<ul>
+<li>将每一个成功的长周期策略上链存证，生成“逻辑勋章”。只有通过了 24 个月回测与实战双重校验的策略，才有资格在广场首屏展示。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-MVP-运营形态"><a href="#3-MVP-运营形态" class="headerlink" title="3. MVP 运营形态"></a>3. MVP 运营形态</h3><ul>
+<li><strong>“理财策展人”中台</strong>：你作为技术方，从全网筛选 50 个优质策略并为其封装“自动化执行包”，让普通用户一键订阅。</li>
+<li><strong>策略审计工具</strong>：付费为各大带单博主提供专业的“逻辑鲁棒性”评估报告，作为其吸引粉丝的权威信用背书。</li>
+</ul>
+<h3 id="4-收益模式设计"><a href="#4-收益模式设计" class="headerlink" title="4. 收益模式设计"></a>4. 收益模式设计</h3><ul>
+<li>**策略订阅抽成 (Profit Share)**：从用户跟随策略产生的净收益中提取 10%-20% 的“逻辑溢价费”，你与策略提供者分成。</li>
+<li><strong>API 接入管理费</strong>：每月收取高频、多平台账户管理的系统费。</li>
+<li><strong>定制度策略开发费</strong>：为大型机构或高净值个人提供“从直觉到算法”的定制化代码实现。</li>
+</ul>
+<h3 id="5-架构师的进化方向：多代理（Multi-Agent）宏观对冲"><a href="#5-架构师的进化方向：多代理（Multi-Agent）宏观对冲" class="headerlink" title="5. 架构师的进化方向：多代理（Multi-Agent）宏观对冲"></a>5. 架构师的进化方向：多代理（Multi-Agent）宏观对冲</h3><p>引入 AI Agent 实时研读全球央行行长的每一句演讲。将宏观层面的“意图语义”自动转化为策略层面的“参数扰动”，实现真正具备“宏观视野”的自动化社交投资。</p>
+<blockquote>
+<p><strong>Architect’s Insight</strong>: 金融博弈到最后是比谁的心理波动更小。当你能用一套 XAI 系统锁死交易逻辑的“确定性”并把人性这个最大的变量剔除时，你经营的就不再是社群，而是一个日夜不停产生超额收益的“算法工厂”。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：程序员的副业：基于 Explainable AI (XAI) 的金融带单与策略社交中台。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://caicitou-lili.github.io/2026/06/07/fuye-ch0319/" data-id="cmvi6pmhm00zqvch3awqfa13q" data-title="程序员的副业：基于 Explainable AI (XAI) 的金融带单与策略社交中台" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-fuye-ch0318" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/06/06/fuye-ch0318/" class="article-date">
+  <time class="dt-published" datetime="2026-06-06T12:00:00.000Z" itemprop="datePublished">2026-06-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/06/06/fuye-ch0318/">程序员的副业：基于多 Agent 协同的“旅行行程优化”预言机</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>传统的旅行社交是“看游记”，架构师的方案是建立一套<strong>分布式的行程博弈引擎</strong>。利用多智能体协作（Multi-Agent Collaboration）模拟数万种路线组合，结合实时供应链接口，为用户输出一套具备“成本-体验-动态容错”最优解的个人旅行协议。</p>
+<h3 id="1-核心商业策略：定义“行程的鲁棒性”"><a href="#1-核心商业策略：定义“行程的鲁棒性”" class="headerlink" title="1. 核心商业策略：定义“行程的鲁棒性”"></a>1. 核心商业策略：定义“行程的鲁棒性”</h3><p>旅行不仅是到达，而是对突发变量（天气、延误、拥堵）的自愈能力。</p>
+<ul>
+<li><strong>套利逻辑</strong>：利用由于“规划信息熵”导致的旅行成本浪费（通常占比 15-20%）。通过代码锁定动态最优路径，赚取节约下来的成本和决策时间带来的价值。</li>
+<li><strong>目标客户</strong>：追求高人效比的“特种兵式”旅行者、面临复杂跨境协调的中年家庭、需要极致定制化体验的硬核极客。</li>
+</ul>
+<h3 id="2-程序员的“行程求解”架构"><a href="#2-程序员的“行程求解”架构" class="headerlink" title="2. 程序员的“行程求解”架构"></a>2. 程序员的“行程求解”架构</h3><ul>
+<li>**异构专家集结控制台 (Solver Console)**：<ul>
+<li>**Local-Agent (地道官)**：接入本地社交媒体（如：小红书、Reddit）的行为热力图，识别那些真实的“水下景点”与“消费陷阱”。</li>
+<li>**Cost-Agent (财务官)**：直连酒店&#x2F;机票&#x2F;包车平台的 API，利用期权定价模型预判未来 72 小时的价格走势，自动建议最划算的“错峰组合”。</li>
+<li>**Logic-Agent (逻辑官)**：基于约束求解（Constraint Programming）计算节点间的物理距离、开门时间、排队时长，生成一份“毫米级”的时间表。</li>
+</ul>
+</li>
+<li>**全周期动态容错引擎 (Dynamic Self-Healing)**：<ul>
+<li>**实时路由重算 (Re-routing)**：旅行中一旦检测到航班取消或天气突变，系统在 10 秒内自动生成 3 套替代方案，并自动与接机司机、酒店发起协商（通过 AI 语音&#x2F;文本自动沟通）。</li>
+</ul>
+</li>
+<li><strong>基于“行程哈希”的社交证明</strong>：<ul>
+<li>将每一条被验证过的“神级路线”上链生成“行程证书”。用户可以购买或订阅他人的“极速通关协议”，实现旅行经验的知识化与变现。</li>
 </ul>
 </li>
 </ul>
 <h3 id="3-MVP-运营模式"><a href="#3-MVP-运营模式" class="headerlink" title="3. MVP 运营模式"></a>3. MVP 运营模式</h3><ul>
-<li><strong>“千人千面”虚拟看房平台</strong>：用户不仅是看房，可以在房子里走动，甚至能模拟不同天气下的采光并实时渲染。</li>
-<li><strong>体积视频活动直播间</strong>：付费订阅制。用户身临其境地站在球场中央或演唱会舞台侧翼，享受“全自由度视角”。</li>
+<li><strong>“行程医生”Bot</strong>：用户发一段语音描述需求，Bot 立即给出一份带完整地图、预算单、风险点分析的 PDF 全案。</li>
+<li><strong>行程分销协议</strong>：旅行博主可以将自己的路线“代码化”存入你的平台，每有一个用户按照该代码执行并核销，博主自动获得分润。</li>
 </ul>
 <h3 id="4-收益模式设计"><a href="#4-收益模式设计" class="headerlink" title="4. 收益模式设计"></a>4. 收益模式设计</h3><ul>
-<li><strong>按流量录制与托管收费</strong>：向 B 端客户收取按小时计费的体积视频录制、处理与存储云费。</li>
-<li><strong>付费内容订阅&#x2F;门票</strong>：针对高价值版权内容收取单次入场费。</li>
-<li><strong>定制化 VR 场景开发</strong>：为企业培训、精密制造提供定制化的交互指令流集成。</li>
+<li>**行程规划订阅服务 (Subscription)**：针对高频旅行者收取系统级的高阶功能包（如：24&#x2F;7 自动容错、API 优选渠道）。</li>
+<li>**供应链 API 成交返利 (CPS)**：作为最优解的推荐方，从酒店、租车代理商处获取交易佣金。</li>
+<li><strong>“经验即代码”的交易手续费</strong>：在行程证书买卖中提取分佣。</li>
 </ul>
-<h3 id="5-架构师的进化方向：多玩家空间锚点同步"><a href="#5-架构师的进化方向：多玩家空间锚点同步" class="headerlink" title="5. 架构师的进化方向：多玩家空间锚点同步"></a>5. 架构师的进化方向：多玩家空间锚点同步</h3><p>通过高精度时钟同步协议（PTP）实现数千名玩家在同一个 6DOF 体积空间内的无缝互动。让每个人看到的“虚拟世界”不仅是真实的，而且是“共享的、实时交互的”，实现真正意义上的高沉浸元宇宙。</p>
+<h3 id="5-架构师的进化方向：多模态“导游分身”"><a href="#5-架构师的进化方向：多模态“导游分身”" class="headerlink" title="5. 架构师的进化方向：多模态“导游分身”"></a>5. 架构师的进化方向：多模态“导游分身”</h3><p>引入声音与形象克隆技术（Digital Twin）。系统生成的导游不仅能实时翻译、指路，还能根据用户的语气自动调整解说风格（比如用“鲁迅风格”解说古村落），提供电影级的沉浸感交互。</p>
 <blockquote>
-<p><strong>Architect’s Insight</strong>: 现实世界的本质是高密度的信息流。当你能把一个物理空间的所有光量子和几何信息都编码为一组可流化的点云数据时，你经营的就不再是眼镜，而是一台可以任意穿梭时空的“数码传送器”。</p>
+<p><strong>Architect’s Insight</strong>: 旅行是物理空间的动态位移。当你能用一套最优解模型锁死这几千公里的行程熵增时，你提供的就不再是建议，而是一套高可用、低延迟的“人生体验加速方案”。</p>
 </blockquote>
 <hr>
 <blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：程序员的副业：基于 6DOF 点云流（Point-Cloud Stream）的沉浸式 VR 交付中台。</p>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：程序员的副业：基于多 Agent 协同的“旅行行程优化”预言机。</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/06/02/fuye-ch0310/" data-id="cmvi6pmhc00z2vch35ayney0v" data-title="程序员的副业：基于 6DOF 点云流（Point-Cloud Stream）的沉浸式 VR 交付中台" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/06/06/fuye-ch0318/" data-id="cmvi6pmhl00znvch3fldvhl2c" data-title="程序员的副业：基于多 Agent 协同的“旅行行程优化”预言机" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -178,10 +262,10 @@
 
 
   
-    <article id="post-fuye-ch0309" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-fuye-ch0317" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/06/02/fuye-ch0309/" class="article-date">
-  <time class="dt-published" datetime="2026-06-02T00:00:00.000Z" itemprop="datePublished">2026-06-02</time>
+    <a href="/2026/06/06/fuye-ch0317/" class="article-date">
+  <time class="dt-published" datetime="2026-06-06T00:00:00.000Z" itemprop="datePublished">2026-06-06</time>
 </a>
     
   <div class="article-category">
@@ -196,7 +280,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/06/02/fuye-ch0309/">程序员的副业：基于 Contextual-RAG 的 AI 交互眼镜视觉增强中台</a>
+      <a class="p-name article-title" href="/2026/06/06/fuye-ch0317/">程序员的副业：基于 DID 的跨链“游戏身份”与公会治理系统</a>
     </h1>
   
 
@@ -204,135 +288,50 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>交互眼镜的瓶颈不在硬件，而在“理解力”。架构师的方案是建立一套<strong>环境上下文感知服务（Scene Understanding Protocol）</strong>。利用多模态大模型结合轻量化 SLAM 算法，让眼镜不仅能“看”到物体，还能理解物体的“状态、属性及关联动作”，从而通过语音提供真正的“第一人称视角决策辅助”。</p>
-<h3 id="1-核心商业提案：定义“数字视网膜”"><a href="#1-核心商业提案：定义“数字视网膜”" class="headerlink" title="1. 核心商业提案：定义“数字视网膜”"></a>1. 核心商业提案：定义“数字视网膜”</h3><p>不只是投射屏幕，而是为人类视力安装一个配备实时专家的“外挂大脑”。</p>
+        <p>传统的游戏社交是“单点孤岛”，架构师的方案是建立一套<strong>跨平台游戏身份（Game DID）协议</strong>。利用区块链身份存证与多链互操作技术，将玩家的资产、成就、信誉从单一游戏中提取出来，构建一个全域流通的“玩家生产力看板”。</p>
+<h3 id="1-核心商业提案：定义“职业玩家资产”"><a href="#1-核心商业提案：定义“职业玩家资产”" class="headerlink" title="1. 核心商业提案：定义“职业玩家资产”"></a>1. 核心商业提案：定义“职业玩家资产”</h3><p>让玩家投入在游戏 A 里的每一分钟价值，都能在游戏 B 中得到信任与背书。</p>
 <ul>
-<li><strong>核心逻辑</strong>：通过眼镜摄像头捕获的画面流，在边缘端进行语义分割与特征提取。云端 RAG 系统实时检索相关的技术手册、价格信息或历史交互记忆，毫秒级转化为语音指引。</li>
-<li><strong>目标客户</strong>：处于复杂作业场景的工业技师、需要实时翻译与路径指引的环球旅行者、生活需要强力辅助视障人群、追求效率极致的极客群体。</li>
+<li><strong>核心逻辑</strong>：通过 Soulbound Token (SBT) 或 DID 协议，固化玩家的“高阶技能指纹（如：APM 指标、策略深度、领导力得分）”。</li>
+<li><strong>目标客户</strong>：寻求跨服转战的职业公会、需要筛选“高质量种子用户”的新游戏发行商、希望建立个人技术品牌的硬核选手。</li>
 </ul>
-<h3 id="2-程序员的“视觉理解”架构"><a href="#2-程序员的“视觉理解”架构" class="headerlink" title="2. 程序员的“视觉理解”架构"></a>2. 程序员的“视觉理解”架构</h3><ul>
-<li>**级联式多模态感知管线 (Vision-Reasoning Pipeline)**：<ul>
-<li><strong>本地轻量 SLAM</strong>：在眼镜处理芯片上运行 6DOF 跟踪，确保 AR 覆盖层不发生抖动，锁定物理空间座标。</li>
-<li><strong>云端 VLM (Vision-Language Model) 召回</strong>：当用户停留在某个物体前或发出语音询问（“这个怎么拆？”）时，系统切片上传，利用 GPT-4o 级能力识别设备型号，并从 RAG 库中自动抓取精确的步骤图层覆盖在物理原件上。</li>
-</ul>
-</li>
-<li><strong>Voice-to-Action 交互协议</strong>：<ul>
-<li><strong>语义动作映射</strong>：用户只需说“存下这个”，系统自动结合当前坐标、人脸、文档进行多维存储，无需手动点击。</li>
+<h3 id="2-程序员的“玩家公会”架构"><a href="#2-程序员的“玩家公会”架构" class="headerlink" title="2. 程序员的“玩家公会”架构"></a>2. 程序员的“玩家公会”架构</h3><ul>
+<li>**跨链身份聚合器 (DID Aggregator)**：<ul>
+<li><strong>全域成就索引系统</strong>：对接 Steam、Epic、Discord 及主流公链的 API。利用大模型自动识别不同游戏间的“技能等效性”（例如：在《星际》的高分段信誉等同于极其出色的战术执行力）。</li>
+<li>**信誉证明预言机 (Reputation Oracle)**：建立一套防作弊、防刷量的评价体系。每一次带队通关、每一场公会战的胜率均转化为不可篡改的“信誉熵减因子”。</li>
 </ul>
 </li>
-<li>**用户意图预判引擎 (Pre-Intent)**：<ul>
-<li>根据用户的视线焦点停留时长与历史行为，预判其下一步需求。例如，当用户盯着超市货架上的牛奶超过 2 秒，自动在视野角落显示其成分对比与历史购买价格。</li>
+<li>**基于智能合约的公会治理 (P2E OS)**：<ul>
+<li><strong>国库自动分润透明化</strong>：公会获得的打金收益、代币空投、赞助费用。通过合约定义的“贡献度算法”毫秒级拨付给每一个成员。拒绝团长“卷款跑路”。</li>
+<li><strong>动态权限合约</strong>：只有当玩家的 DID 满足特定“战功记录”时，才能在语音频道、交易中心、战术看板中解锁更高级别的写权限。</li>
 </ul>
 </li>
-</ul>
-<h3 id="3-MVP-实施场景"><a href="#3-MVP-实施场景" class="headerlink" title="3. MVP 实施场景"></a>3. MVP 实施场景</h3><ul>
-<li><strong>“工业级远程协助”插件</strong>：新手技师戴上眼镜。后台 AI 自动识别螺丝批次与扭矩要求，并用 AR 箭线实时引导。</li>
-<li><strong>“社交超级助记员”</strong>：通过人脸关键点识别（在合规前提下），自动在视野里提示老熟人的姓名、最后一次交谈的话题及兴趣爱好。</li>
-</ul>
-<h3 id="4-收益模式设计"><a href="#4-收益模式设计" class="headerlink" title="4. 收益模式设计"></a>4. 收益模式设计</h3><ul>
-<li><strong>SaaS 语义理解订阅费</strong>：按月&#x2F;按调用分钟数收取云端多模态推理费。</li>
-<li>**行业知识包授权 (Domain RAG Pack)**：如“电力维修知识包”、“米其林餐厅品鉴包”，用户付费下载特定场景的增强能力。</li>
-<li><strong>企业定制化运维中台</strong>：为工厂提供闭环的眼镜中等规模组网与数据分析平台。</li>
-</ul>
-<h3 id="5-架构师的进化方向：多维度“侧信道”信息叠加"><a href="#5-架构师的进化方向：多维度“侧信道”信息叠加" class="headerlink" title="5. 架构师的进化方向：多维度“侧信道”信息叠加"></a>5. 架构师的进化方向：多维度“侧信道”信息叠加</h3><p>集成热红外传感器、有害气体监测数据。让眼镜能“透视”墙后电线的负载、感知空气中的隐形威胁，将人类的生物感知界限推向极低频和高频领域。</p>
-<blockquote>
-<p><strong>Architect’s Insight</strong>: 硬件只是容器，认知才是本体。当你能让这副眼镜在“看见”的同时完成“理解”与“推理”的数字闭环时，你就是在为人类进化提供一套即插即用的、高带宽的“感官增强补丁”。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：程序员的副业：基于 Contextual-RAG 的 AI 交互眼镜视觉增强中台。</p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/06/02/fuye-ch0309/" data-id="cmvi6pmha00ywvch3gxko9uie" data-title="程序员的副业：基于 Contextual-RAG 的 AI 交互眼镜视觉增强中台" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-fuye-ch0308" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/06/01/fuye-ch0308/" class="article-date">
-  <time class="dt-published" datetime="2026-06-01T12:00:00.000Z" itemprop="datePublished">2026-06-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/06/01/fuye-ch0308/">程序员的副业：基于 Compliance-as-Code 的 A 股上市自动化合规审计中台</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>上市辅导的本质是“海量文件的合规性碰撞”。架构师的方案是建立一套<strong>自动化招股说明书审计与合规机器人（Prospectus Auditor）</strong>。利用 LLM 的超长文档处理能力结合法律规则引擎，将原本需要数十名分析师连续加班一个月的合规审计，缩短为小时级的自动化回归扫描。</p>
-<h3 id="1-核心商业策略：挖掘“监管确定性”"><a href="#1-核心商业策略：挖掘“监管确定性”" class="headerlink" title="1. 核心商业策略：挖掘“监管确定性”"></a>1. 核心商业策略：挖掘“监管确定性”</h3><p>在高度不可控的 IPO 申报过程中，为企业提供确定性的风险预览。</p>
-<ul>
-<li><strong>套利逻辑</strong>：利用投行、律所、会计师事务所之间的“协作损耗”与“检查盲区”。通过由于“自动化检查”带来的极高吞吐量，赚取比传统顾问更丰厚的技术溢价。</li>
-<li><strong>目标客户</strong>：处于申报倒计时的硬核科技企业、需要提升尽调效率的中小券商、希望降低执业风险的知名律所&#x2F;会计所。</li>
-</ul>
-<h3 id="2-程序员的“合规审计”架构"><a href="#2-程序员的“合规审计”架构" class="headerlink" title="2. 程序员的“合规审计”架构"></a>2. 程序员的“合规审计”架构</h3><ul>
-<li>**招股书语义核对流水线 (Prospectus Checker)**：<ul>
-<li><strong>勾稽关系自动化校验</strong>：利用代码提取招股书、财务报表、底稿之间的数万个关联数据项。自动检测“一处修改、全篇未同步”的低级错误。</li>
-<li>**监管规则引擎 (Reg-Logic Engine)**：将证监会历年的发行审核标准、典型问询反馈案例转化为可机器读取的规则描述语言（RegX）。自动扫描申报文件中可能触发“红线风险”的表述（如：关联交易披露不完整、收入真实性存疑）。</li>
-</ul>
-</li>
-<li>**全链条底稿数字化追踪 (Digital Evidence Room)**：<ul>
-<li><strong>证据链自动闭环分析</strong>：自动读取企业的 ERP 记录、快递单号 API、海关数据。通过图模型构建一笔笔“销售真实性”的证据闭环。</li>
-<li><strong>问询压力模拟器</strong>：基于 LLM 模拟监管部门的“追魂问询”。在正式申报前，系统自动生成 50 个最具挑战性的反向问题，并辅助生成合规的答复草案。</li>
-</ul>
-</li>
-<li><strong>私有化与数据确权协议</strong>：<ul>
-<li><strong>本地私有化 LLM 部署</strong>：确保企业的上市核心商业秘密不离开局域网，满足极其严苛的数据安全要求。</li>
+<li><strong>多代理即时战术分析引擎</strong>：<ul>
+<li>部署 AI Agent 实时抓取战局数据。根据当前存活人数、剩余物资、地图控制权，通过 LLM 生成多套“最优胜率路径（WRP）”并推送给一线队员。</li>
 </ul>
 </li>
 </ul>
 <h3 id="3-MVP-运营形态"><a href="#3-MVP-运营形态" class="headerlink" title="3. MVP 运营形态"></a>3. MVP 运营形态</h3><ul>
-<li><strong>“上市体检”SaaS 服务</strong>：用户上传招股书脱敏稿。10 分钟生成一份《合规性红绿灯报告》，直接对标当前最新的审核趋势。</li>
-<li><strong>券商级“数字化底稿协作系统”</strong>：作为中台，服务于整个上市项目的成员，实现文件版本的绝对一致性与责任归因。</li>
+<li><strong>“职业公会加速器”SaaS</strong>：为大中型游戏公会提供整套治理工具流、自动对账系统的订阅服务。</li>
+<li><strong>玩家“身价报告”导出工具</strong>：玩家只需绑定账号，系统 10 秒生成一份包含“全网排名、技能雷达图、潜在变现力估值”的可视化简历。</li>
 </ul>
 <h3 id="4-收益模式设计"><a href="#4-收益模式设计" class="headerlink" title="4. 收益模式设计"></a>4. 收益模式设计</h3><ul>
-<li>**按项目节点收费 (Milestone Pago)**：<ul>
-<li>初筛报告费（万元级）、申报前终审费（数十万级）、成功上市后的“技术贡献奖（Bonus）”。</li>
+<li>**公会治理系统许可费 (SaaS Fee)**：按席位或按公会流水规模收费。</li>
+<li><strong>人才猎头与精准推荐</strong>：当新游戏需要“特定流派”的顶级玩家进行封测时，你按推荐成功率收取发行商的佣金。</li>
+<li><strong>游戏内资产流转手续费</strong>：在公会内部进行的跨链道具互换、金币核算中提取小额手续费。</li>
 </ul>
-</li>
-<li>**专业版软件许可 (License)**：针对投行、律所收取的每年数百万级的席位&#x2F;项目订阅。</li>
-<li><strong>定制化规则库更新服务</strong>：由于监管动态时刻变化，保持规则库的实时同步是一个持续的收入点。</li>
-</ul>
-<h3 id="5-架构师的进化方向：多代理上市指挥部"><a href="#5-架构师的进化方向：多代理上市指挥部" class="headerlink" title="5. 架构师的进化方向：多代理上市指挥部"></a>5. 架构师的进化方向：多代理上市指挥部</h3><p>引入 AI Agent 扮演“合规官”、“财务经理”、“公共关系官”。让 AI 自动协调三方机构的协作流，将复杂的上市工程转化为一套软件开发的 Release 流程。</p>
+<h3 id="5-架构师的进化方向：多模态“游戏大脑”克隆"><a href="#5-架构师的进化方向：多模态“游戏大脑”克隆" class="headerlink" title="5. 架构师的进化方向：多模态“游戏大脑”克隆"></a>5. 架构师的进化方向：多模态“游戏大脑”克隆</h3><p>通过采集顶级选手的操作指纹，训练出具备其特定风格的“AI 副官”。即便选手下线，其数字分身也能在公会低级任务中提供逻辑指引，实现“游戏资产的生产力永续化”。</p>
 <blockquote>
-<p><strong>Architect’s Insight</strong>: 规则不是障碍，是对参数的定义。当你能用机器把几千页的法律条文和财务准则解构为一组可校验的 Lambda 函数时，你经营的就不再是辅导，而是一个能够平滑跨越资本市场门槛的“数字传送门”。</p>
+<p><strong>Architect’s Insight</strong>: 虚拟世界的本质是信誉的博弈。当你能用一套去中心化协议锁死玩家的“技术溢价”与“协作契约”时，你不仅是在玩游戏，而是在为人类未来的“赛博劳动力市场”制定底层规则。</p>
 </blockquote>
 <hr>
 <blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：程序员的副业：基于 Compliance-as-Code 的 A 股上市自动化合规审计中台。</p>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：程序员的副业：基于 DID 的跨链“游戏身份”与公会治理系统。</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/06/01/fuye-ch0308/" data-id="cmvi6pmh900ytvch38r4jdjmy" data-title="程序员的副业：基于 Compliance-as-Code 的 A 股上市自动化合规审计中台" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/06/06/fuye-ch0317/" data-id="cmvi6pmhj00zkvch3gej66u6f" data-title="程序员的副业：基于 DID 的跨链“游戏身份”与公会治理系统" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -346,10 +345,10 @@
 
 
   
-    <article id="post-fuye-ch0307" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-fuye-ch0316" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/06/01/fuye-ch0307/" class="article-date">
-  <time class="dt-published" datetime="2026-06-01T00:00:00.000Z" itemprop="datePublished">2026-06-01</time>
+    <a href="/2026/06/05/fuye-ch0316/" class="article-date">
+  <time class="dt-published" datetime="2026-06-05T12:00:00.000Z" itemprop="datePublished">2026-06-05</time>
 </a>
     
   <div class="article-category">
@@ -364,7 +363,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/06/01/fuye-ch0307/">程序员的副业：基于多模态感知的宠物情绪与行为纠偏中台</a>
+      <a class="p-name article-title" href="/2026/06/05/fuye-ch0316/">程序员的副业：基于 Geospatial Proximity Proof (PoP) 的同城服务枢纽</a>
     </h1>
   
 
@@ -372,50 +371,131 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>宠物硬件不应只是个电子喂食器。架构师的方案是建立一套<strong>具备情感识别能力（Emotion Recognition）的交互生态</strong>。利用音频频谱分析与视觉动作捕捉，实时解析宠物的心理状态，并通过算法驱动的“交互博弈”模型，实现自动化的社交陪伴与行为训练。</p>
-<h3 id="1-核心商业策略：解决“留守宠物的分离焦虑”"><a href="#1-核心商业策略：解决“留守宠物的分离焦虑”" class="headerlink" title="1. 核心商业策略：解决“留守宠物的分离焦虑”"></a>1. 核心商业策略：解决“留守宠物的分离焦虑”</h3><p>将宠物主对宠物的愧疚感，转化为对“智能替代者”的订阅。</p>
+        <p>同城社交不应只是“刷附近的人”，架构师的方案是建立一套<strong>地理空间临近证明（Proof of Proximity）协议</strong>。利用超宽带（UWB）、蓝牙 RSSI 测距与地图网格化技术，为本地社交提供一种“真实在场”的信任底座，实现同城服务与社交的精准对冲。</p>
+<h3 id="1-核心商业策略：定义“真实在场（In-Person-Truth）”"><a href="#1-核心商业策略：定义“真实在场（In-Person-Truth）”" class="headerlink" title="1. 核心商业策略：定义“真实在场（In-Person Truth）”"></a>1. 核心商业策略：定义“真实在场（In-Person Truth）”</h3><p>杜绝远程伪造坐标的“幽灵账户”，让同城社交回归真实的地理交集。</p>
 <ul>
-<li><strong>套利逻辑</strong>：利用宠物主对高频交互的需求与物理隔离之间的矛盾，提供由于“数据洞察”带来的情感价值溢价。</li>
-<li><strong>目标客户</strong>：高压工作的互联网精英、追求极致养宠科学的 Z 世代、希望远程掌握宠物真实健康状态的高净值人群。</li>
+<li><strong>套利逻辑</strong>：利用本地商家的“即时空闲资源（Perishable Inventory）”与周边 1000 米内真实存在的用户流量进行毫秒级对冲。</li>
+<li><strong>目标客户</strong>：面临“到店率”瓶颈的本地生活商家、追求高效率真实社交的都市白领、需要安全、低门槛本地互助的社区居民。</li>
 </ul>
-<h3 id="2-程序员的“爱宠感知”架构"><a href="#2-程序员的“爱宠感知”架构" class="headerlink" title="2. 程序员的“爱宠感知”架构"></a>2. 程序员的“爱宠感知”架构</h3><ul>
-<li>**多模态情感分类器 (Emotion Classifier)**：<ul>
-<li><strong>声学特征解析</strong>：利用 CNN&#x2F;Transformer 模型分析宠物的叫声（频率、振幅包络、谐波比）。区分“饥饿”、“警惕”、“求关注”等数十种语义。</li>
-<li><strong>姿态语言库</strong>：通过摄像头识别尾部摆动频率、耳朵紧缩程度及身体躯干的核心角度，建立宠物心理状态的 3D 实时热力图。</li>
-</ul>
-</li>
-<li>**行为纠偏博弈模型 (Behavioral Correction)**：<ul>
-<li><strong>自动化“捕捉-奖励”回路</strong>：当系统识别到宠物出现了“抓沙发”的倾向时，自动通过智能硬件发出指令音或投放气味诱导；当宠物表现出“坐下&#x2F;安静”时，系统毫秒级触发零食投放，实现 24 小时无人值守的行为训练。</li>
-<li><strong>交互强度自适应算法</strong>：根据宠物的当日运动量与心率波动，自动调节智能玩具的运动逻辑，防止过度疲劳或运动不足引起的抑郁。</li>
+<h3 id="2-程序员的“地理坐标”架构"><a href="#2-程序员的“地理坐标”架构" class="headerlink" title="2. 程序员的“地理坐标”架构"></a>2. 程序员的“地理坐标”架构</h3><ul>
+<li>**临近验证协议集群 (PoP Oracle)**：<ul>
+<li>**多源融合测距 (Multi-source Ranging)**：不仅依赖 GPS。利用 UWB 与低功耗蓝牙的信号指纹，验证两名用户是否在同一物理空间（如同一间咖啡馆）产生了真实交点。生成的“临近证明”哈希值作为社交解锁的唯一密钥。</li>
+<li>**地理围栏合约 (Geo-Fence Contracts)**：定义“商圈级”的自治域。只有真实位于该网格内的用户，才能参与当下的“限时抢单”或“突发性社交挑战”。</li>
 </ul>
 </li>
-<li>**健康数据“全景看板” (Health Digital Twin)**：<ul>
-<li>整合饮水频率、进食量波动及睡眠深浅度。利用时序异常检测（Anomaly Detection）预判诸如猫传腹或其它慢性疾病的早期征兆。</li>
+<li>**动态服务路由器 (Service Router)**：<ul>
+<li><strong>本地需求撮合引擎</strong>：利用图数据库实时匹配周边的微交互需求（如：帮取快递、临时组队、技能置换）。基于用户当前的“物理路径预测（Path Pred）”，将最顺路的服务请求推送给最合适的节点。</li>
+</ul>
+</li>
+<li><strong>隐私保护的“隐身模式”架构</strong>：<ul>
+<li>**差分地理偏置 (Differential Geo-Bias)**：用户位置对外界呈现为一组受控的随机偏移量，但对于“已验证临近”的特定节点，则通过对等协议（P2P）释放其真实可信座标。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-MVP-运营模式"><a href="#3-MVP-运营模式" class="headerlink" title="3. MVP 运营模式"></a>3. MVP 运营模式</h3><ul>
+<li><strong>“临近交友”即插即用插件</strong>：接入现有的同城 App，为其提供“真实在场认证（Verified On-site）”图标，大幅降低平台的反欺诈成本。</li>
+<li><strong>基于“顺路”的微物流中台</strong>：将每一次人类在城市中的物理移动资产化。你在出城路上，系统自动为你匹配 3 个顺路的取送单。</li>
+</ul>
+<h3 id="4-收益模式设计"><a href="#4-收益模式设计" class="headerlink" title="4. 收益模式设计"></a>4. 收益模式设计</h3><ul>
+<li><strong>临近验证 API 调用费</strong>：向第三方平台按次收取“在场证明”生成与核验费。</li>
+<li>**本地商家引流分成 (PPL - Pay Per Location)**：当用户经过验证真实引导至店铺内并产生消费后，提取 5%-15% 的导流佣金。</li>
+<li><strong>社区互助服务手续费</strong>：在 P2P 互助交易中，平台提取小额的服务保障金或节点信誉保证金。</li>
+</ul>
+<h3 id="5-架构师的进化方向：多代理（Multi-Agent）城市治理"><a href="#5-架构师的进化方向：多代理（Multi-Agent）城市治理" class="headerlink" title="5. 架构师的进化方向：多代理（Multi-Agent）城市治理"></a>5. 架构师的进化方向：多代理（Multi-Agent）城市治理</h3><p>实现一套分布式的“城市哨兵”系统。每一个真实的移动节点都在不泄露隐私的前提下，通过传感器聚合城市的基础设施状态（如积水、交通拥堵、空气质量），将同城社交进化为一套具身化的“数字孪生城市”采集层。</p>
+<blockquote>
+<p><strong>Architect’s Insight</strong>: 城市的本质是高密度的随机交互。当你能用一套证明协议锁死交互的“物理真实性”时，你经营的就不再是 App，而是一套覆盖在真实街道上的、具备自我调节能力的“数字社会液压系统”。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：程序员的副业：基于 Geospatial Proximity Proof (PoP) 的同城服务枢纽。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://caicitou-lili.github.io/2026/06/05/fuye-ch0316/" data-id="cmvi6pmhi00zhvch39kng6lki" data-title="程序员的副业：基于 Geospatial Proximity Proof (PoP) 的同城服务枢纽" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-fuye-ch0315" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/06/05/fuye-ch0315/" class="article-date">
+  <time class="dt-published" datetime="2026-06-05T00:00:00.000Z" itemprop="datePublished">2026-06-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/06/05/fuye-ch0315/">程序员的副业：基于 CV 姿态估计与行为存证的宠物“健康日志”社区</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>传统的宠物社交是“晒猫”，架构师的方案是建立一套<strong>宠物行为数字孪生系统</strong>。利用手机摄像头的计算机视觉（CV）实时捕捉宠物的运动轨迹与生理异动，将养宠过程转化为一套可审计、可预测、甚至可变现的行为数据资产（Behavioral NFT）。</p>
+<h3 id="1-核心商业提案：定义“可量化”的陪伴"><a href="#1-核心商业提案：定义“可量化”的陪伴" class="headerlink" title="1. 核心商业提案：定义“可量化”的陪伴"></a>1. 核心商业提案：定义“可量化”的陪伴</h3><p>让宠物的每一个动作（喝水频率、跳跃高度、睡眠规律）都成为健康预测的参数。</p>
+<ul>
+<li><strong>核心逻辑</strong>：利用 Edge-AI 对用户上传的视频进行自动语义打标（Tagging）。将宠物的“非正常步态”或“进食量波动”实时反馈给在线兽医，赚取由于“提前预判风险”带来的信任溢价。</li>
+<li><strong>目标客户</strong>：追求“科学养宠”的硬核用户、需要长期健康监测的老年宠物主、希望减少线下诊疗成本的宠物保险公司。</li>
+</ul>
+<h3 id="2-程序员的“爱宠数据”架构"><a href="#2-程序员的“爱宠数据”架构" class="headerlink" title="2. 程序员的“爱宠数据”架构"></a>2. 程序员的“爱宠数据”架构</h3><ul>
+<li>**跨设备行为识别管线 (Action Recognition)**：<ul>
+<li>**姿态估计模型 (Pet-Pose)**：定制化训练针对猫&#x2F;犬的骨架提取模型。自动识别“舔舐频率”、“挠抓力度”等微观行为。如果偏离历史均值（Baseline）30% 以上，系统自动发起健康报警。</li>
+<li><strong>物品识别与交互轨迹</strong>：自动识别宠物在室内的社交路径（如：更喜欢睡在哪个角落）。利用这些数据为家居、猫砂、食品品牌提供极其详尽的“真实用户使用测试（UAT）”报告。</li>
+</ul>
+</li>
+<li>**基于行为激励的成长协议 (Pet-to-Earn)**：<ul>
+<li><strong>行为 NFT 勋章</strong>：如果宠物本周完成了 10 万步运动或按时完成了驱虫流程，系统通过智能合约自动为该宠物的“数字身份（DID）”铸造一枚成就勋章，此勋章可直接抵扣合作医院的检查金。</li>
+</ul>
+</li>
+<li><strong>分布式医疗知识 RAG 中台</strong>：<ul>
+<li><strong>影像辅助预诊</strong>：用户拍摄宠物的异样部位。系统通过多模态大模型对类似海量病例进行瞬间匹配，给出初步的分级建议（“建议立即就医”或“日常观察”）。</li>
 </ul>
 </li>
 </ul>
 <h3 id="3-MVP-运营形态"><a href="#3-MVP-运营形态" class="headerlink" title="3. MVP 运营形态"></a>3. MVP 运营形态</h3><ul>
-<li><strong>“萌宠心语”翻译机&#x2F;APP</strong>：不只是翻译，而是为主人推送带有“情绪归因”的实时通知。</li>
-<li><strong>“云端训犬师”订阅方案</strong>：用户设定目标（如：纠正乱叫），系统通过智能硬件在白天自动执行训练指令流。</li>
+<li><strong>“猫狗健康哨兵”微信小程序</strong>：只需用户每天上传一段 30 秒的宠物活动视频，AI 自动生成一份包含情绪、活力的“健康日报”。</li>
+<li><strong>社区内的“云端兽医”联调中心</strong>：将数据脱敏后开放给在线医生，实现数据的闭环变现。</li>
 </ul>
 <h3 id="4-收益模式设计"><a href="#4-收益模式设计" class="headerlink" title="4. 收益模式设计"></a>4. 收益模式设计</h3><ul>
-<li><strong>智能硬件销售</strong>：包含传感器、算力模块、受控动作结构的溢价销售。</li>
-<li>**“行为大脑”订阅费 (Intelligence-as-a-Service)**：高级情感分析与自动化训练计划的包月。</li>
-<li><strong>宠物医疗导流与保险分成</strong>：由于你掌握了最底层的真实健康数据，可以为保险公司提供极其精准的风险定价（U-Based Insurance）。</li>
+<li><strong>健康监控订阅服务</strong>：按月收取高级 AI 分析与云端轨迹存储费。</li>
+<li>**精准电商分红 (CPX)**：根据宠物的行为数据（如：猫砂由于体量变大消耗加快），系统自动推送最合适的升级产品，获取高转化的佣金。</li>
+<li><strong>保险精算数据服务</strong>：向宠物保险公司提供基于真实行为数据的违约率、赔付率预测 API。</li>
 </ul>
-<h3 id="5-架构师的进化方向：多宠社交网络"><a href="#5-架构师的进化方向：多宠社交网络" class="headerlink" title="5. 架构师的进化方向：多宠社交网络"></a>5. 架构师的进化方向：多宠社交网络</h3><p>实现宠物间的“边缘端交互”。当你不在家时，算法自动匹配邻居家的、性格温顺的宠物，通过屏幕或交互设备发起受控的“虚拟社交”，缓解其孤独感。</p>
+<h3 id="5-架构师的进化方向：多模态“宠物翻译官”"><a href="#5-架构师的进化方向：多模态“宠物翻译官”" class="headerlink" title="5. 架构师的进化方向：多模态“宠物翻译官”"></a>5. 架构师的进化方向：多模态“宠物翻译官”</h3><p>通过语音频谱（叫声）结合姿态序列的交叉验证，为宠物主提供一套具备 95% 准确度的“心理状态解构”。让社交从“看图说话”进化为真正的“物种间理解”。</p>
 <blockquote>
-<p><strong>Architect’s Insight</strong>: 宠物不会说话，但数据会。当你能用一组传感器锁死这个幼小生命的每一个情绪起伏时，你经营的就不再是硬件，而是一份关于“跨物种信任”的数字守护协议。</p>
+<p><strong>Architect’s Insight</strong>: 宠物社交的终点是“理解”。当你能用代码把不可名状的宠物情绪转化为一组高频的时序曲线和风险预测指标时，你不仅是在赚钱，更是在用技术手段为这两个完全不同的物种间架起一座沟通的桥梁。</p>
 </blockquote>
 <hr>
 <blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：程序员的副业：基于多模态感知的宠物情绪与行为纠偏中台。</p>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：程序员的副业：基于 CV 姿态估计与行为存证的宠物“健康日志”社区。</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/06/01/fuye-ch0307/" data-id="cmvi6pmh800yqvch31kxg3ykl" data-title="程序员的副业：基于多模态感知的宠物情绪与行为纠偏中台" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/06/05/fuye-ch0315/" data-id="cmvi6pmhg00zbvch32ero9wn9" data-title="程序员的副业：基于 CV 姿态估计与行为存证的宠物“健康日志”社区" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -429,10 +509,10 @@
 
 
   
-    <article id="post-fuye-ch0306" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-fuye-ch0314" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/05/31/fuye-ch0306/" class="article-date">
-  <time class="dt-published" datetime="2026-05-31T12:00:00.000Z" itemprop="datePublished">2026-05-31</time>
+    <a href="/2026/06/04/fuye-ch0314/" class="article-date">
+  <time class="dt-published" datetime="2026-06-04T12:00:00.000Z" itemprop="datePublished">2026-06-04</time>
 </a>
     
   <div class="article-category">
@@ -447,7 +527,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/05/31/fuye-ch0306/">程序员的副业：基于 Edge-AI 的居家养老行为异常检测系统</a>
+      <a class="p-name article-title" href="/2026/06/04/fuye-ch0314/">程序员的副业：基于 ZKP 身份协议的 LGBTQ+“避风港”社区</a>
     </h1>
   
 
@@ -455,50 +535,132 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>传统的养老机器人是“遥控器”，架构师的方案是建立一套<strong>具备边缘推理能力的感知中枢</strong>。利用毫米波雷达结合视觉姿态估计（Pose Estimation），在保护老人隐私的前提下，实现秒级的跌倒预判、甚至“行为退化（Behavioral Decay）”的长期趋势分析。</p>
-<h3 id="1-核心商业提案：定义“数字监护人”"><a href="#1-核心商业提案：定义“数字监护人”" class="headerlink" title="1. 核心商业提案：定义“数字监护人”"></a>1. 核心商业提案：定义“数字监护人”</h3><p>不监察视频，只监察“行为逻辑”。</p>
+        <p>在特殊社群的社交中，隐私不是选项，而是生命线。架构师的方案是建立一套<strong>零知识证明（ZKP）身份网关</strong>。通过加密原语实现“在不暴露真实身份的前提下，验证特定属性（如：属于该群体、无违规史、兴趣匹配）”，构建一个物理与数字层面的“高安全边界”社区。</p>
+<h3 id="1-核心商业策略：定义“零侵扰”的安全"><a href="#1-核心商业策略：定义“零侵扰”的安全" class="headerlink" title="1. 核心商业策略：定义“零侵扰”的安全"></a>1. 核心商业策略：定义“零侵扰”的安全</h3><p>不仅是防骚扰，而是从架构底层杜绝身份泄露与数据被倒卖的可能性。</p>
 <ul>
-<li><strong>核心逻辑</strong>：采用非接触式感知（毫米波雷达&#x2F;红外），提取老人的运动骨架模型。利用 LSTM 网络识别异常路径（如在卫生间停留过久、半夜频繁起夜、步态不稳）。</li>
-<li><strong>目标客户</strong>：子女不在身边的独居老人家庭、高端康养社区、需要降低巡检人效比的民政机构。</li>
+<li><strong>核心方案</strong>：利用 ZKP (零知识证明) 让用户在链下完成身份核验，社区仅接收到“验证通过”的布尔值结果。</li>
+<li><strong>目标客户</strong>：对隐私极度敏感的高净值群体、寻求真实互助的边缘社群成员、希望建立极其精准且安全的垂直社交品牌的创业者。</li>
 </ul>
-<h3 id="2-程序员的“监护感知”架构"><a href="#2-程序员的“监护感知”架构" class="headerlink" title="2. 程序员的“监护感知”架构"></a>2. 程序员的“监护感知”架构</h3><ul>
-<li>**多模态边缘融合网关 (Edge-Fusion Hub)**：<ul>
-<li><strong>低功耗实时推理</strong>：在本地 NPU 设备（如瑞芯微&#x2F;海思）上运行姿态估计模型。只有当触发“高风险等级”信号时，才向云端发送经过脱敏的骨架向量。</li>
-<li><strong>毫米波点云解析</strong>：利用微波反射技术，即便在全黑或水汽弥漫的浴室环境，也能精准识别老人的静止状态与胸腔呼吸起伏（Vital Monitoring）。</li>
-</ul>
-</li>
-<li>**行为倾向分析引擎 (Behavioral Analytics)**：<ul>
-<li><strong>生活规律基准线（Personal Baseline）</strong>：AI 自动学习老人的作息时间表。当实际行为与基准线发生显著偏离（如连续两餐未进食）时，系统自动发起多级预警。</li>
-<li><strong>疾病早期预判模型</strong>：通过长期的步态分析，监测帕金森或认知障碍的早期物理征兆，为家属提供具备医学参考价值的趋势报告。</li>
+<h3 id="2-程序员的“暗网级”社交架构"><a href="#2-程序员的“暗网级”社交架构" class="headerlink" title="2. 程序员的“暗网级”社交架构"></a>2. 程序员的“暗网级”社交架构</h3><ul>
+<li>**去中心化身份网关 (ZKP-Identity)**：<ul>
+<li><strong>属性证明算法</strong>：用户通过提交经过加密的第三方账单、甚至利用多方安全计算（MPC）对接到封闭数据源，生成一份证明：“我是该特定群体的一员”。整个过程没有任何原始敏感数据留在你的服务器上。</li>
+<li>**阅后即焚对话协议 (Zero-Knowledge Messaging)**：所有聊天记录采用端到端加密，并利用信号探测技术实时检测截图行为。一旦发现异常，立即在物理层面对当前会话进行自毁映射。</li>
 </ul>
 </li>
-<li>**应急响应路由协议 (Emergency Protocol)**：<ul>
-<li><strong>自动化拨号与视频弹窗</strong>：触发最高等级警报后，系统自动接通紧急联系人，并开启双向语音与预聚合的现场 3D 骨架回放，消除误报带来的恐慌。</li>
+<li>**基于地理位置的“安全路径”发现 (Geo-Shield)**：<ul>
+<li><strong>热力隐私模糊化</strong>：在显示“附近的人”时，采用拉普拉斯噪声（Differential Privacy）对用户座标进行动态偏移。用户可以感知到 500 米内有同类，但永远无法反向量化出对方的精确楼栋。</li>
+</ul>
+</li>
+<li>**社群自组织与互助合约 (Mutual-Aid Smart Contracts)**：<ul>
+<li><strong>匿名押金池</strong>：在进行线下见面前，双方向合约锁定小额稳定币作为“诚信押金”。见面后双方确认无误自动返还，若发生纠纷，由匿名治理委员会匿名裁决并划拨押金用于受害者补偿。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-MVP-启动模型"><a href="#3-MVP-启动模型" class="headerlink" title="3. MVP 启动模型"></a>3. MVP 启动模型</h3><ul>
+<li><strong>“避风港”内测组</strong>：采用极其严格的“邀请制 + ZKP 验证”。只有通过了 3 轮匿名背书的用户才能获得准入密钥。</li>
+<li><strong>线下安全节点合作</strong>：与现实生活中的友好咖啡馆、书店建立 API 联动。系统自动向用户推荐当前由算法评估为“安全值高（人流量中等、氛围良好）”的交友点位。</li>
+</ul>
+<h3 id="4-收益模式设计"><a href="#4-收益模式设计" class="headerlink" title="4. 收益模式设计"></a>4. 收益模式设计</h3><ul>
+<li><strong>隐私增强订阅费</strong>：基础社交免费。针对需要“动态坐标偏移”、“高级 ZKP 认证徽章”、“私密活动入场券”的用户收费。</li>
+<li><strong>线下安全流量分成</strong>：将高净值、高忠诚度的社群流量导流给合作的友好线下店，赚取 CPS 佣金。</li>
+<li><strong>B 端隐私中台授权</strong>：将这套 ZKP 验证与防截屏技术专利授权给其他垂直社交 App 使用。</li>
+</ul>
+<h3 id="5-架构师的进化方向：多模态“防恶意探测”语义哨兵"><a href="#5-架构师的进化方向：多模态“防恶意探测”语义哨兵" class="headerlink" title="5. 架构师的进化方向：多模态“防恶意探测”语义哨兵"></a>5. 架构师的进化方向：多模态“防恶意探测”语义哨兵</h3><p>部署 AI 心理模型实时监测对话流中的“话术诱导”或“欺诈模式”。在用户受骗前由系统自动提示该账户的“信誉熵增”异常，从代码层面主动切断潜在的物理冲突风险。</p>
+<blockquote>
+<p><strong>Architect’s Insight</strong>: 社交的本质是释放脆弱性，而架构师的任务是为这种脆弱性安装装甲。当你能用数学方法在“完全透明”与“完全匿名”之间切出一条完美的平衡槽时，你提供的就不再是工具，而是一个永恒的、安全的“数字流放地”。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：程序员的副业：基于 ZKP 身份协议的 LGBTQ+“避风港”社区。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://caicitou-lili.github.io/2026/06/04/fuye-ch0314/" data-id="cmvi6pmhh00zevch372o5ecey" data-title="程序员的副业：基于 ZKP 身份协议的 LGBTQ+“避风港”社区" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-fuye-ch0313" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/06/04/fuye-ch0313/" class="article-date">
+  <time class="dt-published" datetime="2026-06-04T00:00:00.000Z" itemprop="datePublished">2026-06-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/06/04/fuye-ch0313/">程序员的副业：基于 NFC 序列化的“物实融合（Phygital）”潮玩协议</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>传统的潮玩社交是“晒图”，架构师的方案是建立一套<strong>潮玩数字孪生平台</strong>。利用 NFC 加密芯片与区块链序列化（Serialization）技术，为每一个实体玩具绑定唯一的数字资产（NFT），实现物理权属与虚拟社交溢价的完美对冲。</p>
+<h3 id="1-核心商业提案：定义“不可伪造”的收藏感"><a href="#1-核心商业提案：定义“不可伪造”的收藏感" class="headerlink" title="1. 核心商业提案：定义“不可伪造”的收藏感"></a>1. 核心商业提案：定义“不可伪造”的收藏感</h3><p>解决潮玩行业的终极痛点：假货与二级市场高昂的验真成本。</p>
+<ul>
+<li><strong>核心方案</strong>：在玩具内部封装加密级 NFC 标签。手机一贴，即刻在链上展示该玩具的“出厂证明”、“前任持有者流转史”及相关的数字虚拟资产。</li>
+<li><strong>目标客户</strong>：追求极致稀缺性的重度玩家、希望建立直达用户（DTC）通道的潮玩厂商、对虚拟展柜有强需求的“数字游民”。</li>
+</ul>
+<h3 id="2-程序员的“潮玩溯源”架构"><a href="#2-程序员的“潮玩溯源”架构" class="headerlink" title="2. 程序员的“潮玩溯源”架构"></a>2. 程序员的“潮玩溯源”架构</h3><ul>
+<li>**NFC-Linked 资产桥接器 (Hardware-Chain Link)**：<ul>
+<li><strong>双向加密核销</strong>：利用 ECC 椭圆曲线加密算法，确保芯片内的指纹信息无法被物理复制（Clone-proof）。每次贴合时，系统生成随机挑战码（Nonce），只有通过服务器校验才能解锁数字社交权益。</li>
+<li>**动态元数据同步 (Dynamic Metadata)**：当用户在社交社区中完成了“全服首个盲盒收集”时，对应的实体芯片背景数据也会更新，不仅是证明，更是“成就勋章”。</li>
+</ul>
+</li>
+<li>**潮玩社交图谱与虚拟展位 (Digital Showcase)**：<ul>
+<li><strong>基于 3DGS 的高精度扫描渲染</strong>：为每个限量版玩具建立极高精度的 3D 数字模型。用户在 App 中可以实现 360 度“走入式”观摩他人展柜，甚至进行虚拟换装。</li>
+<li>**稀缺性评分算法 (Rarity Oracle)**：系统自动计算全网存世量与流通速率，为每一件藏品输出一个实时的“潮玩价值指数（TVI）”。</li>
+</ul>
+</li>
+<li>**去中心化二级交易协议 (Secondary Market Protocol)**：<ul>
+<li><strong>扫码即交易</strong>：两名玩家在线下面对面。通过手机 NFC 互贴，直接触发链上所有权变更与资金划拨，无需中介。</li>
 </ul>
 </li>
 </ul>
 <h3 id="3-MVP-实施模型"><a href="#3-MVP-实施模型" class="headerlink" title="3. MVP 实施模型"></a>3. MVP 实施模型</h3><ul>
-<li><strong>“独居守护”硬件套装</strong>：极简安装。三个感应模块（客厅、厨卫、卧室）+ 一个语音基座。</li>
-<li><strong>家属端“周度活力度报告”</strong>：不只是报警，而是让子女远程掌握老人的“生活质量指标（QoL Index）”。</li>
+<li><strong>“真假一帖知”App</strong>：作为第三方工具接入各大潮玩社区。只需寄送几块钱的加密贴片给厂商，即可让其产品具备区块链验真能力。</li>
+<li><strong>限量版“数字身份”众筹</strong>：与新锐设计师合作发行 500 个带芯片的限定公仔，所有社交功能（进入专属群、领取空投）均通过贴片触发。</li>
 </ul>
 <h3 id="4-收益模式设计"><a href="#4-收益模式设计" class="headerlink" title="4. 收益模式设计"></a>4. 收益模式设计</h3><ul>
-<li><strong>硬件及初装费</strong>：覆盖基础算力和传感器成本。</li>
-<li>**监护服务月费 (Care-as-a-Service)**：包含云端数据分析、异常回溯存储及第三方紧急救援对接的订阅。</li>
-<li><strong>针对机构的 SaaS 系统授权</strong>：为养老院提供整套大盘监控中台，按床位收费。</li>
+<li><strong>加密贴片授权费</strong>：向潮玩厂商收取每枚芯片的专利授权费与 SaaS 接入费。</li>
+<li><strong>交易版税分成</strong>：在二级市场交易时，通过智能合约自动提取 3%-5% 的版税（由设计师与你分成）。</li>
+<li><strong>虚拟道具销售</strong>：为实体潮玩开发专属的 AR 配件、社交挂件，在平台内售卖。</li>
 </ul>
-<h3 id="5-架构师的进化方向：多代理适老化协作"><a href="#5-架构师的进化方向：多代理适老化协作" class="headerlink" title="5. 架构师的进化方向：多代理适老化协作"></a>5. 架构师的进化方向：多代理适老化协作</h3><p>引入可以移动的“陪伴 Agent”。当检测到老人情绪低落或社交隔绝时，自动发起远程视频通话或由 AI 自动播放老人感兴趣的历史回忆录，实现“数字疗愈”。</p>
+<h3 id="5-架构师的进化方向：多维交互的“潮玩元宇宙”"><a href="#5-架构师的进化方向：多维交互的“潮玩元宇宙”" class="headerlink" title="5. 架构师的进化方向：多维交互的“潮玩元宇宙”"></a>5. 架构师的进化方向：多维交互的“潮玩元宇宙”</h3><p>当玩家将手机贴向玩具时，眼镜中自动弹出该玩具的“灵魂对话框”（LLM 驱动），让这些桌上的摆件变成可以感知主人情绪、具备独特背景故事的“智能伴侣”。</p>
 <blockquote>
-<p><strong>Architect’s Insight</strong>: 养老的痛点是“不在场感”。当你能用代码将物理空间的每一个细微动作都转化为安全的、可预测的行为流时，你就是在为这群“数字原住民”的父母构建一张隐形的保障网。</p>
+<p><strong>Architect’s Insight</strong>: 物理的终结是数字的开始。当你能把一个树脂材料的玩具在赛博空间内完成“灵魂注入”与“信用锚定”时，你提供的就不再是装饰品，而是一份具备无限流动性的“稀缺性协议”。</p>
 </blockquote>
 <hr>
 <blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：程序员的副业：基于 Edge-AI 的居家养老行为异常检测系统。</p>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：程序员的副业：基于 NFC 序列化的“物实融合（Phygital）”潮玩协议。</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/05/31/fuye-ch0306/" data-id="cmvi6pmh700ynvch3hltl639l" data-title="程序员的副业：基于 Edge-AI 的居家养老行为异常检测系统" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/06/04/fuye-ch0313/" data-id="cmvi6pmhe00z8vch3c0op4fgd" data-title="程序员的副业：基于 NFC 序列化的“物实融合（Phygital）”潮玩协议" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -512,10 +674,10 @@
 
 
   
-    <article id="post-fuye-ch0305" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-fuye-ch0312" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/05/31/fuye-ch0305/" class="article-date">
-  <time class="dt-published" datetime="2026-05-31T00:00:00.000Z" itemprop="datePublished">2026-05-31</time>
+    <a href="/2026/06/03/fuye-ch0312/" class="article-date">
+  <time class="dt-published" datetime="2026-06-03T12:00:00.000Z" itemprop="datePublished">2026-06-03</time>
 </a>
     
   <div class="article-category">
@@ -530,7 +692,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/05/31/fuye-ch0305/">程序员的副业：基于另类数据（Alternative Data）与 ZK-Credit 的智能信贷中台</a>
+      <a class="p-name article-title" href="/2026/06/03/fuye-ch0312/">程序员的副业：基于情绪预言机（Sentiment Oracle）的市值风控中台</a>
     </h1>
   
 
@@ -538,50 +700,50 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>传统的信贷评估依赖由于滞后的征信报告，架构师的方案是建立一套<strong>基于全链路行为数据（Behavioral Data）的实时信用评分系统</strong>。并利用零知识证明（ZKP）技术，在保护用户隐私的前提下，为金融机构提供具备高穿透力的授信决策证明。</p>
-<h3 id="1-核心商业策略：挖掘“水下信用”"><a href="#1-核心商业策略：挖掘“水下信用”" class="headerlink" title="1. 核心商业策略：挖掘“水下信用”"></a>1. 核心商业策略：挖掘“水下信用”</h3><p>发现那些没有信用卡流水，但具备极强还款能力与意愿的垂直人群（如：灵活就业者、独立开发者、跨境蓝领）。</p>
+        <p>市值管理不是“坐庄”，架构师的方案是建立一套<strong>算法信誉防御系统（ARD）</strong>。利用 NLP 情绪预案机、社交关联图谱及量化对冲模型，为上市公司提供一套“全自动舆情-股价反馈联动”的价值防御体系。</p>
+<h3 id="1-核心商业策略：挖掘“信息波动溢价”"><a href="#1-核心商业策略：挖掘“信息波动溢价”" class="headerlink" title="1. 核心商业策略：挖掘“信息波动溢价”"></a>1. 核心商业策略：挖掘“信息波动溢价”</h3><p>在极其内卷的二级市场中，最好的管理是“消除不确定性”。</p>
 <ul>
-<li><strong>套利逻辑</strong>：利用由于“信息缺失”导致的贷款利率覆盖与风险溢价之间的不平衡点。</li>
-<li><strong>目标客户</strong>：面临获客瓶颈的数字银行、追求极致风控下降的小额贷款平台、需要为供应链下游提供分期服务的品牌方。</li>
+<li><strong>套利逻辑</strong>：利用社交媒体噪音导致的价格偏离（Noise Trading）。通过代码提前 3-5 分钟识别负面情绪的“引爆点”，并自动触发 IR（投资者关系）预案。</li>
+<li><strong>目标客户</strong>：处于战略转型期的上市公司、面临恶意做空风险的公开企业、需要提升信息透明度的硬核科技公司。</li>
 </ul>
-<h3 id="2-程序员的“信用证明”架构"><a href="#2-程序员的“信用证明”架构" class="headerlink" title="2. 程序员的“信用证明”架构"></a>2. 程序员的“信用证明”架构</h3><ul>
-<li>**另类数据特征库 (Feature Engineering Hub)**：<ul>
-<li><strong>非金融行为建模</strong>：分析用户的职业稳定性（GitHub 贡献周期）、社交关系质量、甚至在线教育的完课率。利用深度学习模型捕捉这些非线性因子的潜在合规性及信用关联。</li>
-<li><strong>实时现金流哨兵</strong>：通过 API 监控（如有授权）用户的 SaaS 订阅续费率、电商退货率及收款周期变动。一旦出现“降级迹象”，毫秒级更新风险等级并触发预警。</li>
-</ul>
-</li>
-<li>**零知识信用证明协议 (ZK-Credit Proof)**：<ul>
-<li><strong>隐私证明生成器</strong>：用户不提交银行流水原件。而是通过你的系统（在 TEE 安全环境中运行）生成一份 ZK 证明：“该用户过去 6 个月净收入超过 2 万且无违约”。这确保了数据在审计中可用，但在资产转移中不泄露。</li>
-<li><strong>去中心化声誉上链</strong>：将经核验的信用等级转化为具备法律效力的 DID 标签，实现在不同借贷平台间的“信用共认”。</li>
+<h3 id="2-程序员的“市值雷达”架构"><a href="#2-程序员的“市值雷达”架构" class="headerlink" title="2. 程序员的“市值雷达”架构"></a>2. 程序员的“市值雷达”架构</h3><ul>
+<li>**情绪波动向量监测集群 (Sentiment Tracker)**：<ul>
+<li><strong>跨平台语义归一化</strong>：实时爬取股吧、雪球、Twitter、甚至 Telegram 核心投资群。利用 Fine-tuned LLM 提取“真实情绪（Real Alpha）”与“水军噪音（Bot Noise）”。</li>
+<li>**关联图谱穿透 (Entity Graph)**：通过分析发帖账号的社交关系链，识别是否存在“协同做空（Coordinated Shorting）”行为。一旦发现多个节点在同时间点发布结构化文案，自动将其标记为“恶意共谋”。</li>
 </ul>
 </li>
-<li><strong>基于强化学习的额度精确定价器</strong>：<ul>
-<li>根据实时市场利率与该用户的风险概率分布，动态自动计算每笔贷款的盈亏平衡点（Breakeven Point），实现像素级的风险定价。</li>
+<li><strong>IRM (投资者关系) 自动化响应引擎</strong>：<ul>
+<li><strong>智能 Q&amp;A 生成器</strong>：针对投资者频繁询问的敏感问题（如：订单是否砍单），自动结合企业已披露的 Fact-Check 数据，生成合规、精准、且具备情绪安抚作用的标准答复。</li>
+<li><strong>分级预警网关</strong>：根据情绪指数（Volatility Index）自动触发分级响应：从简单的 IR 回复到大资金层面的股份回购建议算法。</li>
+</ul>
+</li>
+<li>**链上声誉证明服务 (On-chain Reputation)**：<ul>
+<li>将企业的重大里程碑、高管承诺实时上链生成“言行合一证书”。利用智能合约锁死高管持股变动，为市场提供一种数学层面的“确定性背书”。</li>
 </ul>
 </li>
 </ul>
 <h3 id="3-MVP-运营形态"><a href="#3-MVP-运营形态" class="headerlink" title="3. MVP 运营形态"></a>3. MVP 运营形态</h3><ul>
-<li><strong>“信用分极速认证”Bot</strong>：用户扫码接入。5 分钟输出一份具备金融级效力的 ZK 信用报告，大幅降低其贷款申请被拒率。</li>
-<li><strong>B 端风控增强引擎</strong>：为信贷机构提供增量的“风险补漏”API。</li>
+<li><strong>“股价哨兵”SaaS 控制台</strong>：董秘只需打开网页，即可看到全网对本公司的“信誉热力图”及未来 24 小时内的潜在波动预警。</li>
+<li><strong>自动化 IR 互动 Bot</strong>：在主要社交平台自动处理 90% 的基础咨询，将董秘办从重复劳动力中解放。</li>
 </ul>
 <h3 id="4-收益模式设计"><a href="#4-收益模式设计" class="headerlink" title="4. 收益模式设计"></a>4. 收益模式设计</h3><ul>
-<li>**单次查验费 (Per-Report)**：每份 ZK 信用证明收费。</li>
-<li>**风控分润 (Profit Share)**：如果机构采用了你的模型后坏账率降低了 1%，你从中提取降低损失金额的 20% 作为奖励金。</li>
-<li>**金融代理分润 (CPS)**：作为高质量资产的“筛选器”，将优质客户推荐给对应金融机构，按单笔借款额的分成。</li>
+<li>**年度顾问订阅费 (Retainer Fee)**：针对上市公司提供常态化的系统监测与 IR 运维，单客单价极高（百万级&#x2F;年）。</li>
+<li>**风险溢价奖金 (Performance Bonus)**：在成功协助公司抵御恶意做空或舆情危机后，从守住的市值总额中提取极低比例（如 0.05%）作为奖金。</li>
+<li><strong>数据报告出售</strong>：向买方机构销售关于特定行业龙头公司的“信誉脆弱性分析报告”。</li>
 </ul>
-<h3 id="5-架构师的进化方向：多维度的“未来现金流”预测"><a href="#5-架构师的进化方向：多维度的“未来现金流”预测" class="headerlink" title="5. 架构师的进化方向：多维度的“未来现金流”预测"></a>5. 架构师的进化方向：多维度的“未来现金流”预测</h3><p>结合 AI 预测用户下一年的收入增长潜力（Career-Growth Model）。不只看过去，更根据其技能演进和行业热度，评估其“未来的还款冗余度”。</p>
+<h3 id="5-架构师的进化方向：多代理（Multi-Agent）合规审计"><a href="#5-架构师的进化方向：多代理（Multi-Agent）合规审计" class="headerlink" title="5. 架构师的进化方向：多代理（Multi-Agent）合规审计"></a>5. 架构师的进化方向：多代理（Multi-Agent）合规审计</h3><p>引入 AI Agent 扮演“合规官”，在发布任何信息前自动与历年的监管函进行模式匹配，确保每一条市值管理动作都精准运行在法律的“护城河”之内。</p>
 <blockquote>
-<p><strong>Architect’s Insight</strong>: 信用不仅是过去，更是未来的可能性。当你能用代码理顺那些隐藏在琐碎行为中的“守信逻辑”并解决隐私博弈时，你就是在为社会构建一套真正公平的“数字化流动性泵站”。</p>
+<p><strong>Architect’s Insight</strong>: 资本市场的一半是数字，另一半是人心。当你能用一套预言机把人心中的偏见进行量化并实时调平平衡时，你经营的就不再是公关公司，而是一个能够平滑波动、锁定价值的“金融路由器”。</p>
 </blockquote>
 <hr>
 <blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：程序员的副业：基于另类数据（Alternative Data）与 ZK-Credit 的智能信贷中台。</p>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：程序员的副业：基于情绪预言机（Sentiment Oracle）的市值风控中台。</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/05/31/fuye-ch0305/" data-id="cmvi6pmh500ykvch31yhv8vl2" data-title="程序员的副业：基于另类数据（Alternative Data）与 ZK-Credit 的智能信贷中台" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/06/03/fuye-ch0312/" data-id="cmvi6pmhd00z5vch35kt15fzk" data-title="程序员的副业：基于情绪预言机（Sentiment Oracle）的市值风控中台" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -595,10 +757,10 @@
 
 
   
-    <article id="post-fuye-ch0304" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-fuye-ch0311" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/05/30/fuye-ch0304/" class="article-date">
-  <time class="dt-published" datetime="2026-05-30T12:00:00.000Z" itemprop="datePublished">2026-05-30</time>
+    <a href="/2026/06/03/fuye-ch0311/" class="article-date">
+  <time class="dt-published" datetime="2026-06-03T00:00:00.000Z" itemprop="datePublished">2026-06-03</time>
 </a>
     
   <div class="article-category">
@@ -613,7 +775,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/05/30/fuye-ch0304/">程序员的副业：基于 Multi-Agent 协同的智能投研“策略预言机”</a>
+      <a class="p-name article-title" href="/2026/06/03/fuye-ch0311/">程序员的副业：基于 Token-Gated DAO 的粉丝 IP 孵化与治理协议</a>
     </h1>
   
 
@@ -621,54 +783,49 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>传统的投研是看报告、拉数据，架构师的方案是建立一套<strong>自主进化的多智能体协同系统</strong>。让不同功能的 AI Agent（如：数据抓取员、情绪分析师、因果推理官、风控官）在内部进行对抗与协作，输出具备逻辑推演深度、而非简单模式识别的投研全案。</p>
-<h3 id="1-核心商业策略：挖掘“逻辑深处”的-Alpha"><a href="#1-核心商业策略：挖掘“逻辑深处”的-Alpha" class="headerlink" title="1. 核心商业策略：挖掘“逻辑深处”的 Alpha"></a>1. 核心商业策略：挖掘“逻辑深处”的 Alpha</h3><p>不卷速度，卷深度。利用大模型强大的推理能力，挖掘那些隐藏在几百份财报与海量新闻背后的“因果链条”。</p>
+        <p>传统的明星粉丝群是“喊口号”，架构师的粉丝群是<strong>链上资产共同体</strong>。你的方案是建立一套基于代币门禁（Token-Gated）的自治组织协议，将明星的 IP 衍生权、活动决策权转化为可编程的治理票据，实现粉丝从“消费者”到“共创者”的身份跨越。</p>
+<h3 id="1-核心商业提案：定义“粉丝主权”"><a href="#1-核心商业提案：定义“粉丝主权”" class="headerlink" title="1. 核心商业提案：定义“粉丝主权”"></a>1. 核心商业提案：定义“粉丝主权”</h3><p>不只是追星，而是让粉丝通过贡献（时间、金钱、创意）获得对 IP 的实际话语权。</p>
 <ul>
-<li><strong>核心方案</strong>：构建一套“投研 Agent 实验室”，将投研过程转化为一套标准化的工作流（Workflow），通过自动化回测锁死逻辑溢价。</li>
-<li><strong>目标客户</strong>：缺乏深度研究的中小私募、追求“可解释 AI”的家族办公室、希望构建私有领域知识库的高净值个人投资者。</li>
+<li><strong>核心方案</strong>：利用 ERC-20 (治理代币) 和 ERC-721 (身份凭证) 替代传统的群等级。代币持仓决定了对明星新歌选曲、周边设计方案、甚至巡演城市分布的投票权重。</li>
+<li><strong>目标客户</strong>：追求深度参与感的硬核粉丝（Great Fans）、希望实现“社交资产分润”的职业大站长、寻求高效粉丝触达的经纪公司。</li>
 </ul>
-<h3 id="2-程序员的“策略推理”架构"><a href="#2-程序员的“策略推理”架构" class="headerlink" title="2. 程序员的“策略推理”架构"></a>2. 程序员的“策略推理”架构</h3><ul>
-<li>**多智能体协同框架 (Agent-based Intelligence)**：<ul>
-<li><strong>异构专家集群</strong>：<ul>
-<li><strong>Parser Agent</strong>：实时监控全网 100+ 信息源。不仅识别文字，还能解析财报 PDF 中的复杂图表、甚至高管访谈的语音基调。</li>
-<li>**Reasoning Agent (CoT)**：利用思维链技术，针对单一事件（如：某地罢工）推演其对整条上下游供应链（如：锂价、电池包成本、车企交付量）的级联影响。</li>
-<li><strong>Conflict Agent</strong>：专门扮演“杠精”。质疑现有策略的偏见，通过反向论证防止模型过拟合或策略崩溃。</li>
+<h3 id="2-程序员的“链上社交”架构"><a href="#2-程序员的“链上社交”架构" class="headerlink" title="2. 程序员的“链上社交”架构"></a>2. 程序员的“链上社交”架构</h3><ul>
+<li>**Token-Gated 准入与生命周期管理 (DAO Access)**：<ul>
+<li><strong>动态阈值合约</strong>：进入核心委员会需持有特定数量的 Token 或稀有度排名 Top 1% 的 NFT。合约自动监测持仓波动，一旦代币售出，权限即刻在 Discord&#x2F;自研社区中秒级注销。</li>
+<li>**贡献度量化引擎 (Proof of Contribution)**：利用 NLP 算法分析粉丝在各社交平台的活跃度、二创分发量。自动将其转化为“贡献积分（XP）”，并定期通过智能合约空投治理代币。</li>
 </ul>
 </li>
+<li>**IP 协同决策协议 (IP Governance Protocol)**：<ul>
+<li>**快照投票系统 (Snapshot-based Voting)**：针对具体的商业决策（如：下张专辑的封面风格），粉丝通过持有代币进行零手续费链上投票。系统自动根据权重汇总，结果直接驱动后端供应链（周边工厂）的生产指标。</li>
 </ul>
 </li>
-<li>**事件驱动的高效回测中台 (Event-driven Tester)**：<ul>
-<li><strong>蒙特卡洛敏感度分析</strong>：利用仿真技术模拟该逻辑在 1000 种不同宏观环境下的表现，输出详尽的“压力测试报告（Stress Report）”。</li>
-<li><strong>动态仓位管理逻辑</strong>：根据回测结果自动优化凯利公式参数，确保系统在极端行情下的生存概率。</li>
-</ul>
-</li>
-<li><strong>端到端的神经记忆库</strong>：<ul>
-<li>将过往的所有失败预测与成功案例进行“向量化回忆”。当新行情出现时，系统自动调取类似的“历史切片”进行辅助判研。</li>
+<li>**去中心化金库与分润协议 (Treasury &amp; Splitter)**：<ul>
+<li><strong>众筹合资合约</strong>：粉丝共同出资购买明星的版权收益份额或赞助一场线下见面会。产生的周边销售利润、门票收益，直接按照代币持有比例在链上完成毫米级二次拨付。</li>
 </ul>
 </li>
 </ul>
 <h3 id="3-MVP-运营形态"><a href="#3-MVP-运营形态" class="headerlink" title="3. MVP 运营形态"></a>3. MVP 运营形态</h3><ul>
-<li><strong>“AI 深度研报”订阅中台</strong>：用户按月订阅。获取由 Agent 集成生成的、附带因果图谱（Causal Graph）的深度机会调研报告。</li>
-<li>**量化侧插件 (Strategy SDK)**：为量化开发者提供经过 Agent 预处理过的、具备“逻辑标签（Reasoning Tag）”的高价值信号流 API。</li>
+<li><strong>“某明星实验室”DAO</strong>：首批发行 1000 个创始 NFT。持有者不仅是粉丝，更是该明星所有衍生品开发的“决策官”。</li>
+<li><strong>基于 XP 的二级分发系统</strong>：为明星转发推文、剪辑视频的粉丝，自动获得小额代币奖励，形成一套自动运转的流量分发机器。</li>
 </ul>
 <h3 id="4-收益模式设计"><a href="#4-收益模式设计" class="headerlink" title="4. 收益模式设计"></a>4. 收益模式设计</h3><ul>
-<li><strong>SaaS 订阅与信号授费</strong>：针对 B 端机构按年收取。</li>
-<li>**超额收益业绩分成 (Carry)**：与小型私募合作，作为技术合伙人分摊利润。</li>
-<li><strong>私有化知识库部署</strong>：为大型机构打造专属内部知识 RAG 与 Agent 决策系统。</li>
+<li><strong>代币&#x2F;NFT 发行费</strong>：作为技术平台协助明星发起众筹，抽取募集总额的 5%-10%。</li>
+<li><strong>二级市场版税</strong>：粉丝间交易身份证明、IP 份额时，平台提取 2.5% 的流动性手续费。</li>
+<li><strong>B 端技术服务订阅</strong>：向经纪公司出售这套包含准入、治理、分润的完整 DAO OS 软件许可。</li>
 </ul>
-<h3 id="5-架构师的进化方向：多模态“侧信道”智能"><a href="#5-架构师的进化方向：多模态“侧信道”智能" class="headerlink" title="5. 架构师的进化方向：多模态“侧信道”智能"></a>5. 架构师的进化方向：多模态“侧信道”智能</h3><p>集成卫星图像（监控停车场入驻率）、船运数据、仓库能耗数据等另类数据（Alternative Data）。让 Agent 在逻辑推理中加入真实的物理世界约束。</p>
+<h3 id="5-架构师的进化方向：多模态-AIGC-与粉丝二创"><a href="#5-架构师的进化方向：多模态-AIGC-与粉丝二创" class="headerlink" title="5. 架构师的进化方向：多模态 AIGC 与粉丝二创"></a>5. 架构师的进化方向：多模态 AIGC 与粉丝二创</h3><p>集成 AI 生成工具。粉丝在 DAO 内输入的创意 Prompt 自动生成明星风格的壁纸或 Demo，并通过智能合约自动完成版权确认与分红比例绑定，实现“共创经济”的工业化批量产出。</p>
 <blockquote>
-<p><strong>Architect’s Insight</strong>: 金融市场的竞争是认知的竞争。当你能用一套多智能体系统自动化跑完 100 名普通分析师的工作流并具备逻辑自洽性时，你经营的就不再是投研，而是一个不停产生逻辑溢价的“认知工厂”。</p>
+<p><strong>Architect’s Insight</strong>: 传统的粉丝经济是漏斗模型，只有最顶端的明星在获利。当你能用代币将粉丝的爱进行向量化并转化为经济激励时，你就是在为人类的情感共鸣打造一个“永续增长的数字飞轮”。</p>
 </blockquote>
 <hr>
 <blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：程序员的副业：基于 Multi-Agent 协同的智能投研“策略预言机”。</p>
+<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：程序员的副业：基于 Token-Gated DAO 的粉丝 IP 孵化与治理协议。</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/05/30/fuye-ch0304/" data-id="cmvi6pmh300yevch3glq82t5x" data-title="程序员的副业：基于 Multi-Agent 协同的智能投研“策略预言机”" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/06/03/fuye-ch0311/" data-id="cmvi6pmhb00yzvch3dicqhmmn" data-title="程序员的副业：基于 Token-Gated DAO 的粉丝 IP 孵化与治理协议" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -682,14 +839,14 @@
 
 
   
-    <article id="post-fuye-ch0303" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-出境eSIM怎么选" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/05/30/fuye-ch0303/" class="article-date">
-  <time class="dt-published" datetime="2026-05-30T00:00:00.000Z" itemprop="datePublished">2026-05-30</time>
+    <a href="/2026/06/03/%E5%87%BA%E5%A2%83eSIM%E6%80%8E%E4%B9%88%E9%80%89/" class="article-date">
+  <time class="dt-published" datetime="2026-06-02T16:07:02.000Z" itemprop="datePublished">2026-06-03</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a>
+    <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
   </div>
 
   </div>
@@ -700,7 +857,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/05/30/fuye-ch0303/">程序员的副业：基于 FaaP（Franchise-as-a-Platform）的茶饮动态预测中台</a>
+      <a class="p-name article-title" href="/2026/06/03/%E5%87%BA%E5%A2%83eSIM%E6%80%8E%E4%B9%88%E9%80%89/">出境 eSIM 怎么选：先确认设备兼容和目的地套餐</a>
     </h1>
   
 
@@ -708,219 +865,61 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>传统的奶茶连锁靠督导巡店，架构师的方案是建立一套<strong>加盟即平台（Franchise-as-a-Platform）</strong>。将每一家加盟店抽象为一个分布式的“库存节点与流量入口”，利用时序预测算法与多代理激励协议，解决物料损耗与加盟商信任赤字。</p>
-<h3 id="1-核心商业策略：从“招代理”到“部署边缘节点”"><a href="#1-核心商业策略：从“招代理”到“部署边缘节点”" class="headerlink" title="1. 核心商业策略：从“招代理”到“部署边缘节点”"></a>1. 核心商业策略：从“招代理”到“部署边缘节点”</h3><p>用平台流量和算法能力赋能小店，换取其对整条供应链的深度服从。</p>
-<ul>
-<li><strong>套利逻辑</strong>：利用由于“不确定性”导致的食材报废成本（通常为 10%-15%）。通过精准预测将这笔钱从垃圾桶里捞出来，变现为利润。</li>
-<li><strong>目标客户</strong>：追求高翻台率的街头快饮品牌、需要精细化管控的跨省连锁、希望实现“零库存管理”的极简主义创业者。</li>
-</ul>
-<h3 id="2-程序员的“供应链流”架构"><a href="#2-程序员的“供应链流”架构" class="headerlink" title="2. 程序员的“供应链流”架构"></a>2. 程序员的“供应链流”架构</h3><ul>
-<li>**基于时空关联的销量预测 (ST-GCN Sales Predictor)**：<ul>
-<li><strong>多因子需求建模</strong>：不仅看历史销量。系统自动抓取门店周边 1 公里内的天气波动、美团配送费变动、甚至周边电影院的排片表及本地热点事件（如：某球赛直播）。</li>
-<li><strong>动态备料指令</strong>：自动计算明早 8:00 需要煮多少公斤珍珠，需要提前泡多少泡茶汤。通过代码直接下发到后厨看板，减少店员的盲目判断。</li>
-</ul>
-</li>
-<li><strong>Franchise-as-a-Platform 激励协议</strong>：<ul>
-<li>**损耗共享算法 (Waste-Sharing Protocol)**：利用智能合约记录每店的准时交付率与食材利用率。表现优异的门店自动触发“系统流量倾斜”与“物料价格折扣”等级提升。</li>
-<li><strong>分布式结算引擎</strong>：支持多端即时分润（加盟商、品牌总部、物料商、甚至物流司机）。每一杯奶茶售出即触发账目透明划分，杜绝账期纠纷。</li>
-</ul>
-</li>
-<li><strong>基于 CV 的品质实时巡检</strong>：<ul>
-<li>利用低成本摄像头监控封口状态、加小料分量。通过轻量化 YOLO 模型识别操作违规并实时弹窗提醒，辅助远程督导。</li>
-</ul>
-</li>
-</ul>
-<h3 id="3-MVP-运营形态"><a href="#3-MVP-运营形态" class="headerlink" title="3. MVP 运营形态"></a>3. MVP 运营形态</h3><ul>
-<li><strong>“零损耗”智慧奶茶系统</strong>：为新兴茶饮品牌提供从收银、库存到预测的全案中台，打出“帮加盟商多赚 10% 损耗钱”的旗号。</li>
-<li><strong>自动化供应链托管</strong>：加盟商只需出人出场。补货下单、库存盘点、促销策略全由算法后台自动发起，店主只需点击“同意执行”。</li>
-</ul>
-<h3 id="4-收益模式设计"><a href="#4-收益模式设计" class="headerlink" title="4. 收益模式设计"></a>4. 收益模式设计</h3><ul>
-<li><strong>SaaS 中台使用费</strong>：按月&#x2F;按单收取订阅费。</li>
-<li><strong>供应链溢价分红</strong>：通过精准预测带来的大宗采购降本，从供应链差价中获利。</li>
-<li><strong>数据洞察资产出口</strong>：向物料供应商（茶叶商、乳制品大厂）提供极高精度的“市场真实消耗预测地图”，收取咨询费。</li>
-</ul>
-<h3 id="5-架构师的进化方向：多店协同的“弹性逻辑”"><a href="#5-架构师的进化方向：多店协同的“弹性逻辑”" class="headerlink" title="5. 架构师的进化方向：多店协同的“弹性逻辑”"></a>5. 架构师的进化方向：多店协同的“弹性逻辑”</h3><p>当某店爆单时，算法自动触发周边 500 米内空闲店的“协同支持”模式（如：跨店配送对冲），实现整片区域的流量负载均衡。</p>
+        <p>出发前两天才想起要解决境外上网问题，打开运营商 App 发现国际漫游按天计费，价格不低；临时搜 eSIM，又不知道该从哪家服务商开始看——这是很多出境用户都会遇到的情况。</p>
+<p>eSIM 在不少短期出境场景里有机会降低通信成本，但前提是先搞清楚三件事：<strong>手机支不支持、套餐该怎么选、买之前有哪些限制要提前确认。</strong></p>
 <blockquote>
-<p><strong>Architect’s Insight</strong>: 茶饮行业的竞争是算力的竞争。当你能用一套时序模型锁死这几十公斤物料的确定性时，你提供的就不再是配方，而是一套可以自动打印利润的“分布式制造流水线”。</p>
+<p>提醒：eSIM 支持情况和套餐规则会随机型、地区、运营商和服务商调整。本文只做选购思路和排查清单整理，下单前请以设备厂商、运营商和 eSIM 服务商页面为准。</p>
 </blockquote>
 <hr>
+<h2 id="出境-eSIM-怎么选：先确认设备兼容和目的地套餐"><a href="#出境-eSIM-怎么选：先确认设备兼容和目的地套餐" class="headerlink" title="出境 eSIM 怎么选：先确认设备兼容和目的地套餐"></a>出境 eSIM 怎么选：先确认设备兼容和目的地套餐</h2><p>About eSIM 是一个面向出境旅行和跨国差旅用户的 eSIM 指南站，主要提供设备兼容查询、全球目的地套餐入口和基础使用说明。</p>
+<p>更合适的用法，是在买 eSIM 前先拿它扫一遍基础问题：<strong>这台手机能不能装 eSIM，目的地有哪些服务商可选，哪些规则还需要回到服务商官网确认。</strong></p>
+<p>在研究各类出境流量攻略前，你可以先利用 About eSIM 这个指南站摸个底。它是一个专门针对”出国怎么用手机上网”的百科字典与导航入口。网站聚合了全球各地区主流的 eSIM 供应商信息，并提供了一个直观的设备兼容性查询库。</p>
+<hr>
+<h2 id="为什么出境旅行和商务差旅会考虑-eSIM"><a href="#为什么出境旅行和商务差旅会考虑-eSIM" class="headerlink" title="为什么出境旅行和商务差旅会考虑 eSIM"></a>为什么出境旅行和商务差旅会考虑 eSIM</h2><p>对于短期旅行和多国差旅来说，eSIM 套餐通常比直接开启国际漫游更灵活，尤其是在只需要数据流量、不需要本地号码的场景下。</p>
+<p>传统国际漫游的定价逻辑是按天收费，不管你用多少流量，几天的行程算下来成本并不低。而 eSIM 的逻辑是提前购买目的地的本地数据包，可以在出发前购买、落地后扫码激活。</p>
+<p>你不需要在机场排队找换卡柜台。对于保留国内号码收短信用、出境时切换 eSIM 流量包的双卡双待用户来说，这是很多差旅用户会采用的一种更灵活的组合方案。</p>
+<hr>
+<h2 id="出境-eSIM-怎么选，先过设备兼容这一关"><a href="#出境-eSIM-怎么选，先过设备兼容这一关" class="headerlink" title="出境 eSIM 怎么选，先过设备兼容这一关"></a>出境 eSIM 怎么选，先过设备兼容这一关</h2><p>买 eSIM 之前，最先要确认的不是哪家服务商便宜，而是<strong>你的手机硬件是否支持</strong>。买完才发现设备不支持，不仅落地断网，后续的退款流程也相当麻烦。</p>
+<h3 id="国行-iPhone-的-eSIM-支持范围正在变化"><a href="#国行-iPhone-的-eSIM-支持范围正在变化" class="headerlink" title="国行 iPhone 的 eSIM 支持范围正在变化"></a>国行 iPhone 的 eSIM 支持范围正在变化</h3><p>这是中国大陆用户最容易踩到的地方。过去很多外网 eSIM 指南默认面向国际版 iPhone，但中国大陆销售的 iPhone 机型长期和海外版本不同，不能只看”iPhone 支持 eSIM”这句话就直接下单。</p>
+<p>截至 2026 年，情况已经有变化：Apple 中国大陆官方支持页显示，在中国大陆，<strong>iPhone 17e 和 iPhone Air 支持 eSIM</strong>。其中 iPhone Air 采用 eSIM 激活运营商网络，不支持实体 SIM 卡；在中国大陆使用时，需要选择支持 eSIM 的运营商和移动通信服务计划，并前往中国移动、中国电信或中国联通线下营业厅完成身份证件核验后激活。</p>
+<p>但这不代表所有国行 iPhone 都已经支持 eSIM。对于 iPhone 17e、iPhone Air 之外的国行机型，仍然要以 Apple 官方机型说明、设备设置页和运营商支持情况为准。</p>
+<p><strong>最直接的确认方法：</strong> 在拨号界面输入 <code>*#06#</code>。如果屏幕上出现 <strong>EID</strong>（Embedded Identity Document）字段，通常说明设备具备 eSIM 相关硬件能力；如果没有 EID，一般就无法直接使用标准 eSIM 套餐。</p>
+<h3 id="Android-机型怎么查"><a href="#Android-机型怎么查" class="headerlink" title="Android 机型怎么查"></a>Android 机型怎么查</h3><p>三星、Google Pixel、部分小米和 OPPO 机型确实支持 eSIM，但近几年不少旗舰机型虽然开始支持，同一品牌在不同国家和地区销售的版本差异依然很大，不能只看型号名称盲目判断。</p>
+<p>建议直接以设备设置页、官方规格页和拨号查询 EID 的显示结果为准，或者去 About eSIM 的设备库里过一遍。</p>
 <blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：程序员的副业：基于 FaaP（Franchise-as-a-Platform）的茶饮动态预测中台。</p>
+<p><strong>客观避坑：</strong> 除了硬件支持，还要确认手机是否已解锁。部分运营商的定制机（尤其是合约机）存在锁网限制，即使设备支持 eSIM，也可能无法使用其他运营商的跨国套餐。</p>
 </blockquote>
+<hr>
+<h2 id="选-eSIM-套餐不能只看价格，还要看这些限制"><a href="#选-eSIM-套餐不能只看价格，还要看这些限制" class="headerlink" title="选 eSIM 套餐不能只看价格，还要看这些限制"></a>选 eSIM 套餐不能只看价格，还要看这些限制</h2><p>常见旅行 eSIM 服务商包括 <strong>Airalo、Nomad、Holafly、Saily、GigSky</strong> 等。不同平台的侧重点并不完全一样，有的覆盖国家更多，有的主打区域套餐，有的提供所谓”无限流量”方案，有的更强调 App 购买和售后体验。</p>
+<p>选择时不要只看首页价格，更要点进套餐详情确认以下参数：</p>
+<ul>
+<li><strong>覆盖范围：</strong> 确认目的地在套餐支持范围内，多国行程注意是否需要购买区域通用包。</li>
+<li><strong>有效期计算：</strong> 是从激活日期起算，还是从购买日期起算。</li>
+<li><strong>流量上限与限速规则：</strong> 标注”无限流量”的套餐，通常也会设置高速流量门槛，超过后可能降速。</li>
+<li><strong>热点共享：</strong> 是否支持开启手机热点供电脑办公使用；部分套餐明确禁止热点共享。</li>
+</ul>
+<hr>
+<h2 id="纯流量-eSIM-能不能接验证码？先认清-Data-only-限制"><a href="#纯流量-eSIM-能不能接验证码？先认清-Data-only-限制" class="headerlink" title="纯流量 eSIM 能不能接验证码？先认清 Data-only 限制"></a>纯流量 eSIM 能不能接验证码？先认清 Data-only 限制</h2><p>这是旅行 eSIM <strong>最容易被忽视的限制</strong>，也是出了境之后最麻烦的问题。</p>
+<p>绝大多数旅行 eSIM 都是”纯数据套餐（Data-only）”，不提供本地手机号。这意味着：<strong>你无法接收 SMS 短信验证码，也无法拨打或接听传统电话。</strong></p>
+<p>如果你出差期间需要登录银行、企业系统、邮箱等需要短信验证的服务，旅行 eSIM 本身是接不到验证码的。</p>
+<p>合理的解决思路是：<strong>保留国内实体 SIM 卡开通基础漫游（专门用于接收短信），同时激活外网 eSIM 负责境外数据流量。</strong> 两张卡各司其职，互不干扰。</p>
+<hr>
+<h2 id="这类-eSIM-查询站适合谁，不适合谁"><a href="#这类-eSIM-查询站适合谁，不适合谁" class="headerlink" title="这类 eSIM 查询站适合谁，不适合谁"></a>这类 eSIM 查询站适合谁，不适合谁</h2><p>如果你近期有出境旅行、跨国出差、多国转机或海外会议安排，About eSIM 这类查询站适合用来做出发前的第一轮排查：先确认设备是否支持 eSIM，再根据目的地、停留天数和办公强度筛选套餐。</p>
+<p><strong>但如果你需要的是长期保号、本地手机号、传统语音通话，或者希望用 eSIM 解决各种账号注册与短信接收问题，那旅行 eSIM 通常不是合适方案。</strong> 多数旅行 eSIM 只解决数据上网，不替代实体手机号。</p>
+<hr>
+<h2 id="About-eSIM-官方入口与设备查询"><a href="#About-eSIM-官方入口与设备查询" class="headerlink" title="About eSIM 官方入口与设备查询"></a>About eSIM 官方入口与设备查询</h2><ul>
+<li>官网：<a target="_blank" rel="noopener" href="https://aboutesim.com/">https://aboutesim.com/</a></li>
+<li>设备兼容查询：<a target="_blank" rel="noopener" href="https://aboutesim.com/devices/">https://aboutesim.com/devices</a></li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/05/30/fuye-ch0303/" data-id="cmvi6pmh400yhvch379dthgma" data-title="程序员的副业：基于 FaaP（Franchise-as-a-Platform）的茶饮动态预测中台" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://caicitou-lili.github.io/2026/06/03/%E5%87%BA%E5%A2%83eSIM%E6%80%8E%E4%B9%88%E9%80%89/" data-id="cmvd6jtyu000xlsh3cuda5twf" data-title="出境 eSIM 怎么选：先确认设备兼容和目的地套餐" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-fuye-ch0302" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/05/29/fuye-ch0302/" class="article-date">
-  <time class="dt-published" datetime="2026-05-29T12:00:00.000Z" itemprop="datePublished">2026-05-29</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/05/29/fuye-ch0302/">程序员的副业：基于 Formula-as-Code 的精品咖啡连锁“序列化”协议</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>传统的咖啡连锁靠店长，架构师的方案是建立一套<strong>配方级颗粒度的物联网中台</strong>。通过代码锁死每一颗咖啡豆的“生命周期”与每一毫升萃取液的物理参数，实现全球范围内“口感绝对对齐”的弹性供应链。</p>
-<h3 id="1-核心商业策略：定义“数字口感”"><a href="#1-核心商业策略：定义“数字口感”" class="headerlink" title="1. 核心商业策略：定义“数字口感”"></a>1. 核心商业策略：定义“数字口感”</h3><p>让咖啡不再只是一种饮品，而是一个由温压曲线、颗粒分布、流速导度控制的“代码执行结果”。</p>
-<ul>
-<li><strong>核心逻辑</strong>：利用 IoT 网关直连研磨机、咖啡机与净水系统。将金杯准则（Golden Cup Standard）转化为一套可实时监测、自动修正的反馈回路。</li>
-<li><strong>目标客户</strong>：追求极致标准化的高端写字楼用户、寻求低人效高一致性的创业咖啡品牌、希望对加盟店进行“像素级控管”的连锁总部。</li>
-</ul>
-<h3 id="2-程序员的“咖啡流”架构"><a href="#2-程序员的“咖啡流”架构" class="headerlink" title="2. 程序员的“咖啡流”架构"></a>2. 程序员的“咖啡流”架构</h3><ul>
-<li>**Beans-to-Cup 序列化追溯 (Batch Serialization)**：<ul>
-<li><strong>溯源指纹</strong>：每一袋熟豆都具备唯一的 RFID&#x2F;二维码。入库刹那完成“风味档案”同步。研磨机自动根据该批次豆子的烘焙程度、含水率、甚至当天的环境湿度，利用算法自动微调“研磨度计数频率”。</li>
-<li>**实时萃取审计 (In-stream Audit)**：在出水口安装 TDS（总溶解固体）在线监测计。当某杯咖啡由于压粉不均出现“通道效应”时，系统实时报警并建议店员重做，数据同步至云端质量看板。</li>
-</ul>
-</li>
-<li><strong>Formula-as-Code 动态配方下发</strong>：<ul>
-<li><strong>灰度发布新风味</strong>：总部开发了一款新特调。无需下发 PPT。由于 API 直接将参数更新到各店机器的 PLC（可编程逻辑控制器）。第一杯即是最终标准方案。</li>
-</ul>
-</li>
-<li>**基于时序数据的预测性维护 (Predictive Maintenance)**：<ul>
-<li>监控水泵压力波形。当波形出现特定频率的振颤时，预判密封圈将在 200 杯后失效，自动在后台发起维保单并匹配最近的备件分拨中心。</li>
-</ul>
-</li>
-</ul>
-<h3 id="3-MVP-运营场景"><a href="#3-MVP-运营场景" class="headerlink" title="3. MVP 运营场景"></a>3. MVP 运营场景</h3><ul>
-<li><strong>“算法咖啡舱”机器人门店</strong>：全流程无人干预，用户通过 App 订阅。机器通过系统实时计算出适合该用户当前心率&#x2F;疲劳水平的“咖啡因脉冲方案”。</li>
-<li><strong>加盟商数字化审计套件</strong>：为第三方品牌提供“口感不落地”托管服务。无论谁来操作，只要机器运行你的系统，口感即锁死。</li>
-</ul>
-<h3 id="4-收益模式设计"><a href="#4-收益模式设计" class="headerlink" title="4. 收益模式设计"></a>4. 收益模式设计</h3><ul>
-<li>**技术赋能收租 (SaaS + IoT License)**：按门店数量收取中台订阅费。</li>
-<li>**高溢价物料捆绑 (Supply Chain Fee)**：由于系统能精准预测消耗，不仅卖系统，更通过精准预测降低库存损耗，实现在咖啡豆、包材上的供应链获利。</li>
-<li><strong>“口感证明”品牌认证</strong>：向第三方收取“技术驱动一致性”的品牌授权费。</li>
-</ul>
-<h3 id="5-架构师的进化方向：多模态感知定制"><a href="#5-架构师的进化方向：多模态感知定制" class="headerlink" title="5. 架构师的进化方向：多模态感知定制"></a>5. 架构师的进化方向：多模态感知定制</h3><p>引入视觉识别分析用户的面部表情与情绪，由算法自动微调每一杯拿铁的拉花图案或甜度配比，实现从“标准化”到“极度个性化”的跃迁。</p>
-<blockquote>
-<p><strong>Architect’s Insight</strong>: 一致性是品牌的生命线。当你能把感性的“咖啡师手感”解构为一组高频的、自校准的传感器时序信号时，你经营的就不再是咖啡店，而是一个全球分布的“风味渲染引擎”。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：程序员的副业：基于 Formula-as-Code 的精品咖啡连锁“序列化”协议。</p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/05/29/fuye-ch0302/" data-id="cmvi6pmh000y8vch3a70k6ymm" data-title="程序员的副业：基于 Formula-as-Code 的精品咖啡连锁“序列化”协议" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-fuye-ch0301" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/05/29/fuye-ch0301/" class="article-date">
-  <time class="dt-published" datetime="2026-05-29T00:00:00.000Z" itemprop="datePublished">2026-05-29</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/05/29/fuye-ch0301/">程序员的副业：基于 GP-as-a-Table 的 AI 主题“自动化尽调”孵化器</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>传统的孵化器是收租加撮合，架构师的方案是建立一套<strong>自动化投研数据屋（Data-Room）</strong>。通过代码自动爬取、审计、并预测 AI 初创公司的技术护城河，将“一级市场投资”转化为一套可量化的、高频的、具备算法护城河的 GP（普通合伙人）资产管理系统。</p>
-<h3 id="1-核心商业提案：定义“技术即资本”"><a href="#1-核心商业提案：定义“技术即资本”" class="headerlink" title="1. 核心商业提案：定义“技术即资本”"></a>1. 核心商业提案：定义“技术即资本”</h3><p>用算力替代传统的投资经理（Analyst），通过数据驱动的方式批量捕获 AI 独角兽。</p>
-<ul>
-<li><strong>核心逻辑</strong>：不听创业者讲 PPT，直接审计他们的 GitHub 代码、HuggingFace 模型调用量及算力成本曲线（Compute Spend）。</li>
-<li><strong>目标客户</strong>：追求高胜率的 LP（有限合伙人）、寻求硬核技术背书的 AI 初创团队、需要进行产业垂直整合的大型科技集团。</li>
-</ul>
-<h3 id="2-程序员的“链上孵化”架构"><a href="#2-程序员的“链上孵化”架构" class="headerlink" title="2. 程序员的“链上孵化”架构"></a>2. 程序员的“链上孵化”架构</h3><ul>
-<li>**自动化尽调引擎 (DD-Oracle)**：<ul>
-<li>**代码健壮性预测 (Code Scalability Analytics)**：自动扫描初创公司的私有&#x2F;开源仓库。利用 LLM 评估其架构的演化潜力、对前沿框架的集成速度及是否存在核心的技术负债（Debt）。</li>
-<li>**算力性价比归因 (Compute Attribution)**：通过抓取云厂商账单（如有授权）或模拟推理成本。通过由于大规模模型部署带来的“单次推理边际成本”动态评估其模型的工程化成熟度。</li>
-</ul>
-</li>
-<li><strong>“GP-as-a-Table”资产看板</strong>：<ul>
-<li><strong>图谱式竞品追踪</strong>：在图数据库中实时绘制全球 AI 景图。当一个新项目出现时，系统自动匹配其与 OpenAI、Anthropic 等巨头的“生态重合度”及“垂直赛道真空区”。</li>
-<li>**动态估值算法 (Algo-Valuation)**：基于实时增长数据（API 调用增速、开发者活跃度、GPU 集群空闲率）生成动态估值模型，辅助投资决策。</li>
-</ul>
-</li>
-<li><strong>自动化投后资源调度网关</strong>：<ul>
-<li><strong>算力与算力池对冲</strong>：孵化器自建算力池，通过代码自动根据被投项目的紧迫度分配 GPU 时长。</li>
-</ul>
-</li>
-</ul>
-<h3 id="3-MVP-运营形态"><a href="#3-MVP-运营形态" class="headerlink" title="3. MVP 运营形态"></a>3. MVP 运营形态</h3><ul>
-<li><strong>“AI 赛道雷达”订阅号</strong>：每周为 LP 发送一份由算法自动生成的“水下项目”尽调清单。</li>
-<li><strong>“代码换股权”合作模组</strong>：你不仅出钱，更出一套“架构审计与加速系统”。初创公司接入你的中台后，自动获得架构优化报告与自动化测试套件，以此换取部分干股。</li>
-</ul>
-<h3 id="4-收益模式设计"><a href="#4-收益模式设计" class="headerlink" title="4. 收益模式设计"></a>4. 收益模式设计</h3><ul>
-<li>**管理费与超额收益分红 (Carry)**：作为 GP，收取基金规模的 2% 管理费及投资退出收益的 20%。</li>
-<li><strong>技术咨询与孵化服务费</strong>：针对入驻企业收取高性能架构设计、合规审计、自动化运维分担费。</li>
-<li><strong>数据资产出口收入</strong>：向其他基金出口关于 AI 细分行业的深度算法分析报告。</li>
-</ul>
-<h3 id="5-架构师的进化方向：AI-驱动的“自我进化型”基金"><a href="#5-架构师的进化方向：AI-驱动的“自我进化型”基金" class="headerlink" title="5. 架构师的进化方向：AI 驱动的“自我进化型”基金"></a>5. 架构师的进化方向：AI 驱动的“自我进化型”基金</h3><p>部署一套 AI Agent，让它自主去发现新项目、自主撰写投资建议书、甚至在链上自动完成小额天使轮的资金划拨（基于智能合约）。</p>
-<blockquote>
-<p><strong>Architect’s Insight</strong>: 一级市场的本质是极度的信息不对称。当你能用一套系统自动化测算初创公司的“代码熵”与“算力边界”时，你不仅是在做投资，而是在为人类的生产力创新安装一个“数字指南针”。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>本文转载自开源仓库 <a target="_blank" rel="noopener" href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：程序员的副业：基于 GP-as-a-Table 的 AI 主题“自动化尽调”孵化器。</p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://caicitou-lili.github.io/2026/05/29/fuye-ch0301/" data-id="cmvi6pmh200ybvch3cog73wlt" data-title="程序员的副业：基于 GP-as-a-Table 的 AI 主题“自动化尽调”孵化器" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E5%89%AF%E4%B8%9A/" rel="tag">AI副业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%90%9E%E9%92%B1/" rel="tag">搞钱</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" rel="tag">独立开发</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eSIM/" rel="tag">eSIM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%87%BA%E5%B7%AE/" rel="tag">出差</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%85%E8%A1%8C/" rel="tag">旅行</a></li></ul>
 
     </footer>
   </div>
@@ -934,7 +933,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/24/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="page-number" href="/page/24/">24</a><span class="page-number current">25</span><a class="page-number" href="/page/26/">26</a><a class="page-number" href="/page/27/">27</a><span class="space">&hellip;</span><a class="page-number" href="/page/55/">55</a><a class="extend next" rel="next" href="/page/26/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/24/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="page-number" href="/page/24/">24</a><span class="page-number current">25</span><a class="page-number" href="/page/26/">26</a><a class="page-number" href="/page/27/">27</a><span class="space">&hellip;</span><a class="page-number" href="/page/56/">56</a><a class="extend next" rel="next" href="/page/26/">下一页 &raquo;</a>
   </nav>
 
 </section>
@@ -945,7 +944,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%A6%E8%AF%84/">书评</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/">效率工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9F%B3%E4%B9%90/">音乐</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E5%89%AF%E4%B8%9A/">AI副业</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B9%A6%E8%AF%84/">书评</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%A4%A7%E6%A8%A1%E5%9E%8B/">动手学大模型</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/">效率工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9F%B3%E4%B9%90/">音乐</a></li></ul>
     </div>
   </div>
 
@@ -965,7 +964,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/AGENTS-md/" style="font-size: 10px;">AGENTS.md</a> <a href="/tags/AI/" style="font-size: 12px;">AI</a> <a href="/tags/AI-Agent/" style="font-size: 10px;">AI Agent</a> <a href="/tags/AI-Skills/" style="font-size: 10px;">AI Skills</a> <a href="/tags/AIGC/" style="font-size: 13px;">AIGC</a> <a href="/tags/AI%E5%88%9B%E4%B8%9A/" style="font-size: 10px;">AI创业</a> <a href="/tags/AI%E5%89%AF%E4%B8%9A/" style="font-size: 20px;">AI副业</a> <a href="/tags/AI%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 13px;">AI工作流</a> <a href="/tags/AI%E5%BB%BA%E7%AB%99/" style="font-size: 10px;">AI建站</a> <a href="/tags/AI%E6%8A%95%E7%A0%94/" style="font-size: 10px;">AI投研</a> <a href="/tags/AI%E6%B3%A1%E6%B2%AB/" style="font-size: 10px;">AI泡沫</a> <a href="/tags/AI%E7%AC%AC%E4%BA%8C%E5%A4%A7%E8%84%91/" style="font-size: 10px;">AI第二大脑</a> <a href="/tags/AI%E7%BC%96%E7%A8%8B/" style="font-size: 11px;">AI编程</a> <a href="/tags/AI%E8%A7%86%E9%A2%91/" style="font-size: 10px;">AI视频</a> <a href="/tags/Agent/" style="font-size: 10px;">Agent</a> <a href="/tags/Anthropic/" style="font-size: 10px;">Anthropic</a> <a href="/tags/Claude/" style="font-size: 13px;">Claude</a> <a href="/tags/Claude-Code/" style="font-size: 11px;">Claude Code</a> <a href="/tags/Codex/" style="font-size: 14px;">Codex</a> <a href="/tags/DeepSeek/" style="font-size: 10px;">DeepSeek</a> <a href="/tags/Git/" style="font-size: 11px;">Git</a> <a href="/tags/GitHub/" style="font-size: 12px;">GitHub</a> <a href="/tags/Google-AdSense/" style="font-size: 10px;">Google AdSense</a> <a href="/tags/Hostinger/" style="font-size: 10px;">Hostinger</a> <a href="/tags/MCP/" style="font-size: 12px;">MCP</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Next-js/" style="font-size: 10px;">Next.js</a> <a href="/tags/Obsidian/" style="font-size: 12px;">Obsidian</a> <a href="/tags/PARA/" style="font-size: 10px;">PARA</a> <a href="/tags/Prompt/" style="font-size: 10px;">Prompt</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/Skills/" style="font-size: 12px;">Skills</a> <a href="/tags/Workflow/" style="font-size: 10px;">Workflow</a> <a href="/tags/YouTube/" style="font-size: 10px;">YouTube</a> <a href="/tags/eSIM/" style="font-size: 10px;">eSIM</a> <a href="/tags/yt-dlp/" style="font-size: 10px;">yt-dlp</a> <a href="/tags/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8/" style="font-size: 10px;">一人公司</a> <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/" style="font-size: 10px;">中国经济</a> <a href="/tags/%E4%B8%AD%E6%96%87%E5%86%99%E4%BD%9C/" style="font-size: 10px;">中文写作</a> <a href="/tags/%E4%B9%A6%E8%AF%84/" style="font-size: 10px;">书评</a> <a href="/tags/%E5%85%8D%E8%B4%B9%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">免费工具</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 10px;">公众号</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C/" style="font-size: 12px;">内容创作</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%8F%98%E7%8E%B0/" style="font-size: 10px;">内容变现</a> <a href="/tags/%E5%87%BA%E5%9B%BD/" style="font-size: 10px;">出国</a> <a href="/tags/%E5%87%BA%E5%B7%AE/" style="font-size: 10px;">出差</a> <a href="/tags/%E5%87%BA%E6%B5%B7%E8%B5%9A%E9%92%B1/" style="font-size: 10px;">出海赚钱</a> <a href="/tags/%E5%88%9B%E4%B8%9A/" style="font-size: 17px;">创业</a> <a href="/tags/%E5%89%AF%E4%B8%9A/" style="font-size: 13px;">副业</a> <a href="/tags/%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">动态工作流</a> <a href="/tags/%E5%8E%86%E5%8F%B2%E5%AF%B9%E6%AF%94/" style="font-size: 10px;">历史对比</a> <a href="/tags/%E5%8F%AF%E7%81%B5/" style="font-size: 10px;">可灵</a> <a href="/tags/%E5%9C%B0%E7%BC%98%E6%94%BF%E6%B2%BB/" style="font-size: 10px;">地缘政治</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">大模型</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">学习方法</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" style="font-size: 10px;">学习路线</a> <a href="/tags/%E5%AE%9E%E6%B5%8B/" style="font-size: 10px;">实测</a> <a href="/tags/%E5%B0%8F%E7%BA%A2%E4%B9%A6/" style="font-size: 10px;">小红书</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">工作流</a> <a href="/tags/%E5%B9%B3%E5%8F%B0%E7%AE%97%E6%B3%95/" style="font-size: 10px;">平台算法</a> <a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 12px;">开源</a> <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 16px;">开源项目</a> <a href="/tags/%E6%89%93%E5%B7%A5%E5%BA%A6%E5%81%87/" style="font-size: 10px;">打工度假</a> <a href="/tags/%E6%8A%95%E8%B5%84/" style="font-size: 10px;">投资</a> <a href="/tags/%E6%8D%A1%E6%BC%8F/" style="font-size: 10px;">捡漏</a> <a href="/tags/%E6%90%9E%E9%92%B1/" style="font-size: 19px;">搞钱</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">效率工具</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 15px;">教程</a> <a href="/tags/%E6%96%87%E6%A1%88/" style="font-size: 10px;">文案</a> <a href="/tags/%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8/" style="font-size: 10px;">新手入门</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 10px;">旅行</a> <a href="/tags/%E6%9A%97%E9%99%90%E6%B5%81/" style="font-size: 10px;">暗限流</a> <a href="/tags/%E6%A0%91%E6%B4%9E/" style="font-size: 17px;">树洞</a> <a href="/tags/%E6%A6%9C%E5%8D%95/" style="font-size: 10px;">榜单</a> <a href="/tags/%E6%B0%91%E7%B2%B9%E4%B8%BB%E4%B9%89/" style="font-size: 10px;">民粹主义</a> <a href="/tags/%E6%B6%A6%E8%89%B2/" style="font-size: 10px;">润色</a> <a href="/tags/%E6%BB%9A%E7%9F%B3/" style="font-size: 10px;">滚石</a> <a href="/tags/%E6%BE%B3%E6%B4%B2WHV/" style="font-size: 10px;">澳洲WHV</a> <a href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" style="font-size: 18px;">独立开发</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%8C%87%E5%8D%97/" style="font-size: 10px;">生活指南</a> <a href="/tags/%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5/" style="font-size: 11px;">电商运营</a> <a href="/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/" style="font-size: 10px;">电子书</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 11px;">知识管理</a> <a href="/tags/%E7%A0%8D%E4%BB%B7/" style="font-size: 10px;">砍价</a> <a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 10px;">科幻</a> <a href="/tags/%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">笔记方法</a> <a href="/tags/%E7%AD%BE%E8%AF%81%E6%94%BB%E7%95%A5/" style="font-size: 10px;">签证攻略</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">翻译</a> <a href="/tags/%E8%82%A1%E7%A5%A8/" style="font-size: 10px;">股票</a> <a href="/tags/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90/" style="font-size: 10px;">股票分析</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 12px;">自动化</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93/" style="font-size: 13px;">自媒体</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">自媒体工具</a> <a href="/tags/%E8%87%AA%E9%83%A8%E7%BD%B2/" style="font-size: 10px;">自部署</a> <a href="/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/" style="font-size: 10px;">被动收入</a> <a href="/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" style="font-size: 10px;">视频下载</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/" style="font-size: 11px;">视频剪辑</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 10px;">语音合成</a> <a href="/tags/%E8%B4%B8%E6%98%93%E6%88%98/" style="font-size: 10px;">贸易战</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E9%80%89%E6%8B%A9/" style="font-size: 10px;">软件选择</a> <a href="/tags/%E9%80%89%E9%A2%98/" style="font-size: 10px;">选题</a> <a href="/tags/%E9%97%B2%E9%B1%BC/" style="font-size: 13px;">闲鱼</a> <a href="/tags/%E9%98%BF%E8%A5%BF%E8%8E%AB%E5%A4%AB/" style="font-size: 10px;">阿西莫夫</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 10px;">音乐</a>
+      <a href="/tags/AGENTS-md/" style="font-size: 10px;">AGENTS.md</a> <a href="/tags/AI/" style="font-size: 11.82px;">AI</a> <a href="/tags/AI-Agent/" style="font-size: 10px;">AI Agent</a> <a href="/tags/AI-Skills/" style="font-size: 10px;">AI Skills</a> <a href="/tags/AIGC/" style="font-size: 12.73px;">AIGC</a> <a href="/tags/AI%E5%88%9B%E4%B8%9A/" style="font-size: 10px;">AI创业</a> <a href="/tags/AI%E5%89%AF%E4%B8%9A/" style="font-size: 20px;">AI副业</a> <a href="/tags/AI%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 12.73px;">AI工作流</a> <a href="/tags/AI%E5%BB%BA%E7%AB%99/" style="font-size: 10px;">AI建站</a> <a href="/tags/AI%E6%8A%95%E7%A0%94/" style="font-size: 10px;">AI投研</a> <a href="/tags/AI%E6%B3%A1%E6%B2%AB/" style="font-size: 10px;">AI泡沫</a> <a href="/tags/AI%E7%AC%AC%E4%BA%8C%E5%A4%A7%E8%84%91/" style="font-size: 10px;">AI第二大脑</a> <a href="/tags/AI%E7%BC%96%E7%A8%8B/" style="font-size: 10.91px;">AI编程</a> <a href="/tags/AI%E8%A7%86%E9%A2%91/" style="font-size: 10px;">AI视频</a> <a href="/tags/Agent/" style="font-size: 10px;">Agent</a> <a href="/tags/Anthropic/" style="font-size: 10px;">Anthropic</a> <a href="/tags/Claude/" style="font-size: 12.73px;">Claude</a> <a href="/tags/Claude-Code/" style="font-size: 10.91px;">Claude Code</a> <a href="/tags/Codex/" style="font-size: 13.64px;">Codex</a> <a href="/tags/DeepSeek/" style="font-size: 10px;">DeepSeek</a> <a href="/tags/Git/" style="font-size: 10.91px;">Git</a> <a href="/tags/GitHub/" style="font-size: 11.82px;">GitHub</a> <a href="/tags/Google-AdSense/" style="font-size: 10px;">Google AdSense</a> <a href="/tags/Hostinger/" style="font-size: 10px;">Hostinger</a> <a href="/tags/MCP/" style="font-size: 11.82px;">MCP</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Next-js/" style="font-size: 10px;">Next.js</a> <a href="/tags/Obsidian/" style="font-size: 11.82px;">Obsidian</a> <a href="/tags/PARA/" style="font-size: 10px;">PARA</a> <a href="/tags/Prompt/" style="font-size: 10px;">Prompt</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/Skills/" style="font-size: 11.82px;">Skills</a> <a href="/tags/Workflow/" style="font-size: 10px;">Workflow</a> <a href="/tags/YouTube/" style="font-size: 10px;">YouTube</a> <a href="/tags/eSIM/" style="font-size: 10px;">eSIM</a> <a href="/tags/yt-dlp/" style="font-size: 10px;">yt-dlp</a> <a href="/tags/%E4%B8%80%E4%BA%BA%E5%85%AC%E5%8F%B8/" style="font-size: 10px;">一人公司</a> <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/" style="font-size: 10px;">中国经济</a> <a href="/tags/%E4%B8%AD%E6%96%87%E5%86%99%E4%BD%9C/" style="font-size: 10px;">中文写作</a> <a href="/tags/%E4%B9%A6%E8%AF%84/" style="font-size: 10px;">书评</a> <a href="/tags/%E5%85%8D%E8%B4%B9%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">免费工具</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 10px;">公众号</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%88%9B%E4%BD%9C/" style="font-size: 11.82px;">内容创作</a> <a href="/tags/%E5%86%85%E5%AE%B9%E5%8F%98%E7%8E%B0/" style="font-size: 10px;">内容变现</a> <a href="/tags/%E5%87%BA%E5%9B%BD/" style="font-size: 10px;">出国</a> <a href="/tags/%E5%87%BA%E5%B7%AE/" style="font-size: 10px;">出差</a> <a href="/tags/%E5%87%BA%E6%B5%B7%E8%B5%9A%E9%92%B1/" style="font-size: 10px;">出海赚钱</a> <a href="/tags/%E5%88%9B%E4%B8%9A/" style="font-size: 17.27px;">创业</a> <a href="/tags/%E5%89%AF%E4%B8%9A/" style="font-size: 12.73px;">副业</a> <a href="/tags/%E5%8A%A8%E6%80%81%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">动态工作流</a> <a href="/tags/%E5%8E%86%E5%8F%B2%E5%AF%B9%E6%AF%94/" style="font-size: 10px;">历史对比</a> <a href="/tags/%E5%8F%AF%E7%81%B5/" style="font-size: 10px;">可灵</a> <a href="/tags/%E5%9C%B0%E7%BC%98%E6%94%BF%E6%B2%BB/" style="font-size: 10px;">地缘政治</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 14.55px;">大模型</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">学习方法</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" style="font-size: 10px;">学习路线</a> <a href="/tags/%E5%AE%9E%E6%B5%8B/" style="font-size: 10px;">实测</a> <a href="/tags/%E5%B0%8F%E7%BA%A2%E4%B9%A6/" style="font-size: 10px;">小红书</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">工作流</a> <a href="/tags/%E5%B9%B3%E5%8F%B0%E7%AE%97%E6%B3%95/" style="font-size: 10px;">平台算法</a> <a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 11.82px;">开源</a> <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 16.36px;">开源项目</a> <a href="/tags/%E6%89%93%E5%B7%A5%E5%BA%A6%E5%81%87/" style="font-size: 10px;">打工度假</a> <a href="/tags/%E6%8A%95%E8%B5%84/" style="font-size: 10px;">投资</a> <a href="/tags/%E6%8D%A1%E6%BC%8F/" style="font-size: 10px;">捡漏</a> <a href="/tags/%E6%90%9E%E9%92%B1/" style="font-size: 19.09px;">搞钱</a> <a href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">效率工具</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 15.45px;">教程</a> <a href="/tags/%E6%96%87%E6%A1%88/" style="font-size: 10px;">文案</a> <a href="/tags/%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8/" style="font-size: 10px;">新手入门</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 10px;">旅行</a> <a href="/tags/%E6%9A%97%E9%99%90%E6%B5%81/" style="font-size: 10px;">暗限流</a> <a href="/tags/%E6%A0%91%E6%B4%9E/" style="font-size: 17.27px;">树洞</a> <a href="/tags/%E6%A6%9C%E5%8D%95/" style="font-size: 10px;">榜单</a> <a href="/tags/%E6%B0%91%E7%B2%B9%E4%B8%BB%E4%B9%89/" style="font-size: 10px;">民粹主义</a> <a href="/tags/%E6%B6%A6%E8%89%B2/" style="font-size: 10px;">润色</a> <a href="/tags/%E6%BB%9A%E7%9F%B3/" style="font-size: 10px;">滚石</a> <a href="/tags/%E6%BE%B3%E6%B4%B2WHV/" style="font-size: 10px;">澳洲WHV</a> <a href="/tags/%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91/" style="font-size: 18.18px;">独立开发</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%8C%87%E5%8D%97/" style="font-size: 10px;">生活指南</a> <a href="/tags/%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5/" style="font-size: 10.91px;">电商运营</a> <a href="/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/" style="font-size: 10px;">电子书</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 10.91px;">知识管理</a> <a href="/tags/%E7%A0%8D%E4%BB%B7/" style="font-size: 10px;">砍价</a> <a href="/tags/%E7%A7%91%E5%B9%BB/" style="font-size: 10px;">科幻</a> <a href="/tags/%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/" style="font-size: 10px;">笔记方法</a> <a href="/tags/%E7%AD%BE%E8%AF%81%E6%94%BB%E7%95%A5/" style="font-size: 10px;">签证攻略</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">翻译</a> <a href="/tags/%E8%82%A1%E7%A5%A8/" style="font-size: 10px;">股票</a> <a href="/tags/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90/" style="font-size: 10px;">股票分析</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 11.82px;">自动化</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93/" style="font-size: 12.73px;">自媒体</a> <a href="/tags/%E8%87%AA%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">自媒体工具</a> <a href="/tags/%E8%87%AA%E9%83%A8%E7%BD%B2/" style="font-size: 10px;">自部署</a> <a href="/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/" style="font-size: 10px;">被动收入</a> <a href="/tags/%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" style="font-size: 10px;">视频下载</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/" style="font-size: 10.91px;">视频剪辑</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 10px;">语音合成</a> <a href="/tags/%E8%B4%B8%E6%98%93%E6%88%98/" style="font-size: 10px;">贸易战</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E9%80%89%E6%8B%A9/" style="font-size: 10px;">软件选择</a> <a href="/tags/%E9%80%89%E9%A2%98/" style="font-size: 10px;">选题</a> <a href="/tags/%E9%97%B2%E9%B1%BC/" style="font-size: 12.73px;">闲鱼</a> <a href="/tags/%E9%98%BF%E8%A5%BF%E8%8E%AB%E5%A4%AB/" style="font-size: 10px;">阿西莫夫</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 10px;">音乐</a>
     </div>
   </div>
 
@@ -987,23 +986,23 @@
       <ul>
         
           <li>
-            <a href="/2026/10/23/%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E4%B8%8A%E6%B5%B7%E4%BA%A4%E5%A4%A711%E7%AB%A0%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%BC%96%E7%A8%8B%E5%AE%9E%E8%B7%B5%E6%95%99%E7%A8%8B/">动手学大模型：上海交大开源的 11 章大模型编程实践教程</a>
+            <a href="/2026/10/23/dive-llms-ch11-RLHF%E5%AE%89%E5%85%A8%E5%AF%B9%E9%BD%90/">动手学大模型 ch11｜RLHF安全对齐</a>
           </li>
         
           <li>
-            <a href="/2026/10/21/OpenStock-%E5%BC%80%E6%BA%90%E5%85%8D%E8%B4%B9%E5%85%A8%E7%90%83%E8%A1%8C%E6%83%85%E9%9D%A2%E6%9D%BF-%E9%83%A8%E7%BD%B2%E4%B8%8E%E4%BD%BF%E7%94%A8/">OpenStock：开源免费的全球行情面板，自己搭一个&#34;平价彭博终端&#34;</a>
+            <a href="/2026/10/23/dive-llms-ch10-%E6%99%BA%E8%83%BD%E4%BD%93%E5%AE%89%E5%85%A8/">动手学大模型 ch10｜智能体安全</a>
           </li>
         
           <li>
-            <a href="/2026/10/21/AI%E5%89%AF%E4%B8%9A%E8%B5%9A%E9%92%B1%E6%96%B9%E6%A1%88%E5%8D%9A%E7%89%A9%E9%A6%86-514%E7%AF%87%E5%B7%B2%E9%95%9C%E5%83%8F/">AI 副业赚钱方案博物馆：514 篇章节已镜像到本站</a>
+            <a href="/2026/10/23/dive-llms-ch09-GUI%E6%99%BA%E8%83%BD%E4%BD%93/">动手学大模型 ch09｜GUI智能体</a>
           </li>
         
           <li>
-            <a href="/2026/10/21/GitHub%E5%B0%8F%E7%99%BD%E9%9B%B6%E5%9F%BA%E7%A1%80%E4%BB%8E0%E5%88%B01%E6%95%99%E7%A8%8B/">GitHub 小白零基础从 0 到 1 教程（转载整理）</a>
+            <a href="/2026/10/23/dive-llms-ch08-%E5%A4%9A%E6%A8%A1%E6%80%81%E6%A8%A1%E5%9E%8B/">动手学大模型 ch08｜多模态模型</a>
           </li>
         
           <li>
-            <a href="/2026/10/20/%E5%8F%AF%E7%81%B54-0%E5%AE%9E%E6%B5%8B%E4%B8%8EAI%E7%9F%AD%E5%89%A7%E5%85%A8%E6%B5%81%E7%A8%8B/">动动嘴就能做 AI 短剧，还能自动剪辑：可灵 4.0 实测与全流程教程</a>
+            <a href="/2026/10/23/dive-llms-ch07-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%9A%90%E5%86%99/">动手学大模型 ch07｜大模型隐写</a>
           </li>
         
       </ul>
