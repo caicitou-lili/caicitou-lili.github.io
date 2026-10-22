@@ -4,10 +4,110 @@
   <subtitle>读一本好书，遇见更好的自己</subtitle>
   <link href="https://caicitou-lili.github.io/"/>
   <link rel="self" href="https://caicitou-lili.github.io/atom.xml"/>
-  <updated>2026-10-21T22:22:17+08:00</updated>
+  <updated>2026-10-23T01:58:01+08:00</updated>
   <id>https://caicitou-lili.github.io/</id>
   <author><name>caicitou-lili</name></author>
   <generator uri="https://hexo.io/">Hexo</generator>
+  <entry>
+    <title>动手学大模型：上海交大开源的 11 章大模型编程实践教程</title>
+    <link href="https://caicitou-lili.github.io/2026/10/23/动手学大模型-上海交大11章大模型编程实践教程/"/>
+    <id>https://caicitou-lili.github.io/2026/10/23/动手学大模型-上海交大11章大模型编程实践教程/</id>
+    <published>2026-10-23T02:00:00+08:00</published>
+    <updated>2026-10-23T01:58:01+08:00</updated>
+    <category term="教程"/>
+    <content type="html"><![CDATA[<blockquote>
+<p>项目地址：<a href="https://github.com/Lordog/dive-into-llms">https://github.com/Lordog/dive-into-llms</a> （上海交通大学，公益免费）</p>
+</blockquote>
+<p>想入门大模型，光看博客和视频不够，得亲手跑代码。《动手学大模型》（dive-into-llms）是上海交通大学《自然语言处理前沿技术》《人工智能安全技术》两门课程讲义拓展而来的编程实践教程，<strong>完全免费、每章配可运行 Notebook</strong>，是目前我见过的覆盖面最全的中文大模型入门实践合集之一。</p>
+<h2 id="一句话定位"><a href="#一句话定位" class="headerlink" title="一句话定位"></a>一句话定位</h2><p><strong>课件 PDF + 图文教程 + 可运行 Notebook 三件套</strong>，从微调部署一路讲到智能体安全，共 11 章。</p>
+<h2 id="11-章内容速览"><a href="#11-章内容速览" class="headerlink" title="11 章内容速览"></a>11 章内容速览</h2><table>
+<thead>
+<tr>
+<th>章</th>
+<th>主题</th>
+<th>亮点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>微调与部署</td>
+<td>Transformers 微调 + Gradio Demo 上线</td>
+</tr>
+<tr>
+<td>2</td>
+<td>提示学习与思维链</td>
+<td>API 调用与 CoT 技巧，入门第一课</td>
+</tr>
+<tr>
+<td>3</td>
+<td>知识编辑</td>
+<td>改掉模型”记错的”知识（ROME&#x2F;MEMIT 类方法）</td>
+</tr>
+<tr>
+<td>4</td>
+<td>数学推理</td>
+<td>亲手蒸馏一个迷你 R1</td>
+</tr>
+<tr>
+<td>5</td>
+<td>模型水印</td>
+<td>在生成文本里嵌入人眼不可见的水印</td>
+</tr>
+<tr>
+<td>6</td>
+<td>越狱攻击</td>
+<td>学会攻击才能做好防守</td>
+</tr>
+<tr>
+<td>7</td>
+<td>大模型隐写</td>
+<td>“看不见的墨水”，回答里暗藏密信</td>
+</tr>
+<tr>
+<td>8</td>
+<td>多模态模型</td>
+<td>多模态理解与生成实践</td>
+</tr>
+<tr>
+<td>9</td>
+<td>GUI 智能体</td>
+<td>让 Agent 替你点外卖、回消息、比价</td>
+</tr>
+<tr>
+<td>10</td>
+<td>智能体安全</td>
+<td>开放场景下 Agent 的风险与防御</td>
+</tr>
+<tr>
+<td>11</td>
+<td>RLHF 安全对齐</td>
+<td>基于 PPO 的 RLHF 完整实验</td>
+</tr>
+</tbody></table>
+<p>前两章是基础（微调 + API），后面按兴趣挑：想做应用看 8&#x2F;9，关心安全看 5&#x2F;6&#x2F;7&#x2F;10，想懂训练看 4&#x2F;11。</p>
+<h2 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h2><ol>
+<li>克隆仓库：<code>git clone https://github.com/Lordog/dive-into-llms.git</code></li>
+<li>建环境（Python 3.9+，建议虚拟环境隔离）：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install transformers torch gradio jupyter</span><br><span class="line">jupyter lab</span><br></pre></td></tr></table></figure></li>
+<li>打开 <code>documents/chapter2/dive-prompting.ipynb</code> 逐步运行，边跑边对照同目录 <code>README.md</code> 和 PDF 课件。</li>
+</ol>
+<p><strong>几点实用提示（本机实测&#x2F;经验）：</strong></p>
+<ul>
+<li><strong>没有 GPU 也能学大部分内容</strong>：章 2 的 API 调用、章 3 的知识编辑基本 CPU 可跑；章 4 微调和章 11 RLHF 建议用 Colab &#x2F; Kaggle 的免费 GPU。</li>
+<li><strong>境内下载 HuggingFace 模型</strong>：设置 <code>HF_ENDPOINT=https://hf-mirror.com</code> 镜像，pip 换国内源。</li>
+<li><strong>部分示例数据</strong>来自 Kaggle（需注册）或作者提供的网盘链接，在各章 README 里有说明。</li>
+<li><strong>代码版本可能滞后</strong>：教程依赖的 transformers&#x2F;torch 迭代很快，报错先查版本兼容。</li>
+<li>仓库仍在持续更新（2025-06 新增了数学推理、GUI Agent、对齐等主题），建议 <code>git pull</code> 保持最新。</li>
+</ul>
+<h2 id="适合谁"><a href="#适合谁" class="headerlink" title="适合谁"></a>适合谁</h2><ul>
+<li>想从”会调 API”进阶到”懂微调&#x2F;懂原理”的开发者</li>
+<li>研究生做课程设计或科研入门</li>
+<li>安全方向的从业者（第 5~7、10 章是一条完整的大模型安全实践线）</li>
+</ul>
+<p>另外作者团队还联合华为昇腾上线了《大模型开发全流程》公益课（PPT + 实验手册 + 视频），在昇腾社区”大模型开发学习专区”可以找到。</p>
+<hr>
+<p>本文介绍项目源自 GitHub：<a href="https://github.com/Lordog/dive-into-llms">Lordog&#x2F;dive-into-llms</a>，教程内容版权属于原开发团队，学习使用请遵循其仓库说明。</p>
+]]></content>
+  </entry>
   <entry>
     <title>OpenStock：开源免费的全球行情面板，自己搭一个&quot;平价彭博终端&quot;</title>
     <link href="https://caicitou-lili.github.io/2026/10/21/OpenStock-开源免费全球行情面板-部署与使用/"/>
@@ -1519,25 +1619,6 @@
 <hr>
 <blockquote>
 <p>本文转载自开源仓库 <a href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：入职六个月内的“员工高流失潮”，是制度问题还是文化问题？。</p>
-</blockquote>
-]]></content>
-  </entry>
-  <entry>
-    <title>“过早优化”是初创公司的慢性自杀？</title>
-    <link href="https://caicitou-lili.github.io/2026/09/09/shudong-ch0059/"/>
-    <id>https://caicitou-lili.github.io/2026/09/09/shudong-ch0059/</id>
-    <published>2026-09-09T08:00:00+08:00</published>
-    <updated>2026-10-21T22:04:05+08:00</updated>
-    <category term="AI副业"/>
-    <content type="html"><![CDATA[<p>网友投稿：<br>我们是技术流团队，核心开发特别追求完美。为了一个几乎不可能发生的“高并发场景”，他坚持要重构底层架构，说现在不弄好以后会塌。</p>
-<p>这直接导致我们的MVP版本延期了两个月。我也觉得他专业，但看着账上的钱在烧，却没有产品去换市场反馈，我急得要命。如何说服技术团队接受“够用就好”？</p>
-<p>回复：<br>硅谷那句话永远是对的：如果你不为你的第一个版本感到羞愧，那你就上线太晚了。</p>
-<p>初创期的价值在于“反馈速度”，而非“完美架构”。</p>
-<p>这里有3个立刻能试的方法：<br>一是“倒计时上线法”，设定一个硬性的、不可逾越的上线日期，逼迫团队在这个日期前只做最核心的功能；<br>二是“MVP思维洗脑”，给技术团队灌输：如果没人用，你的千万级并发架构就是一堆废铜烂铁；<br>三是“技术债务管理”，允许团队留下一些不完美的实现，但要在文档中记录为“技术债务”，等拿了下一轮融资后再集中清理。</p>
-<p>活下来是程序员最大的“优化”。若在敏捷迭代流程设计、极简MVP方案制定上有需求，可登录jobleap.cn解决。</p>
-<hr>
-<blockquote>
-<p>本文转载自开源仓库 <a href="https://github.com/XiaomingX/ai-money-maker-handbook">XiaomingX&#x2F;ai-money-maker-handbook</a>（Apache License 2.0），版权归原作者所有。原文标题：“过早优化”是初创公司的慢性自杀？。</p>
 </blockquote>
 ]]></content>
   </entry>
