@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>书架 · 菜菜读书笔记</title>
+<meta name="description" content="我的私人藏书阁：153 册藏书书目，含书名、作者、分类与简介。支持搜索与筛选。">
+<meta property="og:title" content="书架 · 菜菜读书笔记">
+<meta property="og:description" content="153 册藏书书目，可搜索、按分类浏览">
+<link rel="icon" href="/favicon.png">
+<style>
+:root{
+  --bg:#f6f5f1; --card:#ffffff; --ink:#243040; --ink2:#6b7686; --line:#e6e3dc;
+  --accent:#b5453c; --accent-soft:#f6e9e7; --ok:#2f7d5f;
+  --shadow:0 1px 2px rgba(36,48,64,.06),0 6px 18px rgba(36,48,64,.07);
+  --shadow-hover:0 2px 6px rgba(36,48,64,.08),0 14px 34px rgba(36,48,64,.13);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","PingFang SC",sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.65;font-size:15px}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* ---------- 头部 ---------- */
+header.site{border-bottom:1px solid var(--line);background:rgba(246,245,241,.92);
+  position:sticky;top:0;z-index:50;backdrop-filter:blur(8px)}
+.back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--ink2);padding:12px 0 0}
+.back:hover{color:var(--accent)}
+.hero{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:22px 0 16px}
+h1{font-size:30px;font-weight:700;letter-spacing:1px;display:flex;align-items:center;gap:12px}
+h1 .seal{display:inline-grid;place-items:center;width:38px;height:38px;background:var(--accent);color:#fff;
+  border-radius:9px;font-size:19px;font-weight:700;box-shadow:0 3px 10px rgba(181,69,60,.28)}
+.sub{color:var(--ink2);font-size:13.5px;margin-top:4px}
+.sub b{color:var(--accent);font-weight:600}
+
+/* ---------- 工具栏 ---------- */
+.toolbar{padding:2px 0 14px;display:flex;flex-direction:column;gap:10px}
+.searchrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.search{position:relative;flex:1;min-width:230px}
+.search input{width:100%;padding:11px 14px 11px 40px;border:1px solid var(--line);border-radius:11px;
+  background:#fff;font-size:14.5px;color:var(--ink);outline:none;transition:.18s}
+.search input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:17px;height:17px;stroke:var(--ink2)}
+select{padding:10px 12px;border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--ink);
+  font-size:13.5px;outline:none;cursor:pointer}
+select:focus{border-color:var(--accent)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.chips::-webkit-scrollbar{height:5px}
+.chips::-webkit-scrollbar-thumb{background:#d6d2c9;border-radius:4px}
+.chip{white-space:nowrap;padding:6px 13px;border-radius:999px;border:1px solid var(--line);background:#fff;
+  font-size:13px;color:var(--ink2);cursor:pointer;transition:.15s;user-select:none}
+.chip:hover{border-color:#cfcabf;color:var(--ink)}
+.chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.chip .n{opacity:.55;font-size:11.5px;margin-left:3px}
+.chip.cat.on{background:var(--accent);border-color:var(--accent)}
+
+/* ---------- 网格 ---------- */
+.meta{display:flex;justify-content:space-between;align-items:center;padding:4px 0 12px;
+  font-size:12.5px;color:var(--ink2);border-bottom:1px dashed var(--line);margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:20px 16px;padding-bottom:60px}
+.card{cursor:pointer;background:transparent;border:0;text-align:left;font:inherit;display:flex;flex-direction:column}
+.coverbox{position:relative;aspect-ratio:2/3;border-radius:10px;overflow:hidden;background:#e9e6df;
+  box-shadow:var(--shadow);transition:.22s}
+.card:hover .coverbox{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
+.coverbox img{width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .35s}
+.coverbox img.ld{opacity:1}
+.badge{position:absolute;top:8px;left:8px;background:rgba(20,26,36,.72);color:#fff;font-size:10.5px;
+  padding:2px 7px;border-radius:6px;letter-spacing:.5px;backdrop-filter:blur(3px)}
+.badge.set{top:auto;bottom:8px;left:8px;background:rgba(181,69,60,.85)}
+.ct{margin-top:9px;font-size:13.8px;font-weight:600;line-height:1.4;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ca{margin-top:3px;font-size:12px;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.empty{padding:70px 0;text-align:center;color:var(--ink2)}
+.empty b{display:block;font-size:17px;color:var(--ink);margin-bottom:6px}
+
+/* ---------- 弹窗 ---------- */
+.mask{position:fixed;inset:0;background:rgba(24,32,44,.5);z-index:100;display:none;
+  align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(2px)}
+.mask.show{display:flex}
+.modal{background:#fff;border-radius:16px;max-width:720px;width:100%;max-height:88vh;overflow:auto;
+  box-shadow:0 24px 60px rgba(0,0,0,.25);animation:pop .22s ease}
+@keyframes pop{from{transform:translateY(14px) scale(.98);opacity:0}to{transform:none;opacity:1}}
+.mbody{display:flex;gap:22px;padding:26px}
+.mcover{flex:0 0 170px;max-width:170px}
+.mcover img{width:100%;border-radius:10px;box-shadow:var(--shadow-hover);display:block}
+.minfo{flex:1;min-width:0}
+.mclose{position:sticky;top:0;float:right;margin:12px 12px 0 0;width:32px;height:32px;border-radius:50%;
+  border:0;background:#f0eee9;color:var(--ink2);font-size:17px;cursor:pointer;line-height:1;z-index:2}
+.mclose:hover{background:var(--accent);color:#fff}
+.mtitle{font-size:21px;font-weight:700;line-height:1.4;padding-right:34px}
+.mauthor{color:var(--accent);font-size:14px;margin-top:6px;font-weight:600}
+.mtags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0 4px}
+.tag{font-size:11.5px;padding:3px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.tag.g{background:#eef3ef;color:var(--ok)}
+.mdesc{margin-top:12px;font-size:14px;color:#3d4a5c;line-height:1.8;white-space:pre-wrap}
+.mdesc.none{color:#a9b0ba;font-size:13px}
+.mfacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px;
+  padding-top:16px;border-top:1px dashed var(--line)}
+.fact .k{font-size:11.5px;color:var(--ink2)}
+.fact .v{font-size:13px;font-weight:600;margin-top:2px}
+.mnote{margin-top:16px;font-size:12px;color:#a9b0ba;background:#f7f6f2;border-radius:9px;padding:9px 12px}
+footer{border-top:1px solid var(--line);padding:22px 0 34px;color:var(--ink2);font-size:12.5px;text-align:center}
+footer a{color:var(--accent)}
+@media(max-width:640px){
+  .grid{grid-template-columns:repeat(auto-fill,minmax(122px,1fr));gap:16px 12px}
+  .mbody{flex-direction:column;padding:20px}
+  .mcover{flex:none;width:140px;margin:0 auto}
+  h1{font-size:24px}
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="back" href="/">&larr; 返回博客首页</a>
+    <div class="hero">
+      <div>
+        <h1><span class="seal">书</span>我的书架</h1>
+        <div class="sub">藏书 <b>153</b> 册 · <b>19</b> 类 &nbsp;｜&nbsp; 书目索引，仅供查阅</div>
+      </div>
+    </div>
+    <div class="toolbar">
+      <div class="searchrow">
+        <div class="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input id="q" type="search" placeholder="搜索书名、作者…（按 / 聚焦）" autocomplete="off">
+        </div>
+        <select id="fmt">
+          <option value="">全部格式</option>
+        </select>
+        <select id="sort">
+          <option value="def">默认排序</option>
+          <option value="title">按书名</option>
+          <option value="author">按作者</option>
+          <option value="size">按体积</option>
+        </select>
+      </div>
+      <div class="chips" id="cats"></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="meta"><span id="count"></span><span>点击封面查看详情</span></div>
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" style="display:none"><b>没有找到匹配的书</b>换个关键词，或清除筛选条件试试</div>
+</main>
+
+<div class="mask" id="mask">
+  <div class="modal" id="modal"></div>
+</div>
+
+<footer class="wrap">
+  书架由本地藏书自动生成 · 仅收录书目信息，不提供电子书下载 &nbsp;·&nbsp;
+  <a href="/">菜菜读书笔记</a>
+</footer>
+
+<script id="books-data" type="application/json">[{"id":"1017d0e1259f","title":"BBC自然探索系列（套装共7册）","author":"阿拉斯泰尔·福瑟吉尔","cats":["BBC"],"subjects":[],"format":"EPUB","size":168080526,"desc":"","cover":"1017d0e1259f.webp","publisher":"人民邮电出版社有限公司","is_set":true},{"id":"002bdef7cfad","title":"性学三论(无删节德文汉译本)(果麦经典)","author":"西格蒙德·弗洛伊德","cats":["两性"],"subjects":[],"format":"AZW3","size":468079,"desc":"","cover":"002bdef7cfad.webp","publisher":"浙江文艺出版社","is_set":false},{"id":"01eeb189a7a5","title":"懒女孩的性指南","author":"安妮塔·奈克","cats":["两性"],"subjects":[],"format":"EPUB","size":239664,"desc":"性爱，每个人都在做的事，对吧？那好，如果那些研究结果还算值得相信，那么事实是，我们当中不仅有小部分人根本懒得每夜在床单上撕扯，而且大多数人即使有性生活，也不会百分百投入其中。那就难怪人们对这种闺房探险抱怨连篇，对那些过于疯狂的情侣、性冷淡以及高潮不到位这种在所难免的问题，都是牢骚满腹。","cover":"01eeb189a7a5.webp","publisher":"epub掌上书苑","is_set":false},{"id":"e22e0f7089cd","title":"10W+走心文案是怎样炼成的","author":"卢建彰","cats":["互联网"],"subjects":[],"format":"AZW3","size":601367,"desc":"","cover":"e22e0f7089cd.webp","publisher":"中国友谊出版公司","is_set":false},{"id":"7bc61e5dc38a","title":"5G+：5G如何改变社会","author":"李正茂","cats":["互联网"],"subjects":[],"format":"EPUB","size":5713853,"desc":"","cover":"7bc61e5dc38a.webp","publisher":"中信出版集团","is_set":false},{"id":"949d76d71256","title":"一往无前","author":"佚名","cats":["互联网"],"subjects":[],"format":"PDF","size":2012443,"desc":"","cover":"949d76d71256.webp","publisher":"","is_set":false},{"id":"fe2954249d71","title":"互联网：国家战列行动路线图","author":"佚名","cats":["互联网"],"subjects":[],"format":"PDF","size":150825407,"desc":"","cover":"fe2954249d71.webp","publisher":"","is_set":false},{"id":"200a6c2a0e9e","title":"任天堂传奇：游戏产业之王者归来","author":"佚名","cats":["互联网"],"subjects":[],"format":"PDF","size":21720608,"desc":"","cover":"200a6c2a0e9e.webp","publisher":"","is_set":false},{"id":"d936b0aeef14","title":"微信力量","author":"谢晓萍等","cats":["互联网"],"subjects":[],"format":"EPUB","size":3217849,"desc":"","cover":"d936b0aeef14.webp","publisher":"北京华章图文信息有限公司","is_set":false},{"id":"4f0a0e870603","title":"CIA美国中央情报局全传","author":"亚诺","cats":["传记","政治"],"subjects":["CIA美国中央情报局全传"],"format":"EPUB","size":98803,"desc":"CIA美国中央情报局全传","cover":"4f0a0e870603.webp","publisher":"COAY.COM","is_set":false},{"id":"590b2a32c9ff","title":"Permanent Record","author":"Edward Snowden","cats":["传记"],"subjects":["Biography","Politics"],"format":"EPUB","size":745483,"desc":"Edward Snowden, the man who risked everything to expose the US government’s system of mass surveillance, reveals for the first time the story of his life, including how he helped to build that system and what motivated him to try to bring it down. In 2013, twenty-nine-year-old Edward Snowden shocked the world when he broke with the American intelligence establishment and revealed that the United States government was secretly pursuing the means to collect every single phone call, text message, and email. The result would be an unprecedented system of mass surveillance with the ability to pry into the private lives of every person on earth. Six years later, Snowden reveals for the very first time how he helped to build this system and why he was moved to expose it. Spanning the bucolic Beltway suburbs of his childhood and the clandestine CIA and NSA postings of his adulthood, Permanent Record is the extraordinary account of a bright young man who grew up online—a man who became a spy, a whistleblower, and, in exile, the Internet’s conscience. Written with wit, grace, passion, and an unflinching candor, Permanent Record is a crucial memoir of our digital age and destined to be a classic. ** Review “A riveting account... Reads like a literary thriller... Without belaboring his points, Snowden pushes the reader to reflect more seriously on what every American should be asking already. What does it mean to have the data of our lives collected and stored on file, ready to be accessed – not just now, by whatever administration happens to be in office at the moment, but potentially forever?” * ―The New York Times * About the Author Edward Snowden was born in Elizabeth City, North Carolina, and grew up in the shadow of Fort Meade. A systems engineer by training, he served as an officer of the Central Intelligence Agency, and worked as a contractor for the National Security Agency. He has received numerous awards for his public service, including the Right Livelihood Award, the German Whistleblower Prize, the Ridenhour Prize for Truth-Telling, and the Carl von Ossietzky Medal from the International League of Human Rights. Currently, he serves as president of the board of directors of the Freedom of the Press Foundation.","cover":"590b2a32c9ff.webp","publisher":"Pan Macmillan","is_set":false},{"id":"090f32f1a792","title":"丑牛系列之民国婉约（套装7本） 林徽因：民国最美的女神 凌叔华：中国的曼殊斐儿 孟小冬：繁华锦瑟三折戏 苏青：风从海上来（她与张爱玲并称为“海上姐妹花” ...","author":"江晓英","cats":["传记","合集"],"subjects":["益书网www.kindbook.cn"],"format":"EPUB","size":9991233,"desc":"","cover":"090f32f1a792.webp","publisher":"","is_set":true},{"id":"a36846923a30","title":"成吉思汗：意志征服世界","author":"度阴山","cats":["传记","历史"],"subjects":[],"format":"AZW3","size":1002528,"desc":"","cover":"a36846923a30.webp","publisher":"北京联合出版公司","is_set":false},{"id":"b8f5f3f2f630","title":"永久档案","author":"爱德华·斯诺登（Edward Snowden）","cats":["传记"],"subjects":[],"format":"EPUB","size":1045552,"desc":"","cover":"b8f5f3f2f630.webp","publisher":"时报文化出版企业股份有限公司","is_set":false},{"id":"8704d884511e","title":"野哭：弘光列传","author":"李洁非著","cats":["传记"],"subjects":[],"format":"EPUB","size":22548898,"desc":"","cover":"8704d884511e.webp","publisher":"人民文学出版社","is_set":false},{"id":"5e96febb8ed1","title":"野哭：弘光列传 (李洁非明史书系)","author":"李洁非著","cats":["传记"],"subjects":[],"format":"EPUB","size":7153757,"desc":"","cover":"5e96febb8ed1.webp","publisher":"人民文学出版社","is_set":false},{"id":"28224e07b524","title":"马丁·伊登","author":"（美）杰克·伦敦","cats":["传记","外国文学"],"subjects":[],"format":"EPUB","size":850452,"desc":"","cover":"28224e07b524.webp","publisher":"译林出版社","is_set":false},{"id":"c5dd75743896","title":"马云正传：活着，就是为了颠覆世界","author":"刘世英 彭征","cats":["传记"],"subjects":[],"format":"AZW3","size":513205,"desc":"","cover":"c5dd75743896.webp","publisher":"南方出版社","is_set":false},{"id":"d90cca95c660","title":"只有男科医生知道","author":"佚名","cats":["健康"],"subjects":[],"format":"PDF","size":2951274,"desc":"","cover":"d90cca95c660.webp","publisher":"","is_set":false},{"id":"53cfbb775162","title":"从优秀到卓越","author":"[美]吉姆·柯林斯","cats":["励志"],"subjects":[],"format":"EPUB","size":3850732,"desc":"","cover":"53cfbb775162.webp","publisher":"中信出版社","is_set":false},{"id":"a4164ba46296","title":"做二休五：钱少事少的都市生活指南","author":"【日】大原扁理","cats":["励志"],"subjects":[],"format":"AZW3","size":884764,"desc":"","cover":"a4164ba46296.webp","publisher":"九州出版社","is_set":false},{"id":"719a89e60fc1","title":"小决心：确实奏效的好习惯养成方法","author":"佚名","cats":["励志"],"subjects":[],"format":"PDF","size":7405507,"desc":"","cover":"719a89e60fc1.webp","publisher":"","is_set":false},{"id":"63350faf64dd","title":"当你的才华还撑不起你的梦想时","author":"特立独行的猫","cats":["励志"],"subjects":[],"format":"AZW3","size":541908,"desc":"","cover":"63350faf64dd.webp","publisher":"武汉出版社","is_set":false},{"id":"32a4f3fa3511","title":"把时间当作朋友","author":"李笑来","cats":["励志"],"subjects":[],"format":"EPUB","size":212579,"desc":"","cover":"32a4f3fa3511.webp","publisher":"epub掌上书苑","is_set":false},{"id":"8ce040882c47","title":"10½章世界史 (巴恩斯作品)","author":"[英] 朱利安·巴恩斯","cats":["历史","外国文学","小说"],"subjects":["朱利安·巴恩斯; 小说; 英国; 历史; 英国文学; 外国文学; 文学; JulianBarnes"],"format":"AZW3","size":439107,"desc":"巴恩斯最有野心、最受关注的作品！ 十篇故事，半篇随笔 写尽人类历史的可笑与失落 上次世界末日，一只木蠹混进挪亚的方舟中。它目睹挪亚的所作所为和书中记载大相径庭。方舟在人类历史上反复重现，它或是遭劫游船，或是泰坦尼克，或是核恐慌中的海上孤舟……这个偷渡客也并未离去，它冷眼看着历史如何被歪曲，歪曲的又如何成为“真实”历史；它附身于巴恩斯的妙笔，教他以篇篇奇文拼贴出一部看似荒诞，但振聋发聩的世界史。","cover":"8ce040882c47.webp","publisher":"译林出版社","is_set":false},{"id":"c8ab5fee9efb","title":"11/22/63","author":"(美)斯蒂芬·金","cats":["历史","外国文学","小说","政治"],"subjects":["斯蒂芬·金; 小说; 美国; 科幻; 外国文学; 美国文学; 历史; Stephen_King"],"format":"AZW3","size":1808597,"desc":"1963年11月22日，美国得克萨斯州达拉斯市响起三声枪响，总统肯尼迪遇刺身亡，世界随之改变。如果你能改变历史，一切将会怎样？斯蒂芬•金的新作扣人心弦，小说讲述男主人公穿越时空，阻止暗杀约翰•菲茨杰拉德•肯尼迪的行动。 继《穹顶之下》获得广泛赞誉和巨大成功之后，斯蒂芬•金这一次引领读者回到过去——一个真正的历史时刻…… 《11/22/63》悬念不断升级，是斯蒂芬•金的巅峰之作，更是对一个纯真时代的献礼。此书被选为《纽约时报》年度五优小说，《今日美国》年度十佳图书，并获《洛杉矶时报》优秀图书奖。 ———————— 美国最杰出的在世作家。 ——李•恰尔德 斯蒂芬•金的又一部史诗，他个人的巅峰代表作。 ——《星期日泰晤士报》 大师的笔又写出了另外一部非同一般的小说。 ——《独立报》 斯蒂芬•金最高水平之作。 ——《今日美国》","cover":"c8ab5fee9efb.webp","publisher":"上海文艺出版社","is_set":false},{"id":"685cc9636d81","title":"33场革命","author":"卡内克·桑切斯·格瓦拉","cats":["历史"],"subjects":[],"format":"AZW3","size":575742,"desc":"","cover":"685cc9636d81.webp","publisher":"","is_set":false},{"id":"ceaae206a8c3","title":"BBC世界史","author":"安德鲁·玛尔","cats":["历史","文学","BBC"],"subjects":[],"format":"EPUB","size":793885,"desc":"（英国著名政治记者为你讲述人类文明5000年兴衰，犀利评论我们的科技进步、政治愚行以及由成功引发的失败！） (BBC世界史（汗青堂007）)","cover":"ceaae206a8c3.webp","publisher":"天津人民出版社","is_set":false},{"id":"8ff6f487e686","title":"“小人”的轨迹：“阉党”与晚明政治","author":"阳正伟","cats":["历史"],"subjects":[],"format":"EPUB","size":3095738,"desc":"","cover":"8ff6f487e686.webp","publisher":"中国社会科学出版社","is_set":false},{"id":"e4b49f31083b","title":"一看就停不下来的中国史","author":"最爱君","cats":["历史"],"subjects":[],"format":"AZW3","size":2972344,"desc":"","cover":"e4b49f31083b.webp","publisher":"台海出版社","is_set":false},{"id":"47656f17ea82","title":"万历十五年（经典版）","author":"黄仁宇","cats":["历史"],"subjects":[],"format":"AZW3","size":8881117,"desc":"","cover":"47656f17ea82.webp","publisher":"中华书局","is_set":false},{"id":"53b592dc9d05","title":"三案始末 (中学图书馆文库)","author":"温功义","cats":["历史"],"subjects":[],"format":"AZW3","size":230995,"desc":"","cover":"53b592dc9d05.webp","publisher":"生活·读书·新知三联书店","is_set":false},{"id":"c0551cd0e855","title":"向社会主义过渡(1953-1955)","author":"佚名","cats":["历史"],"subjects":[],"format":"PDF","size":32856520,"desc":"","cover":"c0551cd0e855.webp","publisher":"","is_set":false},{"id":"b78cd2e9084e","title":"唐史并不如烟系列(1-5套装）","author":"曲昌春","cats":["历史"],"subjects":[],"format":"AZW3","size":1724141,"desc":"","cover":"b78cd2e9084e.webp","publisher":"","is_set":true},{"id":"5cf70842bb49","title":"大实话：历史与现在","author":"张鸣","cats":["历史"],"subjects":["历史"],"format":"EPUB","size":164160,"desc":"从历史看现在，因现在想起历史 继《历史的坏脾气》《历史的底稿》之后，张鸣教授推出崭新历史观察与时政评论合集，知识分子要有说大实话的胆量，人们要有说大实话的权利，社会要有说大实话的自由。 似乎不再“另类”，依然“不合时宜”！ 集体下棋与民主制度：在威权体制下，恰是才高者容易犯错误，而且犯了错误，就难以纠正，一条道走到黑。当年的苏联人看我们的“大跃进”时的政治，说当时的中国就像一辆被一个酒醉的司机开上了悬崖边上山路的公共汽车，但是却没有乘客能够制止这个司机。 韩寒的山寨：作协也断然不可能因为韩寒的山寨，韩寒的嘲笑，有什么损伤，毕竟，那里的权势太大，好处太多，纵然出一万个丑闻，依然会门庭若市，这个世界上，闻着味就跃跃的，不止有动物。 世袭制的魅影：没人敢说，官宦子弟就一定没本事，更没人敢说，官宦子弟就必定是纨袴的代名词，从古至今，有出息、有作为的官宦子弟有的是。但是，为官者，尤其是为高官者一定要注意，千万不能把平民上升的路都给堵了。 张鸣教授历史散文系列，晚近中国的另类观察。","cover":"5cf70842bb49.webp","publisher":"epub掌上书苑","is_set":false},{"id":"af47523fc272","title":"大汉帝国","author":"萧然","cats":["历史"],"subjects":[],"format":"EPUB","size":12049452,"desc":"","cover":"af47523fc272.webp","publisher":"上海社会科学院出版社","is_set":false},{"id":"2357aacf29a0","title":"张学良口述历史","author":"唐德刚","cats":["历史"],"subjects":[],"format":"EPUB","size":254110,"desc":"回首百年，张学良是改变中国历史进程的人物之一。本性最适合做一个声色犬马的公子哥儿，可现实偏要压他一肩的戎马战事和国恨家仇，更遇上“九一八事变”，不抵抗的罪名令他几成民族公敌；西安事变促成了抗日统一战线，他自己却从此被幽禁半个世纪，也因此赢得了世人的敬重。他无限感慨地说：“我的事情是到36岁，以后就没有了；从21岁到36岁，这就是我的生命。”国内虽然已经出版过很多有关张氏生平的书，但少见真正有分量有价值的。本书由史学名家唐德刚先生担纲完成，以张氏自述为主体，以唐德刚论张学良的数万文字为辅，正好地弥补了以往各种图书的错谬与不足。更兼唐的论说精辟而有洞明世事人情的味道。一边是研究对象的“自白”，一边是研究者的“审视”，两相对照着看，历史变得更为真切、真实而生动。 张氏的口述，随兴而谈，随意而至，流于细碎，却趣味盎然，更往往于不经意间，好比在历史的铁屋子里，开出一片极窄的天窗，露出来的。是遍寻史书也不能得的真实。 在张氏印象里，张作霖吃饭，四菜没汤；张作相节俭，一个鸡蛋分两餐；叶公超好色，顾维钧风流；蒋介石只剩下了个派头；汪精卫、陈璧君的奇妙夫妻档；胡汉民发牢骚；孙中山一句话论东北局势；郭松龄宁折不弯，吴佩孚浪得虚名，阎锡山见风使舵、张宗昌能战、孙传芳不甘寂寞，以及溥仪溥杰，没落皇室家族的种种…… 在五光十色的中国近代史中，在百余年当政者的公私生活和政治成败的记录上，最多彩多姿的领袖人物“少帅”张学良将军，应该是独占鳌头了。他那带有浓厚传奇性和高度戏剧化的一生，在民国史上老中青三代的领袖中，真没有第二人可与其相比。尤其是他政治生涯中最后一记撒手锏的西安事变，简直扭转了中国历史，也改写了世界历史。","cover":"2357aacf29a0.webp","publisher":"epub掌上书苑","is_set":false},{"id":"4d513576cee7","title":"思考与选择(1956-1957)","author":"佚名","cats":["历史"],"subjects":[],"format":"PDF","size":41423755,"desc":"","cover":"4d513576cee7.webp","publisher":"","is_set":false},{"id":"5d7932062138","title":"明朝那些事儿（图文增补版）","author":"当年明月","cats":["历史","小说"],"subjects":[],"format":"AZW3","size":41489925,"desc":"","cover":"5d7932062138.webp","publisher":"","is_set":false},{"id":"5fe2431b013c","title":"易中天品三国","author":"易中天","cats":["历史"],"subjects":["CNTY:CHINA","ZDC:LSDL"],"format":"AZW3","size":1148543,"desc":"我们总是习惯于把王朝的兴衰、事业的成败、历史的更替和事情的对错都归结为个人的原因，归结为某个领袖人物和主导人物个人品质的优劣好坏。与此同时，历史人物也都按照一种简单的善恶二元化论而无一例外地脸谱化了，中国历史则变成了一个大戏台。但我们从来就不知道舞台上为什么会有那么多白脸和白鼻子，也不知道红脸和黑脸的什么时候才能出现，因为我们不知道编剧和导演是谁。我们只能寄希望于运气和等待，却不肯承认每一次“善报”，往往也差不多意味着下一次“恶运”的来临。 从天下大乱到诸侯割据；从三国鼎立到重归统一；这是一个英雄辈出的时代；这是一段扑朔迷离的历史；这是一些引人入胜的故事；这是一个津津乐道的话题；正史记录，野史传说，戏剧编排，小说演义；不同时期有不同的评点；不同作品有不同的描述；是非真假众说纷纭；成败得失疑窦丛生；厦门大学教授易中天先生站在平民立场，通过现代视角，运用三维结构；以故事说人物，以人物说历史，以历史说文化，以文化说人生；一家之言品三国。 易中天，1947年生，湖南长沙人，1981年毕业于武汉大学，获文学硕士学位并留校任教，现任厦门大学人文学院教授，长期从事文学、艺术、美学、心理学、人类学、历史学等多学科和跨学科研究，著有《〈文心雕龙〉美学思想论稿》、《艺术人类学》、《黄与蓝的交响——中西美学比较论》（与邓晓芒合作）等著作。近年撰写出版了“易中天随笔体学术著作·中国文化系列”四种：《闲话中国人》、《中国的男人和女人》、《读城记》和《品人录》以及《帝国的惆怅》等。","cover":"5fe2431b013c.webp","publisher":"epub掌上书苑","is_set":false},{"id":"8fdc57fd5589","title":"极简人类史：从宇宙大爆炸到21世纪","author":"[美]大卫·克里斯蒂安","cats":["历史"],"subjects":[],"format":"EPUB","size":9351294,"desc":"","cover":"8fdc57fd5589.webp","publisher":"中信出版社","is_set":false},{"id":"5b4552a55490","title":"三国那些人那些事（套装5册）","author":"陈瓷","cats":["合集"],"subjects":["三国"],"format":"AZW3","size":4086337,"desc":"收录：三国那些人那些事·魏卷 by 陈瓷 著 三国那些人那些事·蜀卷 by 陈瓷 著 三国那些人那些事·吴卷 by 陈瓷 著 三国那些人那些事·霸主卷 by 陈瓷 三国那些人那些事·红颜卷 by 陈瓷","cover":"5b4552a55490.webp","publisher":"","is_set":true},{"id":"30cabec7b6a9","title":"周易江湖","author":"佚名","cats":["周易"],"subjects":[],"format":"PDF","size":7972069,"desc":"","cover":"30cabec7b6a9.webp","publisher":"","is_set":false},{"id":"56cfa8bdf20b","title":"易经的智慧1","author":"曾仕强","cats":["周易"],"subjects":["周易"],"format":"EPUB","size":2804306,"desc":"","cover":"56cfa8bdf20b.webp","publisher":"葫芦出版社","is_set":false},{"id":"cd95be143f8d","title":"《资本论》哲学的新解读","author":"鲍金","cats":["哲学"],"subjects":[],"format":"AZW3","size":456691,"desc":"","cover":"cd95be143f8d.webp","publisher":"中国人民大学出版社","is_set":false},{"id":"607add4c0b3a","title":"世界观：科学史与科学哲学导论.第2版","author":"佚名","cats":["哲学"],"subjects":[],"format":"PDF","size":98252902,"desc":"","cover":"607add4c0b3a.webp","publisher":"","is_set":false},{"id":"e0aa3117c5f9","title":"哲学·科学·常识","author":"陈嘉映","cats":["哲学"],"subjects":[],"format":"EPUB","size":465243,"desc":"","cover":"e0aa3117c5f9.webp","publisher":"中信出版社","is_set":false},{"id":"0a8c7a0cddfa","title":"哲学之美","author":"艾克哈特·玛腾斯","cats":["哲学"],"subjects":[],"format":"AZW3","size":6910695,"desc":"","cover":"0a8c7a0cddfa.webp","publisher":"北京联合出版公司","is_set":false},{"id":"d00c1cb4a352","title":"100：小小说百篇","author":"【意】乔治·曼加内利（Ciorgio Manganelli）;魏怡 菲娜译","cats":["外国文学"],"subjects":[],"format":"EPUB","size":4588909,"desc":"","cover":"d00c1cb4a352.webp","publisher":"上海译文出版社","is_set":false},{"id":"3a06a3ef58c6","title":"1984","author":"[英] 乔治·奥威尔","cats":["外国文学"],"subjects":[],"format":"EPUB","size":327927,"desc":"","cover":"3a06a3ef58c6.webp","publisher":"","is_set":false},{"id":"621aa8e744ae","title":"H档案 (伊斯梅尔·卡达莱)","author":"[阿尔巴尼亚]伊斯梅尔.卡达莱","cats":["外国文学"],"subjects":[],"format":"AZW3","size":516061,"desc":"","cover":"621aa8e744ae.webp","publisher":"浙江文艺出版社","is_set":false},{"id":"81bb0b6c79f0","title":"“低俗”小说","author":"雷蒙德·钱德勒 (Raymond Chandler)","cats":["外国文学"],"subjects":[],"format":"EPUB","size":890503,"desc":"","cover":"81bb0b6c79f0.webp","publisher":"上海译文出版社","is_set":false},{"id":"9aff511a12c5","title":"一生必读的26部欧美人文经典译丛（套装26册）","author":"尼采 柏拉图 等著","cats":["外国文学"],"subjects":[],"format":"AZW3","size":14602338,"desc":"","cover":"9aff511a12c5.webp","publisher":"","is_set":true},{"id":"765f06497836","title":"乔纳森·弗兰岑套装","author":"乔纳森·弗兰岑","cats":["外国文学"],"subjects":[],"format":"AZW3","size":1323819,"desc":"","cover":"765f06497836.webp","publisher":"","is_set":true},{"id":"981986cc6787","title":"卿卿如晤","author":"C.S.路易斯","cats":["外国文学"],"subjects":[],"format":"EPUB","size":813948,"desc":"","cover":"981986cc6787.webp","publisher":"","is_set":false},{"id":"371f93bff7db","title":"名著名译丛书.第一辑：全10本","author":"人民文学出版社","cats":["外国文学"],"subjects":[],"format":"AZW3","size":51375160,"desc":"","cover":"371f93bff7db.webp","publisher":"","is_set":true},{"id":"7a4ddcf69757","title":"名著名译丛书.第三辑：全10本","author":"人民文学出版社","cats":["外国文学"],"subjects":["外国文学; 作品集"],"format":"AZW3","size":34159392,"desc":"本套装是名著名译丛书第三辑，包括：小王子、飘：全2册、培根随笔集、安娜·卡列宁娜：全2册、茶花女、格列佛游记、海底两万里、红与黑、双城记、一千零一夜。","cover":"7a4ddcf69757.webp","publisher":"人民文学出版社","is_set":true},{"id":"df02ddc2867f","title":"名著名译丛书.第二辑：全10本","author":"人民文学出版社","cats":["外国文学"],"subjects":["作品集","外国文学"],"format":"EPUB","size":37349858,"desc":"","cover":"df02ddc2867f.webp","publisher":"人民文学出版社","is_set":true},{"id":"e22fc794e6f8","title":"名著名译丛书.第五辑：全5本","author":"人民文学出版社","cats":["外国文学"],"subjects":[],"format":"AZW3","size":17250888,"desc":"","cover":"e22fc794e6f8.webp","publisher":"","is_set":true},{"id":"1d7fe464c2e3","title":"名著名译丛书.第四辑：全5本","author":"人民文学出版社","cats":["外国文学"],"subjects":[],"format":"AZW3","size":14793219,"desc":"","cover":"1d7fe464c2e3.webp","publisher":"","is_set":true},{"id":"084d7d746b1b","title":"呼啸山庄","author":"艾米莉·勃朗特","cats":["外国文学"],"subjects":["外国文学"],"format":"EPUB","size":504689,"desc":"","cover":"084d7d746b1b.webp","publisher":"","is_set":false},{"id":"b38a7600f7ca","title":"在切瑟尔海滩上","author":"伊恩·麦克尤恩(Ian McEwan)","cats":["外国文学"],"subjects":[],"format":"EPUB","size":178663,"desc":"","cover":"b38a7600f7ca.webp","publisher":"上海译文出版社","is_set":false},{"id":"eb345233d5de","title":"沉默的羔羊 (沉默的羔羊系列)","author":"［美国］托马斯·哈里斯","cats":["外国文学"],"subjects":[],"format":"AZW3","size":438660,"desc":"","cover":"eb345233d5de.webp","publisher":"译林出版社","is_set":true},{"id":"c1d204198bf6","title":"沙丘","author":"作者:（美）弗兰克•赫伯特 (Frank Herbert)","cats":["外国文学"],"subjects":[],"format":"EPUB","size":711738,"desc":"","cover":"c1d204198bf6.webp","publisher":"","is_set":false},{"id":"ba921a8ff8bd","title":"沙地屯","author":"简·奥斯丁","cats":["外国文学"],"subjects":[],"format":"EPUB","size":1270725,"desc":"","cover":"ba921a8ff8bd.webp","publisher":"","is_set":false},{"id":"e3da15600f67","title":"看海的人","author":"小林泰三","cats":["外国文学"],"subjects":[],"format":"EPUB","size":256262,"desc":"","cover":"e3da15600f67.webp","publisher":"新星出版社","is_set":false},{"id":"850ef0403c41","title":"简·爱","author":"夏洛蒂·勃朗特","cats":["外国文学"],"subjects":["外国文学"],"format":"EPUB","size":650819,"desc":"","cover":"850ef0403c41.webp","publisher":"","is_set":false},{"id":"1b61875e155b","title":"锌皮娃娃兵","author":"S.A. 阿列克谢耶维奇","cats":["外国文学"],"subjects":[],"format":"EPUB","size":377075,"desc":"","cover":"1b61875e155b.webp","publisher":"九州出版社","is_set":false},{"id":"9ec1e38b1005","title":"魔鬼家书：地狱来鸿","author":"C.S.路易斯","cats":["外国文学"],"subjects":[],"format":"EPUB","size":239353,"desc":"","cover":"9ec1e38b1005.webp","publisher":"","is_set":false},{"id":"1f951e4de3e5","title":"01 宋时明月 作者：赤虎","author":"赤虎","cats":["小说"],"subjects":[],"format":"EPUB","size":4148633,"desc":"","cover":"1f951e4de3e5.webp","publisher":"epub掌上书苑","is_set":false},{"id":"fbaa8fdf3cf4","title":"04 大宋之风流才子 作者：午后方晴","author":"午后方晴","cats":["小说"],"subjects":[],"format":"EPUB","size":5825633,"desc":"","cover":"fbaa8fdf3cf4.webp","publisher":"epub掌上书苑","is_set":false},{"id":"c72d3e26ed78","title":"06 大宋的智慧 作者：孑与2","author":"孑与2","cats":["小说"],"subjects":[],"format":"EPUB","size":6250774,"desc":"","cover":"c72d3e26ed78.webp","publisher":"epub掌上书苑","is_set":false},{"id":"6fdc6533c70f","title":"10 锦衣夜行 作者：月关","author":"月关","cats":["小说"],"subjects":[],"format":"EPUB","size":6707892,"desc":"","cover":"6fdc6533c70f.webp","publisher":"epub掌上书苑","is_set":false},{"id":"f0918741cf7b","title":"X的悲剧","author":"埃勒里奎因","cats":["小说"],"subjects":[],"format":"AZW3","size":494961,"desc":"故事发生在一辆拥挤的电车上。一个男人在车上被杀，所有人都看到男人死去的经过，却没人发现凶手。很多人都有理由憎恨死者，包括死者的合伙人，然而，萨姆巡官得到的线索都指向了死胡同。受邀参与调查的哲瑞·雷恩，一名专以饰演莎士比亚剧作的老演员，宣称知道凶手是谁，却拒绝在没得到确切的证据前指认凶手的身份。一案未解，一案又起：电车上的售票员在回家的渡轮上遇害了！……这是一个充满惊奇的案件，雷恩光凭萨姆巡官的叙说，就可推知凶手是谁，或许，你也可以！","cover":"f0918741cf7b.webp","publisher":"","is_set":false},{"id":"1f9fd82947f7","title":"Y的悲剧","author":"埃勒里奎因","cats":["小说"],"subjects":[],"format":"AZW3","size":531474,"desc":"《Y的悲剧》和“哲瑞·雷恩悲剧系列”中的其他三部一样，最初是在“巴纳比·罗斯”这个笔名之下出版的。当时，一系列塑造年轻睿智的侦探人物埃勒里·奎因先生的作品，已经在繁荣的推理小说市场中稳占一席之地。由于侦探埃勒里·奎因先生的探案故事是以共同的笔名“埃勒里·奎因”为人所知的两位神秘作者创作的，又由于耨的作品系列推出了一位不同的侦探——哲瑞·雷恩先生，在“埃勒里·奎因”这一笔名之后隐而不露的两位年轻人觉得有必要取个新笔名。","cover":"1f9fd82947f7.webp","publisher":"","is_set":false},{"id":"64ad83360e75","title":"Z的悲剧","author":"埃勒里奎因","cats":["小说"],"subjects":[],"format":"AZW3","size":402895,"desc":"血案发生在阿冈昆监狱所在的提尔登郡。一天晚上，树敌无数的福塞特参议员被人刺杀于自己的书房内，当天，一个矮小的男人正好从阿冈昆监狱刑满释放。书房内的一封信将线索指向了这个男人。事情的真相到底如何？受邀参与调查的萨姆巡官及他的女儿佩辛斯在雷恩的帮助下，没有被证据缺乏的困境击垮，最终将真正的罪犯送上了审判席。","cover":"64ad83360e75.webp","publisher":"","is_set":false},{"id":"e0456c5d12c8","title":"π的杀人魔法：全2册","author":"墨殇","cats":["小说"],"subjects":[],"format":"EPUB","size":1826279,"desc":"","cover":"e0456c5d12c8.webp","publisher":"新星出版社","is_set":true},{"id":"17308c32954e","title":"“心理追凶”系列","author":"薇儿·麦克德米德","cats":["小说"],"subjects":[],"format":"EPUB","size":1985933,"desc":"","cover":"17308c32954e.webp","publisher":"","is_set":true},{"id":"415c315d3ee1","title":"《千山暮雪》（实体版全本）作者：匪我思存","author":"Unknown","cats":["小说"],"subjects":[],"format":"AZW3","size":461678,"desc":"","cover":"415c315d3ee1.webp","publisher":"","is_set":false},{"id":"cc17c2d592a3","title":"一生一世，美人骨","author":"墨宝非宝","cats":["小说"],"subjects":[],"format":"EPUB","size":379580,"desc":"","cover":"cc17c2d592a3.webp","publisher":"","is_set":false},{"id":"d4ec0d80afc2","title":"一生必读古典小说系列（套装共10册）","author":"曾朴 / 凌蒙初 / 冯梦龙 吴敬梓 / 钱彩 / 刘鹗 / 许仲琳 / 吴趼人","cats":["小说"],"subjects":[],"format":"AZW3","size":11760001,"desc":"","cover":"d4ec0d80afc2.webp","publisher":"","is_set":true},{"id":"34021a0eba1e","title":"三体全集（套装共3册）","author":"刘慈欣","cats":["小说"],"subjects":[],"format":"AZW3","size":1551675,"desc":"","cover":"34021a0eba1e.webp","publisher":"重庆出版社","is_set":true},{"id":"5e7dc66bf38d","title":"三生三世 十里桃花","author":"唐七公子","cats":["小说"],"subjects":["穿越·架空","益书网www.kindbook.cn"],"format":"EPUB","size":410668,"desc":"","cover":"5e7dc66bf38d.webp","publisher":"益书网www.kindbook.cn","is_set":false},{"id":"007d06a749b2","title":"从你的全世界路过（完美升级版）","author":"张嘉佳","cats":["小说"],"subjects":["益书网www.kindbook.cn"],"format":"AZW3","size":1428013,"desc":"","cover":"007d06a749b2.webp","publisher":"","is_set":false},{"id":"a005d9bf0c51","title":"余华长篇小说：在细雨中呼喊+兄弟+许三观卖血记+活着（套装共4册）","author":"余华","cats":["小说"],"subjects":[],"format":"AZW3","size":1261640,"desc":"","cover":"a005d9bf0c51.webp","publisher":"","is_set":true},{"id":"5fdc5752b1c3","title":"余罪：我的刑侦笔记1-6","author":"常书欣","cats":["小说"],"subjects":[],"format":"AZW3","size":4856850,"desc":"","cover":"5fdc5752b1c3.webp","publisher":"","is_set":false},{"id":"52f7877b4196","title":"倾城之恋","author":"张爱玲","cats":["小说"],"subjects":["小说"],"format":"EPUB","size":497352,"desc":"","cover":"52f7877b4196.webp","publisher":"","is_set":false},{"id":"bdc66cdcb8b6","title":"制霸好莱坞","author":"御井烹香","cats":["小说"],"subjects":[],"format":"EPUB","size":5702561,"desc":"","cover":"bdc66cdcb8b6.webp","publisher":"","is_set":false},{"id":"20a2862b34c4","title":"十宗罪 1","author":"蜘蛛","cats":["小说"],"subjects":[],"format":"EPUB","size":863938,"desc":"","cover":"20a2862b34c4.webp","publisher":"","is_set":false},{"id":"0f10e1911915","title":"十宗罪 2","author":"蜘蛛","cats":["小说"],"subjects":[],"format":"EPUB","size":807662,"desc":"","cover":"0f10e1911915.webp","publisher":"","is_set":false},{"id":"d8a71a483660","title":"十宗罪 3","author":"蜘蛛","cats":["小说"],"subjects":[],"format":"EPUB","size":937330,"desc":"","cover":"d8a71a483660.webp","publisher":"","is_set":false},{"id":"799f882091fe","title":"十宗罪 5","author":"蜘蛛","cats":["小说"],"subjects":[],"format":"EPUB","size":1400568,"desc":"","cover":"799f882091fe.webp","publisher":"","is_set":false},{"id":"f6c34ae3c385","title":"半生缘","author":"张爱玲","cats":["小说"],"subjects":[],"format":"EPUB","size":1550429,"desc":"","cover":"f6c34ae3c385.webp","publisher":"","is_set":false},{"id":"f9c0a11bb2c0","title":"厌魅·附体之物","author":"三津田信三","cats":["小说"],"subjects":["恐怖·悬疑"],"format":"EPUB","size":603485,"desc":"","cover":"f9c0a11bb2c0.webp","publisher":"epub掌上书苑","is_set":false},{"id":"8be0d920740d","title":"大明官 作者：随轻风去","author":"随轻风去","cats":["小说"],"subjects":[],"format":"EPUB","size":3943106,"desc":"","cover":"8be0d920740d.webp","publisher":"epub掌上书苑","is_set":false},{"id":"b19b6d5d09d1","title":"天才在左 疯子在右：完整版（新版）","author":"高铭","cats":["小说"],"subjects":[],"format":"AZW3","size":633464,"desc":"","cover":"b19b6d5d09d1.webp","publisher":"北京联合出版公司","is_set":false},{"id":"3a39ed0efdf8","title":"女少年","author":"秋微","cats":["小说"],"subjects":["①长篇小说-中国-当代"],"format":"AZW3","size":606604,"desc":"","cover":"3a39ed0efdf8.webp","publisher":"中国戏剧出版社","is_set":false},{"id":"9c940f480fe8","title":"庆余年","author":"猫腻","cats":["小说"],"subjects":[],"format":"EPUB","size":8534006,"desc":"","cover":"9c940f480fe8.webp","publisher":"","is_set":false},{"id":"f00e0cf1eebe","title":"异乡人1-4（共4册）","author":"戴安娜·加瓦尔东","cats":["小说"],"subjects":[],"format":"AZW3","size":2192121,"desc":"","cover":"f00e0cf1eebe.webp","publisher":"","is_set":true},{"id":"787bc9fd5ea7","title":"我被系统托管了","author":"木恒","cats":["小说"],"subjects":["玄幻"],"format":"EPUB","size":7372161,"desc":"","cover":"787bc9fd5ea7.webp","publisher":"起点中文网","is_set":false},{"id":"b44de9393c4a","title":"清单人生：《外婆的道歉信》之后的故事","author":"佚名","cats":["小说"],"subjects":[],"format":"PDF","size":1216972,"desc":"","cover":"b44de9393c4a.webp","publisher":"","is_set":false},{"id":"50b27dd35028","title":"畅销小说合集（17本）","author":"新华文轩出版集团","cats":["小说"],"subjects":[],"format":"AZW3","size":7280733,"desc":"","cover":"50b27dd35028.webp","publisher":"","is_set":false},{"id":"3dccc7b675a7","title":"福尔摩斯探案全集（插图新注新译本）全七册","author":"【英】亚瑟·柯南·道尔,李家真译","cats":["小说"],"subjects":[],"format":"AZW3","size":60802625,"desc":"","cover":"3dccc7b675a7.webp","publisher":"中华书局","is_set":false},{"id":"db98da1ef425","title":"遥远的救世主：根据本书改编的电视剧《天道》正在全国掀起极大反响","author":"豆豆","cats":["小说"],"subjects":[],"format":"AZW3","size":1076444,"desc":"","cover":"db98da1ef425.webp","publisher":"作家出版社","is_set":false},{"id":"694f6ce07586","title":"香雪海","author":"亦舒","cats":["小说"],"subjects":["都市·言情"],"format":"EPUB","size":132595,"desc":"爱与恨往往只有一线之隔， 不相干的人无爱也无恨。 她会随时出现似的， 穿著黑衣服， 翩翩地闪过烛光、 街角、琴侧， 彷佛永远在他身边。 他想， 即使娶了白衣女， 也忘不了那只黑蝴蝶。 最后他还是会追随那只黑蝴蝶， 天涯海角。","cover":"694f6ce07586.webp","publisher":"epub掌上书苑","is_set":false},{"id":"b502f841c3f6","title":"马伯乐/萧红作品 (萧红作品集)","author":"萧红","cats":["小说"],"subjects":[],"format":"AZW3","size":406264,"desc":"","cover":"b502f841c3f6.webp","publisher":"华中科技大学出版社","is_set":false},{"id":"243863240bd8","title":"24重人格——十周年纪念版 (译文心理书系)","author":"卡梅伦·韦斯特(Cameron West)","cats":["心理"],"subjects":[],"format":"AZW3","size":1864987,"desc":"","cover":"243863240bd8.webp","publisher":"上海译文出版社","is_set":false},{"id":"5effa49b1fce","title":"Smart系列：洞察力的秘密+盲点+非理性冲动","author":"加里·克莱因","cats":["心理"],"subjects":[],"format":"EPUB","size":2653722,"desc":"","cover":"5effa49b1fce.webp","publisher":"","is_set":true},{"id":"9615ab84c922","title":"TED竞争心理学","author":"玛格丽特·赫夫南","cats":["心理"],"subjects":["心理"],"format":"EPUB","size":435157,"desc":"","cover":"9615ab84c922.webp","publisher":"江苏凤凰文艺出版社","is_set":false},{"id":"b0671ec3769b","title":"不可不知的心理学系列（全9册）","author":"(英)理查德·怀斯曼","cats":["心理"],"subjects":[],"format":"AZW3","size":62363786,"desc":"","cover":"b0671ec3769b.webp","publisher":"湖南文艺出版社","is_set":true},{"id":"9e8b0c3f7484","title":"不确定世界的理性选择:判断与决策心理学(第2版) (社会心理学精品译丛)","author":"雷德·海斯蒂 (Reid Hastie) / 罗宾·道斯 (Robyn M. Dawes)","cats":["心理"],"subjects":["lcsh: Novel"],"format":"AZW3","size":2383675,"desc":"","cover":"9e8b0c3f7484.webp","publisher":"人民邮电出版社","is_set":false},{"id":"ea5a934dd56b","title":"亲密关系心理学","author":"（美）大卫·斯杜普 / 简·斯杜普","cats":["心理"],"subjects":["恋爱心理学"],"format":"AZW3","size":1547768,"desc":"情商的五种特征随后被缩减为四种核心能力，即自我意识、自我管理、社会意识和人际关系管理。这四种核心能力正是我们用来改善婚姻关系的SMART爱情法则之基础。其实，一个人的智商和情商之 间没有必然的联系。例如，一个智商高达140的人也许情商极低，原因在于其并没有刻意去磨炼必要的情绪控制技能。","cover":"ea5a934dd56b.webp","publisher":"台海出版社","is_set":false},{"id":"1e67e46f1c2a","title":"小圈子·大社交","author":"佚名","cats":["心理"],"subjects":[],"format":"PDF","size":9539820,"desc":"","cover":"1e67e46f1c2a.webp","publisher":"","is_set":false},{"id":"a0124d4f37cb","title":"心理学全集（套装全5册） (心理学课堂)","author":"利玛窦·墨特里尼；古斯塔夫·勒庞 等著","cats":["心理"],"subjects":[],"format":"AZW3","size":3715103,"desc":"","cover":"a0124d4f37cb.webp","publisher":"新世界出版社","is_set":true},{"id":"ca576dac9f7c","title":"房思琪的初恋乐园(简体)","author":"林奕含","cats":["心理"],"subjects":[],"format":"EPUB","size":171818,"desc":"","cover":"ca576dac9f7c.webp","publisher":"","is_set":false},{"id":"a97a29155fc7","title":"犯罪心理档案（共4册）","author":"刚雪印","cats":["心理"],"subjects":[],"format":"AZW3","size":2686955,"desc":"","cover":"a97a29155fc7.webp","publisher":"","is_set":true},{"id":"8cfd82cf5dbc","title":"看脸","author":"华沙","cats":["心理"],"subjects":[],"format":"AZW3","size":4705215,"desc":"","cover":"8cfd82cf5dbc.webp","publisher":"湖南文艺出版社","is_set":false},{"id":"b988122b8aa3","title":"知乎盐系列心理学套装 9 册（认识自己，提升自己，做更幸福的人）","author":"知乎","cats":["心理","知乎"],"subjects":[],"format":"AZW3","size":3639409,"desc":"","cover":"b988122b8aa3.webp","publisher":"","is_set":true},{"id":"5f2dc0b72ef8","title":"说服人要懂心理学","author":"佚名","cats":["心理"],"subjects":[],"format":"PDF","size":4299136,"desc":"","cover":"5f2dc0b72ef8.webp","publisher":"","is_set":false},{"id":"e59fbe6b84ae","title":"读心术","author":"佚名","cats":["心理"],"subjects":[],"format":"PDF","size":13908925,"desc":"","cover":"e59fbe6b84ae.webp","publisher":"","is_set":false},{"id":"65710c9fea3b","title":"“三十年集”系列丛书【套装18册】","author":"萧功秦","cats":["文学"],"subjects":[],"format":"EPUB","size":11758629,"desc":"收录：反思的年代 萧功秦 含 章 集 张汝伦 河东辑 止庵 痕迹 朱正琳 后而立集 葛剑雄 脚步集 陈思和 精神的年轮 雷颐 看澜集 葛兆光 另一种理想主义 许纪霖 旁观集 何怀宏 沙葬 郑也夫 三十功名尘与土 何光沪 生活与思考 俞吾金 文明就是讲道理 钱满素 寻找他山的历史 钱乘旦 与时代同行 徐友渔 愿作如是观 陈家琪 远去的文学时代 黄子平","cover":"65710c9fea3b.webp","publisher":"","is_set":true},{"id":"ffe785dcc8b8","title":"“幽默书房”丛书","author":"[英]J.K.杰罗姆；[英]乔治·格罗史密斯；[英]威登·格罗史密斯；[加拿大]斯蒂芬·里柯克","cats":["文学"],"subjects":[],"format":"AZW3","size":1595435,"desc":"","cover":"ffe785dcc8b8.webp","publisher":"","is_set":true},{"id":"562cbaca7ddd","title":"《天涯》人文精品书系(套装共6册)","author":"孔见,王雁翎","cats":["文学"],"subjects":[],"format":"EPUB","size":2543897,"desc":"","cover":"562cbaca7ddd.webp","publisher":"","is_set":true},{"id":"b1a998a93ad9","title":"《红楼梦》索隐（套装三册）","author":"隋邦森","cats":["文学"],"subjects":[],"format":"EPUB","size":2104914,"desc":"","cover":"b1a998a93ad9.webp","publisher":"中央编译出版社","is_set":true},{"id":"53f11b8c7950","title":"三毛全集","author":"三毛","cats":["文学"],"subjects":["散文"],"format":"AZW3","size":8181587,"desc":"《三毛全集(套装共11册)(2011年版)》包括了《雨季不再来》、《撒哈拉的故事》、《稻草人手记》、《温柔的夜》、《梦里花落知多少》、《万水千山走遍》、《送你一匹马》、《亲爱的三毛》、《我的宝贝》、《滚滚红尘》、《流星雨》，内容丰富。","cover":"53f11b8c7950.webp","publisher":"epub掌上书苑","is_set":false},{"id":"5174c4e144df","title":"哈佛百年经典(01-38卷)(套装共38册)","author":"伊索","cats":["文学"],"subjects":[],"format":"AZW3","size":44870657,"desc":"","cover":"5174c4e144df.webp","publisher":"","is_set":true},{"id":"e4286b6f8d0c","title":"大家丛书文学系列套装（套装共6册）","author":"丁七玲","cats":["文学"],"subjects":[],"format":"AZW3","size":10281832,"desc":"","cover":"e4286b6f8d0c.webp","publisher":"","is_set":true},{"id":"1def6eaf5f90","title":"女性巅峰系列（她们的洪荒之力）（全四册）","author":"菲奥莉娜；卡尔·伯恩斯坦；斯莱文；谢丽尔·桑德伯格；","cats":["文学"],"subjects":[],"format":"AZW3","size":4295150,"desc":"","cover":"1def6eaf5f90.webp","publisher":"中信出版社","is_set":true},{"id":"10470dad1503","title":"茅盾文学奖全集","author":"多人","cats":["文学"],"subjects":["综合"],"format":"EPUB","size":86245200,"desc":"","cover":"10470dad1503.webp","publisher":"嘉鱼出版社","is_set":false},{"id":"3c4b9ecb73b1","title":"那些路过心上的经典:民国大师经典书系(套装共9册)","author":"鲁迅 / 张恨水 / 梁实秋 / 沈从文 / 胡适 / 徐志摩 / 朱自清 / 郁达夫 / 周作人","cats":["文学"],"subjects":[],"format":"AZW3","size":3156856,"desc":"","cover":"3c4b9ecb73b1.webp","publisher":"","is_set":true},{"id":"9a9aef8c97f0","title":"《万古至尊》（校对版全本）作者：太一生水","author":"Unknown","cats":["未分类"],"subjects":[],"format":"EPUB","size":9685331,"desc":"","cover":"9a9aef8c97f0.webp","publisher":"","is_set":false},{"id":"9eb6cd098d67","title":"《无敌剑域》（校对版全本）作者：青鸾峰上","author":"Unknown","cats":["未分类"],"subjects":[],"format":"EPUB","size":9656235,"desc":"","cover":"9eb6cd098d67.webp","publisher":"","is_set":false},{"id":"f2b51c710bbf","title":"冒姓琅琊","author":"东周公子南","cats":["未分类"],"subjects":["穿越|历史|魂穿"],"format":"EPUB","size":10286701,"desc":"（别名《关于南朝贵公子是我冒充的这回事》） 穿越不是请客吃饭，穿越是步步杀机。 江南妩媚，壮志常销。 自古南朝势弱，英雄气促。 没有金手指，没有系统，更没有什么二世为人，一切从零开始！ 原主记忆：无！ 身份：无！ 物资：无！ 当真实的穿越来临，我们能活多久？ 南方门阀世族，权力网络，纵横交错；北方孝文大帝，铁骑连营，窥江不去。 朝局晦暗难明，内外张机设阱，任你貌比潘安，才拼宋玉，都难免入彀，难逃入局。 然高石入海，能激千尺浪；明月飞舟，可乘万里风。 谁承想，草芥之身，却赢了个花团锦簇？ 人难量，涓流一滴，能闹了个浩浩荡荡！ 曾天命疏狂，夜宿龙床；也曾肝胆奇谋，枭首名王。 轻鞭犯夜，封还天子制诏；素手长携，不负佳人香雪。 既有狂风为祟，浮云作孽， 那就弹压江山，品题风月，也补天裂！ （实体书已出版）","cover":"f2b51c710bbf.webp","publisher":"","is_set":false},{"id":"c00f2cbe2f07","title":"开局地摊卖大力","author":"弈青锋","cats":["未分类"],"subjects":["都市|系统|都市异能|开局|已完结"],"format":"EPUB","size":17683197,"desc":"【大力动漫7.29日开播，番茄搜书名看pv】地球进入灵气复苏时代，人类开启异能觉醒！江南开局觉醒最强地摊系统，大力药水？解毒小黄豆？幸运樱桃？供不应求！世界顶级神豪、首富、人气主播、巅峰强者纷纷前来求购。江南：“我对钱亿点都不感兴趣！我只想坑……额，我的愿望是世界和平！” 新书《别叫我恶魔》火热连载中，已肥可宰。","cover":"c00f2cbe2f07.webp","publisher":"","is_set":false},{"id":"8b001a0e36bc","title":"我在精神病院学斩神","author":"三九音域","cats":["未分类"],"subjects":["都市|都市异能|斩神|已完结"],"format":"EPUB","size":8771449,"desc":"番茄小说进站必读爆款 | 爆款动漫《斩神》原著 | 中国网络文学影响力榜IP影响力 | 2023年度中国好小说 你是否想过，在霓虹璀璨的都市之下，潜藏着来自古老神话的怪物？ 你是否想过，在那高悬于世人头顶的月亮之上，伫立着守望人间的神明？ 你是否想过，在人潮汹涌的现代城市之中，存在代替神明行走人间的超凡之人？ 人类统治的社会中，潜伏着无数诡异； 在那些无人问津的生命禁区，居住着古老的神明。 而属于大夏的神明，究竟去了何处？ 在这属于“人”的世界，“神秘”需要被肃清！","cover":"8b001a0e36bc.webp","publisher":"","is_set":false},{"id":"5f657cc87e16","title":"我都轮回三世，师父你怎么还活着","author":"少吃亿点","cats":["未分类"],"subjects":["玄幻|系统|穿越|女帝|已完结"],"format":"EPUB","size":2068248,"desc":"【本书又名《桃源九事》】 【11.15晚7点《桃源九事》实体书开售啦】 【长生+收徒+无女主+轻松搞笑不发刀】 师父夹菜你转桌，师父念诀你唠嗑； 师父休息你唱歌，师父赖床你敲锅； 师父长生你命短，师父葬你在山坡； 师父举杯你不喝，师父唠嗑你不说； 师父摆宴你离桌，师父招魂你乱鸽； 山坡又逢一度春，碧落黄泉永相隔。","cover":"5f657cc87e16.webp","publisher":"","is_set":false},{"id":"38483c0f79c2","title":"无限回档，我洞悉所有底牌","author":"有一点小遭","cats":["未分类"],"subjects":[],"format":"EPUB","size":611656,"desc":"普通大学生林默意外获得死亡回档能力，死亡后可回到六分钟前，保留所有记忆与经验。一次小巷遇袭的死亡，让他彻底摆脱懦弱，凭借回档洞悉对手底牌，以狠厉手段扫清眼前的混混威胁。但这能力并非偶然，小巷里的诡异低语、手机屏幕的鬼脸、被隔绝的信号，都预示着平静都市下藏着武道崛起、诡异复苏的暗流。林默踩着无数次死亡的轮回，手握回档底牌，在黑暗的都市漩涡中步步为营，从底层蝼蚁蜕变为掌控命运的强者，誓要将所有阴谋与诡异，都碾碎在自己的回档轮回里。","cover":"38483c0f79c2.webp","publisher":"","is_set":false},{"id":"e4052615c833","title":"每年加一点从山野村夫成仙界道祖","author":"紫灵风雪","cats":["未分类"],"subjects":["玄幻|系统|穿越|诸天万界|已完结"],"format":"EPUB","size":12276281,"desc":"【已出版实体书】【非爽文+平淡日常+轻松诙谐+无女主+无刀子+苟王】入坑谨慎。 一本以长生者视角跨越几个修仙大时代的长生文，从平凡小山村走出小界域，跨入修仙大世，经历修仙界蓬勃发展时代、黄金鼎盛时代、规则崩灭时代，黑暗大动乱时代，万灵皆寂时代…… 陈浔穿越到浩瀚无垠的修仙界，觉醒长生系统，竟然还送了一头长生灵兽为伴。 我陈浔对打打杀杀没有兴趣，也不想招惹任何人，只想带着老牛看遍世间繁华。 一个不经意，他露出了腰间的三把开山斧，又一个不经意，露出了那十六块腹肌。 他缓缓戴上了悍匪头套，露出阴沉微笑：“我陈浔和老牛最讲道理。” 整个诸天万界颤抖了，他套……套上了。 一个炼气期的火球术突然被激发，像是被加成了数千上万倍，无尽业火燃尽天穹，万灵寂灭…… “阁下虽然很强，但还不足以让我用出第三把开山斧。” —尼古拉斯悍匪，陈浔。","cover":"e4052615c833.webp","publisher":"","is_set":false},{"id":"ab11a570b0e7","title":"7本书带你走进间谍圈：间谍课系列（全七册）","author":"弗•福赛斯 (Frederick Forsyth)","cats":["深度"],"subjects":[],"format":"AZW3","size":3377013,"desc":"","cover":"ab11a570b0e7.webp","publisher":"","is_set":true},{"id":"9d952d92f3b5","title":"与生命对话","author":"罗宾·戴维森 刘柳 Dena Michelli，Julie Simpson 周国平 谢利·卡根 (Shelly Kagan) (作者), 贝小戎 (译者) 弗雷德里克·巴克曼 S.A. 阿列克谢耶维奇 尼可拉斯·D·克里斯多夫 胡哲 李中莹 保罗·卡拉尼什 星云大师 (美)凯瑟琳•道蒂著 / 崔倩倩 译","cats":["深度"],"subjects":[],"format":"AZW3","size":9609844,"desc":"","cover":"9d952d92f3b5.webp","publisher":"","is_set":false},{"id":"3ed44ca0453d","title":"在北大听到的24堂课（全6册）","author":"马银春","cats":["深度"],"subjects":[],"format":"AZW3","size":2195396,"desc":"","cover":"3ed44ca0453d.webp","publisher":"","is_set":true},{"id":"d4aca0263fd1","title":"晓松奇谈:世界卷+人文卷（套装共2册）","author":"高晓松","cats":["深度"],"subjects":[],"format":"AZW3","size":814641,"desc":"","cover":"d4aca0263fd1.webp","publisher":"","is_set":true},{"id":"deaf12f899b7","title":"知乎一小时 深度短时阅读（套装共四十六册） (知乎「一小时」系列)","author":"知乎","cats":["深度"],"subjects":[],"format":"EPUB","size":29089500,"desc":"收录：知乎一小时 深度短时阅读（套装共十三册） (知乎「一小时」系列) 知乎一小时 深度短时阅读（第二季）（套装共九册） (知乎「一小时」系列) 知乎一小时 深度短时阅读（第三季）（套装共八册） (知乎「一小时」系列) 知乎一小时 深度短时阅读（第四季）（套装共八册） (知乎「一小时」系列) 知乎一小时「补课系列」套装（那些老师没讲到的知识点，都在这里）","cover":"deaf12f899b7.webp","publisher":"浙江出版集团数字传媒有限公司","is_set":true},{"id":"f493d6213aba","title":"知乎畅销电子书套装（共三十册）","author":"知乎","cats":["深度","知乎"],"subjects":["益书网www.kindbook.cn"],"format":"AZW3","size":15679839,"desc":"收录：假性亲密关系 深度学习的艺术 中国的人口和城市 北京 1644 我是法医 我是高频交易工程师 跟孩子一起学说话 换头术 2017？ 探访黄河源头 皇帝的朱批 怀孕这件大事儿之产后恢复大作战 能量守恒 财务进阶 北京 1643 股权是什么 以色列：一个国家的诞生 你好，门捷列夫 投资商铺 小酌：葡萄酒之味 实际控制线 硬派健身：臀腿训练 跳槽：做出更好的选择 再琐碎也不怕：职场人的自我管理方法 古典音乐三巨头的账本 财务演绎法 行医者说 一小时外 硬派健身·减肥篇 博弈之美 怀孕这件大事儿","cover":"f493d6213aba.webp","publisher":"","is_set":true},{"id":"9ad6b192baa1","title":"罗辑思维合集（套装5册）","author":"罗振宇","cats":["深度"],"subjects":[],"format":"AZW3","size":8888164,"desc":"罗辑思维 罗辑思维2 罗辑思维:成大事者不纠结 罗辑思维：迷茫时代的明白人 罗辑思维：中国为什么有前途","cover":"9ad6b192baa1.webp","publisher":"","is_set":true},{"id":"592b5ede668c","title":"《经济学课件》系列丛书（1-10）","author":"比较","cats":["经济"],"subjects":[],"format":"EPUB","size":13045077,"desc":"","cover":"592b5ede668c.webp","publisher":"","is_set":true},{"id":"77348f5ddb88","title":"《经济学课件》系列丛书（11-20） (地铁大学)","author":"比较","cats":["经济"],"subjects":[],"format":"AZW3","size":7256299,"desc":"","cover":"77348f5ddb88.webp","publisher":"","is_set":true},{"id":"91fa9676c15d","title":"《经济学课件》系列丛书（21-30） (地铁大学)","author":"比较","cats":["经济"],"subjects":[],"format":"AZW3","size":6154870,"desc":"","cover":"91fa9676c15d.webp","publisher":"","is_set":true},{"id":"ac704df50ed1","title":"中国历史的谎言与真相：罗马与长安","author":"Unknown","cats":["未分类"],"subjects":[],"format":"EPUB","size":165643,"desc":"","cover":"ac704df50ed1.webp","publisher":"","is_set":false},{"id":"1251cf9f6e65","title":"中国改革年代的政治斗争","author":"Unknown","cats":["未分类"],"subjects":[],"format":"EPUB","size":564312,"desc":"","cover":"1251cf9f6e65.webp","publisher":"","is_set":false},{"id":"f831bc4e2096","title":"中国近卫军","author":"Unknown","cats":["未分类"],"subjects":[],"format":"EPUB","size":434879,"desc":"","cover":"f831bc4e2096.webp","publisher":"","is_set":false},{"id":"abf52302a7f1","title":"中国雄师—中国五大野战军","author":"Unknown","cats":["未分类"],"subjects":[],"format":"EPUB","size":1591706,"desc":"","cover":"abf52302a7f1.webp","publisher":"","is_set":false},{"id":"30ce02575f09","title":"朱雀记","author":"Unknown","cats":["未分类"],"subjects":[],"format":"EPUB","size":2061447,"desc":"","cover":"30ce02575f09.webp","publisher":"","is_set":false}]</script>
+<script>
+const BOOKS = JSON.parse(document.getElementById('books-data').textContent);
+const state = {q:'', cat:'', fmt:'', sort:'def'};
+
+const $ = s => document.querySelector(s);
+const grid = $('#grid'), emptyEl = $('#empty');
+
+function fmtSize(n){
+  if(!n) return '—';
+  if(n > 1048576) return (n/1048576).toFixed(1)+' MB';
+  return Math.max(1, Math.round(n/1024))+' KB';
+}
+function esc(s){const d=document.createElement('div');d.textContent=s||'';return d.innerHTML;}
+
+/* 分类 chips */
+const catCount = {};
+BOOKS.forEach(b => (b.cats.length?b.cats:['未分类']).forEach(c => catCount[c]=(catCount[c]||0)+1));
+const cats = Object.entries(catCount).sort((a,b)=>b[1]-a[1]);
+const chips = $('#cats');
+function chip(label, val, n, cls){
+  const b=document.createElement('button');
+  b.className='chip '+(cls||'');
+  b.innerHTML = esc(label)+'<span class="n">'+n+'</span>';
+  b.onclick=()=>{state.cat = (state.cat===val)?'':val; paint(); render();};
+  b.dataset.v=val;
+  chips.appendChild(b);
+}
+chip('全部','', BOOKS.length,'cat');
+cats.forEach(([c,n])=>chip(c,c,n,'cat'));
+
+/* 格式 */
+const fmts=[...new Set(BOOKS.map(b=>b.format))].sort();
+const fmtSel=$('#fmt');
+fmts.forEach(f=>{const o=document.createElement('option');o.value=f;o.textContent=f;fmtSel.appendChild(o);});
+
+$('#q').addEventListener('input', e=>{state.q=e.target.value.trim().toLowerCase(); render();});
+$('#fmt').addEventListener('change', e=>{state.fmt=e.target.value; render();});
+$('#sort').addEventListener('change', e=>{state.sort=e.target.value; render();});
+document.addEventListener('keydown', e=>{
+  if(e.key==='/' && document.activeElement!==$('#q')){e.preventDefault();$('#q').focus();}
+  if(e.key==='Escape') close();
+});
+
+function paint(){
+  chips.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on', c.dataset.v===state.cat));
+}
+
+function filtered(){
+  let out = BOOKS.filter(b=>{
+    if(state.cat && !b.cats.includes(state.cat)) return false;
+    if(state.fmt && b.format!==state.fmt) return false;
+    if(state.q){
+      const hay=(b.title+' '+(b.author||'')+' '+(b.publisher||'')+' '+b.cats.join(' ')).toLowerCase();
+      if(!hay.includes(state.q)) return false;
+    }
+    return true;
+  });
+  const s=state.sort;
+  if(s==='title') out.sort((a,b)=>a.title.localeCompare(b.title,'zh'));
+  else if(s==='author') out.sort((a,b)=>(a.author||'').localeCompare(b.author||'','zh'));
+  else if(s==='size') out.sort((a,b)=>b.size-a.size);
+  return out;
+}
+
+const io = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ const img=e.target; img.src=img.dataset.src; img.classList.add('ld'); io.unobserve(img);} });
+},{rootMargin:'260px'});
+
+function render(){
+  const list = filtered();
+  $('#count').textContent = '共 '+list.length+' 册' + (state.cat?(' · '+state.cat):'');
+  grid.innerHTML='';
+  emptyEl.style.display = list.length? 'none':'block';
+  const frag = document.createDocumentFragment();
+  list.forEach(b=>{
+    const el=document.createElement('button');
+    el.className='card'; el.type='button';
+    el.innerHTML =
+      '<div class="coverbox">'+
+        '<img alt="'+esc(b.title)+'" loading="lazy" data-src="covers/'+b.cover+'">'+
+        '<span class="badge">'+esc(b.format)+'</span>'+
+        (b.is_set?'<span class="badge set">套装</span>':'')+
+      '</div>'+
+      '<div class="ct">'+esc(b.title)+'</div>'+
+      '<div class="ca">'+esc(b.author||'佚名')+'</div>';
+    el.onclick=()=>open(b);
+    frag.appendChild(el);
+  });
+  grid.appendChild(frag);
+  grid.querySelectorAll('img[data-src]').forEach(img=>io.observe(img));
+}
+
+function open(b){
+  const m=$('#modal');
+  m.innerHTML =
+    '<button class="mclose" id="mx" aria-label="关闭">✕</button>'+
+    '<div class="mbody">'+
+      '<div class="mcover"><img src="covers/'+b.cover+'" alt="'+esc(b.title)+'"></div>'+
+      '<div class="minfo">'+
+        '<div class="mtitle">'+esc(b.title)+'</div>'+
+        '<div class="mauthor">'+esc(b.author||'佚名')+'</div>'+
+        '<div class="mtags">'+
+          b.cats.map(c=>'<span class="tag">'+esc(c)+'</span>').join('')+
+          '<span class="tag g">'+esc(b.format)+'</span>'+
+          (b.is_set?'<span class="tag g">套装</span>':'')+
+        '</div>'+
+        (b.desc? '<div class="mdesc">'+esc(b.desc)+'</div>'
+               : '<div class="mdesc none">暂无简介。这本书的元数据比较简略，等你读完来补一条？</div>')+
+        '<div class="mfacts">'+
+          '<div class="fact"><div class="k">体积</div><div class="v">'+fmtSize(b.size)+'</div></div>'+
+          (b.publisher?'<div class="fact"><div class="k">出版</div><div class="v">'+esc(b.publisher)+'</div></div>':'')+
+          (b.subjects&&b.subjects.length?'<div class="fact"><div class="k">主题</div><div class="v">'+esc(b.subjects.slice(0,3).join('、'))+'</div></div>':'')+
+        '</div>'+
+        '<div class="mnote">本页仅收录书目信息，用于个人藏书索引，不提供文件下载。</div>'+
+      '</div>'+
+    '</div>';
+  $('#mask').classList.add('show');
+  $('#mx').onclick=close;
+  document.body.style.overflow='hidden';
+}
+function close(){
+  $('#mask').classList.remove('show');
+  document.body.style.overflow='';
+}
+$('#mask').addEventListener('click', e=>{ if(e.target.id==='mask') close(); });
+
+paint();
+render();
+</script>
+</body>
+</html>
